@@ -1,0 +1,25 @@
+# 忽略编译生成的临时文件
+*.o
+*.d
+*.o.d
+*.o.d.ts
+*.su
+*.elf
+*.hex
+*.bin
+*.map
+
+# 忽略 IDE 工具产生的工程配置和构建文件夹
+Debug/
+Release/
+build/
+CMakeFiles/
+.settings/
+.project
+.cproject
+.mxproject
+
+# 忽略个人开发环境的临时文件
+*.swp
+*.swo
+*~
