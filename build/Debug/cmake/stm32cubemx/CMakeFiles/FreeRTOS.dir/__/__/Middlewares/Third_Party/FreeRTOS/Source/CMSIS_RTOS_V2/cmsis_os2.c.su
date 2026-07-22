@@ -1,4 +1,5 @@
 D:/A New RM/2027_HeroProject/Hero_2027/Drivers/CMSIS/Include/core_cm7.h:2041:22:__NVIC_SetPriority	16	static
+D:/A New RM/2027_HeroProject/Hero_2027/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c:164:6:SysTick_Handler	8	static
 D:/A New RM/2027_HeroProject/Hero_2027/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c:181:22:SVC_Setup	8	static
 D:/A New RM/2027_HeroProject/Hero_2027/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c:200:26:IRQ_Context	32	static
 D:/A New RM/2027_HeroProject/Hero_2027/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c:228:17:OS_Tick_GetCount	16	static

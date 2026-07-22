@@ -7,7 +7,7 @@
 				{
 					"directoryIndex" : 1,
 					"id" : "stm32cubemx::@768a070a0fe75716b479",
-					"jsonFile" : "target-stm32cubemx-Debug-7ba2f9a6c697a261e638.json",
+					"jsonFile" : "target-stm32cubemx-Debug-b8a67ec64461aae24fcd.json",
 					"name" : "stm32cubemx",
 					"projectIndex" : 0
 				}
@@ -82,28 +82,28 @@
 				{
 					"directoryIndex" : 1,
 					"id" : "FreeRTOS::@768a070a0fe75716b479",
-					"jsonFile" : "target-FreeRTOS-Debug-5cf439b516d090619de4.json",
+					"jsonFile" : "target-FreeRTOS-Debug-672cc70e3859c8a166cf.json",
 					"name" : "FreeRTOS",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "Hero_2027::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Hero_2027-Debug-1a79c0e517be4cdef7b3.json",
+					"jsonFile" : "target-Hero_2027-Debug-423ba9542ff9f67e5f1c.json",
 					"name" : "Hero_2027",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 1,
 					"id" : "STM32_Drivers::@768a070a0fe75716b479",
-					"jsonFile" : "target-STM32_Drivers-Debug-daa0c13b3d45b210b482.json",
+					"jsonFile" : "target-STM32_Drivers-Debug-1fe9ce8457e82e2b21a8.json",
 					"name" : "STM32_Drivers",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 1,
 					"id" : "USB_Device_Library::@768a070a0fe75716b479",
-					"jsonFile" : "target-USB_Device_Library-Debug-d4263096769703213986.json",
+					"jsonFile" : "target-USB_Device_Library-Debug-f18ae7e52796fe3825e9.json",
 					"name" : "USB_Device_Library",
 					"projectIndex" : 0
 				}

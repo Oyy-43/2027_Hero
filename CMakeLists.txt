@@ -45,11 +45,48 @@ target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
 # Add sources to executable
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user sources here
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Algorithm/Basic/alg_basic.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Algorithm/PID/alg_pid.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Algorithm/Filter/EKF/alg_filter_ekf.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Algorithm/Filter/Frequency/alg_filter_frequency.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Algorithm/Filter/Kalman/alg_filter_kalman.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Algorithm/Matrix/alg_matrix.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Algorithm/DataTrans/alg_transData.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Algorithm/SingWave/alg_sin.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/CAN/drv_can.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/SPI/drv_spi.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/UART/drv_uart.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/USB/drv_usb.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/ADC/drv_adc.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/System/Timestamp/sys_timestamp.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/Key/bsp_key.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/Power/bsp_power.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/WS2812/bsp_ws2812.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task/tsk_config_and_callback.cpp
 )
 
-# Add include paths
+# Add include paths 
 target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined include paths
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Algorithm/Basic
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Algorithm/PID
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Algorithm/Filter/EKF
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Algorithm/Filter/Frequency
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Algorithm/Filter/Kalman
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Algorithm/Matrix
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Algorithm/DataTrans
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Algorithm/SingWave
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/CAN
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/SPI
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/UART
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/USB
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/ADC
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/System/Timestamp
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/Key
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/Power
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/WS2812
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task
 )
 
 # Add project symbols (macros)

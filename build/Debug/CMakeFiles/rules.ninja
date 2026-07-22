@@ -32,11 +32,23 @@ rule C_COMPILER__Hero_2027_unscanned_Debug
 
 
 #############################################
-# Rule for linking C executable.
+# Rule for compiling CXX files.
 
-rule C_EXECUTABLE_LINKER__Hero_2027_Debug
-  command = C:\WINDOWS\system32\cmd.exe /C "$PRE_LINK && C:\Users\25774\.eide\tools\gcc_arm\bin\arm-none-eabi-gcc.exe $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
-  description = Linking C executable $TARGET_FILE
+rule CXX_COMPILER__Hero_2027_unscanned_Debug
+  depfile = $DEP_FILE
+  deps = gcc
+  command = ${LAUNCHER}${CODE_CHECK}C:\Users\25774\.eide\tools\gcc_arm\bin\arm-none-eabi-g++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  description = Building CXX object $out
+
+
+#############################################
+# Rule for linking CXX executable.
+
+rule CXX_EXECUTABLE_LINKER__Hero_2027_Debug
+  command = C:\WINDOWS\system32\cmd.exe /C "$PRE_LINK && C:\Users\25774\.eide\tools\gcc_arm\bin\arm-none-eabi-g++.exe $FLAGS $LINK_FLAGS @$RSP_FILE -o $TARGET_FILE && $POST_BUILD"
+  description = Linking CXX executable $TARGET_FILE
+  rspfile = $RSP_FILE
+  rspfile_content = $in $LINK_PATH $LINK_LIBRARIES
   restat = $RESTAT
 
 

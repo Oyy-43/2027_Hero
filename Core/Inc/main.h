@@ -57,8 +57,16 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define DC24_1__OUTPUT_Pin GPIO_PIN_13
+#define DC24_1__OUTPUT_GPIO_Port GPIOC
+#define DC24_0__OUTPUT_Pin GPIO_PIN_14
+#define DC24_0__OUTPUT_GPIO_Port GPIOC
+#define DC5__OUTPUT_Pin GPIO_PIN_15
+#define DC5__OUTPUT_GPIO_Port GPIOC
 #define WS2812_RX__SPI_MOSI_Pin GPIO_PIN_7
 #define WS2812_RX__SPI_MOSI_GPIO_Port GPIOA
+#define KEY__INPUT_Pin GPIO_PIN_15
+#define KEY__INPUT_GPIO_Port GPIOA
 
 /* USER CODE BEGIN Private defines */
 
