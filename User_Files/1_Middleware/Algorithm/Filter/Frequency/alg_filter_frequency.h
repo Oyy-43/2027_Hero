@@ -51,6 +51,9 @@ public:
 
     void TIM_Calculate_PeriodElapsedCallback();
 
+    // 初始化标志
+    bool Init_Flag = false;
+
 protected:
     // 初始化相关常量
 
@@ -178,6 +181,8 @@ void Class_Filter_Frequency<Filter_Frequency_Order>::Init(const float &__Value_C
     {
         System_Function[i] /= system_function_sum;
     }
+
+    Init_Flag = true;
 }
 
 /**

@@ -39,6 +39,7 @@ public:
 
     inline void Set_DC5(const bool &__Status);
 
+    inline void Set_Power(const bool &__Status_24_0, const bool &__Status_24_1, const bool &__Status_5);
 protected:
     // 初始化相关常量
 
@@ -109,6 +110,20 @@ inline void Class_Power::Set_DC24_1(const bool &__Status)
 inline void Class_Power::Set_DC5(const bool &__Status)
 {
     HAL_GPIO_WritePin(DC5__OUTPUT_GPIO_Port, DC5__OUTPUT_Pin, __Status ? GPIO_PIN_SET : GPIO_PIN_RESET);
+}
+
+/**
+ * @brief 设置电源输出状态
+ *
+ * @param __Status_24_0 true: 输出, false: 不输出
+ * @param __Status_24_1 true: 输出, false: 不输出
+ * @param __Status_5 true: 输出, false: 不输出
+ */
+inline void Class_Power::Set_Power(const bool &__Status_24_0, const bool &__Status_24_1, const bool &__Status_5)
+{
+    Set_DC24_0(__Status_24_0);
+    Set_DC24_1(__Status_24_1);
+    Set_DC5(__Status_5);
 }
 
 #endif

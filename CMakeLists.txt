@@ -63,6 +63,9 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/Power/bsp_power.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/WS2812/bsp_ws2812.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task/tsk_config_and_callback.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp   
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp
 )
 
 # Add include paths 
@@ -87,6 +90,9 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/Power
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/WS2812
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Motor/Motor_DJI
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Motor/Motor_DM
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Motor/Motor_LK
 )
 
 # Add project symbols (macros)

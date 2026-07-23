@@ -48,17 +48,17 @@ typedef struct _PID_TypeDef
 {
     float Target;
     float LastNoneZeroTarget;
+    float D_T;
     float Kp;
     float Ki;
     float Kd;
     float Kf;
-    float KffStaticPos;
-    float KffStaticNeg;
 
     float Measure;
     float Last_Measure;
     float Err;
     float Last_Err;
+    float abs_Err;
 
     float Pout;
     float Iout;
@@ -73,7 +73,6 @@ typedef struct _PID_TypeDef
     float MaxOut;
     float IntegralLimit;
     float DeadBand;
-    float ControlPeriod;
     float MaxErr;
     float ScalarA; //变积分参数
     float ScalarB; //ITerm = Err*((A-abs(err)+B)/A)  when B<|err|<A+B
@@ -93,12 +92,11 @@ typedef struct _PID_TypeDef
         float maxOut,
         float integralLimit,
         float deadband,
+        float D_T,
         float Kp,
         float ki,
         float kd,
         float kf,
-        float kff_static_pos,
-        float kff_static_neg,
         float A,
         float B,
         float output_filtering_coefficient,
@@ -124,6 +122,7 @@ void PID_Init(
     float max_out,
     float intergral_limit,
     float deadband,
+    float d_t,
 
     float kp,
     float ki,
@@ -139,7 +138,7 @@ void PID_Init(
     float derivative_filtering_coefficient,
 
     uint8_t improve);
-float PID_Calculate(PID_TypeDef *pid, float measure, float target, float Delta_T);
+float PID_Calculate(PID_TypeDef *pid, float measure, float target);
 		
 
 

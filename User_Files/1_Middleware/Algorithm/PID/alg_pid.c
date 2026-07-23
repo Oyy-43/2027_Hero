@@ -11,7 +11,7 @@
 
  /* Includes ------------------------------------------------------------------*/
 #include "alg_pid.h"
- 
+#include "alg_basic.h"
  
  /* Private macros ------------------------------------------------------------*/
  
@@ -36,13 +36,12 @@ static void f_PID_param_init(
     float max_out,
     float intergral_limit,
     float deadband,
+    float d_t,
 
     float kp,
     float Ki,
     float Kd,
     float kf,
-    float kff_static_pos,
-    float kff_static_neg,
 
     float Changing_Integral_A,
     float Changing_Integral_B,
@@ -57,14 +56,13 @@ static void f_PID_param_init(
     pid->IntegralLimit = intergral_limit;
     pid->MaxOut = max_out;
     pid->MaxErr = max_out * 2;
+    pid->D_T = d_t;
     pid->Target = 0;
 
     pid->Kp = kp;
     pid->Ki = Ki;
     pid->Kd = Kd;
     pid->Kf = kf;
-    pid->KffStaticPos = kff_static_pos;
-    pid->KffStaticNeg = kff_static_neg;
     pid->ITerm = 0;
 
     pid->ScalarA = Changing_Integral_A;
@@ -96,7 +94,7 @@ static void f_PID_reset(PID_TypeDef *pid, float Kp, float Ki, float Kd,float Kf)
 }
 
 /***************************PID calculate**********************************/
-float PID_Calculate(PID_TypeDef *pid, float measure, float target, float Delta_T)
+float PID_Calculate(PID_TypeDef *pid, float measure, float target)
 {
     if (pid->Improve & ErrorHandle) 
     {
@@ -111,12 +109,22 @@ float PID_Calculate(PID_TypeDef *pid, float measure, float target, float Delta_T
     pid->Measure = measure;
     pid->Target = target;
     pid->Err = pid->Target - pid->Measure;
+    pid->abs_Err = ABS(pid->Err);
 
-    if (ABS(pid->Err) > pid->DeadBand)
+
+    if (pid->abs_Err > pid->DeadBand)
     {
+        if(pid->Err >0)
+        {
+            pid->Err -= pid->DeadBand;
+        }
+        else if(pid->Err < 0)
+        {
+            pid->Err += pid->DeadBand;
+        }
         pid->Pout = pid->Kp * pid->Err;
-        pid->ITerm = pid->Ki * pid->Err;
-        pid->Dout = pid->Kd * (pid->Err - pid->Last_Err);
+        pid->ITerm = pid->Ki * pid->Err * pid->D_T;
+        pid->Dout = pid->Kd * (pid->Err - pid->Last_Err)/pid->D_T;
 
         //梯形积分使能判断
         if (pid->Improve & Trapezoid_Intergral)
@@ -135,24 +143,9 @@ float PID_Calculate(PID_TypeDef *pid, float measure, float target, float Delta_T
             f_Derivative_Filter(pid);
 
         pid->Iout += pid->ITerm;
-        pid->Fout = (Delta_T > 0.0f) ? (pid->Kf * ((pid->Target - pid->LastNoneZeroTarget) / Delta_T)) : 0.0f;
+        pid->Fout =pid->Kf * (pid->Target - pid->LastNoneZeroTarget);
 
         pid->Output = pid->Pout + pid->Iout + pid->Dout + pid->Fout;
-
-        if (pid->Err > pid->DeadBand)
-        {
-            if (pid->KffStaticPos > 0.0f)
-            {
-                pid->Output += pid->KffStaticPos;
-            }
-        }
-        else if (pid->Err < -pid->DeadBand)
-        {
-            if (pid->KffStaticNeg > 0.0f)
-            {
-                pid->Output -= pid->KffStaticNeg;
-            }
-        }
 
         //输出滤波使能判断
         if (pid->Improve & OutputFilter)
@@ -168,6 +161,7 @@ float PID_Calculate(PID_TypeDef *pid, float measure, float target, float Delta_T
     {
         pid->Target = pid->Measure;
         pid->Err = 0;
+        pid->abs_Err = 0;
         pid->Pout = 0.0f;
         pid->ITerm = 0.0f;
         pid->Dout = 0.0f;
@@ -186,7 +180,7 @@ float PID_Calculate(PID_TypeDef *pid, float measure, float target, float Delta_T
 /*****************PID Improvement Function*********************/
 static void f_Trapezoid_Intergral(PID_TypeDef *pid)
 {
-    pid->ITerm = pid->Ki * ((pid->Err + pid->Last_Err) / 2);
+    pid->ITerm = pid->Ki * ((pid->Err + pid->Last_Err) / 2)*pid->D_T;
 }
 
 static void f_Changing_Integral_Rate(PID_TypeDef *pid)
@@ -231,7 +225,7 @@ static void f_Integral_Limit(PID_TypeDef *pid)
 
 static void f_Derivative_On_Measurement(PID_TypeDef *pid)
 {
-    pid->Dout = pid->Kd * (pid->Last_Measure - pid->Measure);
+    pid->Dout = pid->Kd * (pid->Last_Measure - pid->Measure)/pid->D_T;
 }
 
 static void f_Derivative_Filter(PID_TypeDef *pid)
@@ -302,6 +296,7 @@ void PID_Init(
     float max_out,
     float intergral_limit,
     float deadband,
+    float d_t,
 
     float kp,
     float Ki,
@@ -319,8 +314,8 @@ void PID_Init(
 {
     pid->PID_param_init = f_PID_param_init;
     pid->PID_reset = f_PID_reset;//连接kp，ki，kd参数重设函数
-    pid->PID_param_init(pid, max_out, intergral_limit, deadband,
-                        kp, Ki, Kd, Kf, kff_static_pos, kff_static_neg, A, B, output_filtering_coefficient, derivative_filtering_coefficient, improve);//连接并调用参数初始化函数
+    pid->PID_param_init(pid, max_out, intergral_limit, deadband, d_t,
+                        kp, Ki, Kd, Kf, A, B, output_filtering_coefficient, derivative_filtering_coefficient, improve);//连接并调用参数初始化函数
 }
  
  /* Function prototypes -------------------------------------------------------*/

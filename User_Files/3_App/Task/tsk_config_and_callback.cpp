@@ -19,12 +19,13 @@
 // #include "2_Device/BSP/W25Q64JV/bsp_w25q64jv.h"
 #include "2_Device/BSP/WS2812/bsp_ws2812.h"
 // #include "2_Device/BSP/Buzzer/bsp_buzzer.h"
-// #include "2_Device/BSP/Power/bsp_power.h"
+#include "2_Device/BSP/Power/bsp_power.h"
 #include "2_Device/BSP/Key/bsp_key.h"
 #include "1_Middleware/Algorithm/Filter/Kalman/alg_filter_kalman.h"
 #include "1_Middleware/Algorithm/Matrix/alg_matrix.h"
 // #include "1_Middleware/Driver/WDG/drv_wdg.h"
 #include "1_Middleware/System/Timestamp/sys_timestamp.h"
+#include "2_Device/Motor/Motor_DJI/drv_motor_dji.h"
 #include <stdbool.h>
 
 /* Private macros ------------------------------------------------------------*/
@@ -164,14 +165,15 @@ void Task_Init()
     // 陀螺仪的SPI
 
     // WS2812的SPI
-    // SPI_Init(&hspi6, nullptr);
+    SPI_Init(&hspi6, nullptr);
     // 电机的CAN
 
     // 电源的ADC
 
     // flash的OSPI
 
-
+    //电机PID参数初始化
+    
     // 定时器中断初始化
     HAL_TIM_Base_Start_IT(&htim5);
 
@@ -179,12 +181,12 @@ void Task_Init()
 
     // BSP_Buzzer.Init();
 
-    // BSP_Power.Init();
+    BSP_Power.Init();
 
-    // BSP_Key.Init();
+    BSP_Key.Init();
 
     // BSP_BMI088.Init();
-
+    BSP_Power.Set_Power(true, true, true);
     // 标记初始化完成
     init_finished = true;
 }

@@ -18,6 +18,7 @@
 
 #include "arm_math.h"
 #include <float.h>
+#include <stdbool.h>
 
 /* Exported macros -----------------------------------------------------------*/
 
@@ -33,12 +34,14 @@ extern const float BASIC_MATH_CELSIUS_TO_KELVIN;
 
 void Basic_Math_Boolean_Logical_Not(bool *Value);
 
+#ifdef __cplusplus
 void Basic_Math_Endian_Reverse_16(void *Address);
-
+#endif
 uint16_t Basic_Math_Endian_Reverse_16(void *Source, void *Destination);
 
+#ifdef __cplusplus
 void Basic_Math_Endian_Reverse_32(void *Address);
-
+#endif
 uint32_t Basic_Math_Endian_Reverse_32(void *Source, void *Destination);
 
 uint8_t Basic_Math_Sum_8(const uint8_t *Address, uint32_t Length);
@@ -57,6 +60,7 @@ bool Basic_Math_Is_Invalid_Float(float x);
 
 float Basic_Math_Modulus_Normalization(float x, float modulus);
 
+#ifdef __cplusplus
 /**
  * @brief 限幅函数
  *
@@ -115,6 +119,7 @@ Type Basic_Math_Abs(Type x)
 {
     return ((x > 0) ? x : -x);
 }
+#endif
 
 #endif
 

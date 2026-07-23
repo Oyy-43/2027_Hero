@@ -10496,6 +10496,7 @@ Discarded input sections
  .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Basic/alg_basic.cpp.obj
  .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Basic/alg_basic.cpp.obj
  .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Basic/alg_basic.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Basic/alg_basic.cpp.obj
  .text          0x00000000        0x0 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Basic/alg_basic.cpp.obj
  .data          0x00000000        0x0 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Basic/alg_basic.cpp.obj
  .bss           0x00000000        0x0 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Basic/alg_basic.cpp.obj
@@ -10535,13 +10536,13 @@ Discarded input sections
                 0x00000000       0x6e CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Basic/alg_basic.cpp.obj
  .text._Z14Basic_Math_AbsIfET_S0_
                 0x00000000       0x34 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Basic/alg_basic.cpp.obj
- .debug_info    0x00000000     0x1b43 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Basic/alg_basic.cpp.obj
- .debug_abbrev  0x00000000      0x28a CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Basic/alg_basic.cpp.obj
+ .debug_info    0x00000000     0x1b44 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Basic/alg_basic.cpp.obj
+ .debug_abbrev  0x00000000      0x297 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Basic/alg_basic.cpp.obj
  .debug_aranges
                 0x00000000       0x90 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Basic/alg_basic.cpp.obj
  .debug_rnglists
                 0x00000000       0x67 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Basic/alg_basic.cpp.obj
- .debug_macro   0x00000000      0x3f3 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Basic/alg_basic.cpp.obj
+ .debug_macro   0x00000000      0x3fc CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Basic/alg_basic.cpp.obj
  .debug_macro   0x00000000      0xc3a CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Basic/alg_basic.cpp.obj
  .debug_macro   0x00000000       0x1c CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Basic/alg_basic.cpp.obj
  .debug_macro   0x00000000       0x22 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Basic/alg_basic.cpp.obj
@@ -10610,8 +10611,9 @@ Discarded input sections
  .debug_macro   0x00000000       0x17 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Basic/alg_basic.cpp.obj
  .debug_macro   0x00000000       0xee CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Basic/alg_basic.cpp.obj
  .debug_macro   0x00000000      0x169 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Basic/alg_basic.cpp.obj
- .debug_line    0x00000000      0xbf8 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Basic/alg_basic.cpp.obj
- .debug_str     0x00000000    0x12eba CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Basic/alg_basic.cpp.obj
+ .debug_macro   0x00000000       0x16 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Basic/alg_basic.cpp.obj
+ .debug_line    0x00000000      0xc05 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Basic/alg_basic.cpp.obj
+ .debug_str     0x00000000    0x12ef1 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Basic/alg_basic.cpp.obj
  .comment       0x00000000       0x47 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Basic/alg_basic.cpp.obj
  .debug_frame   0x00000000      0x25c CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Basic/alg_basic.cpp.obj
  .ARM.attributes
@@ -10685,23 +10687,31 @@ Discarded input sections
  .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
  .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
  .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
  .text          0x00000000        0x0 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
  .data          0x00000000        0x0 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
  .bss           0x00000000        0x0 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
  .text.f_PID_param_init
-                0x00000000       0xde CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
+                0x00000000       0xd4 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
  .text.f_PID_reset
                 0x00000000       0x54 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
  .text.PID_Calculate
-                0x00000000      0x2d8 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
+                0x00000000      0x2aa CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
  .text.f_Trapezoid_Intergral
-                0x00000000       0x3c CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
+                0x00000000       0x46 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
  .text.f_Changing_Integral_Rate
                 0x00000000       0xf8 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
  .text.f_Integral_Limit
                 0x00000000       0xea CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
  .text.f_Derivative_On_Measurement
-                0x00000000       0x34 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
+                0x00000000       0x3e CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
  .text.f_Derivative_Filter
                 0x00000000       0x46 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
  .text.f_Output_Filter
@@ -10714,13 +10724,13 @@ Discarded input sections
                 0x00000000       0xd0 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
  .text.PID_Init
                 0x00000000       0xa4 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
- .debug_info    0x00000000      0x78d CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
- .debug_abbrev  0x00000000      0x19b CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
+ .debug_info    0x00000000      0x76e CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
+ .debug_abbrev  0x00000000      0x199 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
  .debug_aranges
                 0x00000000       0x80 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
  .debug_rnglists
                 0x00000000       0x61 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
- .debug_macro   0x00000000      0x32f CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
+ .debug_macro   0x00000000      0x3ca CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
  .debug_macro   0x00000000      0xaf6 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
  .debug_macro   0x00000000      0x250 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
  .debug_macro   0x00000000       0x2e CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
@@ -10790,12 +10800,21 @@ Discarded input sections
  .debug_macro   0x00000000       0x90 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
  .debug_macro   0x00000000      0x5f2 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
  .debug_macro   0x00000000       0x40 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
- .debug_line    0x00000000      0xc5c CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
- .debug_str     0x00000000   0x16990f CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
+ .debug_macro   0x00000000       0x16 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
+ .debug_macro   0x00000000       0x3c CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
+ .debug_macro   0x00000000      0x201 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
+ .debug_macro   0x00000000       0x7c CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
+ .debug_macro   0x00000000       0x17 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
+ .debug_macro   0x00000000      0x118 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
+ .debug_macro   0x00000000      0x169 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
+ .debug_macro   0x00000000       0x22 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
+ .debug_line    0x00000000      0xd69 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
+ .debug_str     0x00000000   0x16ac2c CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
  .comment       0x00000000       0x47 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
  .debug_frame   0x00000000      0x218 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
  .ARM.attributes
                 0x00000000       0x32 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/EKF/alg_filter_ekf.cpp.obj
  .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/EKF/alg_filter_ekf.cpp.obj
  .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/EKF/alg_filter_ekf.cpp.obj
  .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/EKF/alg_filter_ekf.cpp.obj
@@ -10871,7 +10890,7 @@ Discarded input sections
  .debug_abbrev  0x00000000      0x121 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/EKF/alg_filter_ekf.cpp.obj
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/EKF/alg_filter_ekf.cpp.obj
- .debug_macro   0x00000000      0x407 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/EKF/alg_filter_ekf.cpp.obj
+ .debug_macro   0x00000000      0x410 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/EKF/alg_filter_ekf.cpp.obj
  .debug_macro   0x00000000      0xc3a CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/EKF/alg_filter_ekf.cpp.obj
  .debug_macro   0x00000000       0x1c CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/EKF/alg_filter_ekf.cpp.obj
  .debug_macro   0x00000000       0x22 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/EKF/alg_filter_ekf.cpp.obj
@@ -10940,11 +10959,13 @@ Discarded input sections
  .debug_macro   0x00000000       0x17 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/EKF/alg_filter_ekf.cpp.obj
  .debug_macro   0x00000000       0xee CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/EKF/alg_filter_ekf.cpp.obj
  .debug_macro   0x00000000      0x169 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/EKF/alg_filter_ekf.cpp.obj
- .debug_line    0x00000000      0x997 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/EKF/alg_filter_ekf.cpp.obj
- .debug_str     0x00000000    0x12aa3 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/EKF/alg_filter_ekf.cpp.obj
+ .debug_macro   0x00000000       0x16 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/EKF/alg_filter_ekf.cpp.obj
+ .debug_line    0x00000000      0x9a4 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/EKF/alg_filter_ekf.cpp.obj
+ .debug_str     0x00000000    0x12ada CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/EKF/alg_filter_ekf.cpp.obj
  .comment       0x00000000       0x47 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/EKF/alg_filter_ekf.cpp.obj
  .ARM.attributes
                 0x00000000       0x32 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/EKF/alg_filter_ekf.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Frequency/alg_filter_frequency.cpp.obj
  .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Frequency/alg_filter_frequency.cpp.obj
  .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Frequency/alg_filter_frequency.cpp.obj
  .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Frequency/alg_filter_frequency.cpp.obj
@@ -11022,7 +11043,7 @@ Discarded input sections
  .debug_abbrev  0x00000000      0x168 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Frequency/alg_filter_frequency.cpp.obj
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Frequency/alg_filter_frequency.cpp.obj
- .debug_macro   0x00000000      0x3fd CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Frequency/alg_filter_frequency.cpp.obj
+ .debug_macro   0x00000000      0x406 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Frequency/alg_filter_frequency.cpp.obj
  .debug_macro   0x00000000      0xc3a CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Frequency/alg_filter_frequency.cpp.obj
  .debug_macro   0x00000000       0x1c CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Frequency/alg_filter_frequency.cpp.obj
  .debug_macro   0x00000000       0x22 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Frequency/alg_filter_frequency.cpp.obj
@@ -11091,11 +11112,13 @@ Discarded input sections
  .debug_macro   0x00000000       0x17 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Frequency/alg_filter_frequency.cpp.obj
  .debug_macro   0x00000000       0xee CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Frequency/alg_filter_frequency.cpp.obj
  .debug_macro   0x00000000      0x169 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Frequency/alg_filter_frequency.cpp.obj
- .debug_line    0x00000000      0x949 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Frequency/alg_filter_frequency.cpp.obj
- .debug_str     0x00000000    0x12b69 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Frequency/alg_filter_frequency.cpp.obj
+ .debug_macro   0x00000000       0x16 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Frequency/alg_filter_frequency.cpp.obj
+ .debug_line    0x00000000      0x956 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Frequency/alg_filter_frequency.cpp.obj
+ .debug_str     0x00000000    0x12ba0 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Frequency/alg_filter_frequency.cpp.obj
  .comment       0x00000000       0x47 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Frequency/alg_filter_frequency.cpp.obj
  .ARM.attributes
                 0x00000000       0x32 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Frequency/alg_filter_frequency.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Kalman/alg_filter_kalman.cpp.obj
  .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Kalman/alg_filter_kalman.cpp.obj
  .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Kalman/alg_filter_kalman.cpp.obj
  .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Kalman/alg_filter_kalman.cpp.obj
@@ -11171,7 +11194,7 @@ Discarded input sections
  .debug_abbrev  0x00000000      0x121 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Kalman/alg_filter_kalman.cpp.obj
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Kalman/alg_filter_kalman.cpp.obj
- .debug_macro   0x00000000      0x407 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Kalman/alg_filter_kalman.cpp.obj
+ .debug_macro   0x00000000      0x410 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Kalman/alg_filter_kalman.cpp.obj
  .debug_macro   0x00000000      0xc3a CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Kalman/alg_filter_kalman.cpp.obj
  .debug_macro   0x00000000       0x1c CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Kalman/alg_filter_kalman.cpp.obj
  .debug_macro   0x00000000       0x22 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Kalman/alg_filter_kalman.cpp.obj
@@ -11240,8 +11263,9 @@ Discarded input sections
  .debug_macro   0x00000000       0x17 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Kalman/alg_filter_kalman.cpp.obj
  .debug_macro   0x00000000       0xee CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Kalman/alg_filter_kalman.cpp.obj
  .debug_macro   0x00000000      0x169 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Kalman/alg_filter_kalman.cpp.obj
- .debug_line    0x00000000      0x9a0 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Kalman/alg_filter_kalman.cpp.obj
- .debug_str     0x00000000    0x12aac CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Kalman/alg_filter_kalman.cpp.obj
+ .debug_macro   0x00000000       0x16 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Kalman/alg_filter_kalman.cpp.obj
+ .debug_line    0x00000000      0x9ad CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Kalman/alg_filter_kalman.cpp.obj
+ .debug_str     0x00000000    0x12ae3 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Kalman/alg_filter_kalman.cpp.obj
  .comment       0x00000000       0x47 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Kalman/alg_filter_kalman.cpp.obj
  .ARM.attributes
                 0x00000000       0x32 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Kalman/alg_filter_kalman.cpp.obj
@@ -11255,6 +11279,7 @@ Discarded input sections
  .group         0x00000000        0x8 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Matrix/alg_matrix.cpp.obj
  .group         0x00000000        0x8 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Matrix/alg_matrix.cpp.obj
  .group         0x00000000        0x8 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Matrix/alg_matrix.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Matrix/alg_matrix.cpp.obj
  .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Matrix/alg_matrix.cpp.obj
  .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Matrix/alg_matrix.cpp.obj
  .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Matrix/alg_matrix.cpp.obj
@@ -11374,7 +11399,7 @@ Discarded input sections
                 0x00000000       0xb8 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Matrix/alg_matrix.cpp.obj
  .debug_rnglists
                 0x00000000       0x8a CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Matrix/alg_matrix.cpp.obj
- .debug_macro   0x00000000      0x3fd CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Matrix/alg_matrix.cpp.obj
+ .debug_macro   0x00000000      0x406 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Matrix/alg_matrix.cpp.obj
  .debug_macro   0x00000000      0xc3a CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Matrix/alg_matrix.cpp.obj
  .debug_macro   0x00000000       0x1c CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Matrix/alg_matrix.cpp.obj
  .debug_macro   0x00000000       0x22 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Matrix/alg_matrix.cpp.obj
@@ -11443,8 +11468,9 @@ Discarded input sections
  .debug_macro   0x00000000       0x17 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Matrix/alg_matrix.cpp.obj
  .debug_macro   0x00000000       0xee CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Matrix/alg_matrix.cpp.obj
  .debug_macro   0x00000000      0x169 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Matrix/alg_matrix.cpp.obj
- .debug_line    0x00000000     0x1301 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Matrix/alg_matrix.cpp.obj
- .debug_str     0x00000000    0x140bf CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Matrix/alg_matrix.cpp.obj
+ .debug_macro   0x00000000       0x16 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Matrix/alg_matrix.cpp.obj
+ .debug_line    0x00000000     0x130e CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Matrix/alg_matrix.cpp.obj
+ .debug_str     0x00000000    0x140f6 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Matrix/alg_matrix.cpp.obj
  .comment       0x00000000       0x47 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Matrix/alg_matrix.cpp.obj
  .debug_frame   0x00000000      0x360 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Matrix/alg_matrix.cpp.obj
  .ARM.attributes
@@ -14259,11 +14285,24 @@ Discarded input sections
  .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
  .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
  .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
  .text          0x00000000        0x0 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
  .data          0x00000000        0x0 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
  .bss           0x00000000        0x0 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
  .text._ZN12Class_WS28127Set_RGBERKhS1_S1_
                 0x00000000       0x32 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
+ .text._ZN11Class_Power10Set_DC24_0ERKb
+                0x00000000       0x30 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
+ .text._ZN11Class_Power10Set_DC24_1ERKb
+                0x00000000       0x30 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
+ .text._ZN11Class_Power7Set_DC5ERKb
+                0x00000000       0x30 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
+ .text._ZN11Class_Power9Set_PowerERKbS1_S1_
+                0x00000000       0x2e CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
  .bss.red       0x00000000        0x4 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
  .data.green    0x00000000        0x4 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
  .data.blue     0x00000000        0x4 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
@@ -14282,10 +14321,11 @@ Discarded input sections
  .text._Z16Task1ms_Callbackv
                 0x00000000      0x150 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
  .text.Task_Init
-                0x00000000       0x28 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
+                0x00000000       0x78 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
  .text.Task_Loop
                 0x00000000       0x1a CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
  .debug_macro   0x00000000      0xc3a CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
+ .debug_macro   0x00000000       0x16 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
  .debug_macro   0x00000000      0x250 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
  .debug_macro   0x00000000       0x2e CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
  .debug_macro   0x00000000       0x3b CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
@@ -14401,6 +14441,349 @@ Discarded input sections
  .debug_macro   0x00000000       0x17 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
  .debug_macro   0x00000000       0xee CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
  .debug_macro   0x00000000      0x169 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0x8 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0x8 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0x8 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0x8 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .text          0x00000000        0x0 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .data          0x00000000        0x0 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .bss           0x00000000        0x0 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .text._Z16allocate_tx_dataPK19FDCAN_HandleTypeDefRK17Enum_Motor_DJI_IDRK25Enum_Motor_DJI_Motor_Type
+                0x00000000      0x3c8 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .text._Z15power_calculateffffff
+                0x00000000       0x78 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .text._ZN22Class_Motor_DJI_GM60204InitEPK19FDCAN_HandleTypeDefRK17Enum_Motor_DJI_IDRK29Enum_Motor_DJI_Control_MethodRKlRKf
+                0x00000000       0xac CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .text._ZN22Class_Motor_DJI_GM602018CAN_RxCpltCallbackEv
+                0x00000000       0x24 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .text._ZN22Class_Motor_DJI_GM602037TIM_100ms_Alive_PeriodElapsedCallbackEv
+                0x00000000       0x54 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .text._ZN22Class_Motor_DJI_GM602012Data_ProcessEv
+                0x00000000      0x294 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .text._ZN22Class_Motor_DJI_GM60207PID_CalEv
+                0x00000000       0xe8 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .text._ZN22Class_Motor_DJI_GM602035TIM_Calculate_PeriodElapsedCallbackEv
+                0x00000000       0x9e CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .text._ZN22Class_Motor_DJI_GM60206OutputEv
+                0x00000000       0x56 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .text._ZN20Class_Motor_DJI_C6104InitEPK19FDCAN_HandleTypeDefRK17Enum_Motor_DJI_IDRK29Enum_Motor_DJI_Control_MethodRKf
+                0x00000000       0xa4 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .text._ZN20Class_Motor_DJI_C61018CAN_RxCpltCallbackEv
+                0x00000000       0x24 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .text._ZN20Class_Motor_DJI_C61037TIM_100ms_Alive_PeriodElapsedCallbackEv
+                0x00000000       0x54 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .text._ZN20Class_Motor_DJI_C61035TIM_Calculate_PeriodElapsedCallbackEv
+                0x00000000       0xac CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .text._ZN20Class_Motor_DJI_C61012Data_ProcessEv
+                0x00000000      0x250 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .text._ZN20Class_Motor_DJI_C6107PID_CalEv
+                0x00000000       0xe8 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .text._ZN20Class_Motor_DJI_C6106OutputEv
+                0x00000000       0x56 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .text._ZN20Class_Motor_DJI_C6204InitEPK19FDCAN_HandleTypeDefRK17Enum_Motor_DJI_IDRK29Enum_Motor_DJI_Control_MethodRKf
+                0x00000000       0xa4 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .text._ZN20Class_Motor_DJI_C62018CAN_RxCpltCallbackEv
+                0x00000000       0x24 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .text._ZN20Class_Motor_DJI_C62037TIM_100ms_Alive_PeriodElapsedCallbackEv
+                0x00000000       0x54 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .text._ZN20Class_Motor_DJI_C62035TIM_Calculate_PeriodElapsedCallbackEv
+                0x00000000       0xac CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .text._ZN20Class_Motor_DJI_C62012Data_ProcessEv
+                0x00000000      0x2d0 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .text._ZN20Class_Motor_DJI_C6207PID_CalEv
+                0x00000000       0xf4 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .text._ZN20Class_Motor_DJI_C6206OutputEv
+                0x00000000       0x56 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .text._ZN22Class_Filter_FrequencyILm50EE7Set_NowERKf
+                0x00000000       0x8c CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .text._ZN22Class_Filter_FrequencyILm50EE35TIM_Calculate_PeriodElapsedCallbackEv
+                0x00000000       0x8c CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .text._ZNK22Class_Filter_FrequencyILm50EE7Get_OutEv
+                0x00000000       0x20 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .text._Z20Basic_Math_ConstrainIfET_PS0_S0_S0_
+                0x00000000       0x5c CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .text._Z20Basic_Math_ConstrainIfET_S0_S0_S0_
+                0x00000000       0x54 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_info    0x00000000     0x3b42 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_abbrev  0x00000000      0x4de CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_aranges
+                0x00000000       0xf8 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_rnglists
+                0x00000000       0xc4 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0x64e CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0xc3a CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0x250 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x2e CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x3b CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x1c CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x22 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x8e CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x51 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0x103 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x6a CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0x1df CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x1c CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x22 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0xfb CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000     0x1313 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0x11f CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x22 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000    0x216c1 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x6d CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000     0x3d64 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0x197 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0x1f2 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x10 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0xc1 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0xed CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0x45d CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0x712 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x12 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x7b CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x29 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x3c CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x34 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0x380 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x16 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x4a CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x34 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x10 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x58 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0x1e5 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0x194 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x10 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x16 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x3c CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x16 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x29 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x10 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x16 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0x719 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0x4f5 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x16 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0x719 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x1c CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x4f CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x94 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0x75c CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x1f CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x20 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x28 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x2e CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x12 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x88 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x10 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0x6ac CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x22 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x12 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0x158 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x11 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x17 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x17 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x17 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x17 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x17 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x17 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x5d CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000     0x2462 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000     0x1079 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0x154 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0x114 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0x3fc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0xac CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0x788 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0x228 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x66 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0x3a6 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0x3f9 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0x275 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000     0x1178 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0x7c8 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0x3bb CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0xe42 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0x3ca CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0x45c CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x3c CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x4a CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0x22c CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x67 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0xa5 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0x1c4 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0x22a CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x35 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0x5e4 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0xc1 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0xb24 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0x29f CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0x693 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0xa6 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0x2b6 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x90 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0x5f2 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x40 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x16 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x10 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0x201 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x7c CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x17 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0xee CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000      0x169 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_macro   0x00000000       0x16 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_line    0x00000000     0x1a90 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_str     0x00000000   0x176616 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .comment       0x00000000       0x47 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_frame   0x00000000      0x43c CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .ARM.attributes
+                0x00000000       0x32 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp.obj
+ .text          0x00000000        0x0 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp.obj
+ .data          0x00000000        0x0 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp.obj
+ .bss           0x00000000        0x0 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp.obj
+ .debug_info    0x00000000       0x22 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp.obj
+ .debug_abbrev  0x00000000       0x12 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp.obj
+ .debug_aranges
+                0x00000000       0x18 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp.obj
+ .debug_macro   0x00000000       0x11 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp.obj
+ .debug_macro   0x00000000      0xc3a CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp.obj
+ .debug_line    0x00000000       0x7b CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp.obj
+ .debug_str     0x00000000     0x356f CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp.obj
+ .comment       0x00000000       0x47 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp.obj
+ .ARM.attributes
+                0x00000000       0x32 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp.obj
+ .text          0x00000000        0x0 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp.obj
+ .data          0x00000000        0x0 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp.obj
+ .bss           0x00000000        0x0 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp.obj
+ .debug_info    0x00000000       0x22 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp.obj
+ .debug_abbrev  0x00000000       0x12 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp.obj
+ .debug_aranges
+                0x00000000       0x18 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp.obj
+ .debug_macro   0x00000000       0x11 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp.obj
+ .debug_macro   0x00000000      0xc3a CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp.obj
+ .debug_line    0x00000000       0x7b CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp.obj
+ .debug_str     0x00000000     0x356f CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp.obj
+ .comment       0x00000000       0x47 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp.obj
+ .ARM.attributes
+                0x00000000       0x32 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp.obj
  .text          0x00000000        0x0 C:/Users/25774/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libm.a(libm_a-wf_fmod.o)
  .data          0x00000000        0x0 C:/Users/25774/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libm.a(libm_a-wf_fmod.o)
  .bss           0x00000000        0x0 C:/Users/25774/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libm.a(libm_a-wf_fmod.o)
@@ -14860,6 +15243,9 @@ LOAD CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/Key/bsp_key.cpp.obj
 LOAD CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/Power/bsp_power.cpp.obj
 LOAD CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/WS2812/bsp_ws2812.cpp.obj
 LOAD CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
+LOAD CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+LOAD CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp.obj
+LOAD CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp.obj
 LOAD C:/Users/25774/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libstdc++_nano.a
 LOAD C:/Users/25774/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libm.a
 START GROUP
@@ -16698,7 +17084,7 @@ LOAD linker stubs
  .comment       0x00000046       0x47 CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/WS2812/bsp_ws2812.cpp.obj
  .comment       0x00000046       0x47 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
 
-.debug_info     0x00000000    0x43ad7
+.debug_info     0x00000000    0x4429d
  .debug_info    0x00000000      0xbff cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32h7xx.c.obj
  .debug_info    0x00000bff     0x2bae cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.obj
  .debug_info    0x000037ad     0x18c1 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.obj
@@ -16747,11 +17133,11 @@ LOAD linker stubs
  .debug_info    0x00036a21     0x2d5a CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Driver/CAN/drv_can.cpp.obj
  .debug_info    0x0003977b     0x1fe1 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/System/Timestamp/sys_timestamp.cpp.obj
  .debug_info    0x0003b75c     0x1892 CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/Key/bsp_key.cpp.obj
- .debug_info    0x0003cfee     0x208a CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/Power/bsp_power.cpp.obj
- .debug_info    0x0003f078     0x2235 CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/WS2812/bsp_ws2812.cpp.obj
- .debug_info    0x000412ad     0x282a CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
+ .debug_info    0x0003cfee     0x20b2 CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/Power/bsp_power.cpp.obj
+ .debug_info    0x0003f0a0     0x2235 CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/WS2812/bsp_ws2812.cpp.obj
+ .debug_info    0x000412d5     0x2fc8 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
 
-.debug_abbrev   0x00000000     0x81b1
+.debug_abbrev   0x00000000     0x81f2
  .debug_abbrev  0x00000000      0x153 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32h7xx.c.obj
  .debug_abbrev  0x00000153      0x276 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.obj
  .debug_abbrev  0x000003c9      0x296 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.obj
@@ -16802,9 +17188,9 @@ LOAD linker stubs
  .debug_abbrev  0x000073d9      0x2fd CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/Key/bsp_key.cpp.obj
  .debug_abbrev  0x000076d6      0x34a CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/Power/bsp_power.cpp.obj
  .debug_abbrev  0x00007a20      0x37d CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/WS2812/bsp_ws2812.cpp.obj
- .debug_abbrev  0x00007d9d      0x414 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
+ .debug_abbrev  0x00007d9d      0x455 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
 
-.debug_aranges  0x00000000     0x2bc8
+.debug_aranges  0x00000000     0x2be8
  .debug_aranges
                 0x00000000       0x30 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32h7xx.c.obj
  .debug_aranges
@@ -16906,10 +17292,10 @@ LOAD linker stubs
  .debug_aranges
                 0x00002b40       0x40 CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/WS2812/bsp_ws2812.cpp.obj
  .debug_aranges
-                0x00002b80       0x48 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
+                0x00002b80       0x68 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
 
 .debug_rnglists
-                0x00000000     0x219c
+                0x00000000     0x21b4
  .debug_rnglists
                 0x00000000       0x21 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32h7xx.c.obj
  .debug_rnglists
@@ -17011,9 +17397,9 @@ LOAD linker stubs
  .debug_rnglists
                 0x0000213e       0x2c CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/WS2812/bsp_ws2812.cpp.obj
  .debug_rnglists
-                0x0000216a       0x32 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
+                0x0000216a       0x4a CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
 
-.debug_macro    0x00000000    0x3f7b9
+.debug_macro    0x00000000    0x3f815
  .debug_macro   0x00000000      0x310 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32h7xx.c.obj
  .debug_macro   0x00000310      0xaf6 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32h7xx.c.obj
  .debug_macro   0x00000e06       0x2e cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32h7xx.c.obj
@@ -17165,10 +17551,10 @@ LOAD linker stubs
  .debug_macro   0x0003e05a      0x57a CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/Key/bsp_key.cpp.obj
  .debug_macro   0x0003e5d4      0x594 CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/Power/bsp_power.cpp.obj
  .debug_macro   0x0003eb68      0x5c9 CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/WS2812/bsp_ws2812.cpp.obj
- .debug_macro   0x0003f131      0x672 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
- .debug_macro   0x0003f7a3       0x16 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
+ .debug_macro   0x0003f131      0x6d4 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
+ .debug_macro   0x0003f805       0x10 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
 
-.debug_line     0x00000000    0x366b4
+.debug_line     0x00000000    0x369b1
  .debug_line    0x00000000      0x97b cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32h7xx.c.obj
  .debug_line    0x0000097b     0x3fb4 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.obj
  .debug_line    0x0000492f     0x1d74 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.obj
@@ -17219,63 +17605,63 @@ LOAD linker stubs
  .debug_line    0x00032b1f      0xd7b CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/Key/bsp_key.cpp.obj
  .debug_line    0x0003389a      0xdc1 CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/Power/bsp_power.cpp.obj
  .debug_line    0x0003465b      0xefe CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/WS2812/bsp_ws2812.cpp.obj
- .debug_line    0x00035559     0x115b CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
+ .debug_line    0x00035559     0x1458 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
 
-.debug_str      0x00000000   0x18deed
- .debug_str     0x00000000   0x18deed cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32h7xx.c.obj
+.debug_str      0x00000000   0x18e127
+ .debug_str     0x00000000   0x18e127 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32h7xx.c.obj
                              0x169863 (size before relaxing)
- .debug_str     0x0018deed   0x16a9e9 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.obj
- .debug_str     0x0018deed   0x16a396 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.obj
- .debug_str     0x0018deed   0x16a01a cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd.c.obj
- .debug_str     0x0018deed   0x1699b8 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd_ex.c.obj
- .debug_str     0x0018deed   0x169cb7 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_usb.c.obj
- .debug_str     0x0018deed   0x169beb cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c.obj
- .debug_str     0x0018deed   0x16a103 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c.obj
- .debug_str     0x0018deed   0x169868 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c.obj
- .debug_str     0x0018deed   0x169c77 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c.obj
- .debug_str     0x0018deed   0x16a1c8 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c.obj
- .debug_str     0x0018deed   0x16a8a7 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.obj
- .debug_str     0x0018deed   0x16a8cc cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc.c.obj
- .debug_str     0x0018deed   0x16a7ec cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc_ex.c.obj
- .debug_str     0x0018deed   0x16b66c cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
- .debug_str     0x0018deed   0x169f6e cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.obj
- .debug_str     0x0018deed   0x16a78b cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c.obj
- .debug_str     0x0018deed   0x169d4b cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c.obj
- .debug_str     0x0018deed   0x16aefe cmake/stm32cubemx/CMakeFiles/USB_Device_Library.dir/__/__/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.obj
- .debug_str     0x0018deed   0x16ad29 cmake/stm32cubemx/CMakeFiles/USB_Device_Library.dir/__/__/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.obj
- .debug_str     0x0018deed   0x16abfe cmake/stm32cubemx/CMakeFiles/USB_Device_Library.dir/__/__/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.obj
- .debug_str     0x0018deed   0x16b5e9 cmake/stm32cubemx/CMakeFiles/USB_Device_Library.dir/__/__/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.obj
- .debug_str     0x0018deed     0xadad cmake/stm32cubemx/CMakeFiles/FreeRTOS.dir/__/__/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
- .debug_str     0x0018deed     0xd823 cmake/stm32cubemx/CMakeFiles/FreeRTOS.dir/__/__/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
- .debug_str     0x0018deed     0xe03f cmake/stm32cubemx/CMakeFiles/FreeRTOS.dir/__/__/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
- .debug_str     0x0018deed     0xdb0d cmake/stm32cubemx/CMakeFiles/FreeRTOS.dir/__/__/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj
- .debug_str     0x0018deed   0x172917 cmake/stm32cubemx/CMakeFiles/FreeRTOS.dir/__/__/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj
- .debug_str     0x0018deed     0xc5b2 cmake/stm32cubemx/CMakeFiles/FreeRTOS.dir/__/__/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
- .debug_str     0x0018deed     0x9c29 cmake/stm32cubemx/CMakeFiles/FreeRTOS.dir/__/__/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
- .debug_str     0x0018deed   0x16c608 CMakeFiles/Hero_2027.dir/USB_DEVICE/Target/usbd_conf.c.obj
- .debug_str     0x0018deed   0x16afd4 CMakeFiles/Hero_2027.dir/USB_DEVICE/App/usb_device.c.obj
- .debug_str     0x0018deed   0x16ab20 CMakeFiles/Hero_2027.dir/USB_DEVICE/App/usbd_desc.c.obj
- .debug_str     0x0018deed   0x16aff1 CMakeFiles/Hero_2027.dir/USB_DEVICE/App/usbd_cdc_if.c.obj
- .debug_str     0x0018deed   0x16ea0c CMakeFiles/Hero_2027.dir/Core/Src/main.c.obj
- .debug_str     0x0018deed   0x169778 CMakeFiles/Hero_2027.dir/Core/Src/gpio.c.obj
- .debug_str     0x0018deed   0x16ecca CMakeFiles/Hero_2027.dir/Core/Src/freertos.c.obj
- .debug_str     0x0018deed   0x169efb CMakeFiles/Hero_2027.dir/Core/Src/adc.c.obj
- .debug_str     0x0018deed   0x16a50d CMakeFiles/Hero_2027.dir/Core/Src/fdcan.c.obj
- .debug_str     0x0018deed   0x16a0f9 CMakeFiles/Hero_2027.dir/Core/Src/spi.c.obj
- .debug_str     0x0018deed   0x169e76 CMakeFiles/Hero_2027.dir/Core/Src/tim.c.obj
- .debug_str     0x0018deed   0x16a108 CMakeFiles/Hero_2027.dir/Core/Src/usart.c.obj
- .debug_str     0x0018deed   0x16a452 CMakeFiles/Hero_2027.dir/Core/Src/stm32h7xx_it.c.obj
- .debug_str     0x0018deed   0x169eaa CMakeFiles/Hero_2027.dir/Core/Src/stm32h7xx_hal_msp.c.obj
- .debug_str     0x0018deed   0x16a53b CMakeFiles/Hero_2027.dir/Core/Src/stm32h7xx_hal_timebase_tim.c.obj
- .debug_str     0x0018deed       0x8c CMakeFiles/Hero_2027.dir/startup_stm32h723xx.s.obj
- .debug_str     0x0018deed   0x17445d CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Driver/CAN/drv_can.cpp.obj
- .debug_str     0x0018deed   0x1739a6 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/System/Timestamp/sys_timestamp.cpp.obj
- .debug_str     0x0018deed   0x17311a CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/Key/bsp_key.cpp.obj
- .debug_str     0x0018deed   0x173896 CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/Power/bsp_power.cpp.obj
- .debug_str     0x0018deed   0x173a50 CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/WS2812/bsp_ws2812.cpp.obj
- .debug_str     0x0018deed   0x17551f CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
+ .debug_str     0x0018e127   0x16a9e9 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.obj
+ .debug_str     0x0018e127   0x16a396 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.obj
+ .debug_str     0x0018e127   0x16a01a cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd.c.obj
+ .debug_str     0x0018e127   0x1699b8 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd_ex.c.obj
+ .debug_str     0x0018e127   0x169cb7 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_usb.c.obj
+ .debug_str     0x0018e127   0x169beb cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c.obj
+ .debug_str     0x0018e127   0x16a103 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c.obj
+ .debug_str     0x0018e127   0x169868 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c.obj
+ .debug_str     0x0018e127   0x169c77 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c.obj
+ .debug_str     0x0018e127   0x16a1c8 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c.obj
+ .debug_str     0x0018e127   0x16a8a7 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.obj
+ .debug_str     0x0018e127   0x16a8cc cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc.c.obj
+ .debug_str     0x0018e127   0x16a7ec cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc_ex.c.obj
+ .debug_str     0x0018e127   0x16b66c cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
+ .debug_str     0x0018e127   0x169f6e cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.obj
+ .debug_str     0x0018e127   0x16a78b cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c.obj
+ .debug_str     0x0018e127   0x169d4b cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c.obj
+ .debug_str     0x0018e127   0x16aefe cmake/stm32cubemx/CMakeFiles/USB_Device_Library.dir/__/__/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.obj
+ .debug_str     0x0018e127   0x16ad29 cmake/stm32cubemx/CMakeFiles/USB_Device_Library.dir/__/__/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.obj
+ .debug_str     0x0018e127   0x16abfe cmake/stm32cubemx/CMakeFiles/USB_Device_Library.dir/__/__/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.obj
+ .debug_str     0x0018e127   0x16b5e9 cmake/stm32cubemx/CMakeFiles/USB_Device_Library.dir/__/__/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.obj
+ .debug_str     0x0018e127     0xadad cmake/stm32cubemx/CMakeFiles/FreeRTOS.dir/__/__/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+ .debug_str     0x0018e127     0xd823 cmake/stm32cubemx/CMakeFiles/FreeRTOS.dir/__/__/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
+ .debug_str     0x0018e127     0xe03f cmake/stm32cubemx/CMakeFiles/FreeRTOS.dir/__/__/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .debug_str     0x0018e127     0xdb0d cmake/stm32cubemx/CMakeFiles/FreeRTOS.dir/__/__/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj
+ .debug_str     0x0018e127   0x172917 cmake/stm32cubemx/CMakeFiles/FreeRTOS.dir/__/__/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj
+ .debug_str     0x0018e127     0xc5b2 cmake/stm32cubemx/CMakeFiles/FreeRTOS.dir/__/__/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+ .debug_str     0x0018e127     0x9c29 cmake/stm32cubemx/CMakeFiles/FreeRTOS.dir/__/__/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
+ .debug_str     0x0018e127   0x16c608 CMakeFiles/Hero_2027.dir/USB_DEVICE/Target/usbd_conf.c.obj
+ .debug_str     0x0018e127   0x16afd4 CMakeFiles/Hero_2027.dir/USB_DEVICE/App/usb_device.c.obj
+ .debug_str     0x0018e127   0x16ab20 CMakeFiles/Hero_2027.dir/USB_DEVICE/App/usbd_desc.c.obj
+ .debug_str     0x0018e127   0x16aff1 CMakeFiles/Hero_2027.dir/USB_DEVICE/App/usbd_cdc_if.c.obj
+ .debug_str     0x0018e127   0x16ea0c CMakeFiles/Hero_2027.dir/Core/Src/main.c.obj
+ .debug_str     0x0018e127   0x169778 CMakeFiles/Hero_2027.dir/Core/Src/gpio.c.obj
+ .debug_str     0x0018e127   0x16ecca CMakeFiles/Hero_2027.dir/Core/Src/freertos.c.obj
+ .debug_str     0x0018e127   0x169efb CMakeFiles/Hero_2027.dir/Core/Src/adc.c.obj
+ .debug_str     0x0018e127   0x16a50d CMakeFiles/Hero_2027.dir/Core/Src/fdcan.c.obj
+ .debug_str     0x0018e127   0x16a0f9 CMakeFiles/Hero_2027.dir/Core/Src/spi.c.obj
+ .debug_str     0x0018e127   0x169e76 CMakeFiles/Hero_2027.dir/Core/Src/tim.c.obj
+ .debug_str     0x0018e127   0x16a108 CMakeFiles/Hero_2027.dir/Core/Src/usart.c.obj
+ .debug_str     0x0018e127   0x16a452 CMakeFiles/Hero_2027.dir/Core/Src/stm32h7xx_it.c.obj
+ .debug_str     0x0018e127   0x169eaa CMakeFiles/Hero_2027.dir/Core/Src/stm32h7xx_hal_msp.c.obj
+ .debug_str     0x0018e127   0x16a53b CMakeFiles/Hero_2027.dir/Core/Src/stm32h7xx_hal_timebase_tim.c.obj
+ .debug_str     0x0018e127       0x8c CMakeFiles/Hero_2027.dir/startup_stm32h723xx.s.obj
+ .debug_str     0x0018e127   0x17445d CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Driver/CAN/drv_can.cpp.obj
+ .debug_str     0x0018e127   0x1739a6 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/System/Timestamp/sys_timestamp.cpp.obj
+ .debug_str     0x0018e127   0x17311a CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/Key/bsp_key.cpp.obj
+ .debug_str     0x0018e127   0x1738c5 CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/Power/bsp_power.cpp.obj
+ .debug_str     0x0018e127   0x173a50 CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/WS2812/bsp_ws2812.cpp.obj
+ .debug_str     0x0018e127   0x175ccd CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
 
-.debug_frame    0x00000000     0xba20
+.debug_frame    0x00000000     0xbab8
  .debug_frame   0x00000000       0x68 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32h7xx.c.obj
  .debug_frame   0x00000068     0x121c cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.obj
  .debug_frame   0x00001284      0x724 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.obj
@@ -17325,12 +17711,12 @@ LOAD linker stubs
  .debug_frame   0x0000b640       0xe0 CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/Key/bsp_key.cpp.obj
  .debug_frame   0x0000b720       0x94 CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/Power/bsp_power.cpp.obj
  .debug_frame   0x0000b7b4       0xc0 CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/WS2812/bsp_ws2812.cpp.obj
- .debug_frame   0x0000b874       0xd8 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
- .debug_frame   0x0000b94c       0x2c C:/Users/25774/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/14.3.1/thumb/v7e-m+dp/hard\libgcc.a(_aeabi_uldivmod.o)
- .debug_frame   0x0000b978       0x34 C:/Users/25774/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/14.3.1/thumb/v7e-m+dp/hard\libgcc.a(_udivmoddi4.o)
- .debug_frame   0x0000b9ac       0x20 C:/Users/25774/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libg_nano.a(libc_a-memset.o)
- .debug_frame   0x0000b9cc       0x2c C:/Users/25774/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libg_nano.a(libc_a-init.o)
- .debug_frame   0x0000b9f8       0x28 C:/Users/25774/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libg_nano.a(libc_a-memcpy-stub.o)
+ .debug_frame   0x0000b874      0x170 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/tsk_config_and_callback.cpp.obj
+ .debug_frame   0x0000b9e4       0x2c C:/Users/25774/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/14.3.1/thumb/v7e-m+dp/hard\libgcc.a(_aeabi_uldivmod.o)
+ .debug_frame   0x0000ba10       0x34 C:/Users/25774/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/14.3.1/thumb/v7e-m+dp/hard\libgcc.a(_udivmoddi4.o)
+ .debug_frame   0x0000ba44       0x20 C:/Users/25774/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libg_nano.a(libc_a-memset.o)
+ .debug_frame   0x0000ba64       0x2c C:/Users/25774/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libg_nano.a(libc_a-init.o)
+ .debug_frame   0x0000ba90       0x28 C:/Users/25774/.eide/tools/gcc_arm/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libg_nano.a(libc_a-memcpy-stub.o)
 
 .debug_line_str
                 0x00000000      0x149

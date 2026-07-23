@@ -43,13 +43,13 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 101,
+				"line" : 107,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 69,
+				"line" : 72,
 				"parent" : 0
 			},
 			{
@@ -195,6 +195,18 @@
 				{
 					"backtrace" : 5,
 					"path" : "D:/A New RM/2027_HeroProject/Hero_2027/User_Files/3_App/Task"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "D:/A New RM/2027_HeroProject/Hero_2027/User_Files/2_Device/Motor/Motor_DJI"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "D:/A New RM/2027_HeroProject/Hero_2027/User_Files/2_Device/Motor/Motor_DM"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "D:/A New RM/2027_HeroProject/Hero_2027/User_Files/2_Device/Motor/Motor_LK"
 				},
 				{
 					"backtrace" : 3,
@@ -390,6 +402,18 @@
 					"path" : "D:/A New RM/2027_HeroProject/Hero_2027/User_Files/3_App/Task"
 				},
 				{
+					"backtrace" : 5,
+					"path" : "D:/A New RM/2027_HeroProject/Hero_2027/User_Files/2_Device/Motor/Motor_DJI"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "D:/A New RM/2027_HeroProject/Hero_2027/User_Files/2_Device/Motor/Motor_DM"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "D:/A New RM/2027_HeroProject/Hero_2027/User_Files/2_Device/Motor/Motor_LK"
+				},
+				{
 					"backtrace" : 3,
 					"path" : "D:/A New RM/2027_HeroProject/Hero_2027/cmake/stm32cubemx/../../Core/Inc"
 				},
@@ -557,6 +581,18 @@
 					"path" : "D:/A New RM/2027_HeroProject/Hero_2027/User_Files/3_App/Task"
 				},
 				{
+					"backtrace" : 5,
+					"path" : "D:/A New RM/2027_HeroProject/Hero_2027/User_Files/2_Device/Motor/Motor_DJI"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "D:/A New RM/2027_HeroProject/Hero_2027/User_Files/2_Device/Motor/Motor_DM"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "D:/A New RM/2027_HeroProject/Hero_2027/User_Files/2_Device/Motor/Motor_LK"
+				},
+				{
 					"backtrace" : 3,
 					"path" : "D:/A New RM/2027_HeroProject/Hero_2027/cmake/stm32cubemx/../../Core/Inc"
 				},
@@ -631,7 +667,10 @@
 				32,
 				33,
 				34,
-				35
+				35,
+				36,
+				37,
+				38
 			]
 		}
 	],
@@ -741,7 +780,10 @@
 				32,
 				33,
 				34,
-				35
+				35,
+				36,
+				37,
+				38
 			]
 		},
 		{
@@ -755,9 +797,6 @@
 			"name" : "Object Libraries",
 			"sourceIndexes" : 
 			[
-				36,
-				37,
-				38,
 				39,
 				40,
 				41,
@@ -798,7 +837,10 @@
 				76,
 				77,
 				78,
-				79
+				79,
+				80,
+				81,
+				82
 			]
 		}
 	],
@@ -1018,6 +1060,24 @@
 			"backtrace" : 7,
 			"compileGroupIndex" : 2,
 			"path" : "User_Files/3_App/Task/tsk_config_and_callback.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 2,
+			"path" : "User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 2,
+			"path" : "User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 2,
+			"path" : "User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
