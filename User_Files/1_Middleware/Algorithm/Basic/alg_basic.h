@@ -32,16 +32,14 @@ extern const float BASIC_MATH_CELSIUS_TO_KELVIN;
 
 /* Exported function declarations --------------------------------------------*/
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 void Basic_Math_Boolean_Logical_Not(bool *Value);
 
-#ifdef __cplusplus
-void Basic_Math_Endian_Reverse_16(void *Address);
-#endif
 uint16_t Basic_Math_Endian_Reverse_16(void *Source, void *Destination);
 
-#ifdef __cplusplus
-void Basic_Math_Endian_Reverse_32(void *Address);
-#endif
 uint32_t Basic_Math_Endian_Reverse_32(void *Source, void *Destination);
 
 uint8_t Basic_Math_Sum_8(const uint8_t *Address, uint32_t Length);
@@ -59,6 +57,10 @@ float Basic_Math_Int_To_Float(int32_t x, int32_t Int_1, int32_t Int_2, float Flo
 bool Basic_Math_Is_Invalid_Float(float x);
 
 float Basic_Math_Modulus_Normalization(float x, float modulus);
+
+#ifdef __cplusplus
+}
+#endif
 
 #ifdef __cplusplus
 /**

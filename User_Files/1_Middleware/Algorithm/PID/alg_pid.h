@@ -94,9 +94,9 @@ typedef struct _PID_TypeDef
         float deadband,
         float D_T,
         float Kp,
-        float ki,
-        float kd,
-        float kf,
+        float Ki,
+        float Kd,
+        float Kf,
         float A,
         float B,
         float output_filtering_coefficient,
@@ -117,6 +117,10 @@ typedef struct _PID_TypeDef
 
 /* Exported function declarations --------------------------------------------*/
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 void PID_Init(
     PID_TypeDef *pid,
     float max_out,
@@ -128,8 +132,6 @@ void PID_Init(
     float ki,
     float kd,
     float kf,
-    float kff_static_pos,
-    float kff_static_neg,
 
     float A,
     float B,
@@ -139,6 +141,10 @@ void PID_Init(
 
     uint8_t improve);
 float PID_Calculate(PID_TypeDef *pid, float measure, float target);
+
+#ifdef __cplusplus
+}
+#endif
 		
 
 

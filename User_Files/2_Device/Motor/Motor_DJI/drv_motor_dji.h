@@ -507,6 +507,7 @@ protected:
 /* Exported constants --------------------------------------------------------*/
 
 /* Exported variables --------------------------------------------------------*/
+extern Class_Motor_DJI_C620 Motor_C620[4];
 
 /* Exported function declarations --------------------------------------------*/
 /**

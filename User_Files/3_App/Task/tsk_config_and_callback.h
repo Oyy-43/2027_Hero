@@ -34,6 +34,10 @@ void Task_Init();
 
 void Task_Loop();
 
+void Filter_Init_All();
+
+void PID_Init_All();
+
 #ifdef __cplusplus
 };
 #endif

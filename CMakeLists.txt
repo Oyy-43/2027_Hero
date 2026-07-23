@@ -95,9 +95,21 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Motor/Motor_LK
 )
 
+# DSP library include path (CubeMX-safe, not overwritten)
+target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/DSP/Inc
+)
+
+# DSP library source files (exclude NEON/Helium arch-specific files)
+file(GLOB_RECURSE DSP_SOURCES
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/DSP/Source/*.c
+)
+list(FILTER DSP_SOURCES EXCLUDE REGEX "_neon|_helium|_mve|Functions\\.c$|FunctionsF16\\.c$|CommonTables\\.c$|CommonTablesF16\\.c$")
+target_sources(${CMAKE_PROJECT_NAME} PRIVATE ${DSP_SOURCES})
+
 # Add project symbols (macros)
 target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
-    # Add user defined symbols
+    ARM_MATH_CM7
 )
 
 # Remove wrong libob.a library dependency when using cpp files

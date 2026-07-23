@@ -302,8 +302,6 @@ void PID_Init(
     float Ki,
     float Kd,
     float Kf,
-    float kff_static_pos,
-    float kff_static_neg,
 
     float A,
     float B,

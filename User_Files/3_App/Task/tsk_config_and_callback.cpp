@@ -48,6 +48,41 @@ bool init_finished = false;
 /* Private function declarations ---------------------------------------------*/
 
 /* Function prototypes -------------------------------------------------------*/
+/**
+ * @brief CAN1回调函数
+ *
+ *
+ */
+void CAN1_Callback(FDCAN_RxHeaderTypeDef &Header, uint8_t *Buffer)
+{
+    switch (Header.Identifier)
+    {
+        case (0x201):
+        {
+            Motor_C620[0].CAN_RxCpltCallback();
+
+            break;
+        }
+        case (0x202):
+        {
+            Motor_C620[1].CAN_RxCpltCallback();
+
+            break;
+        }
+        case (0x203):
+        {
+            Motor_C620[2].CAN_RxCpltCallback();
+
+            break;
+        }
+        case (0x204):
+        {
+            Motor_C620[0].CAN_RxCpltCallback();
+
+            break;
+        }
+    }
+}
 
 /**
  * @brief 每3600s调用一次
@@ -167,13 +202,16 @@ void Task_Init()
     // WS2812的SPI
     SPI_Init(&hspi6, nullptr);
     // 电机的CAN
-
+    CAN_Init(&hfdcan1, CAN1_Callback);
     // 电源的ADC
 
     // flash的OSPI
 
+    //电机滤波器初始化
+    Filter_Init_All();
+
     //电机PID参数初始化
-    
+    PID_Init_All();
     // 定时器中断初始化
     HAL_TIM_Base_Start_IT(&htim5);
 
@@ -186,6 +224,8 @@ void Task_Init()
     BSP_Key.Init();
 
     // BSP_BMI088.Init();
+
+
     BSP_Power.Set_Power(true, true, true);
     // 标记初始化完成
     init_finished = true;
@@ -200,5 +240,30 @@ void Task_Loop()
     Namespace_SYS_Timestamp::Delay_Millisecond(1);
 }
 
+
+/**
+ * @brief 给整车的电机PID参数初始化
+ * 
+ */
+void PID_Init_All()
+{   
+    //底盘轮向电机PID参数初始化
+    PID_Init(&Motor_C620[0].PID_Omega,16384,1000,0,0.002,0.0f,0.0f,0.0f,0.0f,0,0,0,0,Integral_Limit);
+    PID_Init(&Motor_C620[1].PID_Omega,16384,1000,0,0.002,0.0f,0.0f,0.0f,0.0f,0,0,0,0,Integral_Limit);
+    PID_Init(&Motor_C620[2].PID_Omega,16384,1000,0,0.002,0.0f,0.0f,0.0f,0.0f,0,0,0,0,Integral_Limit);
+    PID_Init(&Motor_C620[3].PID_Omega,16384,1000,0,0.002,0.0f,0.0f,0.0f,0.0f,0,0,0,0,Integral_Limit);
+}
+
+/**
+ * @brief 给整车的电机滤波器初始化
+ * 
+ */
+void Filter_Init_All()
+{
+    //底盘轮向电机滤波器初始化
+    for(int i =0;i<4;i++){
+        Motor_C620[i].Filter_Omega.Init(0.0f,0.0f,Filter_Frequency_Type_LOWPASS,50.0f,0.0f,1000.0f);
+    }
+}
 
 /************************ COPYRIGHT(C) USTC-ROBOWALKER **************************/

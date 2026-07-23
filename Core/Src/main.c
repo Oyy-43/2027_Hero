@@ -30,7 +30,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "3_App/Task/tsk_config_and_callback.h"
+#include "1_Middleware\DSP\Inc\arm_math.h"
+#include "3_App\Task\tsk_config_and_callback.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -107,7 +108,7 @@ int main(void)
   MX_USART1_UART_Init();
   MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
-
+  Task_Init();
   /* USER CODE END 2 */
 
   /* Init scheduler */
@@ -240,10 +241,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   if (htim->Instance == TIM1)
   {
     HAL_IncTick();
-  }
-  else if (htim->Instance == TIM5)
-  {
-    Task3600s_Callback();
   }
   /* USER CODE BEGIN Callback 1 */
 

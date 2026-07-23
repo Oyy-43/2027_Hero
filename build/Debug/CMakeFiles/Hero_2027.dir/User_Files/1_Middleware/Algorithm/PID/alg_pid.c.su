@@ -10,4 +10,4 @@ D:/A New RM/2027_HeroProject/Hero_2027/User_Files/1_Middleware/Algorithm/PID/alg
 D:/A New RM/2027_HeroProject/Hero_2027/User_Files/1_Middleware/Algorithm/PID/alg_pid.c:243:13:f_Output_Limit	16	static
 D:/A New RM/2027_HeroProject/Hero_2027/User_Files/1_Middleware/Algorithm/PID/alg_pid.c:255:13:f_Proportion_Limit	16	static
 D:/A New RM/2027_HeroProject/Hero_2027/User_Files/1_Middleware/Algorithm/PID/alg_pid.c:270:13:f_PID_ErrorHandle	24	static
-D:/A New RM/2027_HeroProject/Hero_2027/User_Files/1_Middleware/Algorithm/PID/alg_pid.c:294:6:PID_Init	72	static
+D:/A New RM/2027_HeroProject/Hero_2027/User_Files/1_Middleware/Algorithm/PID/alg_pid.c:294:6:PID_Init	64	static
