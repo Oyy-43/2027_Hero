@@ -23,7 +23,7 @@
 #include "2_Device/BSP/Key/bsp_key.h"
 #include "1_Middleware/Algorithm/Filter/Kalman/alg_filter_kalman.h"
 #include "1_Middleware/Algorithm/Matrix/alg_matrix.h"
-// #include "1_Middleware/Driver/WDG/drv_wdg.h"
+#include "1_Middleware/Driver/WDG/drv_wdg.h"
 #include "1_Middleware/System/Timestamp/sys_timestamp.h"
 #include "2_Device/Motor/Motor_DJI/drv_motor_dji.h"
 #include <stdbool.h>
@@ -183,9 +183,9 @@ void Task1ms_Callback()
     }
 
 
-    // TIM_1ms_CAN_PeriodElapsedCallback();
+    TIM_1ms_CAN_PeriodElapsedCallback();
     // 喂狗
-    // TIM_1ms_IWDG_PeriodElapsedCallback();
+    TIM_1ms_IWDG_PeriodElapsedCallback();
 }
 
 /**

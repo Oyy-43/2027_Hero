@@ -26,6 +26,15 @@ extern const float BASIC_MATH_RPM_TO_RADPS;
 extern const float BASIC_MATH_DEG_TO_RAD;
 extern const float BASIC_MATH_CELSIUS_TO_KELVIN;
 
+/**
+ * @brief 按字节的地址读取的宏定义
+ * 
+ */
+#define  GET16(ADDR) *((int16_t*)(ADDR))
+#define  GETU16(ADDR) *((uint16_t*)(ADDR))
+#define  GET32(ADDR) *((int32_t*)(ADDR))
+#define  GETU32(ADDR) *((uint32_t*)(ADDR))
+
 /* Exported types ------------------------------------------------------------*/
 
 /* Exported variables --------------------------------------------------------*/

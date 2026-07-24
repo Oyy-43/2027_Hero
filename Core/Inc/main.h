@@ -57,14 +57,26 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define W25Q64_SI__OSPI_IO0_Pin GPIO_PIN_2
+#define W25Q64_SI__OSPI_IO0_GPIO_Port GPIOE
 #define DC24_1__OUTPUT_Pin GPIO_PIN_13
 #define DC24_1__OUTPUT_GPIO_Port GPIOC
 #define DC24_0__OUTPUT_Pin GPIO_PIN_14
 #define DC24_0__OUTPUT_GPIO_Port GPIOC
 #define DC5__OUTPUT_Pin GPIO_PIN_15
 #define DC5__OUTPUT_GPIO_Port GPIOC
+#define W25Q64_CLK__OSPI_CLK_Pin GPIO_PIN_3
+#define W25Q64_CLK__OSPI_CLK_GPIO_Port GPIOC
+#define W25Q64_HOLD__OSPI_IO3_Pin GPIO_PIN_1
+#define W25Q64_HOLD__OSPI_IO3_GPIO_Port GPIOA
+#define W25Q64_WP__OSPI_IO2_Pin GPIO_PIN_3
+#define W25Q64_WP__OSPI_IO2_GPIO_Port GPIOA
 #define WS2812_RX__SPI_MOSI_Pin GPIO_PIN_7
 #define WS2812_RX__SPI_MOSI_GPIO_Port GPIOA
+#define W25Q64_SO__OSPI_IO1_Pin GPIO_PIN_0
+#define W25Q64_SO__OSPI_IO1_GPIO_Port GPIOB
+#define W25Q64_CS__OSPI_NCS_Pin GPIO_PIN_11
+#define W25Q64_CS__OSPI_NCS_GPIO_Port GPIOE
 #define KEY__INPUT_Pin GPIO_PIN_15
 #define KEY__INPUT_GPIO_Port GPIOA
 

@@ -163,7 +163,6 @@ void TIM_100us_CAN_PeriodElapsedCallback()
 void TIM_1ms_CAN_PeriodElapsedCallback()
 {
     // DJI电机专属
-
     static int mod2 = 0;
     mod2++;
     if (mod2 == 2)
@@ -171,10 +170,10 @@ void TIM_1ms_CAN_PeriodElapsedCallback()
         mod2 = 0;
 
         // 发送实例
-        // CAN_Transmit_Data(&hfdcan2, 0x1fe, CAN2_0x1fe_Tx_Data, 8);
+        CAN_Transmit_Data(&hfdcan1, 0x200, CAN1_0x1fe_Tx_Data,8);
     }
-
-    CAN_Transmit_Data(&hfdcan1, 0x1fe, CAN1_0x1fe_Tx_Data, 8);
+    // 下面放达妙的Out函数
+    
 }
 
 /**

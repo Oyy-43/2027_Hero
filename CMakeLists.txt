@@ -55,17 +55,23 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Algorithm/SingWave/alg_sin.c
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/CAN/drv_can.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/SPI/drv_spi.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/OSPI/drv_ospi.cpp    
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/UART/drv_uart.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/USB/drv_usb.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/ADC/drv_adc.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/WDG/drv_wdg.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/System/Timestamp/sys_timestamp.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/Key/bsp_key.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/Power/bsp_power.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/WS2812/bsp_ws2812.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/Buzzer/bsp_buzzer.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/W25Q64JV/bsp_w25q64jv.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/W25Q64JV/bsp_w25q64jv_register.cpp        
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task/tsk_config_and_callback.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp   
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp
+
 )
 
 # Add include paths 
@@ -82,13 +88,17 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Algorithm/SingWave
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/CAN
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/SPI
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/OSPI
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/UART
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/USB
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/ADC
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/WDG
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/System/Timestamp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/Key
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/Power
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/WS2812
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/Buzzer
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/W25Q64JV    
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Motor/Motor_DJI
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Motor/Motor_DM
@@ -105,7 +115,12 @@ file(GLOB_RECURSE DSP_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/DSP/Source/*.c
 )
 list(FILTER DSP_SOURCES EXCLUDE REGEX "_neon|_helium|_mve|Functions\\.c$|FunctionsF16\\.c$|CommonTables\\.c$|CommonTablesF16\\.c$")
-target_sources(${CMAKE_PROJECT_NAME} PRIVATE ${DSP_SOURCES})
+
+# Build DSP as a separate OBJECT library to avoid recompiling 2000+ files on every build
+add_library(DSP_Library OBJECT)
+target_sources(DSP_Library PRIVATE ${DSP_SOURCES})
+target_include_directories(DSP_Library PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/DSP/Inc)
+target_link_libraries(DSP_Library PUBLIC stm32cubemx)
 
 # Add project symbols (macros)
 target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
@@ -118,6 +133,7 @@ list(REMOVE_ITEM CMAKE_C_IMPLICIT_LINK_LIBRARIES ob)
 # Add linked libraries
 target_link_libraries(${CMAKE_PROJECT_NAME}
     stm32cubemx
+    DSP_Library
 
     # Add user defined libraries
 )

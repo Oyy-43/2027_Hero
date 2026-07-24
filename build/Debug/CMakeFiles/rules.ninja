@@ -53,6 +53,16 @@ rule CXX_EXECUTABLE_LINKER__Hero_2027_Debug
 
 
 #############################################
+# Rule for compiling C files.
+
+rule C_COMPILER__DSP_Library_unscanned_Debug
+  depfile = $DEP_FILE
+  deps = gcc
+  command = ${LAUNCHER}${CODE_CHECK}C:\Users\25774\.eide\tools\gcc_arm\bin\arm-none-eabi-gcc.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  description = Building C object $out
+
+
+#############################################
 # Rule for running custom commands.
 
 rule CUSTOM_COMMAND
