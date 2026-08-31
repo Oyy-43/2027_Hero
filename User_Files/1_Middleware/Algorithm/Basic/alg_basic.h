@@ -25,6 +25,8 @@
 extern const float BASIC_MATH_RPM_TO_RADPS;
 extern const float BASIC_MATH_DEG_TO_RAD;
 extern const float BASIC_MATH_CELSIUS_TO_KELVIN;
+extern const float SQRT_2;
+extern const float SQRT_2_half;
 
 /**
  * @brief 按字节的地址读取的宏定义
@@ -44,6 +46,8 @@ extern const float BASIC_MATH_CELSIUS_TO_KELVIN;
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+float Basic_Math_Sqr(float x);
 
 void Basic_Math_Boolean_Logical_Not(bool *Value);
 

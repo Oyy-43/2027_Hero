@@ -1,5 +1,5 @@
 D:/A New RM/2027_HeroProject/Hero_2027/User_Files/2_Device/BSP/Buzzer/bsp_buzzer.h:162:7:Class_Buzzer::Class_Buzzer()	16	static
 D:/A New RM/2027_HeroProject/Hero_2027/User_Files/2_Device/BSP/Buzzer/bsp_buzzer.cpp:168:6:void Class_Buzzer::Init(const float&, const float&)	32	static
-D:/A New RM/2027_HeroProject/Hero_2027/User_Files/1_Middleware/Algorithm/Basic/alg_basic.h:85:6:Type Basic_Math_Constrain(Type, Type, Type) [with Type = float]	24	static
+D:/A New RM/2027_HeroProject/Hero_2027/User_Files/1_Middleware/Algorithm/Basic/alg_basic.h:89:6:Type Basic_Math_Constrain(Type, Type, Type) [with Type = float]	24	static
 D:/A New RM/2027_HeroProject/Hero_2027/User_Files/2_Device/BSP/Buzzer/bsp_buzzer.cpp:183:1:void __static_initialization_and_destruction_0()	8	static
 D:/A New RM/2027_HeroProject/Hero_2027/User_Files/2_Device/BSP/Buzzer/bsp_buzzer.cpp:183:1:cpp)	8	static

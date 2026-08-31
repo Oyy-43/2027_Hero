@@ -1,5 +1,4 @@
 D:/A New RM/2027_HeroProject/Hero_2027/build/Debug/CMakeFiles/Hero_2027.dir
-D:/A New RM/2027_HeroProject/Hero_2027/build/Debug/CMakeFiles/DSP_Library.dir
 D:/A New RM/2027_HeroProject/Hero_2027/build/Debug/CMakeFiles/edit_cache.dir
 D:/A New RM/2027_HeroProject/Hero_2027/build/Debug/CMakeFiles/rebuild_cache.dir
 D:/A New RM/2027_HeroProject/Hero_2027/build/Debug/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir

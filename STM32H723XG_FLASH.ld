@@ -67,7 +67,7 @@ FLASH (rx)      : ORIGIN = 0x8000000, LENGTH = 1024K
 _estack = ORIGIN(DTCMRAM) + LENGTH(DTCMRAM);    /* end of RAM */
 _sstack = _estack - _Min_Stack_Size;
 /* Generate a link error if heap and stack don't fit into RAM */
-_Min_Heap_Size = 0x2000;      /* required amount of heap  */
+_Min_Heap_Size = 0x8000;      /* required amount of heap  */
 _Min_Stack_Size = 0x4000; /* required amount of stack */
 
 /* Define output sections */
@@ -229,6 +229,17 @@ SECTIONS
 
   PROVIDE( __bss_start = __tbss_start );
   PROVIDE( __bss_size = __bss_end - __bss_start );
+
+  /* DMA RAM_D2 section (0x30000000), used by RAM_D2_BUFFER */
+  .ram_d2 (NOLOAD) :
+  {
+    . = ALIGN(32);
+    _sram_d2 = .;
+    KEEP(*(.ram_d2))
+    KEEP(*(.ram_d2*))
+    . = ALIGN(32);
+    _eram_d2 = .;
+  } >RAM_D2
 
   /* User_heap_stack section, used to check that there is enough RAM left */
   ._user_heap_stack (NOLOAD) :

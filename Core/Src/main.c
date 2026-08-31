@@ -114,6 +114,7 @@ int main(void)
   MX_IWDG1_Init();
   MX_OCTOSPI2_Init();
   MX_TIM12_Init();
+  MX_TIM7_Init();
   /* USER CODE BEGIN 2 */
   Task_Init();
   /* USER CODE END 2 */
@@ -252,7 +253,14 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     HAL_IncTick();
   }
   /* USER CODE BEGIN Callback 1 */
-
+  if (htim->Instance == TIM5)
+  {
+    Task3600s_Callback();
+  }
+  if (htim->Instance == TIM7)
+  {
+    Task1ms_Callback();
+  }
   /* USER CODE END Callback 1 */
 }
 

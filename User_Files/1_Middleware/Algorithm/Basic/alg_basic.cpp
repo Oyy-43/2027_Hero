@@ -28,9 +28,24 @@ const float BASIC_MATH_DEG_TO_RAD = PI / 180.0f;
 // 摄氏度换算到开氏度
 const float BASIC_MATH_CELSIUS_TO_KELVIN = 273.15f;
 
+const float SQRT_2 = 1.41421356237f;
+
+const float SQRT_2_half = 0.70710678118f;
+
 /* Private function declarations ---------------------------------------------*/
 
 /* Function prototypes -------------------------------------------------------*/
+
+/**
+ * @brief 计算平方
+ * 
+ * @param x 
+ * @return float 
+ */
+float Basic_Math_Sqr(float x)
+{
+    return x*x;
+}
 
 /**
  * @brief 布尔值反转

@@ -1,3 +1,0 @@
-D:/A New RM/2027_HeroProject/Hero_2027/User_Files/1_Middleware/Driver/USB/drv_usb.c:36:6:USB_Init	16	static
-D:/A New RM/2027_HeroProject/Hero_2027/User_Files/1_Middleware/Driver/USB/drv_usb.c:49:9:USB_Transmit_Data	16	static
-D:/A New RM/2027_HeroProject/Hero_2027/User_Files/1_Middleware/Driver/USB/drv_usb.c:60:6:USB_ReceiveCallback	16	static

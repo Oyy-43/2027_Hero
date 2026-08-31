@@ -14,8 +14,16 @@
 
 /* Exported function declarations --------------------------------------------*/
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 float ALG_Sin_Generate(float *p_var, float period_s, float amplitude, float call_freq_hz);
 void ALG_Value_Toggle_Periodic(float *p_var, float max_out, float min_out, float switch_time_s, float call_freq_hz);
+
+#ifdef __cplusplus
+}
+#endif
 
 
 

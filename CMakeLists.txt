@@ -68,6 +68,7 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/W25Q64JV/bsp_w25q64jv.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/W25Q64JV/bsp_w25q64jv_register.cpp        
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task/tsk_config_and_callback.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Chassis/chassis_control.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp   
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp
@@ -100,6 +101,7 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/Buzzer
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/W25Q64JV    
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Chassis
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Motor/Motor_DJI
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Motor/Motor_DM
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Motor/Motor_LK
@@ -110,17 +112,42 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/DSP/Inc
 )
 
-# DSP library source files (exclude NEON/Helium arch-specific files)
-file(GLOB_RECURSE DSP_SOURCES
-    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/DSP/Source/*.c
-)
-list(FILTER DSP_SOURCES EXCLUDE REGEX "_neon|_helium|_mve|Functions\\.c$|FunctionsF16\\.c$|CommonTables\\.c$|CommonTablesF16\\.c$")
+# Precompiled DSP static library location (per build config)
+set(DSP_PRECOMPILED_LIB ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/DSP/Lib/${CMAKE_BUILD_TYPE}/libDSP_Library.a)
 
-# Build DSP as a separate OBJECT library to avoid recompiling 2000+ files on every build
-add_library(DSP_Library OBJECT)
-target_sources(DSP_Library PRIVATE ${DSP_SOURCES})
-target_include_directories(DSP_Library PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/DSP/Inc)
-target_link_libraries(DSP_Library PUBLIC stm32cubemx)
+# Option: use precompiled DSP library to save build time.
+# If the .a exists it is linked directly and DSP sources are NOT compiled.
+# Delete DSP/Lib/<config>/libDSP_Library.a or set -DDSP_USE_PRECOMPILED=OFF to rebuild from source.
+option(DSP_USE_PRECOMPILED "Use precompiled DSP static library" ON)
+
+if(DSP_USE_PRECOMPILED AND EXISTS ${DSP_PRECOMPILED_LIB})
+    message(STATUS "DSP: using precompiled library ${DSP_PRECOMPILED_LIB}")
+    add_library(DSP_Library STATIC IMPORTED)
+    set_target_properties(DSP_Library PROPERTIES IMPORTED_LOCATION ${DSP_PRECOMPILED_LIB})
+    target_include_directories(DSP_Library INTERFACE
+        ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/DSP/Inc
+    )
+else()
+    message(STATUS "DSP: compiling from source, result will be saved to ${DSP_PRECOMPILED_LIB}")
+    # DSP library source files (exclude NEON/Helium arch-specific files)
+    file(GLOB_RECURSE DSP_SOURCES
+        ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/DSP/Source/*.c
+    )
+    list(FILTER DSP_SOURCES EXCLUDE REGEX "_neon|_helium|_mve|Functions\\.c$|FunctionsF16\\.c$|CommonTables\\.c$|CommonTablesF16\\.c$")
+
+    # Build DSP once as a STATIC library so it can be reused on later builds
+    add_library(DSP_Library STATIC ${DSP_SOURCES})
+    target_include_directories(DSP_Library PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/DSP/Inc)
+    target_compile_definitions(DSP_Library PRIVATE ARM_MATH_CM7)
+    target_link_libraries(DSP_Library PUBLIC stm32cubemx)
+
+    # Save the built .a to the precompiled location so future builds skip DSP compilation
+    add_custom_command(TARGET DSP_Library POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/DSP/Lib/${CMAKE_BUILD_TYPE}
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:DSP_Library> ${DSP_PRECOMPILED_LIB}
+        COMMENT "DSP: saved precompiled library to ${DSP_PRECOMPILED_LIB}"
+    )
+endif()
 
 # Add project symbols (macros)
 target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE

@@ -16,7 +16,7 @@
 /* Private types -------------------------------------------------------------*/
 
 /* Private variables ---------------------------------------------------------*/
-Class_Motor_DJI_C620 Motor_C620[4];
+
 /* Private function declarations ---------------------------------------------*/
 
 /* Function prototypes -------------------------------------------------------*/
@@ -844,7 +844,7 @@ void Class_Motor_DJI_C620::TIM_100ms_Alive_PeriodElapsedCallback()
  * @brief TIM定时器中断计算回调函数, 计算周期取决于电机反馈周期
  *
  */
-void Class_Motor_DJI_C620::TIM_Calculate_PeriodElapsedCallback()
+void Class_Motor_DJI_C620:: TIM_Calculate_PeriodElapsedCallback()
 {
     PID_Cal();
 
@@ -934,7 +934,7 @@ void Class_Motor_DJI_C620::PID_Cal()
     case (Motor_DJI_Control_Method_OMEGA):
     {
         
-        Target_Torque = PID_Calculate(&this->PID_Omega,Rx_Data.Now_Omega,(Target_Omega + Feedforward_Omega));
+        Target_Torque = PID_Calculate(&this->PID_Omega,Rx_Data.Filtered_Now_Omega,(Target_Omega + Feedforward_Omega));
 
         break;
     }
@@ -943,7 +943,7 @@ void Class_Motor_DJI_C620::PID_Cal()
 
         Target_Omega = PID_Calculate(&this->PID_Angle,Rx_Data.Now_Angle,Target_Angle);
 
-        Target_Torque = PID_Calculate(&this->PID_Omega,Rx_Data.Now_Omega,(Target_Omega + Feedforward_Omega));
+        Target_Torque = PID_Calculate(&this->PID_Omega,Rx_Data.Filtered_Now_Omega,(Target_Omega + Feedforward_Omega));
 
         break;
     }

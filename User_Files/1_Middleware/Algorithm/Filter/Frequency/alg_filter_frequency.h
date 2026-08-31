@@ -221,7 +221,8 @@ inline float Class_Filter_Frequency<Filter_Frequency_Order>::Get_Out() const
 template<uint32_t Filter_Frequency_Order>
 inline void Class_Filter_Frequency<Filter_Frequency_Order>::Set_Now(const float &__Now)
 {
-    float now_value;
+    // 默认直接使用输入值, 输入限幅全0为不限制
+    float now_value = __Now;
 
     // 输入限幅, 全0为不限制
     if (Value_Constrain_Low != 0.0f || Value_Constrain_High != 0.0f)

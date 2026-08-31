@@ -74,4 +74,4 @@ void Class_Key::TIM_50ms_Read_PeriodElapsedCallback()
     Now_GPIO_State = HAL_GPIO_ReadPin(KEY__INPUT_GPIO_Port, KEY__INPUT_Pin);
 }
 
-/************************ COPYRIGHT(C) USTC-ROBOWALKER **************************/
+/************************ COPYRIGHT(C) USTC-ROBOWALKER **************************/                     

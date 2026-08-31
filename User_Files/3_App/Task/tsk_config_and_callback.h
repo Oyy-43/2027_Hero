@@ -28,6 +28,7 @@ extern "C" {
 /* Exported variables --------------------------------------------------------*/
 extern bool init_finished;
 /* Exported function declarations --------------------------------------------*/
+void Task1ms_Callback(void);
 void Task3600s_Callback(void);
 
 void Task_Init();
@@ -37,6 +38,10 @@ void Task_Loop();
 void Filter_Init_All();
 
 void PID_Init_All();
+
+void Wave_Output();
+
+void Motor_Init();
 
 #ifdef __cplusplus
 };

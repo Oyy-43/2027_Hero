@@ -380,7 +380,7 @@ public:
 
     Class_Filter_Frequency<> Filter_Angle;
 
-    Class_Filter_Frequency<> Filter_Omega;
+    Class_Filter_Frequency<12> Filter_Omega;
 
     void Init(const FDCAN_HandleTypeDef *hcan, const Enum_Motor_DJI_ID &__CAN_Rx_ID, const Enum_Motor_DJI_Control_Method &__Motor_DJI_Control_Method = Motor_DJI_Control_Method_OMEGA, const float &__Gearbox_Rate = 3591.0f / 187.0f);
 
@@ -507,7 +507,6 @@ protected:
 /* Exported constants --------------------------------------------------------*/
 
 /* Exported variables --------------------------------------------------------*/
-extern Class_Motor_DJI_C620 Motor_C620[4];
 
 /* Exported function declarations --------------------------------------------*/
 /**

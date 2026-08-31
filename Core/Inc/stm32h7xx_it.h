@@ -55,6 +55,8 @@ void DebugMon_Handler(void);
 void FDCAN1_IT0_IRQHandler(void);
 void FDCAN1_IT1_IRQHandler(void);
 void TIM1_UP_IRQHandler(void);
+void TIM5_IRQHandler(void);
+void TIM7_IRQHandler(void);
 void OTG_HS_IRQHandler(void);
 void MDMA_IRQHandler(void);
 void OCTOSPI2_IRQHandler(void);

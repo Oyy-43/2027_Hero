@@ -23,15 +23,18 @@
 #include "2_Device/BSP/Key/bsp_key.h"
 #include "1_Middleware/Algorithm/Filter/Kalman/alg_filter_kalman.h"
 #include "1_Middleware/Algorithm/Matrix/alg_matrix.h"
+#include "1_Middleware/Algorithm/SingWave/alg_sin.h"
 #include "1_Middleware/Driver/WDG/drv_wdg.h"
 #include "1_Middleware/System/Timestamp/sys_timestamp.h"
 #include "2_Device/Motor/Motor_DJI/drv_motor_dji.h"
+#include "2_Device/Motor/Motor_DM/drv_motor_dm.h"
 #include <stdbool.h>
 
 /* Private macros ------------------------------------------------------------*/
 
 /* Private types -------------------------------------------------------------*/
-
+Class_Motor_DJI_C620 Motor_C620[4];
+Class_Motor_DM_Normal Motor_DM_6220[4];
 /* Private variables ---------------------------------------------------------*/
 
 // LED灯
@@ -45,6 +48,9 @@ bool blue_minus_flag = true;
 // 全局初始化完成标志位
 bool init_finished = false;
 
+RAM_D2_BUFFER uint16_t test_count = 0;
+
+RAM_D2_BUFFER float Sin_Out=0.0f;
 /* Private function declarations ---------------------------------------------*/
 
 /* Function prototypes -------------------------------------------------------*/
@@ -77,7 +83,38 @@ void CAN1_Callback(FDCAN_RxHeaderTypeDef &Header, uint8_t *Buffer)
         }
         case (0x204):
         {
-            Motor_C620[0].CAN_RxCpltCallback();
+            Motor_C620[3].CAN_RxCpltCallback();
+
+            break;
+        }
+    }
+}
+
+void CAN2_Callback(FDCAN_RxHeaderTypeDef &Header, uint8_t *Buffer)
+{
+    switch (Header.Identifier)
+    {
+        case (0x11):
+        {
+            Motor_DM_6220[0].CAN_RxCpltCallback();
+
+            break;
+        }
+        case (0x12):
+        {
+            Motor_DM_6220[1].CAN_RxCpltCallback();
+
+            break;
+        }
+        case (0x13):
+        {
+            Motor_DM_6220[2].CAN_RxCpltCallback();
+
+            break;
+        }
+        case (0x14):
+        {
+            Motor_DM_6220[3].CAN_RxCpltCallback();
 
             break;
         }
@@ -94,12 +131,29 @@ void Task3600s_Callback()
 }
 
 /**
- * @brief 每1s调用一次
+ * @brief 每100ms调用一次
  *
  */
-void Task1s_Callback()
+void Task100ms_Callback()
 {
+    Motor_C620[0].TIM_100ms_Alive_PeriodElapsedCallback();
+    Motor_C620[1].TIM_100ms_Alive_PeriodElapsedCallback();
+    Motor_C620[2].TIM_100ms_Alive_PeriodElapsedCallback();
+    Motor_C620[3].TIM_100ms_Alive_PeriodElapsedCallback();
 }
+
+/**
+ * @brief 每1ms调用一次电机计算函数
+ *
+ */
+void Task1ms_Motor_Calculate_Callback()
+{
+    Motor_C620[0].TIM_Calculate_PeriodElapsedCallback();
+    Motor_C620[1].TIM_Calculate_PeriodElapsedCallback();
+    Motor_C620[2].TIM_Calculate_PeriodElapsedCallback();
+    Motor_C620[3].TIM_Calculate_PeriodElapsedCallback();
+}
+
 
 /**
  * @brief 每1ms调用一次
@@ -107,71 +161,73 @@ void Task1s_Callback()
  */
 void Task1ms_Callback()
 {
-    static int mod10 = 0;
-    mod10++;
-    if (mod10 == 10)
-    {
-        mod10 = 0;
+    Task1ms_Motor_Calculate_Callback();
+    // static int mod10 = 0;
+    // mod10++;
+    // if (mod10 == 10)
+    // {
+    //     mod10 = 0;
 
-        if (red >= 18)
-        {
-            red_minus_flag = true;
-        }
-        else if (red == 0)
-        {
-            red_minus_flag = false;
-        }
-        if (green >= 18)
-        {
-            green_minus_flag = true;
-        }
-        else if (green == 0)
-        {
-            green_minus_flag = false;
-        }
-        if (blue >= 18)
-        {
-            blue_minus_flag = true;
-        }
-        else if (blue == 0)
-        {
-            blue_minus_flag = false;
-        }
+    //     if (red >= 18)
+    //     {
+    //         red_minus_flag = true;
+    //     }
+    //     else if (red == 0)
+    //     {
+    //         red_minus_flag = false;
+    //     }
+    //     if (green >= 18)
+    //     {
+    //         green_minus_flag = true;
+    //     }
+    //     else if (green == 0)
+    //     {
+    //         green_minus_flag = false;
+    //     }
+    //     if (blue >= 18)
+    //     {
+    //         blue_minus_flag = true;
+    //     }
+    //     else if (blue == 0)
+    //     {
+    //         blue_minus_flag = false;
+    //     }
 
-        if (red_minus_flag)
-        {
-            red--;
-        }
-        else
-        {
-            red++;
-        }
-        if (green_minus_flag)
-        {
-            green--;
-        }
-        else
-        {
-            green++;
-        }
-        if (blue_minus_flag)
-        {
-            blue--;
-        }
-        else
-        {
-            blue++;
-        }
+    //     if (red_minus_flag)
+    //     {
+    //         red--;
+    //     }
+    //     else
+    //     {
+    //         red++;
+    //     }
+    //     if (green_minus_flag)
+    //     {
+    //         green--;
+    //     }
+    //     else
+    //     {
+    //         green++;
+    //     }
+    //     if (blue_minus_flag)
+    //     {
+    //         blue--;
+    //     }
+    //     else
+    //     {
+    //         blue++;
+    //     }
 
-        BSP_WS2812.Set_RGB(red, green, blue);
-        // BSP_WS2812.Set_RGB(0, 0, 0);
+    //     BSP_WS2812.Set_RGB(red, green, blue);
+    BSP_WS2812.Set_RGB(0, 0, 0);
 
         // 发送实例
-        BSP_WS2812.TIM_10ms_Write_PeriodElapsedCallback();
-    }
+    BSP_WS2812.TIM_10ms_Write_PeriodElapsedCallback();
+
 
 
     BSP_Key.TIM_1ms_Process_PeriodElapsedCallback();
+
     static int mod50 = 0;
     mod50++;
     if (mod50 == 50)
@@ -181,11 +237,21 @@ void Task1ms_Callback()
         // 处理按键状态
         BSP_Key.TIM_50ms_Read_PeriodElapsedCallback();
     }
+    static uint16_t mod100 = 0;
 
+    mod100++;
+    if (mod100 == 100)
+    {
+        mod100 = 0;
+
+        Task100ms_Callback();
+    }
 
     TIM_1ms_CAN_PeriodElapsedCallback();
     // 喂狗
     TIM_1ms_IWDG_PeriodElapsedCallback();
+
+    Wave_Output();
 }
 
 /**
@@ -201,6 +267,9 @@ void Task_Init()
 
     // WS2812的SPI
     SPI_Init(&hspi6, nullptr);
+
+    //初始化电机
+    Motor_Init();
     // 电机的CAN
     CAN_Init(&hfdcan1, CAN1_Callback);
     // 电源的ADC
@@ -214,8 +283,10 @@ void Task_Init()
     PID_Init_All();
     // 定时器中断初始化
     HAL_TIM_Base_Start_IT(&htim5);
-
-    // BSP_WS2812.Init(0, 0, 0);
+    HAL_TIM_Base_Start_IT(&htim7);
+    
+    // 初始化WS2812灯珠, 默认灯灭
+    BSP_WS2812.Init(0, 0, 0);
 
     // BSP_Buzzer.Init();
 
@@ -240,6 +311,19 @@ void Task_Loop()
     Namespace_SYS_Timestamp::Delay_Millisecond(1);
 }
 
+/**
+ * @brief 电机初始化
+ *
+ */
+void Motor_Init()
+{
+    Motor_C620[0].Init(&hfdcan1, Motor_DJI_ID_0x201, Motor_DJI_Control_Method_OMEGA, (268.0f/17.0f));
+    Motor_C620[1].Init(&hfdcan1, Motor_DJI_ID_0x202, Motor_DJI_Control_Method_OMEGA, (268.0f/17.0f));
+    Motor_C620[2].Init(&hfdcan1, Motor_DJI_ID_0x203, Motor_DJI_Control_Method_OMEGA, (268.0f/17.0f));
+    Motor_C620[3].Init(&hfdcan1, Motor_DJI_ID_0x204, Motor_DJI_Control_Method_OMEGA, (268.0f/17.0f));
+
+    Motor_DM_6220[0].Init(&hfdcan1, 0x11, 0x01, Motor_DM_Control_Method_NORMAL_MIT_Omega,(268.0f/17.0f));
+}
 
 /**
  * @brief 给整车的电机PID参数初始化
@@ -248,10 +332,10 @@ void Task_Loop()
 void PID_Init_All()
 {   
     //底盘轮向电机PID参数初始化
-    PID_Init(&Motor_C620[0].PID_Omega,16384,1000,0,0.002,0.0f,0.0f,0.0f,0.0f,0,0,0,0,Integral_Limit);
-    PID_Init(&Motor_C620[1].PID_Omega,16384,1000,0,0.002,0.0f,0.0f,0.0f,0.0f,0,0,0,0,Integral_Limit);
-    PID_Init(&Motor_C620[2].PID_Omega,16384,1000,0,0.002,0.0f,0.0f,0.0f,0.0f,0,0,0,0,Integral_Limit);
-    PID_Init(&Motor_C620[3].PID_Omega,16384,1000,0,0.002,0.0f,0.0f,0.0f,0.0f,0,0,0,0,Integral_Limit);
+    PID_Init(&Motor_C620[0].PID_Omega,4.5,1.0,0,0.002,0.0f,0.0f,0.0f,0.0f,0,0,0,0,Integral_Limit);
+    PID_Init(&Motor_C620[1].PID_Omega,4.5,1.0,0,0.002,0.0f,0.0f,0.0f,0.0f,0,0,0,0,Integral_Limit);
+    PID_Init(&Motor_C620[2].PID_Omega,4.5,1.0,0,0.002,0.0f,0.0f,0.0f,0.0f,0,0,0,0,Integral_Limit);
+    PID_Init(&Motor_C620[3].PID_Omega,4.5,1.0,0,0.002,0.0f,0.0f,0.0f,0.0f,0,0,0,0,Integral_Limit);
 }
 
 /**
@@ -265,5 +349,28 @@ void Filter_Init_All()
         Motor_C620[i].Filter_Omega.Init(0.0f,0.0f,Filter_Frequency_Type_LOWPASS,50.0f,0.0f,1000.0f);
     }
 }
+
+/**
+ * @brief 波形输出
+ * 
+ */
+void Wave_Output()
+{
+    static int8_t press_count = -1;
+    if(BSP_Key.Get_Key_Status()== BSP_Key_Status_TRIG_PRESSED_FREE)
+    {
+        press_count++;
+    }
+    if(press_count%2==1)
+    {
+        ALG_Sin_Generate(&Sin_Out, 4.0f, -3.0f, 1000.0f);
+        // Motor_C620[1].Set_Target_Omega(Sin_Out);
+    }
+    else
+    {
+        // Motor_C610[1].Set_Target_Omega(0.0f);
+    }
+}
+
 
 /************************ COPYRIGHT(C) USTC-ROBOWALKER **************************/
