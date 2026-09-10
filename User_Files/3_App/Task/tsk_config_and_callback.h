@@ -43,6 +43,7 @@ void Wave_Output();
 
 void Motor_Init();
 
+void Chassis_Control_Task();
 #ifdef __cplusplus
 };
 #endif

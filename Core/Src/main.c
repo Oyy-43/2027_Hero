@@ -21,6 +21,7 @@
 #include "FreeRTOS.h"
 #include "cmsis_os2.h"
 #include "adc.h"
+#include "dma.h"
 #include "fdcan.h"
 #include "iwdg.h"
 #include "mdma.h"
@@ -72,6 +73,7 @@ void MX_FREERTOS_Init(void);
 /* USER CODE END 0 */
 
 /**
+
   * @brief  The application entry point.
   * @retval int
   */
@@ -104,6 +106,7 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_MDMA_Init();
+  MX_DMA_Init();
   MX_TIM5_Init();
   MX_FDCAN1_Init();
   MX_FDCAN2_Init();
@@ -115,6 +118,7 @@ int main(void)
   MX_OCTOSPI2_Init();
   MX_TIM12_Init();
   MX_TIM7_Init();
+  MX_UART7_Init();
   /* USER CODE BEGIN 2 */
   Task_Init();
   /* USER CODE END 2 */

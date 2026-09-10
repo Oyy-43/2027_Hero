@@ -37,6 +37,22 @@ add_executable(${CMAKE_PROJECT_NAME})
 # Add STM32CubeMX generated sources
 add_subdirectory(cmake/stm32cubemx)
 
+# ---------------------------------------------------------------------------
+# DSP include de-conflict (survives CubeMX regeneration)
+# ---------------------------------------------------------------------------
+# CubeMX re-adds the OLD CMSIS-DSP include dir (Middlewares/ST/ARM/DSP/Inc) to
+# the stm32cubemx interface on every code generation. This project links the NEW
+# precompiled DSP library under User_Files/1_Middleware/DSP instead, so including
+# both header sets in one TU causes duplicate declarations (e.g. read_q15x2,
+# write_q15x2_ia, arm_status / ARM_MATH_SUCCESS ...). Filter the stale dir out so
+# only the new DSP headers are used.
+get_target_property(_MX_INCLUDE_DIRS stm32cubemx INTERFACE_INCLUDE_DIRECTORIES)
+if(_MX_INCLUDE_DIRS AND NOT _MX_INCLUDE_DIRS STREQUAL "_MX_INCLUDE_DIRS-NOTFOUND")
+    list(FILTER _MX_INCLUDE_DIRS EXCLUDE REGEX "Middlewares/ST/ARM/DSP/Inc")
+    set_target_properties(stm32cubemx PROPERTIES INTERFACE_INCLUDE_DIRECTORIES "${_MX_INCLUDE_DIRS}")
+endif()
+unset(_MX_INCLUDE_DIRS)
+
 # Link directories setup
 target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined library search paths
@@ -53,10 +69,13 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Algorithm/Matrix/alg_matrix.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Algorithm/DataTrans/alg_transData.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Algorithm/SingWave/alg_sin.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Algorithm/Slope/alg_slope.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/CAN/drv_can.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/SPI/drv_spi.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/OSPI/drv_ospi.cpp    
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/UART/drv_uart.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/CRSF/crsf_utils.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/CRSF/crsf.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/USB/drv_usb.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/ADC/drv_adc.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/WDG/drv_wdg.cpp
@@ -68,7 +87,7 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/W25Q64JV/bsp_w25q64jv.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/W25Q64JV/bsp_w25q64jv_register.cpp        
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task/tsk_config_and_callback.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Chassis/chassis_control.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Chassis/Steer_Chassis/steer_control.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp   
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp
@@ -87,6 +106,7 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Algorithm/Matrix
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Algorithm/DataTrans
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Algorithm/SingWave
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Algorithm/Slope
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/CAN
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/SPI
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/OSPI
@@ -94,6 +114,7 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/USB
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/ADC
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/WDG
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/CRSF
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/System/Timestamp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/Key
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/Power
@@ -102,6 +123,7 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/W25Q64JV    
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Chassis
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Chassis/Steer_Chassis
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Motor/Motor_DJI
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Motor/Motor_DM
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Motor/Motor_LK

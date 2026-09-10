@@ -32,6 +32,7 @@ const float SQRT_2 = 1.41421356237f;
 
 const float SQRT_2_half = 0.70710678118f;
 
+
 /* Private function declarations ---------------------------------------------*/
 
 /* Function prototypes -------------------------------------------------------*/
@@ -214,6 +215,7 @@ float Basic_Math_Sinc(float x)
     return (arm_sin_f32(x) / x);
 }
 
+
 /**
  * @brief 将浮点数映射到整型
  *
@@ -230,6 +232,7 @@ int32_t Basic_Math_Float_To_Int(float x, float Float_1, float Float_2, int32_t I
     auto out = (int32_t)(tmp * (float) (Int_2 - Int_1) + (float) (Int_1));
     return (out);
 }
+
 
 /**
  * @brief 将整型映射到浮点数

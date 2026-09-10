@@ -122,6 +122,8 @@ public:
 
     inline float Get_Now_Omega() const;
 
+    inline float Get_Now_Filtered_Omega() const;
+
     inline float Get_Now_Torque() const;
 
     inline float Get_Now_Temperature() const;
@@ -261,6 +263,8 @@ public:
 
     inline float Get_Now_Omega() const;
 
+    inline float Get_Now_Filtered_Omega() const;
+
     inline float Get_Now_Torque() const;
 
     inline uint8_t Get_Now_Temperature() const;
@@ -357,6 +361,8 @@ protected:
     float Feedforward_Omega = 0.0f;
     // 前馈的扭矩, Nm
     float Feedforward_Torque = 0.0f;
+    // 速度环输出补偿扭矩
+    float Omega_Out_Torque = 0.0f;
 
     // 内部函数
 
@@ -389,6 +395,8 @@ public:
     inline float Get_Now_Angle() const;
 
     inline float Get_Now_Omega() const;
+
+    inline float Get_Now_Filtered_Omega() const;
 
     inline float Get_Now_Torque() const;
 
@@ -493,7 +501,8 @@ protected:
     float Feedforward_Omega = 0.0f;
     // 前馈的扭矩, Nm
     float Feedforward_Torque = 0.0f;
-
+    // 速度环输出补偿扭矩
+    float Omega_Out_Torque = 0.0f;
     // 内部函数
 
     void Data_Process();
@@ -537,6 +546,16 @@ inline float Class_Motor_DJI_GM6020::Get_Now_Angle() const
 inline float Class_Motor_DJI_GM6020::Get_Now_Omega() const
 {
     return (Rx_Data.Now_Omega);
+}
+
+/**
+ * @brief 获取当前的滤波后速度, rad/s
+ *
+ * @return float 当前的滤波后速度, rad/s
+ */
+inline float Class_Motor_DJI_GM6020::Get_Now_Filtered_Omega() const
+{
+    return (Rx_Data.Filtered_Now_Omega);
 }
 
 /**
@@ -726,6 +745,16 @@ inline float Class_Motor_DJI_C610::Get_Now_Omega() const
 }
 
 /**
+ * @brief 获取当前的滤波后速度, rad/s
+ *
+ * @return float 当前的滤波后速度, rad/s
+ */
+inline float Class_Motor_DJI_C610::Get_Now_Filtered_Omega() const
+{
+    return (Rx_Data.Filtered_Now_Omega);
+}
+
+/**
  * @brief 获取当前的扭矩, Nm
  *
  * @return float 当前的扭矩, Nm
@@ -893,6 +922,16 @@ inline float Class_Motor_DJI_C620::Get_Now_Angle() const
 inline float Class_Motor_DJI_C620::Get_Now_Omega() const
 {
     return (Rx_Data.Now_Omega);
+}
+
+/**
+ * @brief 获取当前的滤波后速度, rad/s
+ *
+ * @return float 当前的滤波后速度, rad/s
+ */
+inline float Class_Motor_DJI_C620::Get_Now_Filtered_Omega() const
+{
+    return (Rx_Data.Filtered_Now_Omega);
 }
 
 /**

@@ -848,7 +848,7 @@ void Class_Motor_DJI_C620:: TIM_Calculate_PeriodElapsedCallback()
 {
     PID_Cal();
 
-    Out = (Target_Torque + Feedforward_Torque) / CURRENT_TO_TORQUE / Gearbox_Rate * CURRENT_TO_OUT;
+    Out = (Target_Torque + Feedforward_Torque + Omega_Out_Torque) / CURRENT_TO_TORQUE / Gearbox_Rate * CURRENT_TO_OUT;
     Basic_Math_Constrain(&Out, -OUT_MAX, OUT_MAX);
 
     Output();
@@ -934,7 +934,7 @@ void Class_Motor_DJI_C620::PID_Cal()
     case (Motor_DJI_Control_Method_OMEGA):
     {
         
-        Target_Torque = PID_Calculate(&this->PID_Omega,Rx_Data.Filtered_Now_Omega,(Target_Omega + Feedforward_Omega));
+        Omega_Out_Torque = PID_Calculate(&this->PID_Omega,Rx_Data.Filtered_Now_Omega,(Target_Omega + Feedforward_Omega));
 
         break;
     }
@@ -942,8 +942,7 @@ void Class_Motor_DJI_C620::PID_Cal()
     {
 
         Target_Omega = PID_Calculate(&this->PID_Angle,Rx_Data.Now_Angle,Target_Angle);
-
-        Target_Torque = PID_Calculate(&this->PID_Omega,Rx_Data.Filtered_Now_Omega,(Target_Omega + Feedforward_Omega));
+        Omega_Out_Torque = PID_Calculate(&this->PID_Omega,Rx_Data.Filtered_Now_Omega,(Target_Omega + Feedforward_Omega));
 
         break;
     }

@@ -170,11 +170,9 @@ void TIM_1ms_CAN_PeriodElapsedCallback()
         mod2 = 0;
 
         // 发送实例
-        CAN_Transmit_Data(&hfdcan1, 0x200, CAN1_0x200_Tx_Data,8);   //底盘3508
-        
+    CAN_Transmit_Data(&hfdcan1, 0x200, CAN1_0x200_Tx_Data,8);   //底盘3508    
     }
-    // 下面放达妙的Out函数
-    
+    // 下面放达妙的Out函数  
 }
 
 /**

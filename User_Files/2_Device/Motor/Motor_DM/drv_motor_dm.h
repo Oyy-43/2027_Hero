@@ -203,7 +203,7 @@ public:
     // 滤波器
     Class_Filter_Frequency<> Filter_Angle;
 
-    Class_Filter_Frequency<> Filter_Omega;
+    Class_Filter_Frequency<10> Filter_Omega;
 
     void Init(const FDCAN_HandleTypeDef *hcan, const uint8_t &__CAN_Rx_ID = 0x00, const uint8_t &__CAN_Tx_ID = 0x01, const Enum_Motor_DM_Control_Method &__Motor_DM_Control_Method = Motor_DM_Control_Method_NORMAL_MIT, const float &__Angle_Max = 12.5f, const float &__Omega_Max = 25.0f, const float &__Torque_Max = 10.0f, const float &__Current_Max = 10.261194f);
 
@@ -245,7 +245,11 @@ public:
 
     inline void Set_Control_Angle(const float &__Control_Angle);
 
+    inline void Set_Target_Angle(const float &__Target_Angle);
+
     inline void Set_Control_Omega(const float &__Control_Omega);
+
+    inline void Set_Target_Omega(const float &__Target_Omega);
 
     inline void Set_Control_Torque(const float &__Control_Torque);
 
@@ -666,6 +670,16 @@ inline void Class_Motor_DM_Normal::Set_Control_Angle(const float &__Control_Angl
 }
 
 /**
+ * @brief 设定目标角度,这个目标角度不会用于mit的公式，而是pid计算输出扭矩
+ * 
+ * @param __Target_Angle 
+ */
+inline void Class_Motor_DM_Normal::Set_Target_Angle(const float &__Target_Angle)
+{
+    Target_Angle = __Target_Angle;
+}
+
+/**
  * @brief 设定角速度, rad/s, MIT模式和速度模式是目标角速度, 其余模式是限幅
  *
  * @param __Control_Omega 角速度, rad/s, MIT模式和速度模式是目标角速度, 其余模式是限幅
@@ -673,6 +687,16 @@ inline void Class_Motor_DM_Normal::Set_Control_Angle(const float &__Control_Angl
 inline void Class_Motor_DM_Normal::Set_Control_Omega(const float &__Control_Omega)
 {
     Control_Omega = __Control_Omega;
+}
+
+/**
+ * @brief 设定目标角速度, rad/s, MIT模式和速度模式是目标角速度, 其余模式是限幅
+ *
+ * @param __Target_Omega 目标角速度, rad/s, MIT模式和速度模式是目标角速度, 其余模式是限幅
+ */
+inline void Class_Motor_DM_Normal::Set_Target_Omega(const float &__Target_Omega)
+{
+    Target_Omega = __Target_Omega;
 }
 
 /**

@@ -126,6 +126,12 @@ void UART_Init(UART_HandleTypeDef *huart, UART_Callback Callback_Function)
         UART10_Manage_Object.Rx_Buffer_Active = UART10_Manage_Object.Rx_Buffer_0;
         HAL_UARTEx_ReceiveToIdle_DMA(huart, UART10_Manage_Object.Rx_Buffer_Active, UART_BUFFER_SIZE);
     }
+
+    // 仅使用空闲中断触发回调，避免HT中断干扰帧边界
+    if (huart->hdmarx != NULL)
+    {
+        __HAL_DMA_DISABLE_IT(huart->hdmarx, DMA_IT_HT);
+    }
 }
 
 /**
@@ -475,7 +481,31 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
  */
 void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart)
 {
+    // 清除常见串口错误标志，避免反复进入ErrorCallback
+    if ((huart->ErrorCode & HAL_UART_ERROR_ORE) != 0U)
+    {
+        __HAL_UART_CLEAR_OREFLAG(huart);
+    }
+    if ((huart->ErrorCode & HAL_UART_ERROR_FE) != 0U)
+    {
+        __HAL_UART_CLEAR_FEFLAG(huart);
+    }
+    if ((huart->ErrorCode & HAL_UART_ERROR_NE) != 0U)
+    {
+        __HAL_UART_CLEAR_NEFLAG(huart);
+    }
+    if ((huart->ErrorCode & HAL_UART_ERROR_PE) != 0U)
+    {
+        __HAL_UART_CLEAR_PEFLAG(huart);
+    }
+
+    (void)HAL_UART_AbortReceive(huart);
     UART_Reinit(huart);
+
+    if (huart->hdmarx != NULL)
+    {
+        __HAL_DMA_DISABLE_IT(huart->hdmarx, DMA_IT_HT);
+    }
 }
 
 /************************ COPYRIGHT(C) USTC-ROBOWALKER **************************/
