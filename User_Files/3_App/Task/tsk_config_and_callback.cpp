@@ -290,7 +290,7 @@ void Task1ms_Callback()
     // 喂狗
     TIM_1ms_IWDG_PeriodElapsedCallback();
 
-    // Wave_Output();
+    Wave_Output();
 }
 
 /**
@@ -377,7 +377,7 @@ void Motor_Init()
     Motor_C620[2].Init(&hfdcan1, Motor_DJI_ID_0x203, Motor_DJI_Control_Method_OMEGA, 15.7647058f);
     Motor_C620[3].Init(&hfdcan1, Motor_DJI_ID_0x204, Motor_DJI_Control_Method_OMEGA, 15.7647058f);
 
-    Motor_DM_6220[0].Init(&hfdcan2, 0x11, 0x01, Motor_DM_Control_Method_NORMAL_MIT_Position,3.141593f,11.0f,2.7f);
+    Motor_DM_6220[0].Init(&hfdcan2, 0x11, 0x01, Motor_DM_Control_Method_NORMAL_MIT_Omega,3.141593f,11.0f,2.7f);
     Motor_DM_6220[1].Init(&hfdcan2, 0x12, 0x02, Motor_DM_Control_Method_NORMAL_MIT_Position,3.14f,15.0f,2.7f);
     Motor_DM_6220[2].Init(&hfdcan2, 0x13, 0x03, Motor_DM_Control_Method_NORMAL_MIT_Position,3.14f,15.0f,2.7f);
     Motor_DM_6220[3].Init(&hfdcan2, 0x14, 0x04, Motor_DM_Control_Method_NORMAL_MIT_Position,3.14f,15.0f,2.7f); 
@@ -401,7 +401,7 @@ void PID_Init_All()
     PID_Init(&Motor_C620[3].PID_Omega,3.5f, 0.0, 0.0, 0.002f,0.0f,0.0f,0.0f,0.0f,0,0,0,0,Integral_Limit);
 
     //舵向电机速度环PID参数初始化
-    PID_Init(&Motor_DM_6220[0].PID_Omega,2.7f, 0.45f, 0.00f, 0.001f,0.0375f,0.125f,0.0f,0.01f,0.5f,0.1f,0,0,Integral_Limit|ChangingIntegralRate);
+    PID_Init(&Motor_DM_6220[0].PID_Omega,2.7f, 0.7f, 0.00f, 0.001f,0.0375f,0.15f,0.0f,0.015f,2.0f,0.5f,0,0,Integral_Limit);
     PID_Init(&Motor_DM_6220[1].PID_Omega,2.7f, 1.35f, 0.03, 0.001f,0.05f,0.75f,0.0f,0.5f,0,0,0,0,Integral_Limit|ChangingIntegralRate);
     PID_Init(&Motor_DM_6220[2].PID_Omega,2.7f, 1.35f, 0.03, 0.001f,0.05f,0.75f,0.0f,0.5f,0,0,0,0,Integral_Limit|ChangingIntegralRate);
     PID_Init(&Motor_DM_6220[3].PID_Omega,2.7f, 1.35f, 0.03, 0.001f,0.05f,0.75f,0.0f,0.5f,0,0,0,0,Integral_Limit|ChangingIntegralRate);
@@ -441,12 +441,15 @@ void Wave_Output()
     }
     if(press_count%2==1)
     {
-        ALG_Sin_Generate(&Sin_Out, 3.0f, -3.0f, 1000.0f);
-        Motor_DM_6220[0].Set_Target_Angle(Sin_Out);
+        // ALG_Sin_Generate(&Sin_Out, 3.0f, -3.0f, 1000.0f);
+        // Motor_DM_6220[0].Set_Target_Angle(Sin_Out);
+        ALG_Sin_Generate(&Sin_Out, 2.0f, -8.0f, 1000.0f);
+        Motor_DM_6220[0].Set_Target_Omega(Sin_Out);
     }
     else
     {
-        Motor_DM_6220[0].Set_Target_Angle(0.0f);
+        // Motor_DM_6220[0].Set_Target_Angle(0.0f);
+        Motor_DM_6220[0].Set_Target_Omega(0.0f);
     }
 }
 
@@ -471,7 +474,7 @@ void Chassis_Control_Task()
     Motor_C620[2].Set_Target_Omega(Steer_Chassis.Get_Motor_Target_Omega()[2]);
     Motor_C620[3].Set_Target_Omega(Steer_Chassis.Get_Motor_Target_Omega()[3]);
 
-    Motor_DM_6220[0].Set_Target_Angle(-Steer_Chassis.Get_Steer_Target_Angle()[0]);
+    // Motor_DM_6220[0].Set_Target_Angle(-Steer_Chassis.Get_Steer_Target_Angle()[0]);
     // Motor_DM_6220[1].Set_Target_Angle(-Steer_Chassis.Get_Steer_Target_Angle()[1]);
     // Motor_DM_6220[2].Set_Target_Angle(-Steer_Chassis.Get_Steer_Target_Angle()[2]);
     // Motor_DM_6220[3].Set_Target_Angle(-Steer_Chassis.Get_Steer_Target_Angle()[3]);
