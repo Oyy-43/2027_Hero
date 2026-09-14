@@ -366,8 +366,12 @@ void Class_Motor_DM_Normal::TIM_Send_PeriodElapsedCallback()
         }
         else if (Motor_DM_Control_Method == Motor_DM_Control_Method_NORMAL_MIT_Position)
         {
+            const float angle_period = 2.0f * Angle_Max;
+            // 角度编码以 ±Angle_Max 为同一周期边界
+            const float target_angle = Rx_Data.Now_Angle + Basic_Math_Modulus_Normalization(Target_Angle - Rx_Data.Now_Angle, angle_period);
+            PID_Angle.LastNoneZeroTarget = target_angle + Basic_Math_Modulus_Normalization(PID_Angle.LastNoneZeroTarget - target_angle, angle_period);
 
-            Target_Omega = PID_Calculate(&this->PID_Angle,Rx_Data.Now_Angle,Target_Angle);
+            Target_Omega = PID_Calculate(&this->PID_Angle, Rx_Data.Now_Angle, target_angle);
 
             Control_Torque = PID_Calculate(&this->PID_Omega,Rx_Data.Now_Omega,(Target_Omega + Feedforward_Omega));
         }

@@ -8,12 +8,13 @@ D:/A New RM/2027_HeroProject/Hero_2027/User_Files/2_Device/Motor/Motor_DJI/drv_m
 D:/A New RM/2027_HeroProject/Hero_2027/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.h:1052:13:void Class_Motor_DJI_C620::Set_Target_Omega(const float&)	16	static
 D:/A New RM/2027_HeroProject/Hero_2027/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.h:1062:13:void Class_Motor_DJI_C620::Set_Target_Torque(const float&)	16	static
 D:/A New RM/2027_HeroProject/Hero_2027/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.h:547:14:float Class_Motor_DM_Normal::Get_Now_Angle() const	16	static
-D:/A New RM/2027_HeroProject/Hero_2027/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.h:697:13:void Class_Motor_DM_Normal::Set_Target_Omega(const float&)	16	static
+D:/A New RM/2027_HeroProject/Hero_2027/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.h:677:13:void Class_Motor_DM_Normal::Set_Target_Angle(const float&)	16	static
 D:/A New RM/2027_HeroProject/Hero_2027/User_Files/3_App/Chassis/chassis_control.h:129:15:float* Class_Chassis_Control::Get_Motor_Target_Torque()	16	static
 D:/A New RM/2027_HeroProject/Hero_2027/User_Files/3_App/Chassis/chassis_control.h:139:15:float* Class_Chassis_Control::Get_Motor_Target_Omega()	16	static
 D:/A New RM/2027_HeroProject/Hero_2027/User_Files/3_App/Chassis/Steer_Chassis/steer_control.h:70:14:float Steer_Chassis_Control::Get_Chassis_Now_Velocity_X() const	16	static
 D:/A New RM/2027_HeroProject/Hero_2027/User_Files/3_App/Chassis/Steer_Chassis/steer_control.h:75:14:float Steer_Chassis_Control::Get_Chassis_Now_Velocity_Y() const	16	static
 D:/A New RM/2027_HeroProject/Hero_2027/User_Files/3_App/Chassis/Steer_Chassis/steer_control.h:80:14:float Steer_Chassis_Control::Get_Chassis_Now_Velocity_W() const	16	static
+D:/A New RM/2027_HeroProject/Hero_2027/User_Files/3_App/Chassis/Steer_Chassis/steer_control.h:85:21:const float* Steer_Chassis_Control::Get_Steer_Target_Angle() const	16	static
 D:/A New RM/2027_HeroProject/Hero_2027/User_Files/3_App/Chassis/Steer_Chassis/steer_control.h:90:13:void Steer_Chassis_Control::Set_Target_Velocity(const float&, const float&, const float&)	24	static
 D:/A New RM/2027_HeroProject/Hero_2027/User_Files/1_Middleware/Algorithm/Filter/Frequency/alg_filter_frequency.h:43:7:Class_Filter_Frequency<>::Class_Filter_Frequency()	16	static
 D:/A New RM/2027_HeroProject/Hero_2027/User_Files/1_Middleware/Algorithm/Filter/Frequency/alg_filter_frequency.h:43:7:Class_Filter_Frequency<12>::Class_Filter_Frequency()	16	static
@@ -33,8 +34,8 @@ D:/A New RM/2027_HeroProject/Hero_2027/User_Files/3_App/Task/tsk_config_and_call
 D:/A New RM/2027_HeroProject/Hero_2027/User_Files/3_App/Task/tsk_config_and_callback.cpp:395:6:void PID_Init_All()	8	static
 D:/A New RM/2027_HeroProject/Hero_2027/User_Files/3_App/Task/tsk_config_and_callback.cpp:420:6:void Filter_Init_All()	88	static
 D:/A New RM/2027_HeroProject/Hero_2027/User_Files/3_App/Task/tsk_config_and_callback.cpp:435:6:void Wave_Output()	16	static
-D:/A New RM/2027_HeroProject/Hero_2027/User_Files/3_App/Task/tsk_config_and_callback.cpp:456:6:void Chassis_Control_Task()	40	static
+D:/A New RM/2027_HeroProject/Hero_2027/User_Files/3_App/Task/tsk_config_and_callback.cpp:459:6:void Chassis_Control_Task()	48	static
 D:/A New RM/2027_HeroProject/Hero_2027/User_Files/1_Middleware/Algorithm/Filter/Frequency/alg_filter_frequency.h:114:6:void Class_Filter_Frequency<Filter_Frequency_Order>::Init(const float&, const float&, const Enum_Filter_Frequency_Type&, const float&, const float&, const float&) [with long unsigned int Filter_Frequency_Order = 12]	72	static
 D:/A New RM/2027_HeroProject/Hero_2027/User_Files/1_Middleware/Algorithm/Filter/Frequency/alg_filter_frequency.h:114:6:void Class_Filter_Frequency<Filter_Frequency_Order>::Init(const float&, const float&, const Enum_Filter_Frequency_Type&, const float&, const float&, const float&) [with long unsigned int Filter_Frequency_Order = 10]	72	static
-D:/A New RM/2027_HeroProject/Hero_2027/User_Files/3_App/Task/tsk_config_and_callback.cpp:482:1:void __static_initialization_and_destruction_0()	16	static
-D:/A New RM/2027_HeroProject/Hero_2027/User_Files/3_App/Task/tsk_config_and_callback.cpp:482:1:cpp)	8	static
+D:/A New RM/2027_HeroProject/Hero_2027/User_Files/3_App/Task/tsk_config_and_callback.cpp:485:1:void __static_initialization_and_destruction_0()	16	static
+D:/A New RM/2027_HeroProject/Hero_2027/User_Files/3_App/Task/tsk_config_and_callback.cpp:485:1:cpp)	8	static

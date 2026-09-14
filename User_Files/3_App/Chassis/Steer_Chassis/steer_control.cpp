@@ -80,8 +80,7 @@ void Steer_Chassis_Control::Chassis_to_Motors()
     const float r  = Chassis_Data.Wheel_Base;
 
     // 静止判定: 目标速度都很小(例如松开摇杆)时舵向保持当前角度, 防止舵电机回0空耗功率
-    // (参照DJI舵轮底盘: 静止时把舵向目标锁在当前角)
-    // 小陀螺(Gyring)模式除外: 该模式下底盘持续旋转+平移, 舵向需随运动学合成方向动态更新, 不能锁死
+    // 静止时把舵向目标锁在当前角,小陀螺(Gyring)模式除外: 该模式下底盘持续旋转+平移, 舵向需随运动学合成方向动态更新, 不能锁死
     if (Chassis_Control_Mode != Chassis_Control_Mode_Gyring &&
         fabsf(vx) < STEER_HOLD_VELOCITY_THRESHOLD &&
         fabsf(vy) < STEER_HOLD_VELOCITY_THRESHOLD &&
