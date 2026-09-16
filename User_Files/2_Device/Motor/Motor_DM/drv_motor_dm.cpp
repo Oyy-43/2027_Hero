@@ -221,8 +221,10 @@ uint8_t *allocate_tx_data(const FDCAN_HandleTypeDef *hcan, const Enum_Motor_DM_M
  * @param __Omega_Max 最大速度, 与上位机控制幅值VMAX保持一致, 传统模式有效
  * @param __Torque_Max 最大扭矩, 与上位机控制幅值TMAX保持一致, 传统模式有效
  * @param __Current_Max 最大电流, 与上位机串口中上电打印电流保持一致, EMIT模式需要
+ * @param __T_feedforward 前馈扭矩
  */
-void Class_Motor_DM_Normal::Init(const FDCAN_HandleTypeDef *hcan, const uint8_t &__CAN_Rx_ID, const uint8_t &__CAN_Tx_ID, const Enum_Motor_DM_Control_Method &__Motor_DM_Control_Method, const float &__Angle_Max, const float &__Omega_Max, const float &__Torque_Max, const float &__Current_Max)
+void Class_Motor_DM_Normal::Init(const FDCAN_HandleTypeDef *hcan, const uint8_t &__CAN_Rx_ID, const uint8_t &__CAN_Tx_ID, const Enum_Motor_DM_Control_Method &__Motor_DM_Control_Method, 
+    const float &__Angle_Max, const float &__Omega_Max, const float &__Torque_Max, const float &__Current_Max, const float &__T_feedforward)
 {
     if (hcan->Instance == FDCAN1)
     {
@@ -267,6 +269,8 @@ void Class_Motor_DM_Normal::Init(const FDCAN_HandleTypeDef *hcan, const uint8_t 
     Omega_Max = __Omega_Max;
     Torque_Max = __Torque_Max;
     Current_Max = __Current_Max;
+    Feedforward_Torque = __T_feedforward;
+    Init_Flag = true;
 }
 
 /**
@@ -350,6 +354,10 @@ void Class_Motor_DM_Normal::TIM_100ms_Alive_PeriodElapsedCallback()
  */
 void Class_Motor_DM_Normal::TIM_Send_PeriodElapsedCallback()
 {
+    if(Init_Flag != true)
+    {
+        return;
+    }
     if (Rx_Data.Control_Status == Motor_DM_Control_Status_ENABLE)
     {
         // 电机在线, 正常控制
@@ -362,7 +370,17 @@ void Class_Motor_DM_Normal::TIM_Send_PeriodElapsedCallback()
 
         if(Motor_DM_Control_Method == Motor_DM_Control_Method_NORMAL_MIT_Omega)
         {
-            Control_Torque = PID_Calculate(&this->PID_Omega,Rx_Data.Now_Omega,(Target_Omega + Feedforward_Omega));
+            float feedforward_torque = 0.0f;
+            if (Target_Omega > 0.0f)
+            {
+                feedforward_torque = Feedforward_Torque;
+            }
+            else if (Target_Omega < 0.0f)
+            {
+                feedforward_torque = -Feedforward_Torque;
+            }
+            Control_Torque = PID_Calculate(&this->PID_Omega, Rx_Data.Now_Omega, Target_Omega + Feedforward_Omega)
+                           + feedforward_torque;
         }
         else if (Motor_DM_Control_Method == Motor_DM_Control_Method_NORMAL_MIT_Position)
         {
@@ -373,9 +391,24 @@ void Class_Motor_DM_Normal::TIM_Send_PeriodElapsedCallback()
 
             Target_Omega = PID_Calculate(&this->PID_Angle, Rx_Data.Now_Angle, target_angle);
 
+            float feedforward_torque = 0.0f;
+            if (Target_Omega > 0.0f)
+            {
+                feedforward_torque = Feedforward_Torque;
+            }
+            else if (Target_Omega < 0.0f)
+            {
+                feedforward_torque = -Feedforward_Torque;
+            }
             Control_Torque = PID_Calculate(&this->PID_Omega,Rx_Data.Now_Omega,(Target_Omega + Feedforward_Omega));
         }
+        Basic_Math_Constrain(&Control_Torque, -Torque_Max, Torque_Max);
         Output();
+    }
+    else if (Rx_Data.Control_Status == Motor_DM_Control_Status_DISABLE)
+    {
+        // 电机离线, 发送使能电机指令
+        CAN_Send_Enter();
     }
 }
 

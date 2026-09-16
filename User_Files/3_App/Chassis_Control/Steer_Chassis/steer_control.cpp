@@ -54,6 +54,8 @@ void Steer_Chassis_Control::Init(float __Max_Torque_per_Wheel, float __Wheel_Rad
     // 平移速度环: 最大输出=最大净牵引力, 积分限幅同步设为物理上限
     PID_Init(&PID_Moving_X,F_max,0, 0.0f, 0.002f, 105.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, Integral_Limit);
     PID_Init(&PID_Moving_Y,F_max,0, 0.0f, 0.002f, 105.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, Integral_Limit);
+    // PID_Init(&PID_Moving_X,F_max,0, 0.0f, 0.002f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, Integral_Limit);
+    // PID_Init(&PID_Moving_Y,F_max,0, 0.0f, 0.002f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, Integral_Limit);
 
     // 旋转速度环: 最大输出=最大净旋转力矩, 积分限幅同步设为物理上限
     PID_Init(&PID_Spin, M_z_max,0, 0.0f, 0.002f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, Integral_Limit);

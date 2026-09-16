@@ -205,7 +205,8 @@ public:
 
     Class_Filter_Frequency<10> Filter_Omega;
 
-    void Init(const FDCAN_HandleTypeDef *hcan, const uint8_t &__CAN_Rx_ID = 0x00, const uint8_t &__CAN_Tx_ID = 0x01, const Enum_Motor_DM_Control_Method &__Motor_DM_Control_Method = Motor_DM_Control_Method_NORMAL_MIT, const float &__Angle_Max = 12.5f, const float &__Omega_Max = 25.0f, const float &__Torque_Max = 10.0f, const float &__Current_Max = 10.261194f);
+    void Init(const FDCAN_HandleTypeDef *hcan, const uint8_t &__CAN_Rx_ID = 0x00, const uint8_t &__CAN_Tx_ID = 0x01, const Enum_Motor_DM_Control_Method &__Motor_DM_Control_Method = Motor_DM_Control_Method_NORMAL_MIT, 
+        const float &__Angle_Max = 12.5f, const float &__Omega_Max = 25.0f, const float &__Torque_Max = 10.0f, const float &__Current_Max = 10.261194f,const float &__T_feedforward = 0.0f);
 
     inline float Get_Angle_Max() const;
 
@@ -294,7 +295,7 @@ protected:
     // 常量
 
     // 内部变量
-
+    bool Init_Flag = false;
     // 当前时刻的电机接收flag
     uint32_t Flag = 0;
     // 前一时刻的电机接收flag

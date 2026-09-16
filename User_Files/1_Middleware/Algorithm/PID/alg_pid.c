@@ -144,8 +144,8 @@ float PID_Calculate(PID_TypeDef *pid, float measure, float target)
 
         pid->Iout += pid->ITerm;
         pid->Fout =pid->Kf * (pid->Target - pid->LastNoneZeroTarget);
-
-        pid->Output = pid->Pout + pid->Iout + pid->Dout + pid->Fout;
+        
+        pid->Output = pid->Pout + pid->Iout + pid->Dout + pid->Fout ;
 
         //输出滤波使能判断
         if (pid->Improve & OutputFilter)

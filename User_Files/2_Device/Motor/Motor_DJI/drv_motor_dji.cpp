@@ -847,13 +847,21 @@ void Class_Motor_DJI_C620::TIM_100ms_Alive_PeriodElapsedCallback()
 void Class_Motor_DJI_C620:: TIM_Calculate_PeriodElapsedCallback()
 {
     PID_Cal();
-
-    Out = (Target_Torque + Feedforward_Torque + Omega_Out_Torque) / CURRENT_TO_TORQUE / Gearbox_Rate * CURRENT_TO_OUT;
+    float T_Feedforward = 0.0f;
+    if(Target_Omega >= 0.0f)
+    {
+        T_Feedforward = fabs(Feedforward_Torque);
+    }
+    else
+    {
+        T_Feedforward = -fabs(Feedforward_Torque);
+    }
+    Out = (Target_Torque + T_Feedforward + Omega_Out_Torque) / CURRENT_TO_TORQUE / Gearbox_Rate * CURRENT_TO_OUT;
     Basic_Math_Constrain(&Out, -OUT_MAX, OUT_MAX);
 
     Output();
 
-    Feedforward_Torque = 0.0f;
+    T_Feedforward = 0.0f;
     Feedforward_Omega = 0.0f;
 }
 

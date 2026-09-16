@@ -1,17 +1,5 @@
-/**
- * @file tsk_config_and_callback.h
- * @author yssickjgd (1345578933@qq.com)
- * @brief 临时任务调度测试用函数, 后续用来存放个人定义的回调函数以及若干任务
- * @version 0.1
- * @date 2023-08-29 0.1 23赛季定稿
- * @date 2023-01-17 1.1 调试到机器人层
- *
- * @copyright USTC-RoboWalker (c) 2023-2024
- *
- */
-
-#ifndef TSK_CONFIG_AND_CALLBACK_H
-#define TSK_CONFIG_AND_CALLBACK_H
+#ifndef __CHASSIS_TASK_H__
+#define __CHASSIS_TASK_H__
 
 #ifdef __cplusplus
 extern "C" {
@@ -28,7 +16,9 @@ extern "C" {
 /* Exported variables --------------------------------------------------------*/
 extern bool init_finished;
 /* Exported function declarations --------------------------------------------*/
+
 void Task1ms_Callback(void);
+
 void Task3600s_Callback(void);
 
 void Task_Init();
@@ -44,10 +34,11 @@ void Wave_Output();
 void Motor_Init();
 
 void Chassis_Control_Task();
+
+void Chassis_Task_Func(void *argument);  
+
 #ifdef __cplusplus
 };
 #endif
 
-#endif
-
-/************************ COPYRIGHT(C) USTC-ROBOWALKER **************************/
+#endif /* __CHASSIS_TASK_H__ */

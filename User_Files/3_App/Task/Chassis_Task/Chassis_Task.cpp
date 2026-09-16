@@ -1,18 +1,16 @@
 /**
- * @file tsk_config_and_callback.cpp
- * @author yssickjgd (1345578933@qq.com)
- * @brief 临时任务调度测试用函数, 后续用来存放个人定义的回调函数以及若干任务
+ * @file Chassis_Task.cpp
+ * @author Oyyp
+ * @brief 下板底盘代码所使用的任务
  * @version 0.1
- * @date 2023-08-29 0.1 23赛季定稿
- * @date 2023-01-17 1.1 调试到机器人层
+ * @date 2026-09-15 0.1 init
  *
- * @copyright USTC-RoboWalker (c) 2023-2024
+ * @copyright Copyright
  *
  */
 
 /* Includes ------------------------------------------------------------------*/
-
-#include "tsk_config_and_callback.h"
+#include "Chassis_Task.h"
 
 // #include "2_Device/BSP/BMI088/bsp_bmi088.h"
 // #include "2_Device/Plotter/Vofa/dvc_vofa.h"
@@ -39,9 +37,11 @@
 /* Private types -------------------------------------------------------------*/
 Class_Motor_DJI_C620 Motor_C620[4];
 Class_Motor_DM_Normal Motor_DM_6220[4];
+Class_Motor_DM_Normal Motor_DM_4340P;
 Steer_Chassis_Control Steer_Chassis;
 Class_Slope Slope_VX,Slope_VY,Slope_VW;
 float cmd_vx,cmd_vy,cmd_vw;
+float test_feedforward_torque = 0.0f;
 /* Private variables ---------------------------------------------------------*/
 
 // LED灯
@@ -91,6 +91,12 @@ void CAN1_Callback(FDCAN_RxHeaderTypeDef &Header, uint8_t *Buffer)
         case (0x204):
         {
             Motor_C620[3].CAN_RxCpltCallback();
+
+            break;
+        }
+        case (0x20):
+        {
+            Motor_DM_4340P.CAN_RxCpltCallback();
 
             break;
         }
@@ -190,11 +196,14 @@ void Task1ms_Callback()
     }
     TIM_1ms_CAN_PeriodElapsedCallback();
 
-    // dm 电机的CAN发送函数,1ms发送一次
-    Motor_DM_6220[0].TIM_Send_PeriodElapsedCallback();   
+
+    // dm电机的CAN发送函数,1ms发送一次
+   
     // Motor_DM_6220[1].TIM_Send_PeriodElapsedCallback();
     // Motor_DM_6220[2].TIM_Send_PeriodElapsedCallback();
     // Motor_DM_6220[3].TIM_Send_PeriodElapsedCallback();
+
+    Motor_DM_4340P.TIM_Send_PeriodElapsedCallback();
 
     // static int mod10 = 0;
     // mod10++;
@@ -290,7 +299,7 @@ void Task1ms_Callback()
     // 喂狗
     TIM_1ms_IWDG_PeriodElapsedCallback();
 
-    // Wave_Output();
+    Wave_Output();
 }
 
 /**
@@ -312,9 +321,6 @@ void Task_Init()
     CAN_Init(&hfdcan1, CAN1_Callback);
     CAN_Init(&hfdcan2, CAN2_Callback);
 
-    //初始化电机
-    Motor_Init();
-
     //电源ADC的初始化
     HAL_ADCEx_Calibration_Start(&hadc1, ADC_CALIB_OFFSET, ADC_SINGLE_ENDED);
     
@@ -327,6 +333,9 @@ void Task_Init()
     Slope_VX.Init(0.08f, 0.8f, Slope_First_REAL);
     Slope_VY.Init(0.08f, 0.8f, Slope_First_REAL);
     Slope_VW.Init(0.08f, 0.8f, Slope_First_REAL);
+    
+    //电机初始化
+    Motor_Init();
 
     //电机PID参数初始化
     PID_Init_All();
@@ -352,6 +361,7 @@ void Task_Init()
 
     //底盘初始化
     Steer_Chassis.Init(3.5, 0.05, 0.408, 0.408);
+
     // 标记初始化完成
     init_finished = true;
 
@@ -382,10 +392,14 @@ void Motor_Init()
     Motor_DM_6220[2].Init(&hfdcan2, 0x13, 0x03, Motor_DM_Control_Method_NORMAL_MIT_Position,3.14f,15.0f,2.7f);
     Motor_DM_6220[3].Init(&hfdcan2, 0x14, 0x04, Motor_DM_Control_Method_NORMAL_MIT_Position,3.14f,15.0f,2.7f); 
 
+    Motor_DM_4340P.Init(&hfdcan1,0x20, 0x10, Motor_DM_Control_Method_NORMAL_MIT_Position,12.5f,45.0f,28.0f,0.0f,0.4f);
+
     Motor_DM_6220[0].CAN_Send_Enter();
     // Motor_DM_6220[1].CAN_Send_Enter(); 
     // Motor_DM_6220[2].CAN_Send_Enter();
     // Motor_DM_6220[3].CAN_Send_Enter();
+
+    Motor_DM_4340P.CAN_Send_Enter();
 }
 
 /**
@@ -411,6 +425,10 @@ void PID_Init_All()
     PID_Init(&Motor_DM_6220[1].PID_Angle,3.5f, 0.0f, 0.0f, 0.001f,4.50f,0.00f,0.003f,0.00f,0,0,0,0,Integral_Limit);
     PID_Init(&Motor_DM_6220[2].PID_Angle,3.5f, 0.0f, 0.0f, 0.001f,4.50f,0.00f,0.003f,0.00f,0,0,0,0,Integral_Limit);
     PID_Init(&Motor_DM_6220[3].PID_Angle,3.5f, 0.0f, 0.0f, 0.001f,4.50f,0.00f,0.003f,0.00f,0,0,0,0,Integral_Limit);
+    
+    PID_Init(&Motor_DM_4340P.PID_Omega,27.0f, 3.0f, 0.0f, 0.015f,3.25f,6.5f,0.0f,7.5f,0,0,0,0,Integral_Limit);
+    PID_Init(&Motor_DM_4340P.PID_Angle,5.8f, 2.9f, 0.0f, 0.001f,37.5f,0.0125f,0.0,0.0f,0,0,0,0,Integral_Limit);
+
 }
 
 /**
@@ -439,21 +457,23 @@ void Wave_Output()
     {
         press_count++;
     }
-    if(press_count%2==1)
-    {
-        // ALG_Sin_Generate(&Sin_Out, 3.0f, -3.0f, 1000.0f);
-        // Motor_DM_6220[0].Set_Target_Angle(Sin_Out);
-        ALG_Value_Toggle_Periodic(&Sin_Out, 1.57f,-1.57f,2.0f,1000.0f);
-        Motor_DM_6220[0].Set_Target_Angle(Sin_Out);
-        // ALG_Sin_Generate(&Sin_Out, 2.5f, -11.0f, 1000.0f);
-        // Motor_DM_6220[0].Set_Target_Omega(Sin_Out);
-    }
-    else
-    {
-        Sin_Out = 0.0f;
-        Motor_DM_6220[0].Set_Target_Angle(0.0f);
-        // Motor_DM_6220[0].Set_Target_Omega(0.0f);
-    }
+     if(press_count%2==1)
+     {
+    //     ALG_Sin_Generate(&Sin_Out, 2.0f, -4.0f, 1000.0f);
+    //     // Motor_DM_6220[0].Set_Target_Angle(Sin_Out);
+    //     // ALG_Value_Toggle_Periodic(&Sin_Out, 1.57f,-1.57f,2.0f,1000.0f);
+           // Motor_DM_6220[0].Set_Target_Angle(Sin_Out);
+    //     // ALG_Sin_Generate(&Sin_Out, 2.5f, -11.0f, 1000.0f);
+    //     // Motor_DM_6220[0].Set_Target_Omega(Sin_Out);
+        Motor_DM_4340P.Set_Target_Angle(0.0f);
+     }
+    // else
+    // {
+    //     Sin_Out = 0.0f;
+    //     // Motor_DM_6220[0].Set_Target_Angle(0.0f);
+    //     // Motor_DM_6220[0].Set_Target_Omega(0.0f);
+    //     Motor_DM_4340P.Set_Target_Omega(0.0f);
+    // }
 }
 
 void Chassis_Control_Task()
@@ -462,7 +482,7 @@ void Chassis_Control_Task()
     cmd_vy = Slope_VY.TIM_Calculate_GetOut((float)(-rc_channels.ch[0]) / 1640.0f,Steer_Chassis.Get_Chassis_Now_Velocity_Y());
     cmd_vw = Slope_VW.TIM_Calculate_GetOut((float)rc_channels.ch[3] / 1640.0f,Steer_Chassis.Get_Chassis_Now_Velocity_W());
 
-    Steer_Chassis.Set_Target_Velocity(cmd_vx, cmd_vy, cmd_vw);
+    // Steer_Chassis.Set_Target_Velocity(cmd_vx, cmd_vy, cmd_vw);
 
     Steer_Chassis.TIM_Calculate_PeriodElapsedCallback(Motor_C620[0].Get_Now_Filtered_Omega(),Motor_C620[1].Get_Now_Filtered_Omega(),Motor_C620[2].Get_Now_Filtered_Omega(),Motor_C620[3].Get_Now_Filtered_Omega()
     ,Motor_DM_6220[0].Get_Now_Angle(),Motor_DM_6220[1].Get_Now_Angle(),Motor_DM_6220[2].Get_Now_Angle(),Motor_DM_6220[3].Get_Now_Angle());
@@ -483,4 +503,15 @@ void Chassis_Control_Task()
     // Motor_DM_6220[3].Set_Target_Angle(-Steer_Chassis.Get_Steer_Target_Angle()[3]);
 
 }
-/************************ COPYRIGHT(C) USTC-ROBOWALKER **************************/
+
+void Chassis_Task_Func(void *argument)
+{
+    osDelay(1000);
+    //初始化电机
+    Motor_Init();
+    for(;;)
+    {
+        Motor_DM_6220[0].TIM_Send_PeriodElapsedCallback();
+        osDelay(1);
+    }
+}
