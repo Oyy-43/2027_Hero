@@ -134,6 +134,10 @@ void CAN2_Callback(FDCAN_RxHeaderTypeDef &Header, uint8_t *Buffer)
     }
 }
 
+void CAN3_Callback(FDCAN_RxHeaderTypeDef &Header, uint8_t *Buffer)
+{
+    return ;
+}
 /**
  * @brief 每3600s调用一次
  *
@@ -141,6 +145,15 @@ void CAN2_Callback(FDCAN_RxHeaderTypeDef &Header, uint8_t *Buffer)
 void Task3600s_Callback()
 {
     SYS_Timestamp.TIM_3600s_PeriodElapsedCallback();
+}
+
+/**
+ * @brief 每500ms调用一次
+ * 
+ */
+void Task500ms_Callback()
+{
+    Tele_TIM_PeriodElapsedCallback();
 }
 
 /**
@@ -153,15 +166,6 @@ void Task100ms_Callback()
     Motor_C620[1].TIM_100ms_Alive_PeriodElapsedCallback();
     Motor_C620[2].TIM_100ms_Alive_PeriodElapsedCallback();
     Motor_C620[3].TIM_100ms_Alive_PeriodElapsedCallback();
-}
-
-/**
- * @brief 每500ms调用一次
- * 
- */
-void Task500ms_Callback()
-{
-    Tele_TIM_PeriodElapsedCallback();
 }
 
 /**
@@ -196,72 +200,8 @@ void Task1ms_Callback()
     }
     TIM_1ms_CAN_PeriodElapsedCallback();
 
-
-    // dm电机的CAN发送函数,1ms发送一次
-   
-    // Motor_DM_6220[1].TIM_Send_PeriodElapsedCallback();
-    // Motor_DM_6220[2].TIM_Send_PeriodElapsedCallback();
-    // Motor_DM_6220[3].TIM_Send_PeriodElapsedCallback();
-
     Motor_DM_4340P.TIM_Send_PeriodElapsedCallback();
 
-    // static int mod10 = 0;
-    // mod10++;
-    // if (mod10 == 10)
-    // {
-    //     mod10 = 0;
-
-    //     if (red >= 18)
-    //     {
-    //         red_minus_flag = true;
-    //     }
-    //     else if (red == 0)
-    //     {
-    //         red_minus_flag = false;
-    //     }
-    //     if (green >= 18)
-    //     {
-    //         green_minus_flag = true;
-    //     }
-    //     else if (green == 0)
-    //     {
-    //         green_minus_flag = false;
-    //     }
-    //     if (blue >= 18)
-    //     {
-    //         blue_minus_flag = true;
-    //     }
-    //     else if (blue == 0)
-    //     {
-    //         blue_minus_flag = false;
-    //     }
-
-    //     if (red_minus_flag)
-    //     {
-    //         red--;
-    //     }
-    //     else
-    //     {
-    //         red++;
-    //     }
-    //     if (green_minus_flag)
-    //     {
-    //         green--;
-    //     }
-    //     else
-    //     {
-    //         green++;
-    //     }
-    //     if (blue_minus_flag)
-    //     {
-    //         blue--;
-    //     }
-    //     else
-    //     {
-    //         blue++;
-    //     }
-
-    //     BSP_WS2812.Set_RGB(red, green, blue);
     BSP_WS2812.Set_RGB(0, 0, 0);
 
     // 发送实例
@@ -497,6 +437,7 @@ void Chassis_Control_Task()
     Motor_C620[2].Set_Target_Omega(Steer_Chassis.Get_Motor_Target_Omega()[2]);
     Motor_C620[3].Set_Target_Omega(Steer_Chassis.Get_Motor_Target_Omega()[3]);
 
+    //舵轮的坐标系其实和底盘的坐标系Z轴是相反的，所以这里要取负号
     Motor_DM_6220[0].Set_Target_Angle(-Steer_Chassis.Get_Steer_Target_Angle()[0]);
     // Motor_DM_6220[1].Set_Target_Angle(-Steer_Chassis.Get_Steer_Target_Angle()[1]);
     // Motor_DM_6220[2].Set_Target_Angle(-Steer_Chassis.Get_Steer_Target_Angle()[2]);
@@ -511,7 +452,11 @@ void Chassis_Task_Func(void *argument)
     Motor_Init();
     for(;;)
     {
+        // dm电机的CAN发送函数,1ms发送一次
         Motor_DM_6220[0].TIM_Send_PeriodElapsedCallback();
+        Motor_DM_6220[1].TIM_Send_PeriodElapsedCallback();
+        Motor_DM_6220[2].TIM_Send_PeriodElapsedCallback();
+        Motor_DM_6220[3].TIM_Send_PeriodElapsedCallback();
         osDelay(1);
     }
 }

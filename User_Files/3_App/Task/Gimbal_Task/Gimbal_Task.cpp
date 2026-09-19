@@ -203,63 +203,6 @@ void Task1ms_Callback()
 
     Motor_DM_4340P.TIM_Send_PeriodElapsedCallback();
 
-    // static int mod10 = 0;
-    // mod10++;
-    // if (mod10 == 10)
-    // {
-    //     mod10 = 0;
-
-    //     if (red >= 18)
-    //     {
-    //         red_minus_flag = true;
-    //     }
-    //     else if (red == 0)
-    //     {
-    //         red_minus_flag = false;
-    //     }
-    //     if (green >= 18)
-    //     {
-    //         green_minus_flag = true;
-    //     }
-    //     else if (green == 0)
-    //     {
-    //         green_minus_flag = false;
-    //     }
-    //     if (blue >= 18)
-    //     {
-    //         blue_minus_flag = true;
-    //     }
-    //     else if (blue == 0)
-    //     {
-    //         blue_minus_flag = false;
-    //     }
-
-    //     if (red_minus_flag)
-    //     {
-    //         red--;
-    //     }
-    //     else
-    //     {
-    //         red++;
-    //     }
-    //     if (green_minus_flag)
-    //     {
-    //         green--;
-    //     }
-    //     else
-    //     {
-    //         green++;
-    //     }
-    //     if (blue_minus_flag)
-    //     {
-    //         blue--;
-    //     }
-    //     else
-    //     {
-    //         blue++;
-    //     }
-
-    //     BSP_WS2812.Set_RGB(red, green, blue);
     BSP_WS2812.Set_RGB(0, 0, 0);
 
     // 发送实例

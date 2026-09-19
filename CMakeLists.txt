@@ -81,6 +81,7 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/ADC/drv_adc.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/WDG/drv_wdg.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/System/Timestamp/sys_timestamp.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/Key/bsp_key.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/Power/bsp_power.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/WS2812/bsp_ws2812.cpp
@@ -118,6 +119,7 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/WDG
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/CRSF
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/System/Timestamp
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/FSM
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/Key
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/Power
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/WS2812
