@@ -1,8 +1,8 @@
-D:/A New RM/2027_HeroProject/Hero_2027/Core/Src/tim.c:32:6:MX_TIM5_Init	40	static
-D:/A New RM/2027_HeroProject/Hero_2027/Core/Src/tim.c:72:6:MX_TIM7_Init	24	static
-D:/A New RM/2027_HeroProject/Hero_2027/Core/Src/tim.c:105:6:MX_TIM12_Init	48	static
-D:/A New RM/2027_HeroProject/Hero_2027/Core/Src/tim.c:150:6:HAL_TIM_Base_MspInit	24	static
-D:/A New RM/2027_HeroProject/Hero_2027/Core/Src/tim.c:185:6:HAL_TIM_PWM_MspInit	24	static
-D:/A New RM/2027_HeroProject/Hero_2027/Core/Src/tim.c:200:6:HAL_TIM_MspPostInit	40	static
-D:/A New RM/2027_HeroProject/Hero_2027/Core/Src/tim.c:228:6:HAL_TIM_Base_MspDeInit	16	static
-D:/A New RM/2027_HeroProject/Hero_2027/Core/Src/tim.c:261:6:HAL_TIM_PWM_MspDeInit	16	static
+/home/oyyp/code/2027_Hero/Core/Src/tim.c:32:6:MX_TIM5_Init	40	static
+/home/oyyp/code/2027_Hero/Core/Src/tim.c:72:6:MX_TIM7_Init	24	static
+/home/oyyp/code/2027_Hero/Core/Src/tim.c:105:6:MX_TIM12_Init	48	static
+/home/oyyp/code/2027_Hero/Core/Src/tim.c:150:6:HAL_TIM_Base_MspInit	24	static
+/home/oyyp/code/2027_Hero/Core/Src/tim.c:185:6:HAL_TIM_PWM_MspInit	24	static
+/home/oyyp/code/2027_Hero/Core/Src/tim.c:200:6:HAL_TIM_MspPostInit	40	static
+/home/oyyp/code/2027_Hero/Core/Src/tim.c:228:6:HAL_TIM_Base_MspDeInit	16	static
+/home/oyyp/code/2027_Hero/Core/Src/tim.c:261:6:HAL_TIM_PWM_MspDeInit	16	static

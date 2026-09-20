@@ -1,3 +1,3 @@
-D:/A New RM/2027_HeroProject/Hero_2027/Core/Src/freertos.c:82:6:MX_FREERTOS_Init	8	static
-D:/A New RM/2027_HeroProject/Hero_2027/Core/Src/freertos.c:127:6:StartDefaultTask	16	static
-D:/A New RM/2027_HeroProject/Hero_2027/Core/Src/freertos.c:147:13:Chassis_Task_Func	16	static
+/home/oyyp/code/2027_Hero/Core/Src/freertos.c:82:6:MX_FREERTOS_Init	8	static
+/home/oyyp/code/2027_Hero/Core/Src/freertos.c:127:6:StartDefaultTask	16	static
+/home/oyyp/code/2027_Hero/Core/Src/freertos.c:147:13:Chassis_Task_Func	16	static

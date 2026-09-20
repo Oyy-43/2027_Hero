@@ -1,3 +1,3 @@
-D:/A New RM/2027_HeroProject/Hero_2027/Core/Src/octospi.c:31:6:MX_OCTOSPI2_Init	32	static
-D:/A New RM/2027_HeroProject/Hero_2027/Core/Src/octospi.c:76:6:HAL_OSPI_MspInit	248	static
-D:/A New RM/2027_HeroProject/Hero_2027/Core/Src/octospi.c:192:6:HAL_OSPI_MspDeInit	16	static
+/home/oyyp/code/2027_Hero/Core/Src/octospi.c:31:6:MX_OCTOSPI2_Init	32	static
+/home/oyyp/code/2027_Hero/Core/Src/octospi.c:76:6:HAL_OSPI_MspInit	248	static
+/home/oyyp/code/2027_Hero/Core/Src/octospi.c:192:6:HAL_OSPI_MspDeInit	16	static

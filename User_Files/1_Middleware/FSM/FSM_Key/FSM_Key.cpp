@@ -1,7 +1,7 @@
 /**
  * @file FSM_Key.cpp
  * @author Oyyp(2577468184@qq.com)
- * @brief 仿造刘神的状态机写法，评鉴一下
+ * @brief 仿造刘神的状态机写法，品鉴一下
  * @version 0.1
  * @date 2026-09-18 0.1 init
  *

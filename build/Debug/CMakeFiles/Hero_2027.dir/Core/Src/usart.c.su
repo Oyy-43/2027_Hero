@@ -1,4 +1,4 @@
-D:/A New RM/2027_HeroProject/Hero_2027/Core/Src/usart.c:33:6:MX_UART7_Init	8	static
-D:/A New RM/2027_HeroProject/Hero_2027/Core/Src/usart.c:77:6:MX_USART1_UART_Init	8	static
-D:/A New RM/2027_HeroProject/Hero_2027/Core/Src/usart.c:120:6:HAL_UART_MspInit	240	static
-D:/A New RM/2027_HeroProject/Hero_2027/Core/Src/usart.c:235:6:HAL_UART_MspDeInit	16	static
+/home/oyyp/code/2027_Hero/Core/Src/usart.c:33:6:MX_UART7_Init	8	static
+/home/oyyp/code/2027_Hero/Core/Src/usart.c:77:6:MX_USART1_UART_Init	8	static
+/home/oyyp/code/2027_Hero/Core/Src/usart.c:120:6:HAL_UART_MspInit	240	static
+/home/oyyp/code/2027_Hero/Core/Src/usart.c:235:6:HAL_UART_MspDeInit	16	static
