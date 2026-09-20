@@ -15662,14 +15662,39 @@ Discarded input sections
  .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
  .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
  .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
+ .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
  .text          0x00000000        0x0 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
  .data          0x00000000        0x0 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
  .bss           0x00000000        0x0 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
- .debug_info    0x00000000     0x153e CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
- .debug_abbrev  0x00000000      0x121 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
+ .text._ZL11do_key_downP14key_callback_t
+                0x00000000       0x1e CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
+ .text._ZL9do_key_upP14key_callback_t
+                0x00000000       0x1e CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
+ .text._ZL12do_key_clickP14key_callback_t
+                0x00000000       0x1e CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
+ .text._ZL16do_key_longpressP14key_callback_t
+                0x00000000       0x1e CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
+ .text._ZL19do_key_double_clickP14key_callback_t
+                0x00000000       0x1e CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
+ .text._ZL11do_key_idleP14key_callback_t
+                0x00000000       0x1e CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
+ .rodata._ZL15key_state_table
+                0x00000000       0x90 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
+ .text._Z14key_state_scanP14key_callback_t
+                0x00000000      0x240 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
+ .text._Z8key_initP14key_callback_tPFvvES2_S2_S2_S2_S2_PFhvEPFmvE
+                0x00000000       0x56 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
+ .debug_info    0x00000000     0x1965 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
+ .debug_abbrev  0x00000000      0x235 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
  .debug_aranges
-                0x00000000       0x18 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
- .debug_macro   0x00000000      0x527 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
+                0x00000000       0x58 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
+ .debug_rnglists
+                0x00000000       0x4a CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
+ .debug_macro   0x00000000      0x58f CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
  .debug_macro   0x00000000      0xc40 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
  .debug_macro   0x00000000      0x25c CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
  .debug_macro   0x00000000       0x2e CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
@@ -15775,9 +15800,15 @@ Discarded input sections
  .debug_macro   0x00000000       0x90 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
  .debug_macro   0x00000000      0x5f2 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
  .debug_macro   0x00000000       0x94 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
- .debug_line    0x00000000      0xf48 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
- .debug_str     0x00000000   0x1738ac CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
+ .debug_macro   0x00000000       0x1c CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
+ .debug_macro   0x00000000       0x10 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
+ .debug_macro   0x00000000       0x1c CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
+ .debug_macro   0x00000000       0x16 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
+ .debug_macro   0x00000000      0x138 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
+ .debug_line    0x00000000     0x1209 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
+ .debug_str     0x00000000   0x17435e CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
  .comment       0x00000000       0x44 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
+ .debug_frame   0x00000000      0x138 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
  .ARM.attributes
                 0x00000000       0x32 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj
  .group         0x00000000        0x8 CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/Key/bsp_key.cpp.obj

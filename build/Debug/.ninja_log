@@ -97,9 +97,9 @@
 169	1927	8114438346625540	CMakeFiles/Hero_2027.dir/Core/Src/dma.c.obj	b66b4809230b53bc
 2116	3890	8114438366094129	CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Driver/CRSF/crsf_utils.c.obj	bd5ccee5ca90ebad
 2142	5835	8114438366354370	CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Driver/CRSF/crsf.cpp.obj	340a7378a937c23a
-8	357	8115167187573054	build.ninja	67dfb8e0c874b6d6
-8	357	8115167187301254	D:/A New RM/2027_HeroProject/Hero_2027/build/Debug/cmake_install.cmake	67dfb8e0c874b6d6
-8	357	8115167187455825	D:/A New RM/2027_HeroProject/Hero_2027/build/Debug/cmake/stm32cubemx/cmake_install.cmake	67dfb8e0c874b6d6
+8	357	8115990178331851	build.ninja	67dfb8e0c874b6d6
+8	357	8115990178014332	D:/A New RM/2027_HeroProject/Hero_2027/build/Debug/cmake_install.cmake	67dfb8e0c874b6d6
+8	357	8115990178195110	D:/A New RM/2027_HeroProject/Hero_2027/build/Debug/cmake/stm32cubemx/cmake_install.cmake	67dfb8e0c874b6d6
 4	78	8114438323041232	CMakeFiles/clean.additional	326546096589aa70
 79	148	8114438323786722	clean	4b7a9ec6ee23bafa
 1954	4710	8114438364465555	CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Slope/alg_slope.cpp.obj	19e31877bced606
@@ -107,3 +107,6 @@
 2944	6462	8114438374383691	CMakeFiles/Hero_2027.dir/User_Files/3_App/Chassis_Control/Steer_Chassis/steer_control.cpp.obj	975b88b2792d7e6
 44	1253	8112445676139379	CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Gimbal_Task/Gimbal_Task.cpp.obj	e40cd5e6547bc8dc
 23	1042	8114475325971195	CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj	2b4577bec61f46b9
+13	1700	8115998066881820	CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj	447733ca6948b912
+13	1255	8116005804587039	CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp.obj	2b4577bec61f46b9
+1255	2989	8116005817008660	Hero_2027.elf	aff7f146dbe27acf
