@@ -10,7 +10,7 @@
  */
 /* Includes ------------------------------------------------------------------*/
 #include "drv_motor_lk.h"
-
+#include "1_Middleware/Algorithm/Basic/alg_basic.h"
 /* Private macros ------------------------------------------------------------*/
 
 /* Private types -------------------------------------------------------------*/
@@ -64,16 +64,25 @@ void Class_Motor_LK::TIM_100ms_Alive_PeriodElapsedCallback()
     if (Flag == Pre_Flag)
     {
         // 电机断开连接
-        Motor_DJI_Status = Motor_LK_Status_DISABLE;
+        Motor_LK_Status = Motor_LK_Status_DISABLE;
         this->PID_Angle.Iout=0.0f;
         this->PID_Omega.Iout=0.0f;
     }
     else
     {
         // 电机保持连接
-        Motor_DJI_Status = Motor_LK_Status_ENABLE;
+        Motor_LK_Status = Motor_LK_Status_ENABLE;
     }
     Pre_Flag = Flag;
+}
+
+/**
+ * @brief TIM定时器1ms发送CAN报文
+ *
+ */
+void Class_Motor_LK::TIM_1ms_PeriodElapsedCallback()
+{
+    CAN_Transmit_Data(&hfdcan1,CAN_ID,Tx_Data,8);   //底盘3508    
 }
 
 /**
@@ -120,8 +129,19 @@ void Class_Motor_LK::Data_Process()
     }
     Rx_Data.Motor_Temperature = Rx_Data_Row.Motor_Temperature;
     Rx_Data.Power = Rx_Data_Row.voltage * Rx_Data_Row.current;
-    Rx_Data.Torque = Rx_Data_Row.Torque_Current*Torque_Current_Mapping;
-    Rx_Data.Now_Angle = (float)Rx_Data_Row.CircleAngle;
+    switch (Motor_LK_Type)
+    {
+    case MF:
+        Rx_Data.Torque = Rx_Data_Row.Torque_Current*MF_Current_Mapping*0.81;
+        break;
+    case MG:
+        Rx_Data.Torque = Rx_Data_Row.Torque_Current*MG_Current_Mapping*0.15152;
+        break;
+    default:
+        break;
+    }
+
+    Rx_Data.Now_Angle = (float)Rx_Data_Row.Encoder*Encoder_To_Rad_18Bit;
     if (Filter_Angle.Init_Flag)
     {
         Filter_Angle.Set_Now(Rx_Data.Now_Angle);
@@ -132,7 +152,7 @@ void Class_Motor_LK::Data_Process()
     {
         Rx_Data.Filtered_Now_Angle = Rx_Data.Now_Angle;
     }
-    Rx_Data.Now_Omega = (float)Rx_Data_Row.Speed;
+    Rx_Data.Now_Omega = (float)Rx_Data_Row.Speed*BASIC_MATH_DEGPS_TO_RADPS;
     if (Filter_Omega.Init_Flag)
     {
         Filter_Omega.Set_Now(Rx_Data.Now_Omega);
@@ -152,7 +172,15 @@ void Class_Motor_LK::TIM_Calculate_PeriodElapsedCallback()
 {
     PID_Cal();
 
-    Out = (Target_Current = Feedforward_Current);
+    switch (Motor_LK_Type)
+    {
+    case MF:
+        Out = (Target_Torque + Feedforward_Torque)*MF_Torque_to_Current_Mapping;
+        break;
+    case MG:
+        Out = (Target_Torque + Feedforward_Torque)*MG_Torque_to_Current_Mapping;
+        break;
+    }
     Basic_Math_Constrain(&Out, (float)-OUT_MAX, (float)OUT_MAX);
 
     Output();
@@ -184,11 +212,11 @@ void Class_Motor_LK::PID_Cal()
             break;
         break;
         case Motor_LK_Control_Method_OMEGA:
-            Target_Current = PID_Calculate(&this->PID_Omega,Rx_Data.Now_Omega,(Target_Omega + Feedforward_Omega));
+            Target_Torque = PID_Calculate(&this->PID_Omega,Rx_Data.Now_Omega,(Target_Omega + Feedforward_Omega));
         break;
         case Motor_LK_Control_Method_ANGLE:
             Target_Omega = PID_Calculate(&this->PID_Angle,Rx_Data.Now_Angle,Target_Angle);
-            Target_Current = PID_Calculate(&this->PID_Omega,Rx_Data.Now_Omega,(Target_Omega + Feedforward_Omega));
+            Target_Torque = PID_Calculate(&this->PID_Omega,Rx_Data.Now_Omega,(Target_Omega + Feedforward_Omega));
         break;
     }
 }

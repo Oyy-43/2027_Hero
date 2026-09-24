@@ -28,15 +28,14 @@
 #include "1_Middleware/System/Timestamp/sys_timestamp.h"
 #include "2_Device/Motor/Motor_DJI/drv_motor_dji.h"
 #include "2_Device/Motor/Motor_DM/drv_motor_dm.h"
+#include "2_Device/Motor/Motor_LK/drv_motor_lk.h"
 #include <stdbool.h>
 #include "steer_control.h"
 
 /* Private macros ------------------------------------------------------------*/
 
 /* Private types -------------------------------------------------------------*/
-Class_Motor_DJI_C620 Motor_C620[4];
-Class_Motor_DM_Normal Motor_DM_6220[4];
-Class_Motor_DM_Normal Motor_DM_4340P;
+Class_Motor_LK Motor_LK[2];
 Steer_Chassis_Control Steer_Chassis;
 Class_Slope Slope_VX,Slope_VY,Slope_VW;
 float cmd_vx,cmd_vy,cmd_vw;
@@ -58,6 +57,7 @@ RAM_D2_BUFFER uint16_t test_count = 0;
 RAM_D2_BUFFER float Sin_Out=0.0f;
 /* Private function declarations ---------------------------------------------*/
 
+
 /* Function prototypes -------------------------------------------------------*/
 /**
  * @brief CAN1回调函数
@@ -68,35 +68,9 @@ void CAN1_Callback(FDCAN_RxHeaderTypeDef &Header, uint8_t *Buffer)
 {
     switch (Header.Identifier)
     {
-        case (0x201):
+        case (0x141):
         {
-            Motor_C620[0].CAN_RxCpltCallback();
-
-            break;
-        }
-        case (0x202):
-        {
-            Motor_C620[1].CAN_RxCpltCallback();
-
-            break;
-        }
-        case (0x203):
-        {
-            Motor_C620[2].CAN_RxCpltCallback();
-
-            break;
-        }
-        case (0x204):
-        {
-            Motor_C620[3].CAN_RxCpltCallback();
-
-            break;
-        }
-        case (0x20):
-        {
-            Motor_DM_4340P.CAN_RxCpltCallback();
-
-            break;
+            Motor_LK[0].CAN_RxCpltCallback();
         }
     }
 }
@@ -105,30 +79,7 @@ void CAN2_Callback(FDCAN_RxHeaderTypeDef &Header, uint8_t *Buffer)
 {
     switch (Header.Identifier)
     {
-        case (0x11):
-        {
-            Motor_DM_6220[0].CAN_RxCpltCallback();
-
-            break;
-        }
-        case (0x12):
-        {
-            Motor_DM_6220[1].CAN_RxCpltCallback();
-
-            break;
-        }
-        case (0x13):
-        {
-            Motor_DM_6220[2].CAN_RxCpltCallback();
-
-            break;
-        }
-        case (0x14):
-        {
-            Motor_DM_6220[3].CAN_RxCpltCallback();
-
-            break;
-        }
+        return;
     }
 }
 
@@ -147,10 +98,7 @@ void Task3600s_Callback()
  */
 void Task100ms_Callback()
 {
-    Motor_C620[0].TIM_100ms_Alive_PeriodElapsedCallback();
-    Motor_C620[1].TIM_100ms_Alive_PeriodElapsedCallback();
-    Motor_C620[2].TIM_100ms_Alive_PeriodElapsedCallback();
-    Motor_C620[3].TIM_100ms_Alive_PeriodElapsedCallback();
+    Motor_LK[0].TIM_100ms_Alive_PeriodElapsedCallback();
 }
 
 /**
@@ -168,7 +116,7 @@ void Task500ms_Callback()
  */
 void Task1ms_Chassis_Calculate_Callback()
 {   
-    Chassis_Control_Task();
+    return;
 }
 
 
@@ -178,30 +126,10 @@ void Task1ms_Chassis_Calculate_Callback()
  */
 void Task1ms_Callback()
 {
+
+
     //底盘数据更新函数,1ms调用一次
     Task1ms_Chassis_Calculate_Callback();
-    
-    // dji电机的CAN发送函数, 2ms发送一次
-    static int mod2 = 0;
-    mod2++;
-    if (mod2 == 2)
-    {
-        mod2 = 0;
-        Motor_C620[0].TIM_Calculate_PeriodElapsedCallback();
-        Motor_C620[1].TIM_Calculate_PeriodElapsedCallback();
-        Motor_C620[2].TIM_Calculate_PeriodElapsedCallback();
-        Motor_C620[3].TIM_Calculate_PeriodElapsedCallback();
-    }
-    TIM_1ms_CAN_PeriodElapsedCallback();
-
-
-    // dm电机的CAN发送函数,1ms发送一次
-   
-    // Motor_DM_6220[1].TIM_Send_PeriodElapsedCallback();
-    // Motor_DM_6220[2].TIM_Send_PeriodElapsedCallback();
-    // Motor_DM_6220[3].TIM_Send_PeriodElapsedCallback();
-
-    Motor_DM_4340P.TIM_Send_PeriodElapsedCallback();
 
     BSP_WS2812.Set_RGB(0, 0, 0);
 
@@ -240,7 +168,7 @@ void Task1ms_Callback()
     // 喂狗
     TIM_1ms_IWDG_PeriodElapsedCallback();
 
-    Wave_Output();
+    // Wave_Output();
 }
 
 /**
@@ -253,7 +181,8 @@ void Task_Init()
 
     // USB初始化
 
-    // 陀螺仪的SPI
+    //电机的初始化
+    Motor_Init();
 
     // WS2812的SPI
     SPI_Init(&hspi6, nullptr);
@@ -267,8 +196,7 @@ void Task_Init()
     
     // flash的OSPI
 
-    //电机滤波器初始化
-    Filter_Init_All();
+    
 
     //斜波规划器初始化
     Slope_VX.Init(0.08f, 0.8f, Slope_First_REAL);
@@ -277,6 +205,7 @@ void Task_Init()
 
     //电机PID参数初始化
     PID_Init_All();
+
     // 定时器中断初始化
     HAL_TIM_Base_Start_IT(&htim5);
     HAL_TIM_Base_Start_IT(&htim7);
@@ -296,9 +225,6 @@ void Task_Init()
     // BSP_BMI088.Init();
 
     BSP_Power.Set_Power(true, true, true);
-
-    //底盘初始化
-    Steer_Chassis.Init(3.5, 0.05, 0.408, 0.408);
 
     // 标记初始化完成
     init_finished = true;
@@ -320,69 +246,20 @@ void Task_Loop()
  */
 void Motor_Init()
 {
-    Motor_C620[0].Init(&hfdcan1, Motor_DJI_ID_0x201, Motor_DJI_Control_Method_OMEGA, 15.7647058f);
-    Motor_C620[1].Init(&hfdcan1, Motor_DJI_ID_0x202, Motor_DJI_Control_Method_OMEGA, 15.7647058f);
-    Motor_C620[2].Init(&hfdcan1, Motor_DJI_ID_0x203, Motor_DJI_Control_Method_OMEGA, 15.7647058f);
-    Motor_C620[3].Init(&hfdcan1, Motor_DJI_ID_0x204, Motor_DJI_Control_Method_OMEGA, 15.7647058f);
-
-    Motor_DM_6220[0].Init(&hfdcan2, 0x11, 0x01, Motor_DM_Control_Method_NORMAL_MIT_Position,3.141593f,45.0f,10.0f);
-    Motor_DM_6220[1].Init(&hfdcan2, 0x12, 0x02, Motor_DM_Control_Method_NORMAL_MIT_Position,3.14f,15.0f,2.7f);
-    Motor_DM_6220[2].Init(&hfdcan2, 0x13, 0x03, Motor_DM_Control_Method_NORMAL_MIT_Position,3.14f,15.0f,2.7f);
-    Motor_DM_6220[3].Init(&hfdcan2, 0x14, 0x04, Motor_DM_Control_Method_NORMAL_MIT_Position,3.14f,15.0f,2.7f); 
-
-    Motor_DM_4340P.Init(&hfdcan1,0x20, 0x10, Motor_DM_Control_Method_NORMAL_MIT_Position,12.5f,45.0f,28.0f,0.0f,0.4f);
-
-    Motor_DM_6220[0].CAN_Send_Enter();
-    // Motor_DM_6220[1].CAN_Send_Enter(); 
-    // Motor_DM_6220[2].CAN_Send_Enter();
-    // Motor_DM_6220[3].CAN_Send_Enter();
-
-    Motor_DM_4340P.CAN_Send_Enter();
+    Motor_LK[0].Init(&hfdcan1, Motor_LK_ID_0x141, MF, Motor_LK_Control_Method_OMEGA, 0.0f, 1.0f);
 }
+
 
 /**
  * @brief 给整车的电机PID参数初始化
  * 
  */
 void PID_Init_All()
-{   
-    //底盘轮向电机PID参数初始化
-    PID_Init(&Motor_C620[0].PID_Omega,3.5f ,0.0, 0.0, 0.002f,0.0f,0.0f,0.0f,0.0f,0,0,0,0,Integral_Limit);
-    PID_Init(&Motor_C620[1].PID_Omega,3.5f, 0.0, 0.0, 0.002f,0.0f,0.0f,0.0f,0.0f,0,0,0,0,Integral_Limit);
-    PID_Init(&Motor_C620[2].PID_Omega,3.5f, 0.0, 0.0, 0.002f,0.0f,0.0f,0.0f,0.0f,0,0,0,0,Integral_Limit);
-    PID_Init(&Motor_C620[3].PID_Omega,3.5f, 0.0, 0.0, 0.002f,0.0f,0.0f,0.0f,0.0f,0,0,0,0,Integral_Limit);
-
-    //舵向电机速度环PID参数初始化
-    PID_Init(&Motor_DM_6220[0].PID_Omega,2.7f, 0.7f, 0.00f, 0.001f,0.025f,0.35f,0.0f,0.025f,2.0f,0.5f,0,0,Integral_Limit);
-    PID_Init(&Motor_DM_6220[1].PID_Omega,2.7f, 1.35f, 0.03, 0.001f,0.05f,0.75f,0.0f,0.5f,0,0,0,0,Integral_Limit|ChangingIntegralRate);
-    PID_Init(&Motor_DM_6220[2].PID_Omega,2.7f, 1.35f, 0.03, 0.001f,0.05f,0.75f,0.0f,0.5f,0,0,0,0,Integral_Limit|ChangingIntegralRate);
-    PID_Init(&Motor_DM_6220[3].PID_Omega,2.7f, 1.35f, 0.03, 0.001f,0.05f,0.75f,0.0f,0.5f,0,0,0,0,Integral_Limit|ChangingIntegralRate);
-
-    //舵向电机角度环PID参数初始化
-    PID_Init(&Motor_DM_6220[0].PID_Angle,30.0f, 0.0f, 0.0f, 0.001f,27.5f,0.0f,0.0,6.25f,0,0,0,0,Integral_Limit);
-    PID_Init(&Motor_DM_6220[1].PID_Angle,3.5f, 0.0f, 0.0f, 0.001f,4.50f,0.00f,0.003f,0.00f,0,0,0,0,Integral_Limit);
-    PID_Init(&Motor_DM_6220[2].PID_Angle,3.5f, 0.0f, 0.0f, 0.001f,4.50f,0.00f,0.003f,0.00f,0,0,0,0,Integral_Limit);
-    PID_Init(&Motor_DM_6220[3].PID_Angle,3.5f, 0.0f, 0.0f, 0.001f,4.50f,0.00f,0.003f,0.00f,0,0,0,0,Integral_Limit);
-    
-    PID_Init(&Motor_DM_4340P.PID_Omega,27.0f, 3.0f, 0.02f, 0.001f,3.25f,6.5f,0.0f,7.5f,0,0,0,0,Integral_Limit);
-    PID_Init(&Motor_DM_4340P.PID_Angle,5.8f, 0.0f, 0.0f, 0.001f,25.0f,0.0f,0.0,0.0f,0,0,0,0,Integral_Limit|ErrorHandle);
-
+{     
+    PID_Init(&Motor_LK[0].PID_Omega,5.8f,1.4f,0.00f,0.001f,0.375f,0.275f,0.0f,0.0f,0.0f,0.0f,0,0,Integral_Limit);
+    PID_Init(&Motor_LK[0].PID_Angle,24.0f,0.0f,0.00f,0.001f,0.00f,0.00f,0.00f,0.0f,0.0f,0.0f,0,0,Integral_Limit);
 }
 
-/**
- * @brief 给整车的电机滤波器初始化
- * 
- */
-void Filter_Init_All()
-{
-    //底盘轮向电机滤波器初始化
-    for(int i =0;i<4;i++){
-        Motor_C620[i].Filter_Omega.Init(0.0f,0.0f,Filter_Frequency_Type_LOWPASS,50.0f,0.0f,1000.0f);
-    }
-    for(int i =0;i<4;i++){
-        Motor_DM_6220[i].Filter_Omega.Init(0.0f,0.0f,Filter_Frequency_Type_LOWPASS,40.0f,0.0f,1000.0f);
-    }
-}
 
 /**
  * @brief 波形输出
@@ -403,7 +280,6 @@ void Wave_Output()
            // Motor_DM_6220[0].Set_Target_Angle(Sin_Out);
     //     // ALG_Sin_Generate(&Sin_Out, 2.5f, -11.0f, 1000.0f);
     //     // Motor_DM_6220[0].Set_Target_Omega(Sin_Out);
-        Motor_DM_4340P.Set_Target_Angle(0.0f);
      }
     // else
     // {
@@ -414,42 +290,15 @@ void Wave_Output()
     // }
 }
 
-void Chassis_Control_Task()
-{
-    cmd_vx = Slope_VX.TIM_Calculate_GetOut((float)rc_channels.ch[1] / 1640.0f,Steer_Chassis.Get_Chassis_Now_Velocity_X());
-    cmd_vy = Slope_VY.TIM_Calculate_GetOut((float)(-rc_channels.ch[0]) / 1640.0f,Steer_Chassis.Get_Chassis_Now_Velocity_Y());
-    cmd_vw = Slope_VW.TIM_Calculate_GetOut((float)rc_channels.ch[3] / 1640.0f,Steer_Chassis.Get_Chassis_Now_Velocity_W());
 
-    Steer_Chassis.Set_Target_Velocity(cmd_vx, cmd_vy, cmd_vw);
-
-    Steer_Chassis.TIM_Calculate_PeriodElapsedCallback(Motor_C620[0].Get_Now_Filtered_Omega(),Motor_C620[1].Get_Now_Filtered_Omega(),Motor_C620[2].Get_Now_Filtered_Omega(),Motor_C620[3].Get_Now_Filtered_Omega()
-    ,Motor_DM_6220[0].Get_Now_Angle(),Motor_DM_6220[1].Get_Now_Angle(),Motor_DM_6220[2].Get_Now_Angle(),Motor_DM_6220[3].Get_Now_Angle());
-
-    Motor_C620[0].Set_Target_Torque(Steer_Chassis.Get_Motor_Target_Torque()[0]);
-    Motor_C620[1].Set_Target_Torque(Steer_Chassis.Get_Motor_Target_Torque()[1]);
-    Motor_C620[2].Set_Target_Torque(Steer_Chassis.Get_Motor_Target_Torque()[2]);
-    Motor_C620[3].Set_Target_Torque(Steer_Chassis.Get_Motor_Target_Torque()[3]); 
-
-    Motor_C620[0].Set_Target_Omega(Steer_Chassis.Get_Motor_Target_Omega()[0]);
-    Motor_C620[1].Set_Target_Omega(Steer_Chassis.Get_Motor_Target_Omega()[1]);
-    Motor_C620[2].Set_Target_Omega(Steer_Chassis.Get_Motor_Target_Omega()[2]);
-    Motor_C620[3].Set_Target_Omega(Steer_Chassis.Get_Motor_Target_Omega()[3]);
-
-    Motor_DM_6220[0].Set_Target_Angle(-Steer_Chassis.Get_Steer_Target_Angle()[0]);
-    // Motor_DM_6220[1].Set_Target_Angle(-Steer_Chassis.Get_Steer_Target_Angle()[1]);
-    // Motor_DM_6220[2].Set_Target_Angle(-Steer_Chassis.Get_Steer_Target_Angle()[2]);
-    // Motor_DM_6220[3].Set_Target_Angle(-Steer_Chassis.Get_Steer_Target_Angle()[3]);
-
-}
-
-void Chassis_Task_Func(void *argument)
+void Gimbal_Task_Func(void *argument)
 {
     osDelay(1000);
     //初始化电机
-    Motor_Init();
     for(;;)
-    {
-        Motor_DM_6220[0].TIM_Send_PeriodElapsedCallback();
+    { 
+        Motor_LK[0].TIM_Calculate_PeriodElapsedCallback();
+        Motor_LK[0].TIM_1ms_PeriodElapsedCallback();
         osDelay(1);
     }
 }

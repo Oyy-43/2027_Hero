@@ -33,7 +33,8 @@ enable_language(C CXX ASM)
 
 # Create an executable object type
 add_executable(${CMAKE_PROJECT_NAME}
-    User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp)
+    # User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp
+)
 
 # Add STM32CubeMX generated sources
 add_subdirectory(cmake/stm32cubemx)
@@ -88,13 +89,13 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/Buzzer/bsp_buzzer.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/W25Q64JV/bsp_w25q64jv.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/W25Q64JV/bsp_w25q64jv_register.cpp        
-    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Chassis_Control/Steer_Chassis/steer_control.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Data_Transfer/App_DataTransfer.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp   
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp
-    # ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task/Gimbal_Task/Gimbal_Task.cpp
+    # ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task/Gimbal_Task/Gimbal_Task.cpp
 )
 
 # Add include paths 
@@ -126,9 +127,10 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/Buzzer
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/W25Q64JV    
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task/Chassis_Task
-    # ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task/Gimbal_Task
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task/Gimbal_Task
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Chassis_Control
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Chassis_Control/Steer_Chassis
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Data_Transfer
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Motor/Motor_DJI
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Motor/Motor_DM
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Motor/Motor_LK

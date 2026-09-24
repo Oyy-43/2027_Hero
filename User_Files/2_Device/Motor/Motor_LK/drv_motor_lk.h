@@ -10,8 +10,11 @@
 
 
 /* Exported macros -----------------------------------------------------------*/
-#define MF_Current_Mapping 0.008056640625   //  33/4096
-#define MG_Current_Mapping 0.01611328125    //  66/4096
+#define MF_Current_Mapping 0.008056640625               //  33/4096
+#define MG_Current_Mapping 0.01611328125                //  66/4096
+#define MF_Torque_to_Current_Mapping 153.236f           //  2048/0.81/16.5
+#define MG_Torque_to_Current_Mapping 204.8f             //  0.01611328125 * 0.062
+#define Encoder_To_Rad_18Bit 0.0000958753f              //  2*PI/65535
 /* Exported types ------------------------------------------------------------*/
 /**
  * @brief 瓴控状态
@@ -233,7 +236,7 @@ public:
         const float &__Nearest_Angle = 0.0f,float Reducer_Ratio=1.0f);
 
     inline uint8_t Get_Now_Temperature() const;
-    
+
     inline float Get_Now_Power() const;
     
     inline uint8_t Get_Status() const;
@@ -254,6 +257,8 @@ public:
 
     void TIM_Calculate_PeriodElapsedCallback();
 
+    void TIM_1ms_PeriodElapsedCallback();
+
 protected:
     //初始化相关变量
 
@@ -268,7 +273,7 @@ protected:
     // 就近转位的单次最大旋转角度, 其数值一般为圆周的整数倍或纯小数倍, 且纯小数倍时可均分圆周, 0表示不启用就近转位
     float Nearest_Angle;
     // 电流控制最大输出刻度
-    int16_t OUT_MAX = 2048;
+    int16_t OUT_MAX = 900;
     
     //常量
     const float Torque_Current_Mapping = 0.0005f; //电机转矩电流与扭矩的映射关系，单位：Nm/A
@@ -288,7 +293,7 @@ protected:
     // 读变量
 
     // 电机状态
-    Enum_Motor_LK_Status Motor_DJI_Status = Motor_LK_Status_DISABLE;
+    Enum_Motor_LK_Status Motor_LK_Status = Motor_LK_Status_DISABLE;
     // 电机对外接口信息
     Struct_Motor_LK_Rx_Data Rx_Data;
 
@@ -368,7 +373,7 @@ inline float Class_Motor_LK::Get_Now_Power() const
  */
 inline uint8_t Class_Motor_LK::Get_Status() const
 {
-    return (Motor_DJI_Status);
+    return (Motor_LK_Status);
 }
 
 /**
@@ -421,4 +426,4 @@ inline float Class_Motor_LK::Get_Now_Angle() const
     return (Rx_Data.Now_Angle);
 }
 
-#endif /* __DRV_MOTOR_LK_H__ */
+#endif //  __DRV_MOTOR_LK_H__ 

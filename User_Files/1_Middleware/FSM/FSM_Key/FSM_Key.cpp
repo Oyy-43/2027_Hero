@@ -42,8 +42,8 @@ static const key_state_item_t key_state_table[] =
     {KEY_STATE_DOWN,            KEY_EVENT_LONGPRESSED,  KEY_STATE_LONGPRESSED,      do_key_longpress},      // 按键长按，进入长按状态，执行按键长按回调函数
 
     {KEY_STATE_LONGPRESSED,     KEY_EVENT_RELEASE,      KEY_LONGPRESS_DEBOUNCE,    NULL},
-    {KEY_LONGPRESS_DEBOUNCE,   KEY_EVENT_TIMEOUT,      KEY_STATE_IDLE,             do_key_idle},           // 长按抬起消抖完成，进入空闲状态，执行按键空闲回调函数
-    {KEY_LONGPRESS_DEBOUNCE,   KEY_EVENT_PRESS,        KEY_STATE_LONGPRESSED,      NULL},
+    {KEY_LONGPRESS_DEBOUNCE,    KEY_EVENT_TIMEOUT,      KEY_STATE_IDLE,             do_key_idle},           // 长按抬起消抖完成，进入空闲状态，执行按键空闲回调函数
+    {KEY_LONGPRESS_DEBOUNCE,    KEY_EVENT_PRESS,        KEY_STATE_LONGPRESSED,      NULL},
 
     {KEY_UP_DEBOUNCE,           KEY_EVENT_TIMEOUT,      KEY_STATE_UP,               do_key_up},             // 按键抬起消抖完成，进入抬起状态，执行按键抬起回调函数
     {KEY_UP_DEBOUNCE,           KEY_EVENT_PRESS,        KEY_STATE_DOWN,             NULL},     
@@ -92,7 +92,6 @@ void key_state_scan(key_callback_t *scan)
         {
             event = KEY_EVENT_RELEASE;
         }
-
         else if ((current_time - scan->last_time) > KEY_DEBOUNCE_MS)
         {
             event = KEY_EVENT_TIMEOUT;

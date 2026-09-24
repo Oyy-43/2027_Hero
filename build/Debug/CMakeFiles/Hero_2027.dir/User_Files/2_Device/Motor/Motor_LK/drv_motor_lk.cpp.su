@@ -1,19 +1,20 @@
 /home/oyyp/code/2027_Hero/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp:23:6:void Class_Motor_LK::Init(const FDCAN_HandleTypeDef*, Enum_Motor_LK_ID, const Enum_Motor_LK_Type&, const Enum_Motor_LK_Control_Method&, const float&, float)	32	static
 /home/oyyp/code/2027_Hero/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp:49:6:void Class_Motor_LK::CAN_RxCpltCallback()	16	static
 /home/oyyp/code/2027_Hero/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp:61:6:void Class_Motor_LK::TIM_100ms_Alive_PeriodElapsedCallback()	16	static
-/home/oyyp/code/2027_Hero/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp:83:6:void Class_Motor_LK::Data_Process()	16	static
-/home/oyyp/code/2027_Hero/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp:151:6:void Class_Motor_LK::TIM_Calculate_PeriodElapsedCallback()	16	static
-/home/oyyp/code/2027_Hero/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp:166:6:void Class_Motor_LK::Output()	24	static
-/home/oyyp/code/2027_Hero/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp:179:6:void Class_Motor_LK::PID_Cal()	16	static
-/home/oyyp/code/2027_Hero/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp:200:6:void Class_Motor_LK::Data_Frame1_Process()	24	static
-/home/oyyp/code/2027_Hero/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp:217:6:void Class_Motor_LK::Data_Frame2_Process()	24	static
-/home/oyyp/code/2027_Hero/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp:245:6:void Class_Motor_LK::Data_Frame3_Process()	32	static
-/home/oyyp/code/2027_Hero/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp:273:6:void Class_Motor_LK::Data_BreakState_Process()	24	static
-/home/oyyp/code/2027_Hero/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp:283:6:void Class_Motor_LK::Data_Encoder_Process()	24	static
-/home/oyyp/code/2027_Hero/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp:295:6:void Class_Motor_LK::Data_MultiAngle_Process()	176	static
-/home/oyyp/code/2027_Hero/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp:319:6:void Class_Motor_LK::Data_CircleAngle_Process()	24	static
+/home/oyyp/code/2027_Hero/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp:83:6:void Class_Motor_LK::TIM_1ms_PeriodElapsedCallback()	16	static
+/home/oyyp/code/2027_Hero/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp:92:6:void Class_Motor_LK::Data_Process()	16	static
+/home/oyyp/code/2027_Hero/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp:171:6:void Class_Motor_LK::TIM_Calculate_PeriodElapsedCallback()	16	static
+/home/oyyp/code/2027_Hero/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp:194:6:void Class_Motor_LK::Output()	24	static
+/home/oyyp/code/2027_Hero/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp:207:6:void Class_Motor_LK::PID_Cal()	16	static
+/home/oyyp/code/2027_Hero/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp:228:6:void Class_Motor_LK::Data_Frame1_Process()	24	static
+/home/oyyp/code/2027_Hero/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp:245:6:void Class_Motor_LK::Data_Frame2_Process()	24	static
+/home/oyyp/code/2027_Hero/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp:273:6:void Class_Motor_LK::Data_Frame3_Process()	32	static
+/home/oyyp/code/2027_Hero/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp:301:6:void Class_Motor_LK::Data_BreakState_Process()	24	static
+/home/oyyp/code/2027_Hero/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp:311:6:void Class_Motor_LK::Data_Encoder_Process()	24	static
+/home/oyyp/code/2027_Hero/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp:323:6:void Class_Motor_LK::Data_MultiAngle_Process()	176	static
+/home/oyyp/code/2027_Hero/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp:347:6:void Class_Motor_LK::Data_CircleAngle_Process()	24	static
 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/Algorithm/Filter/Frequency/alg_filter_frequency.h:222:13:void Class_Filter_Frequency<Filter_Frequency_Order>::Set_Now(const float&) [with long unsigned int Filter_Frequency_Order = 50]	24	static
 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/Algorithm/Filter/Frequency/alg_filter_frequency.h:194:6:void Class_Filter_Frequency<Filter_Frequency_Order>::TIM_Calculate_PeriodElapsedCallback() [with long unsigned int Filter_Frequency_Order = 50]	24	static
 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/Algorithm/Filter/Frequency/alg_filter_frequency.h:211:14:float Class_Filter_Frequency<Filter_Frequency_Order>::Get_Out() const [with long unsigned int Filter_Frequency_Order = 50]	16	static
-/home/oyyp/code/2027_Hero/User_Files/1_Middleware/Algorithm/Basic/alg_basic.h:112:6:Type Basic_Math_Constrain(Type*, Type, Type) [with Type = float]	24	static
-/home/oyyp/code/2027_Hero/User_Files/1_Middleware/Algorithm/Basic/alg_basic.h:89:6:Type Basic_Math_Constrain(Type, Type, Type) [with Type = float]	24	static
+/home/oyyp/code/2027_Hero/User_Files/1_Middleware/Algorithm/Basic/alg_basic.h:113:6:Type Basic_Math_Constrain(Type*, Type, Type) [with Type = float]	24	static
+/home/oyyp/code/2027_Hero/User_Files/1_Middleware/Algorithm/Basic/alg_basic.h:90:6:Type Basic_Math_Constrain(Type, Type, Type) [with Type = float]	24	static

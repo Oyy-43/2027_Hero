@@ -248,7 +248,7 @@ void Steer_Chassis_Control::Cal_Angle_Dir(uint8_t Steer_Num)
     // 归一化到 [-pi, pi]，实现转劣弧
     err = Basic_Math_Modulus_Normalization(err, STEER_ANGLE_MODULUS);
 
-    //转最优角, 90°边界留容差: 恰好90°时固定走不反转分支, 避免浮点噪声让四个轮方向不统一
+    //转最优角, 恰好90°时固定走不反转分支, 避免浮点噪声让四个轮方向不统一
     if(err > STEER_ANGLE_HALF_PI)
     {
         err -= STEER_ANGLE_PI;
@@ -270,14 +270,10 @@ void Steer_Chassis_Control::Cal_Angle_Dir(uint8_t Steer_Num)
     else if (fabs(angle) < STEER_ANGLE_DEADZONE && Chassis_Control_Mode != Chassis_Control_Mode_Gyring)
       angle = 0.0f;
 
-    // 送电机的有效目标角 = 当前角 + 最优小角(不折叠), 供 Get_Steer_Target_Angle() 输出;
-    // 而 Steer_Target_Angle 保持为 Chassis_to_Motors 计算的连续运动学目标角, 不再被覆盖,
-    // 避免最优角(反转)判断因目标角漂移而误转优弧
     Steer_Effective_Angle[Steer_Num] = Steer_Current_Angle[Steer_Num] + angle;
 
     const float cos_angle = arm_cos_f32(angle);
     Motor_Cos_Down[Steer_Num] = cos_angle*cos_angle*cos_angle;
-
 }
 /* Function prototypes -------------------------------------------------------*/
 

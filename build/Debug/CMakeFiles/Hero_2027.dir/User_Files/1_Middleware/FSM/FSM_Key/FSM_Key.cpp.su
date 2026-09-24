@@ -5,4 +5,4 @@
 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp:30:13:void do_key_double_click(key_callback_t*)	16	static
 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp:31:13:void do_key_idle(key_callback_t*)	16	static
 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp:71:6:void key_state_scan(key_callback_t*)	32	static
-/home/oyyp/code/2027_Hero/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp:215:6:void key_init(key_callback_t*, void (*)(), void (*)(), void (*)(), void (*)(), void (*)(), void (*)(), uint8_t (*)(), uint32_t (*)())	24	static
+/home/oyyp/code/2027_Hero/User_Files/1_Middleware/FSM/FSM_Key/FSM_Key.cpp:214:6:void key_init(key_callback_t*, void (*)(), void (*)(), void (*)(), void (*)(), void (*)(), void (*)(), uint8_t (*)(), uint32_t (*)())	24	static

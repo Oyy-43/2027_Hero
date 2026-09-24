@@ -1,20 +1,41 @@
-#ifndef _GIMBAL_TASK_H_
-#define _GIMBAL_TASK_H_
-/* Includes ------------------------------------------------------------------*/
-#include "main.h"
+#pragma once
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/* Includes ------------------------------------------------------------------*/
+
+#include <stdbool.h>
 
 /* Exported macros -----------------------------------------------------------*/
 
 /* Exported types ------------------------------------------------------------*/
 
-/* Exported constants --------------------------------------------------------*/
-
 /* Exported variables --------------------------------------------------------*/
-
+extern bool init_finished;
 /* Exported function declarations --------------------------------------------*/
 
+void Task1ms_Callback(void);
 
+void Task3600s_Callback(void);
 
+void Task_Init();
 
-#endif /* _GIMBAL_TASK_H_ */
+void Task_Loop();
+
+void Filter_Init_All();
+
+void PID_Init_All();
+
+void Wave_Output();
+
+void Motor_Init();
+
+void Gimbal_Control_Task();
+
+void Gimbal_Task_Func(void *argument);  
+
+#ifdef __cplusplus
+};
+#endif

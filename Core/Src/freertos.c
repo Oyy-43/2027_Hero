@@ -62,6 +62,13 @@ const osThreadAttr_t Chassis_Task_attributes = {
   .stack_size = 1024 * 4,
   .priority = (osPriority_t) osPriorityAboveNormal,
 };
+/* Definitions for Gimbal_Task */
+osThreadId_t Gimbal_TaskHandle;
+const osThreadAttr_t Gimbal_Task_attributes = {
+  .name = "Gimbal_Task",
+  .stack_size = 1024 * 4,
+  .priority = (osPriority_t) osPriorityAboveNormal,
+};
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -70,6 +77,7 @@ const osThreadAttr_t Chassis_Task_attributes = {
 
 void StartDefaultTask(void *argument);
 void Chassis_Task_Func(void *argument);
+void Gimbal_Task_Func(void *argument);
 
 extern void MX_USB_DEVICE_Init(void);
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
@@ -106,6 +114,9 @@ void MX_FREERTOS_Init(void) {
 
   /* creation of Chassis_Task */
   Chassis_TaskHandle = osThreadNew(Chassis_Task_Func, NULL, &Chassis_Task_attributes);
+
+  /* creation of Gimbal_Task */
+  Gimbal_TaskHandle = osThreadNew(Gimbal_Task_Func, NULL, &Gimbal_Task_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -153,6 +164,24 @@ __weak void Chassis_Task_Func(void *argument)
     osDelay(1);
   }
   /* USER CODE END Chassis_Task_Func */
+}
+
+/* USER CODE BEGIN Header_Gimbal_Task_Func */
+/**
+* @brief Function implementing the Gimbal_Task thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_Gimbal_Task_Func */
+__weak void Gimbal_Task_Func(void *argument)
+{
+  /* USER CODE BEGIN Gimbal_Task_Func */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END Gimbal_Task_Func */
 }
 
 /* Private application code --------------------------------------------------*/

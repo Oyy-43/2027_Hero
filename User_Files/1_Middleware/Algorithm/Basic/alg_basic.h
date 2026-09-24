@@ -25,6 +25,7 @@
 extern const float BASIC_MATH_RPM_TO_RADPS;
 extern const float BASIC_MATH_DEG_TO_RAD;
 extern const float BASIC_MATH_CELSIUS_TO_KELVIN;
+extern const float BASIC_MATH_DEGPS_TO_RADPS;
 extern const float SQRT_2;
 extern const float SQRT_2_half;
 
