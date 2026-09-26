@@ -91,6 +91,7 @@ void Class_Motor_LK::TIM_1ms_PeriodElapsedCallback()
  */
 void Class_Motor_LK::Data_Process()
 {
+    bool angle_updated = false;
     switch (CAN_Manage_Object->Rx_Buffer[0])
     { 
         case 0x9A:
@@ -108,6 +109,7 @@ void Class_Motor_LK::Data_Process()
         case 0xA7:
         case 0xA8:
             Data_Frame2_Process();
+            angle_updated = true;
         break;
         case 0x9D:
             Data_Frame3_Process();
@@ -117,6 +119,7 @@ void Class_Motor_LK::Data_Process()
         break;
         case 0x90:
             Data_Encoder_Process();
+            angle_updated = true;
         break;   
         case 0x92:
             Data_MultiAngle_Process();
@@ -141,7 +144,20 @@ void Class_Motor_LK::Data_Process()
         break;
     }
 
-    Rx_Data.Now_Angle = (float)Rx_Data_Row.Encoder*Encoder_To_Rad_18Bit;
+    if (angle_updated)
+    {
+        float single_angle = (float)Rx_Data_Row.Encoder * Encoder_To_Rad_18Bit;
+        if (!Angle_Initialized)
+        {
+            Rx_Data.Now_Angle = single_angle;
+            Angle_Initialized = true;
+        }
+        else
+        {
+            Rx_Data.Now_Angle += Basic_Math_Modulus_Normalization(single_angle - Last_Single_Angle, 2.0f * PI);
+        }
+        Last_Single_Angle = single_angle;
+    }
     if (Filter_Angle.Init_Flag)
     {
         Filter_Angle.Set_Now(Rx_Data.Now_Angle);
@@ -170,6 +186,21 @@ void Class_Motor_LK::Data_Process()
 
 void Class_Motor_LK::TIM_Calculate_PeriodElapsedCallback()
 {
+    Motor_To_Zero_Nearest();
+
+    if(Target_Omega>0.0f)
+    {
+        Feedforward_Torque = 0.095f;
+    }
+    else if(Target_Omega<0.0f)
+    {
+        Feedforward_Torque = -0.095f;
+    }
+    else
+    {
+        Feedforward_Torque = 0.0f;
+    }
+
     PID_Cal();
 
     switch (Motor_LK_Type)
@@ -186,7 +217,7 @@ void Class_Motor_LK::TIM_Calculate_PeriodElapsedCallback()
     Output();
 
     Feedforward_Omega = 0.0f;
-    Feedforward_Torque = 0.0f;
+    // Feedforward_Torque = 0.0f;
     Feedforward_Current = 0.0f;
 
 }
@@ -215,6 +246,18 @@ void Class_Motor_LK::PID_Cal()
             Target_Torque = PID_Calculate(&this->PID_Omega,Rx_Data.Now_Omega,(Target_Omega + Feedforward_Omega));
         break;
         case Motor_LK_Control_Method_ANGLE:
+
+            static float angle_error = 0.0f;
+            angle_error = Target_Angle - Rx_Data.Now_Angle;
+            if (angle_error > 3.14f)
+            {
+                angle_error -= 6.28f;
+            }
+            else if (angle_error < -3.14f)
+            {
+                angle_error += 6.28f;
+            }
+            Target_Angle = Rx_Data.Now_Angle + angle_error;
             Target_Omega = PID_Calculate(&this->PID_Angle,Rx_Data.Now_Angle,Target_Angle);
             Target_Torque = PID_Calculate(&this->PID_Omega,Rx_Data.Now_Omega,(Target_Omega + Feedforward_Omega));
         break;
@@ -350,4 +393,19 @@ void Class_Motor_LK::Data_CircleAngle_Process()
     uint32_t temp_circleAngle_raw = 0;
     temp_circleAngle_raw = (uint32_t)(GET32(&tmp_buffer->CircleAngle));
     Rx_Data_Row.CircleAngle = (float)(temp_circleAngle_raw+1) *0.01f/Reducer_Ratio;
+}
+
+void Class_Motor_LK::Motor_To_Zero_Nearest()
+{
+    float err = 0.0f - Rx_Data.Now_Angle;
+    float mod_err = Basic_Math_Modulus_Normalization(err, 2.0f * PI);
+    if (To_Zero_Nearest_Flag)
+    {
+        Target_Angle = Rx_Data.Now_Angle + mod_err;
+        To_Zero_Nearest_Flag = false;
+    }
+    else
+    {
+        return;
+    }
 }

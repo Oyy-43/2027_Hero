@@ -38,6 +38,7 @@
 Class_Motor_LK Motor_LK[2];
 Steer_Chassis_Control Steer_Chassis;
 Class_Slope Slope_VX,Slope_VY,Slope_VW;
+float sin_outp = 0.0f;
 float cmd_vx,cmd_vy,cmd_vw;
 /* Private variables ---------------------------------------------------------*/
 
@@ -168,7 +169,7 @@ void Task1ms_Callback()
     // 喂狗
     TIM_1ms_IWDG_PeriodElapsedCallback();
 
-    // Wave_Output();
+    Wave_Output();
 }
 
 /**
@@ -246,7 +247,7 @@ void Task_Loop()
  */
 void Motor_Init()
 {
-    Motor_LK[0].Init(&hfdcan1, Motor_LK_ID_0x141, MF, Motor_LK_Control_Method_OMEGA, 0.0f, 1.0f);
+    Motor_LK[0].Init(&hfdcan1, Motor_LK_ID_0x141, MF, Motor_LK_Control_Method_ANGLE, 0.0f, 1.0f);
 }
 
 
@@ -256,9 +257,11 @@ void Motor_Init()
  */
 void PID_Init_All()
 {     
-    PID_Init(&Motor_LK[0].PID_Omega,5.8f,1.4f,0.00f,0.001f,0.375f,0.275f,0.0f,0.0f,0.0f,0.0f,0,0,Integral_Limit);
-    PID_Init(&Motor_LK[0].PID_Angle,24.0f,0.0f,0.00f,0.001f,0.00f,0.00f,0.00f,0.0f,0.0f,0.0f,0,0,Integral_Limit);
+    PID_Init(&Motor_LK[0].PID_Omega,5.8f,1.4f,0.0f,0.001f,0.15f,0.45f,0.0f,0.5f,0.0f,0.0f,0,0,Integral_Limit);
+    // PID_Init(&Motor_LK[0].PID_Omega,5.8f,1.4f,0.0f,0.001f,0.08f,0.50f,0.0f,0.25f,0.0f,0.0f,0,0,Integral_Limit);
+    PID_Init(&Motor_LK[0].PID_Angle,24.0f,0.0f,0.00f,0.001f,12.50f,0.00f,0.00f,1000.0f,0.0f,0.0f,0,0,Integral_Limit);
 }
+
 
 
 /**
@@ -274,20 +277,21 @@ void Wave_Output()
     }
      if(press_count%2==1)
      {
-    //     ALG_Sin_Generate(&Sin_Out, 2.0f, -4.0f, 1000.0f);
-    //     // Motor_DM_6220[0].Set_Target_Angle(Sin_Out);
-    //     // ALG_Value_Toggle_Periodic(&Sin_Out, 1.57f,-1.57f,2.0f,1000.0f);
-           // Motor_DM_6220[0].Set_Target_Angle(Sin_Out);
-    //     // ALG_Sin_Generate(&Sin_Out, 2.5f, -11.0f, 1000.0f);
-    //     // Motor_DM_6220[0].Set_Target_Omega(Sin_Out);
+        ALG_Sin_Generate(&Sin_Out, sin_outp, -6.28f, 1000.0f);
+        Motor_LK[0].Set_Target_Angle(Sin_Out);
+         // ALG_Value_Toggle_Periodic(&Sin_Out, 1.57f,-1.57f,2.0f,1000.0f);
+         // ALG_Sin_Generate(&Sin_Out, 2.5f, -11.0f, 1000.0f);
+        // Motor_LK[0].Set_To_Zero_Nearest_Flag();
      }
-    // else
-    // {
-    //     Sin_Out = 0.0f;
+    else
+    {
+        Sin_Out = 0.0f;
+        Motor_LK[0].Set_Target_Angle(0.0f);
     //     // Motor_DM_6220[0].Set_Target_Angle(0.0f);
     //     // Motor_DM_6220[0].Set_Target_Omega(0.0f);
     //     Motor_DM_4340P.Set_Target_Omega(0.0f);
-    // }
+        return;
+    }
 }
 
 

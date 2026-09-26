@@ -251,6 +251,14 @@ public:
 
     inline float Get_Now_Angle() const;
 
+    inline void Set_To_Zero_Nearest_Flag();
+
+    inline void Set_Target_Torque(const float &__Target_Torque);
+
+    inline void Set_Target_Angle(const float &__Target_Angle);
+
+    inline void Set_Target_Omega(const float &__Target_Omega);
+
     void CAN_RxCpltCallback();
 
     void TIM_100ms_Alive_PeriodElapsedCallback();
@@ -300,7 +308,12 @@ protected:
     // 写变量
 
     // 读写变量
+    // 电机就近回零标志位
+    bool To_Zero_Nearest_Flag = false;
+    // 电机接收到的原始数据
     Struct_Motor_LK_CAN_Rx_Data_Row Rx_Data_Row;
+    float Last_Single_Angle = 0.0f;
+    bool Angle_Initialized = false;
     // 电机控制方式
     Enum_Motor_LK_Control_Method Motor_LK_Control_Method = Motor_LK_Control_Method_ANGLE;
     // 目标的角度, rad
@@ -335,6 +348,8 @@ protected:
     void Data_MultiAngle_Process();
 
     void Data_CircleAngle_Process();
+
+    void Motor_To_Zero_Nearest();
 
     void PID_Cal();
 
@@ -424,6 +439,45 @@ inline uint16_t Class_Motor_LK::Get_Now_Encoder() const
 inline float Class_Motor_LK::Get_Now_Angle() const
 {
     return (Rx_Data.Now_Angle);
+}
+
+/**
+ * @brief 设置电机就近回零标志位
+ *
+ */
+inline void Class_Motor_LK::Set_To_Zero_Nearest_Flag()
+{
+    To_Zero_Nearest_Flag = true;
+}
+
+/**
+ * @brief 设置电机目标角度
+ *
+ * @param __Target_Angle 目标角度
+ */
+inline void Class_Motor_LK::Set_Target_Angle(const float &__Target_Angle)
+{
+    Target_Angle = __Target_Angle;
+}
+
+/**
+ * @brief 设置电机目标角速度
+ *
+ * @param __Target_Omega 目标角速度
+ */
+inline void Class_Motor_LK::Set_Target_Omega(const float &__Target_Omega)
+{
+    Target_Omega = __Target_Omega;
+}
+
+/**
+ * @brief 设置电机的目标扭矩
+ * 
+ * @param __Target_Torque 目标扭矩
+ */
+inline void Class_Motor_LK::Set_Target_Torque(const float &__Target_Torque)
+{
+    Target_Torque = __Target_Torque;
 }
 
 #endif //  __DRV_MOTOR_LK_H__ 
