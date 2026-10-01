@@ -1,4 +1,4 @@
-#ifndef __STEER_CONTROL_H
+#ifndef __STEER_CONTROL_H__
 #define __STEER_CONTROL_H__
 
 /* Includes ------------------------------------------------------------------*/
@@ -17,7 +17,7 @@
 
 /* Exported variables --------------------------------------------------------*/
 /**
- * @brief 舵轮底盘控制派生类
+ * @brief 四舵轮底盘控制派生类
  *
  */
 class Steer_Chassis_Control : public Class_Chassis_Control
@@ -63,6 +63,56 @@ class Steer_Chassis_Control : public Class_Chassis_Control
     float Motor_Dir[4];              //四个动力轮的旋转方向(0左上 1左下 2右下 3右上)
 
     float Motor_Cos_Down[4];         //四个动力轮的旋转速度减速余弦值(0左上 1左下 2右下 3右上)
+};
+
+/**
+ * @brief  三舵轮底盘控制派生类
+ * 
+ */
+class Triangle_Steer_Chassis_Control : public Class_Chassis_Control
+{
+  public:
+    void Init(float __Max_Torque_per_Wheel, float __Wheel_Radius, float __Wheel_BaseRadius);
+
+    inline void Set_Target_Velocity(const float &__Target_Velocity_X, const float &__Target_Velocity_Y, const float &__Target_Velocity_W);
+
+    inline void Set_Target_Torque(const float &__Target_Torque_Fx, const float &__Target_Torque_Fy, const float &__Target_Torque_Mz);
+
+    inline void Set_Chassis_Control_Mode(const Enum_Chassis_Control_Mode &__Chassis_Control_Mode);
+
+    inline float Get_Chassis_Now_Velocity_X() const;
+
+    inline float Get_Chassis_Now_Velocity_Y() const;
+
+    inline float Get_Chassis_Now_Velocity_W() const;
+
+    inline const float *Get_Steer_Target_Angle() const;   //三个舵轮有效目标角(已按最小转角策略更新)
+
+    //运动学逆解，从底盘的目标速度和旋转速度求出每个动力轮的目标速度
+    void Chassis_to_Motors();
+
+    //运动学正解，从3个轮向电机的速度和舵向电机的角度求出底盘的当前平动速度和旋转速度
+    void Motors_to_Chassis();
+
+    //动力学逆解，从底盘的目标牵引力和旋转转矩求出每个动力轮的目标扭矩
+    void Chassis_to_Motors_Torque();
+
+    // 定时器回调函数，用于计算底盘状态信息
+    void TIM_Calculate_PeriodElapsedCallback(float Motor1_Omega, float Motor2_Omega, float Motor3_Omega,
+    float Steer1_Angle, float Steer2_Angle, float Steer3_Angle); //求解运动学正逆解，动力学逆解，更新底盘状态信息
+
+    void Cal_Angle_Dir(uint8_t Steer_Num); 
+
+  protected:
+    float Steer_Target_Angle[3];     //三个舵轮运动学目标角度(连续unwrap, 由 Chassis_to_Motors 维护)
+
+    float Steer_Effective_Angle[3];  //三个舵轮有效目标角度(已按最小转角策略更新, 供电机输出, 由 Cal_Angle_Dir 更新)
+
+    float Steer_Current_Angle[3];    //三个舵轮当前角度(0左上 1左下 2右下 3右上)
+
+    float Motor_Dir[3];              //三个动力轮的旋转方向(0左上 1左下 2右下 3右上)
+
+    float Motor_Cos_Down[3];         //三个动力轮的旋转速度减速余弦值(0左上 1左下 2右下 3右上)
 };
 
 /* Exported function declarations --------------------------------------------*/

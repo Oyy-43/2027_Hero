@@ -29,11 +29,14 @@ const float BASIC_MATH_DEG_TO_RAD = PI / 180.0f;
 const float BASIC_MATH_CELSIUS_TO_KELVIN = 273.15f;
 
 const float BASIC_MATH_DEGPS_TO_RADPS = 0.0174533;
-
+//2的平方根
 const float SQRT_2 = 1.41421356237f;
-
+// 1/2的平方根
 const float SQRT_2_half = 0.70710678118f;
-
+// cos30
+const float COS_30 = 0.86602540378f;
+// sin30
+const float SIN_30 = 0.5f;
 
 /* Private function declarations ---------------------------------------------*/
 
