@@ -23,7 +23,7 @@
 class Steer_Chassis_Control : public Class_Chassis_Control
 {
   public:
-    void Init(float __Max_Torque_per_Wheel, float __Wheel_Radius, float __Wheel_BaseX, float __Wheel_BaseY);
+    void Init(float __Max_Torque_per_Wheel, float __Wheel_Radius, float __Wheel_BaseX, float __Wheel_BaseY,float __Wheel_MaxOmega);
 
     inline void Set_Target_Velocity(const float &__Target_Velocity_X, const float &__Target_Velocity_Y, const float &__Target_Velocity_W);
 
@@ -72,7 +72,7 @@ class Steer_Chassis_Control : public Class_Chassis_Control
 class Triangle_Steer_Chassis_Control : public Class_Chassis_Control
 {
   public:
-    void Init(float __Max_Torque_per_Wheel, float __Wheel_Radius, float __Wheel_BaseRadius);
+    void Init(float __Max_Torque_per_Wheel, float __Wheel_Radius, float __Wheel_BaseRadius, float __Wheel_MaxOmega);
 
     inline void Set_Target_Velocity(const float &__Target_Velocity_X, const float &__Target_Velocity_Y, const float &__Target_Velocity_W);
 
@@ -104,6 +104,10 @@ class Triangle_Steer_Chassis_Control : public Class_Chassis_Control
     void Cal_Angle_Dir(uint8_t Steer_Num); 
 
   protected:
+    float Wheel_MaxOmega = 0.0f;  // 轮端角速度上限，单位 rad/s
+
+    float Velocity_Scale = 1.0f;    //轮速限幅比例系数
+
     float Steer_Target_Angle[3];     //三个舵轮运动学目标角度(连续unwrap, 由 Chassis_to_Motors 维护)
 
     float Steer_Effective_Angle[3];  //三个舵轮有效目标角度(已按最小转角策略更新, 供电机输出, 由 Cal_Angle_Dir 更新)
@@ -154,6 +158,45 @@ inline void Steer_Chassis_Control::Set_Target_Torque(const float &__Target_Torqu
 inline void Steer_Chassis_Control::Set_Chassis_Control_Mode(const Enum_Chassis_Control_Mode &__Chassis_Control_Mode)
 {
     Chassis_Control_Mode = __Chassis_Control_Mode;
+}
+
+inline float Triangle_Steer_Chassis_Control::Get_Chassis_Now_Velocity_X() const
+{
+  return Chassis_Data.Now_Velocity_X;
+}
+
+inline float Triangle_Steer_Chassis_Control::Get_Chassis_Now_Velocity_Y() const
+{
+  return Chassis_Data.Now_Velocity_Y;
+}
+
+inline float Triangle_Steer_Chassis_Control::Get_Chassis_Now_Velocity_W() const
+{
+  return Chassis_Data.Now_Velocity_W;
+}
+
+inline const float *Triangle_Steer_Chassis_Control::Get_Steer_Target_Angle() const
+{
+  return (Steer_Effective_Angle);
+}
+
+inline void Triangle_Steer_Chassis_Control::Set_Target_Velocity(const float &__Target_Velocity_X, const float &__Target_Velocity_Y, const float &__Target_Velocity_W)
+{
+  Chassis_Data.Target_Velocity_X = __Target_Velocity_X;
+  Chassis_Data.Target_Velocity_Y = __Target_Velocity_Y;
+  Chassis_Data.Target_Velocity_W = __Target_Velocity_W;
+}
+
+inline void Triangle_Steer_Chassis_Control::Set_Target_Torque(const float &__Target_Torque_Fx, const float &__Target_Torque_Fy, const float &__Target_Torque_Mz)
+{
+  Chassis_Data.Target_Torque_Fx = __Target_Torque_Fx;
+  Chassis_Data.Target_Torque_Fy = __Target_Torque_Fy;
+  Chassis_Data.Target_Torque_Mz = __Target_Torque_Mz;
+}
+
+inline void Triangle_Steer_Chassis_Control::Set_Chassis_Control_Mode(const Enum_Chassis_Control_Mode &__Chassis_Control_Mode)
+{
+  Chassis_Control_Mode = __Chassis_Control_Mode;
 }
 
 #endif /* __STEER_CONTROL_H */

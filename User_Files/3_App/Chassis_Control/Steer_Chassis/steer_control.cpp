@@ -29,7 +29,7 @@
  * @param __Wheel_BaseX  单位m, 前后轮距
  * @param __Wheel_BaseY  单位m, 左右轮距
  */
-void Steer_Chassis_Control::Init(float __Max_Torque_per_Wheel, float __Wheel_Radius, float __Wheel_BaseX, float __Wheel_BaseY)
+void Steer_Chassis_Control::Init(float __Max_Torque_per_Wheel, float __Wheel_Radius, float __Wheel_BaseX, float __Wheel_BaseY,float __Wheel_MaxOmega)
 {
     Chassis_Data.Max_Torque_per_Wheel = __Max_Torque_per_Wheel;
     Chassis_Data.Wheel_Radius = __Wheel_Radius;
@@ -293,11 +293,15 @@ void Steer_Chassis_Control::Cal_Angle_Dir(uint8_t Steer_Num)
  * @param __Wheel_Radius 
  * @param __Wheel_Base 
  */
-void Triangle_Steer_Chassis_Control::Init(float __Max_Torque_per_Wheel, float __Wheel_Radius, float __Wheel_Base)
+void Triangle_Steer_Chassis_Control::Init(float __Max_Torque_per_Wheel, float __Wheel_Radius, float __Wheel_Base, float __Wheel_MaxOmega)
 {
     Chassis_Data.Max_Torque_per_Wheel = __Max_Torque_per_Wheel;  //每个轮向电机的最大扭矩
     Chassis_Data.Wheel_Radius = __Wheel_Radius;                  //轮半径
     Chassis_Data.Wheel_Base = __Wheel_Base;                      //轮子投影点距离底盘中心的距
+
+    Wheel_MaxOmega = isfinite(__Wheel_MaxOmega) && __Wheel_MaxOmega > 0.0f ? __Wheel_MaxOmega : 0.0f;
+
+    Velocity_Scale = 1.0f;
 
     // 单轮最大驱动力f_max = T_max / r
     const float f_max = Chassis_Data.Max_Torque_per_Wheel / Chassis_Data.Wheel_Radius;
@@ -309,8 +313,8 @@ void Triangle_Steer_Chassis_Control::Init(float __Max_Torque_per_Wheel, float __
     const float M_z_max = 3.0f * f_max * Chassis_Data.Wheel_Base;
 
     // 平移速度环: 最大输出=最大净牵引力, 积分限幅同步设为物理上限
-    PID_Init(&PID_Moving_X,F_max,0, 0.0f, 0.002f, 105.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, Integral_Limit);
-    PID_Init(&PID_Moving_Y,F_max,0, 0.0f, 0.002f, 105.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, Integral_Limit);
+    PID_Init(&PID_Moving_X,F_max,0, 0.0f, 0.002f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, Integral_Limit);
+    PID_Init(&PID_Moving_Y,F_max,0, 0.0f, 0.002f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, Integral_Limit);
 
     // 旋转速度环: 最大输出=最大净旋转力矩, 积分限幅同步设为物理上限
     PID_Init(&PID_Spin, M_z_max,0, 0.0f, 0.002f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, Integral_Limit);
@@ -330,11 +334,27 @@ void Triangle_Steer_Chassis_Control::Init(float __Max_Torque_per_Wheel, float __
  */
 void Triangle_Steer_Chassis_Control::Chassis_to_Motors()
 {
-    const float vx = Chassis_Data.Target_Velocity_X;
-    const float vy = Chassis_Data.Target_Velocity_Y;
-    const float w  = Chassis_Data.Target_Velocity_W;
+    const float tmp_vx = Chassis_Data.Target_Velocity_X;
+    const float tmp_vy = Chassis_Data.Target_Velocity_Y;
+    const float tmp_w = Chassis_Data.Target_Velocity_W;
     const float s  = Chassis_Data.Wheel_Radius;
     const float r  = Chassis_Data.Wheel_Base;
+
+    const float tx[3] = { 0, -COS_30, COS_30};
+    const float ty[3] = { 1, -SIN_30, -SIN_30};
+
+    float peak_omega = 0.0f;
+    for (int i = 0; i < 3; i++)
+    {
+        const float wx = (tmp_vx + tmp_w * r * tx[i]) / s;
+        const float wy = (tmp_vy + tmp_w * r * ty[i]) / s;
+        peak_omega = fmaxf(peak_omega, sqrtf(wx * wx + wy * wy));
+    }
+
+    Velocity_Scale = peak_omega > Wheel_MaxOmega ? Wheel_MaxOmega / peak_omega : 1.0f;
+    const float vx = tmp_vx * Velocity_Scale;
+    const float vy = tmp_vy * Velocity_Scale;
+    const float w = tmp_w * Velocity_Scale;
 
     // 静止判定: 目标速度都很小(例如松开摇杆)时舵向保持当前角度, 防止舵电机回0空耗功率
     // 静止时把舵向目标锁在当前角,小陀螺(Gyring)模式除外: 该模式下底盘持续旋转+平移, 舵向需随运动学合成方向动态更新, 不能锁死
@@ -342,10 +362,6 @@ void Triangle_Steer_Chassis_Control::Chassis_to_Motors()
         fabsf(vx) < STEER_HOLD_VELOCITY_THRESHOLD &&
         fabsf(vy) < STEER_HOLD_VELOCITY_THRESHOLD &&
         fabsf(w)  < STEER_HOLD_VELOCITY_THRESHOLD;
-
-    // 旋转角速度 w 对应的各轮切向速度分量，根据右手定则，以确定的一个三角形顶点为0号，手指逆时针旋转，对应左下角的为1号，右下角的为2号
-    const float tx[3] = { 0, -COS_30,  COS_30};
-    const float ty[3] = { 1, -SIN_30,  -SIN_30};
 
     // 三部分分量的角速度: vx/s、vy/s、ω·r/s
     const float vx_s = vx / s;
@@ -367,7 +383,7 @@ void Triangle_Steer_Chassis_Control::Chassis_to_Motors()
 
         arm_sqrt_f32(wx * wx + wy * wy, &Chassis_Data.Motor_Target_Omega[i]);  // 轮角速度(rad/s)
 
-        if (Chassis_Data.Motor_Target_Omega[i] * s < STEER_HOLD_VELOCITY_THRESHOLD)
+        if (Chassis_Data.Motor_Target_Omega[i] * s < 0.01f)
         {
             Chassis_Data.Motor_Target_Omega[i] = 0.0f;
             Steer_Target_Angle[i] = Steer_Current_Angle[i];
@@ -430,9 +446,9 @@ void Triangle_Steer_Chassis_Control::Motors_to_Chassis()
  */
 void Triangle_Steer_Chassis_Control::Chassis_to_Motors_Torque()
 {
-    Chassis_Data.Target_Torque_Fx = PID_Calculate(&PID_Moving_X, Chassis_Data.Now_Velocity_X, Chassis_Data.Target_Velocity_X);
-    Chassis_Data.Target_Torque_Fy = PID_Calculate(&PID_Moving_Y, Chassis_Data.Now_Velocity_Y, Chassis_Data.Target_Velocity_Y);
-    Chassis_Data.Target_Torque_Mz = PID_Calculate(&PID_Spin, Chassis_Data.Now_Velocity_W, Chassis_Data.Target_Velocity_W);
+    Chassis_Data.Target_Torque_Fx = PID_Calculate(&PID_Moving_X, Chassis_Data.Now_Velocity_X, Chassis_Data.Target_Velocity_X * Velocity_Scale);
+    Chassis_Data.Target_Torque_Fy = PID_Calculate(&PID_Moving_Y, Chassis_Data.Now_Velocity_Y, Chassis_Data.Target_Velocity_Y * Velocity_Scale);
+    Chassis_Data.Target_Torque_Mz = PID_Calculate(&PID_Spin, Chassis_Data.Now_Velocity_W, Chassis_Data.Target_Velocity_W * Velocity_Scale);
     const float Fx = Chassis_Data.Target_Torque_Fx;
     const float Fy = Chassis_Data.Target_Torque_Fy;
     const float Mz = Chassis_Data.Target_Torque_Mz;
@@ -523,12 +539,10 @@ void Triangle_Steer_Chassis_Control::Cal_Angle_Dir(uint8_t Steer_Num)
 void Triangle_Steer_Chassis_Control::TIM_Calculate_PeriodElapsedCallback(float Motor1_Omega, float Motor2_Omega, float Motor3_Omega,
     float Steer1_Angle, float Steer2_Angle, float Steer3_Angle)
 {
-
     // 更新舵轮当前角度和动力轮当前速度
     Steer_Current_Angle[0] = -Steer1_Angle;
     Steer_Current_Angle[1] = -Steer2_Angle;
     Steer_Current_Angle[2] = -Steer3_Angle;
-
 
     Chassis_Data.Motor_Now_Omega[0] = Motor1_Omega;
     Chassis_Data.Motor_Now_Omega[1] = Motor2_Omega;
@@ -537,7 +551,6 @@ void Triangle_Steer_Chassis_Control::TIM_Calculate_PeriodElapsedCallback(float M
     Chassis_to_Motors();
     Motors_to_Chassis();
     Chassis_to_Motors_Torque();
-
 }
 /* Function prototypes -------------------------------------------------------*/
 

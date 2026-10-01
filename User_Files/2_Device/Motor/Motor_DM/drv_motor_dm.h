@@ -262,6 +262,8 @@ public:
 
     inline void Set_K_D(const float &__K_D);
 
+    void Output_Torque();
+
     void CAN_RxCpltCallback();
 
     void CAN_Send_Clear_Error() const;
@@ -750,6 +752,12 @@ inline void Class_Motor_DM_Normal::Set_K_P(const float &__K_P)
 inline void Class_Motor_DM_Normal::Set_K_D(const float &__K_D)
 {
     K_D = __K_D;
+}
+
+inline void Class_Motor_DM_Normal::Output_Torque()
+{
+    Basic_Math_Constrain(&Control_Torque, -Torque_Max, Torque_Max);
+    Output();
 }
 
 //======================================================================================================================//
