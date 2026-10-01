@@ -224,6 +224,8 @@ public:
 
     inline float Get_Now_Omega() const;
 
+    inline float Get_Now_Filtered_Omega() const;
+
     inline float Get_Now_Torque() const;
 
     inline float Get_Now_MOS_Temperature() const;
@@ -558,6 +560,16 @@ inline float Class_Motor_DM_Normal::Get_Now_Angle() const
 inline float Class_Motor_DM_Normal::Get_Now_Omega() const
 {
     return (Rx_Data.Now_Omega);
+}
+
+/**
+ * @brief 获取当前滤波后的角速度
+ *
+ * @return float 当前滤波后的角速度
+ */
+inline float Class_Motor_DM_Normal::Get_Now_Filtered_Omega() const
+{
+    return (Rx_Data.Filtered_Now_Omega);
 }
 
 /**
