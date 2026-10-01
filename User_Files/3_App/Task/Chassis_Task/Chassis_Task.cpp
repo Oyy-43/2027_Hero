@@ -332,7 +332,7 @@ void Motor_Init()
     Motor_DM_6220[2].Init(&hfdcan2, 0x13, 0x03, Motor_DM_Control_Method_NORMAL_MIT_Position,3.14f,15.0f,2.7f);
     Motor_DM_6220[3].Init(&hfdcan2, 0x14, 0x04, Motor_DM_Control_Method_NORMAL_MIT_Position,3.14f,15.0f,2.7f); 
 
-    Motor_DM_4340P.Init(&hfdcan1,0x20, 0x10, Motor_DM_Control_Method_NORMAL_MIT_Position,12.5f,45.0f,28.0f,0.0f,0.4f);
+    Motor_DM_4340P.Init(&hfdcan1,0x20, 0x10, Motor_DM_Control_Method_NORMAL_MIT_Omega,12.5f,10.0f,28.0f,0.0f,0.4f);
 
     Motor_DM_6220[0].CAN_Send_Enter();
     // Motor_DM_6220[1].CAN_Send_Enter(); 
@@ -405,7 +405,7 @@ void Wave_Output()
            // Motor_DM_6220[0].Set_Target_Angle(Sin_Out);
     //     // ALG_Sin_Generate(&Sin_Out, 2.5f, -11.0f, 1000.0f);
     //     // Motor_DM_6220[0].Set_Target_Omega(Sin_Out);
-        Motor_DM_4340P.Set_Target_Angle(0.0f);
+    // Motor_DM_4340P.Set_Target_Angle(0.0f);
      }
     // else
     // {

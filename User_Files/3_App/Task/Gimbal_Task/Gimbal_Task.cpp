@@ -169,7 +169,7 @@ void Task1ms_Callback()
     // 喂狗
     TIM_1ms_IWDG_PeriodElapsedCallback();
 
-    Wave_Output();
+    // Wave_Output();
 }
 
 /**
@@ -261,7 +261,6 @@ void PID_Init_All()
     // PID_Init(&Motor_LK[0].PID_Omega,5.8f,1.4f,0.0f,0.001f,0.08f,0.50f,0.0f,0.25f,0.0f,0.0f,0,0,Integral_Limit);
     PID_Init(&Motor_LK[0].PID_Angle,24.0f,0.0f,0.00f,0.001f,12.50f,0.00f,0.00f,1000.0f,0.0f,0.0f,0,0,Integral_Limit);
 }
-
 
 
 /**
