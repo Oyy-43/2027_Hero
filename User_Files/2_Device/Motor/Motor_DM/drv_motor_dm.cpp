@@ -358,8 +358,8 @@ void Class_Motor_DM_Normal::TIM_Send_PeriodElapsedCallback()
     {
         return;
     }
-    if (Rx_Data.Control_Status == Motor_DM_Control_Status_ENABLE)
-    {
+    // if (Rx_Data.Control_Status == Motor_DM_Control_Status_ENABLE)
+    // {
         // 电机在线, 正常控制
         Basic_Math_Constrain(&Control_Angle, -Angle_Max, Angle_Max);
         Basic_Math_Constrain(&Control_Omega, -Omega_Max, Omega_Max);
@@ -380,7 +380,7 @@ void Class_Motor_DM_Normal::TIM_Send_PeriodElapsedCallback()
                 feedforward_torque = -Feedforward_Torque;
             }
             Control_Torque = PID_Calculate(&this->PID_Omega, Rx_Data.Now_Omega, Target_Omega + Feedforward_Omega)
-                           + feedforward_torque;
+                           + Feedforward_Torque;
         }
         else if (Motor_DM_Control_Method == Motor_DM_Control_Method_NORMAL_MIT_Position)
         {
@@ -404,12 +404,12 @@ void Class_Motor_DM_Normal::TIM_Send_PeriodElapsedCallback()
         }
         Basic_Math_Constrain(&Control_Torque, -Torque_Max, Torque_Max);
         Output();
-    }
-    else if (Rx_Data.Control_Status == Motor_DM_Control_Status_DISABLE)
-    {
-        // 电机离线, 发送使能电机指令
-        CAN_Send_Enter();
-    }
+    // }
+    // else if (Rx_Data.Control_Status == Motor_DM_Control_Status_DISABLE)
+    // {
+    //     // 电机离线, 发送使能电机指令
+    //     CAN_Send_Enter();
+    // }
 }
 
 /**
@@ -423,7 +423,7 @@ void Class_Motor_DM_Normal::Data_Process()
     Struct_Motor_DM_CAN_Rx_Data_Normal *tmp_buffer = (Struct_Motor_DM_CAN_Rx_Data_Normal *) CAN_Manage_Object->Rx_Buffer;
 
     // 电机ID不匹配, 则不进行处理
-    if (tmp_buffer->CAN_ID != (CAN_Rx_ID & 0x0f))
+    if (tmp_buffer->CAN_ID != (CAN_Tx_ID & 0x0f))
     {
         return;
     }

@@ -295,9 +295,9 @@ void Task_Loop()
  */
 void Motor_Init()
 {
-    Motor_DM_80[0].Init(&hfdcan1, 0x21,0x10, Motor_DM_Control_Method_NORMAL_MIT_Omega, 12.5f, 45.0f, 54.0f);
-    Motor_DM_80[1].Init(&hfdcan1, 0x22,0x20, Motor_DM_Control_Method_NORMAL_MIT_Omega, 12.5f, 45.0f, 54.0f);
-    Motor_DM_80[2].Init(&hfdcan1, 0x23,0x30, Motor_DM_Control_Method_NORMAL_MIT_Omega, 12.5f, 45.0f, 54.0f);
+    Motor_DM_80[0].Init(&hfdcan1, 0x21,0x10, Motor_DM_Control_Method_NORMAL_MIT_Omega, 12.5f, 150.0f, 54.0f);
+    Motor_DM_80[1].Init(&hfdcan1, 0x22,0x20, Motor_DM_Control_Method_NORMAL_MIT_Omega, 12.5f, 150.0f, 54.0f);
+    Motor_DM_80[2].Init(&hfdcan1, 0x23,0x30, Motor_DM_Control_Method_NORMAL_MIT_Omega, 12.5f, 150.0f, 54.0f);
 
     Motor_DM_6220[0].Init(&hfdcan2, 0x11, 0x01, Motor_DM_Control_Method_NORMAL_MIT_Position,3.141593f,45.0f,10.0f);
     Motor_DM_6220[1].Init(&hfdcan2, 0x12, 0x02, Motor_DM_Control_Method_NORMAL_MIT_Position,3.141593f,45.0f,10.0f);
@@ -326,6 +326,9 @@ void Motor_Enable()
 void PID_Init_All()
 {   
     //底盘轮向电机PID参数初始化
+    PID_Init(&Motor_DM_80[0].PID_Omega, 3.0f, 0.5f, 0.00f, 0.002f, 0.175f, 0.25f, 0.0f, 1.0f, 0.0f, 0.0f, 0, 0, Integral_Limit);
+    PID_Init(&Motor_DM_80[1].PID_Omega, 3.0f, 0.5f, 0.00f, 0.002f, 0.175f, 0.25f, 0.0f, 1.0f, 0.0f, 0.0f, 0, 0, Integral_Limit);
+    PID_Init(&Motor_DM_80[2].PID_Omega, 3.0f, 0.5f, 0.00f, 0.002f, 0.175f, 0.25f, 0.0f, 1.0f, 0.0f, 0.0f, 0, 0, Integral_Limit);  
 
     //舵向电机速度环PID参数初始化
     PID_Init(&Motor_DM_6220[0].PID_Omega,2.7f, 0.7f, 0.00f, 0.001f,0.025f,0.35f,0.0f,0.025f,2.0f,0.5f,0,0,Integral_Limit);
@@ -367,39 +370,39 @@ void Wave_Output()
     }
      if(press_count%2==1)
      {
-    //     ALG_Sin_Generate(&Sin_Out, 2.0f, -4.0f, 1000.0f);
+        ALG_Sin_Generate(&Sin_Out, 3.0f, -15.0f, 1000.0f);
     //     // Motor_DM_6220[0].Set_Target_Angle(Sin_Out);
     //     // ALG_Value_Toggle_Periodic(&Sin_Out, 1.57f,-1.57f,2.0f,1000.0f);
            // Motor_DM_6220[0].Set_Target_Angle(Sin_Out);
     //     // ALG_Sin_Generate(&Sin_Out, 2.5f, -11.0f, 1000.0f);
-    //     // Motor_DM_6220[0].Set_Target_Omega(Sin_Out);
+        Motor_DM_80[0].Set_Target_Omega(Sin_Out);
      }
-    // else
-    // {
-    //     Sin_Out = 0.0f;
-    //     // Motor_DM_6220[0].Set_Target_Angle(0.0f);
-    //     // Motor_DM_6220[0].Set_Target_Omega(0.0f);
-    //     Motor_DM_4340P.Set_Target_Omega(0.0f);
-    // }
+    else
+    {
+        Sin_Out = 0.0f;
+        // Motor_DM_6220[0].Set_Target_Angle(0.0f);
+        // Motor_DM_6220[0].Set_Target_Omega(0.0f);
+        Motor_DM_80[0].Set_Target_Omega(0.0f);
+    }
 }
 
 void Chassis_Control_Task()
 {
-    cmd_vx = Slope_VX.TIM_Calculate_GetOut((float)rc_channels.ch[1] / 1640.0f,Steer_Chassis.Get_Chassis_Now_Velocity_X());
-    cmd_vy = Slope_VY.TIM_Calculate_GetOut((float)(-rc_channels.ch[0]) / 1640.0f,Steer_Chassis.Get_Chassis_Now_Velocity_Y());
-    cmd_vw = Slope_VW.TIM_Calculate_GetOut((float)rc_channels.ch[3] / 1640.0f,Steer_Chassis.Get_Chassis_Now_Velocity_W());
+    cmd_vx = Slope_VX.TIM_Calculate_GetOut((float)rc_channels.ch[1] / 205.0f,Steer_Chassis.Get_Chassis_Now_Velocity_X());
+    cmd_vy = Slope_VY.TIM_Calculate_GetOut((float)(-rc_channels.ch[0]) / 205.0f,Steer_Chassis.Get_Chassis_Now_Velocity_Y());
+    cmd_vw = Slope_VW.TIM_Calculate_GetOut(-(float)rc_channels.ch[3] / 205.0f,Steer_Chassis.Get_Chassis_Now_Velocity_W());
 
-    // Steer_Chassis.Set_Target_Velocity(cmd_vx, cmd_vy, cmd_vw);
+    Steer_Chassis.Set_Target_Velocity(cmd_vx, cmd_vy, cmd_vw);
 
-    Steer_Chassis.TIM_Calculate_PeriodElapsedCallback(Motor_DM_80[0].Get_Now_Omega(),Motor_DM_80[1].Get_Now_Omega(),Motor_DM_80[2].Get_Now_Omega(),
+    Steer_Chassis.TIM_Calculate_PeriodElapsedCallback(-Motor_DM_80[0].Get_Now_Omega(),-Motor_DM_80[1].Get_Now_Omega(),Motor_DM_80[2].Get_Now_Omega(),
     Motor_DM_6220[0].Get_Now_Angle(),Motor_DM_6220[1].Get_Now_Angle(),Motor_DM_6220[2].Get_Now_Angle());
 
-    Motor_DM_80[0].Set_Control_Torque(Steer_Chassis.Get_Motor_Target_Torque()[0]);
-    Motor_DM_80[1].Set_Control_Torque(Steer_Chassis.Get_Motor_Target_Torque()[1]);
+    Motor_DM_80[0].Set_Control_Torque(-Steer_Chassis.Get_Motor_Target_Torque()[0]);
+    Motor_DM_80[1].Set_Control_Torque(-Steer_Chassis.Get_Motor_Target_Torque()[1]);
     Motor_DM_80[2].Set_Control_Torque(Steer_Chassis.Get_Motor_Target_Torque()[2]);
 
-    Motor_DM_80[0].Set_Target_Omega(Steer_Chassis.Get_Motor_Target_Omega()[0]);
-    Motor_DM_80[1].Set_Target_Omega(Steer_Chassis.Get_Motor_Target_Omega()[1]);
+    Motor_DM_80[0].Set_Target_Omega(-Steer_Chassis.Get_Motor_Target_Omega()[0]);
+    Motor_DM_80[1].Set_Target_Omega(-Steer_Chassis.Get_Motor_Target_Omega()[1]);
     Motor_DM_80[2].Set_Target_Omega(Steer_Chassis.Get_Motor_Target_Omega()[2]);
 
     //舵轮的坐标系其实和底盘的坐标系Z轴是相反的，所以这里要取负号
@@ -410,7 +413,7 @@ void Chassis_Control_Task()
 
 void Chassis_Task_Func(void *argument)
 {
-    osDelay(1000);
+    osDelay(2000);
     //初始化电机
     Motor_Enable();
     for(;;)
@@ -424,12 +427,9 @@ void Chassis_Task_Func(void *argument)
         if (mod2 == 2)
         {
             mod2 = 0;
-            // Motor_DM_80[0].TIM_Send_PeriodElapsedCallback();
-            // Motor_DM_80[1].TIM_Send_PeriodElapsedCallback();
-            // Motor_DM_80[2].TIM_Send_PeriodElapsedCallback();
-            Motor_DM_80[0].Output_Torque();
-            Motor_DM_80[1].Output_Torque();
-            Motor_DM_80[2].Output_Torque();
+            Motor_DM_80[0].TIM_Send_PeriodElapsedCallback();
+            Motor_DM_80[1].TIM_Send_PeriodElapsedCallback();
+            Motor_DM_80[2].TIM_Send_PeriodElapsedCallback();
         }   
         osDelay(1);
     }

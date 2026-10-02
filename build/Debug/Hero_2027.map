@@ -18975,17 +18975,16 @@ Discarded input sections
  .group         0x00000000        0x8 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
  .group         0x00000000        0x8 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
  .group         0x00000000        0x8 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+ .group         0x00000000        0x8 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+ .group         0x00000000        0x8 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+ .group         0x00000000        0x8 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+ .group         0x00000000        0x8 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+ .group         0x00000000        0x8 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+ .group         0x00000000        0x8 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+ .group         0x00000000        0x8 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
  .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
- .group         0x00000000        0x8 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
- .group         0x00000000        0x8 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
- .group         0x00000000        0x8 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
- .group         0x00000000        0x8 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
- .group         0x00000000        0x8 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
- .group         0x00000000        0x8 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
  .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
  .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
- .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
- .group         0x00000000        0x8 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
  .group         0x00000000        0x8 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
  .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
  .group         0x00000000        0xc CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
@@ -19153,9 +19152,7 @@ Discarded input sections
  .data._ZZ11Wave_OutputE11press_count
                 0x00000000        0x1 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
  .text.Wave_Output
-                0x00000000       0x40 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
- .text._Z20Basic_Math_ConstrainIfET_PS0_S0_S0_
-                0x00000000       0x5a CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+                0x00000000       0x94 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
  .debug_macro   0x00000000      0xc58 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
  .debug_macro   0x00000000       0x16 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
  .debug_macro   0x00000000      0x25c CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
@@ -20641,7 +20638,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/crtn.o
                 0x08000000                g_pfnVectors
                 0x080002cc                        . = ALIGN (0x4)
 
-.text           0x080002d0    0x1f974
+.text           0x080002d0    0x1fa6c
                 0x080002d0                        . = ALIGN (0x4)
  *(.text)
  .text          0x080002d0       0x88 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/crtbegin.o
@@ -22371,315 +22368,315 @@ LOAD /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/crtn.o
                 0x0801d5cc       0x2c CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp.obj
                 0x0801d5cc                Class_Motor_DM_Normal::CAN_Send_Enter() const
  .text._ZN21Class_Motor_DM_Normal30TIM_Send_PeriodElapsedCallbackEv
-                0x0801d5f8      0x2b8 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp.obj
+                0x0801d5f8      0x29c CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp.obj
                 0x0801d5f8                Class_Motor_DM_Normal::TIM_Send_PeriodElapsedCallback()
  .text._ZN21Class_Motor_DM_Normal12Data_ProcessEv
-                0x0801d8b0      0x1f4 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp.obj
-                0x0801d8b0                Class_Motor_DM_Normal::Data_Process()
+                0x0801d894      0x1f4 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp.obj
+                0x0801d894                Class_Motor_DM_Normal::Data_Process()
  .text._ZN21Class_Motor_DM_Normal6OutputEv
-                0x0801daa4      0x28c CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp.obj
-                0x0801daa4                Class_Motor_DM_Normal::Output()
+                0x0801da88      0x28c CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp.obj
+                0x0801da88                Class_Motor_DM_Normal::Output()
  .text._ZN22Class_Filter_FrequencyILm10EE7Set_NowERKf
-                0x0801dd30       0x92 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp.obj
-                0x0801dd30                Class_Filter_Frequency<10ul>::Set_Now(float const&)
- *fill*         0x0801ddc2        0x2 
+                0x0801dd14       0x92 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp.obj
+                0x0801dd14                Class_Filter_Frequency<10ul>::Set_Now(float const&)
+ *fill*         0x0801dda6        0x2 
  .text._ZN22Class_Filter_FrequencyILm10EE35TIM_Calculate_PeriodElapsedCallbackEv
-                0x0801ddc4       0x88 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp.obj
-                0x0801ddc4                Class_Filter_Frequency<10ul>::TIM_Calculate_PeriodElapsedCallback()
+                0x0801dda8       0x88 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp.obj
+                0x0801dda8                Class_Filter_Frequency<10ul>::TIM_Calculate_PeriodElapsedCallback()
  .text._ZNK22Class_Filter_FrequencyILm10EE7Get_OutEv
-                0x0801de4c       0x1c CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp.obj
-                0x0801de4c                Class_Filter_Frequency<10ul>::Get_Out() const
+                0x0801de30       0x1c CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp.obj
+                0x0801de30                Class_Filter_Frequency<10ul>::Get_Out() const
  .text._ZN12Class_WS28127Set_RGBERKhS1_S1_
-                0x0801de68       0x30 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
-                0x0801de68                Class_WS2812::Set_RGB(unsigned char const&, unsigned char const&, unsigned char const&)
+                0x0801de4c       0x30 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+                0x0801de4c                Class_WS2812::Set_RGB(unsigned char const&, unsigned char const&, unsigned char const&)
  .text._ZN11Class_Power10Set_DC24_0ERKb
-                0x0801de98       0x30 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
-                0x0801de98                Class_Power::Set_DC24_0(bool const&)
+                0x0801de7c       0x30 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+                0x0801de7c                Class_Power::Set_DC24_0(bool const&)
  .text._ZN11Class_Power10Set_DC24_1ERKb
-                0x0801dec8       0x30 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
-                0x0801dec8                Class_Power::Set_DC24_1(bool const&)
+                0x0801deac       0x30 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+                0x0801deac                Class_Power::Set_DC24_1(bool const&)
  .text._ZN11Class_Power7Set_DC5ERKb
-                0x0801def8       0x30 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
-                0x0801def8                Class_Power::Set_DC5(bool const&)
+                0x0801dedc       0x30 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+                0x0801dedc                Class_Power::Set_DC5(bool const&)
  .text._ZN11Class_Power9Set_PowerERKbS1_S1_
-                0x0801df28       0x2e CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
-                0x0801df28                Class_Power::Set_Power(bool const&, bool const&, bool const&)
+                0x0801df0c       0x2e CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+                0x0801df0c                Class_Power::Set_Power(bool const&, bool const&, bool const&)
  .text._ZNK21Class_Motor_DM_Normal13Get_Now_AngleEv
-                0x0801df56       0x1e CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
-                0x0801df56                Class_Motor_DM_Normal::Get_Now_Angle() const
+                0x0801df3a       0x1e CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+                0x0801df3a                Class_Motor_DM_Normal::Get_Now_Angle() const
  .text._ZNK21Class_Motor_DM_Normal13Get_Now_OmegaEv
-                0x0801df74       0x1e CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
-                0x0801df74                Class_Motor_DM_Normal::Get_Now_Omega() const
+                0x0801df58       0x1e CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+                0x0801df58                Class_Motor_DM_Normal::Get_Now_Omega() const
  .text._ZN21Class_Motor_DM_Normal16Set_Target_AngleERKf
-                0x0801df92       0x1e CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
-                0x0801df92                Class_Motor_DM_Normal::Set_Target_Angle(float const&)
+                0x0801df76       0x1e CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+                0x0801df76                Class_Motor_DM_Normal::Set_Target_Angle(float const&)
  .text._ZN21Class_Motor_DM_Normal16Set_Target_OmegaERKf
-                0x0801dfb0       0x1e CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
-                0x0801dfb0                Class_Motor_DM_Normal::Set_Target_Omega(float const&)
+                0x0801df94       0x1e CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+                0x0801df94                Class_Motor_DM_Normal::Set_Target_Omega(float const&)
  .text._ZN21Class_Motor_DM_Normal18Set_Control_TorqueERKf
-                0x0801dfce       0x1e CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
-                0x0801dfce                Class_Motor_DM_Normal::Set_Control_Torque(float const&)
- .text._ZN21Class_Motor_DM_Normal13Output_TorqueEv
-                0x0801dfec       0x3a CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
-                0x0801dfec                Class_Motor_DM_Normal::Output_Torque()
+                0x0801dfb2       0x1e CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+                0x0801dfb2                Class_Motor_DM_Normal::Set_Control_Torque(float const&)
  .text._ZN21Class_Chassis_Control23Get_Motor_Target_TorqueEv
-                0x0801e026       0x18 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
-                0x0801e026                Class_Chassis_Control::Get_Motor_Target_Torque()
+                0x0801dfd0       0x18 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+                0x0801dfd0                Class_Chassis_Control::Get_Motor_Target_Torque()
  .text._ZN21Class_Chassis_Control22Get_Motor_Target_OmegaEv
-                0x0801e03e       0x18 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
-                0x0801e03e                Class_Chassis_Control::Get_Motor_Target_Omega()
+                0x0801dfe8       0x18 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+                0x0801dfe8                Class_Chassis_Control::Get_Motor_Target_Omega()
  .text._ZNK30Triangle_Steer_Chassis_Control26Get_Chassis_Now_Velocity_XEv
-                0x0801e056       0x1e CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
-                0x0801e056                Triangle_Steer_Chassis_Control::Get_Chassis_Now_Velocity_X() const
+                0x0801e000       0x1e CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+                0x0801e000                Triangle_Steer_Chassis_Control::Get_Chassis_Now_Velocity_X() const
  .text._ZNK30Triangle_Steer_Chassis_Control26Get_Chassis_Now_Velocity_YEv
-                0x0801e074       0x1e CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
-                0x0801e074                Triangle_Steer_Chassis_Control::Get_Chassis_Now_Velocity_Y() const
+                0x0801e01e       0x1e CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+                0x0801e01e                Triangle_Steer_Chassis_Control::Get_Chassis_Now_Velocity_Y() const
  .text._ZNK30Triangle_Steer_Chassis_Control26Get_Chassis_Now_Velocity_WEv
-                0x0801e092       0x1e CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
-                0x0801e092                Triangle_Steer_Chassis_Control::Get_Chassis_Now_Velocity_W() const
+                0x0801e03c       0x1e CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+                0x0801e03c                Triangle_Steer_Chassis_Control::Get_Chassis_Now_Velocity_W() const
  .text._ZNK30Triangle_Steer_Chassis_Control22Get_Steer_Target_AngleEv
-                0x0801e0b0       0x18 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
-                0x0801e0b0                Triangle_Steer_Chassis_Control::Get_Steer_Target_Angle() const
+                0x0801e05a       0x18 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+                0x0801e05a                Triangle_Steer_Chassis_Control::Get_Steer_Target_Angle() const
+ .text._ZN30Triangle_Steer_Chassis_Control19Set_Target_VelocityERKfS1_S1_
+                0x0801e072       0x36 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+                0x0801e072                Triangle_Steer_Chassis_Control::Set_Target_Velocity(float const&, float const&, float const&)
  .text._ZN22Class_Filter_FrequencyILm50EEC2Ev
-                0x0801e0c8       0x46 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
-                0x0801e0c8                Class_Filter_Frequency<50ul>::Class_Filter_Frequency()
-                0x0801e0c8                Class_Filter_Frequency<50ul>::Class_Filter_Frequency()
+                0x0801e0a8       0x46 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+                0x0801e0a8                Class_Filter_Frequency<50ul>::Class_Filter_Frequency()
+                0x0801e0a8                Class_Filter_Frequency<50ul>::Class_Filter_Frequency()
  .text._ZN22Class_Filter_FrequencyILm10EEC2Ev
-                0x0801e10e       0x44 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
-                0x0801e10e                Class_Filter_Frequency<10ul>::Class_Filter_Frequency()
-                0x0801e10e                Class_Filter_Frequency<10ul>::Class_Filter_Frequency()
+                0x0801e0ee       0x44 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+                0x0801e0ee                Class_Filter_Frequency<10ul>::Class_Filter_Frequency()
+                0x0801e0ee                Class_Filter_Frequency<10ul>::Class_Filter_Frequency()
  .text._ZN21Class_Motor_DM_NormalC2Ev
-                0x0801e152       0xb6 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
-                0x0801e152                Class_Motor_DM_Normal::Class_Motor_DM_Normal()
-                0x0801e152                Class_Motor_DM_Normal::Class_Motor_DM_Normal()
+                0x0801e132       0xb6 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+                0x0801e132                Class_Motor_DM_Normal::Class_Motor_DM_Normal()
+                0x0801e132                Class_Motor_DM_Normal::Class_Motor_DM_Normal()
  .text._ZN30Triangle_Steer_Chassis_ControlC2Ev
-                0x0801e208       0x28 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
-                0x0801e208                Triangle_Steer_Chassis_Control::Triangle_Steer_Chassis_Control()
-                0x0801e208                Triangle_Steer_Chassis_Control::Triangle_Steer_Chassis_Control()
+                0x0801e1e8       0x28 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+                0x0801e1e8                Triangle_Steer_Chassis_Control::Triangle_Steer_Chassis_Control()
+                0x0801e1e8                Triangle_Steer_Chassis_Control::Triangle_Steer_Chassis_Control()
  .text._Z13CAN1_CallbackR21FDCAN_RxHeaderTypeDefPh
-                0x0801e230       0x4c CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
-                0x0801e230                CAN1_Callback(FDCAN_RxHeaderTypeDef&, unsigned char*)
+                0x0801e210       0x4c CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+                0x0801e210                CAN1_Callback(FDCAN_RxHeaderTypeDef&, unsigned char*)
  .text._Z13CAN2_CallbackR21FDCAN_RxHeaderTypeDefPh
-                0x0801e27c       0x4c CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
-                0x0801e27c                CAN2_Callback(FDCAN_RxHeaderTypeDef&, unsigned char*)
+                0x0801e25c       0x4c CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+                0x0801e25c                CAN2_Callback(FDCAN_RxHeaderTypeDef&, unsigned char*)
  .text.Task3600s_Callback
-                0x0801e2c8       0x14 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
-                0x0801e2c8                Task3600s_Callback
+                0x0801e2a8       0x14 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+                0x0801e2a8                Task3600s_Callback
  .text._Z18Task500ms_Callbackv
-                0x0801e2dc        0xc CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
-                0x0801e2dc                Task500ms_Callback()
+                0x0801e2bc        0xc CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+                0x0801e2bc                Task500ms_Callback()
  .text._Z34Task1ms_Chassis_Calculate_Callbackv
-                0x0801e2e8        0xc CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
-                0x0801e2e8                Task1ms_Chassis_Calculate_Callback()
+                0x0801e2c8        0xc CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+                0x0801e2c8                Task1ms_Chassis_Calculate_Callback()
  .text.Task1ms_Callback
-                0x0801e2f4       0xa8 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
-                0x0801e2f4                Task1ms_Callback
+                0x0801e2d4       0xa8 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+                0x0801e2d4                Task1ms_Callback
  .text.Task_Init
-                0x0801e39c      0x1a4 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
-                0x0801e39c                Task_Init
+                0x0801e37c      0x1a4 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+                0x0801e37c                Task_Init
  .text.Motor_Init
-                0x0801e540      0x270 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
-                0x0801e540                Motor_Init
+                0x0801e520      0x274 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+                0x0801e520                Motor_Init
  .text._Z12Motor_Enablev
-                0x0801e7b0       0x64 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
-                0x0801e7b0                Motor_Enable()
+                0x0801e794       0x64 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+                0x0801e794                Motor_Enable()
  .text.PID_Init_All
-                0x0801e814      0x190 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
-                0x0801e814                PID_Init_All
+                0x0801e7f8      0x24c CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+                0x0801e7f8                PID_Init_All
  .text.Filter_Init_All
-                0x0801e9a4       0x84 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
-                0x0801e9a4                Filter_Init_All
+                0x0801ea44       0x84 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+                0x0801ea44                Filter_Init_All
  .text.Chassis_Control_Task
-                0x0801ea28      0x228 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
-                0x0801ea28                Chassis_Control_Task
+                0x0801eac8      0x280 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+                0x0801eac8                Chassis_Control_Task
  .text.Chassis_Task_Func
-                0x0801ec50       0x74 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
-                0x0801ec50                Chassis_Task_Func
+                0x0801ed48       0x74 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+                0x0801ed48                Chassis_Task_Func
  .text._ZN22Class_Filter_FrequencyILm10EE4InitERKfS2_RK26Enum_Filter_Frequency_TypeS2_S2_S2_
-                0x0801ecc4      0x358 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
-                0x0801ecc4                Class_Filter_Frequency<10ul>::Init(float const&, float const&, Enum_Filter_Frequency_Type const&, float const&, float const&, float const&)
+                0x0801edbc      0x358 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+                0x0801edbc                Class_Filter_Frequency<10ul>::Init(float const&, float const&, Enum_Filter_Frequency_Type const&, float const&, float const&, float const&)
  .text._Z41__static_initialization_and_destruction_0v
-                0x0801f01c       0x4c CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+                0x0801f114       0x4c CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
  .text._GLOBAL__sub_I_Motor_DM_6220
-                0x0801f068        0xa CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
- *fill*         0x0801f072        0x2 
+                0x0801f160        0xa CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+ *fill*         0x0801f16a        0x2 
  .text.arm_atan2_f32
-                0x0801f074      0x44c /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_atan2_f32.c.obj)
-                0x0801f074                arm_atan2_f32
+                0x0801f16c      0x44c /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_atan2_f32.c.obj)
+                0x0801f16c                arm_atan2_f32
  .text.arm_cos_f32
-                0x0801f4c0      0x10c /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_cos_f32.c.obj)
-                0x0801f4c0                arm_cos_f32
+                0x0801f5b8      0x10c /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_cos_f32.c.obj)
+                0x0801f5b8                arm_cos_f32
  .text.arm_sin_f32
-                0x0801f5cc      0x104 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_sin_f32.c.obj)
-                0x0801f5cc                arm_sin_f32
- .text.fmod     0x0801f6d0       0x58 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-w_fmod.o)
-                0x0801f6d0                fmod
- .text.sqrtf    0x0801f728       0x50 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-wf_sqrt.o)
-                0x0801f728                sqrtf
- .text.fmaxf    0x0801f778       0x4c /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-sf_fmax.o)
-                0x0801f778                fmaxf
+                0x0801f6c4      0x104 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_sin_f32.c.obj)
+                0x0801f6c4                arm_sin_f32
+ .text.fmod     0x0801f7c8       0x58 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-w_fmod.o)
+                0x0801f7c8                fmod
+ .text.sqrtf    0x0801f820       0x50 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-wf_sqrt.o)
+                0x0801f820                sqrtf
+ .text.fmaxf    0x0801f870       0x4c /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-sf_fmax.o)
+                0x0801f870                fmaxf
  .text.__fpclassifyf
-                0x0801f7c4       0x38 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-sf_fpclassify.o)
-                0x0801f7c4                __fpclassifyf
+                0x0801f8bc       0x38 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-sf_fpclassify.o)
+                0x0801f8bc                __fpclassifyf
  .text.__ieee754_sqrtf
-                0x0801f7fc        0x8 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-ef_sqrt.o)
-                0x0801f7fc                __ieee754_sqrtf
+                0x0801f8f4        0x8 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-ef_sqrt.o)
+                0x0801f8f4                __ieee754_sqrtf
  .text.__ieee754_fmod
-                0x0801f804      0x3a8 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-e_fmod.o)
-                0x0801f804                __ieee754_fmod
- .text.memset   0x0801fbac       0x10 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-memset.o)
-                0x0801fbac                memset
- .text.__errno  0x0801fbbc        0xc /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-errno.o)
-                0x0801fbbc                __errno
+                0x0801f8fc      0x3a8 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-e_fmod.o)
+                0x0801f8fc                __ieee754_fmod
+ .text.memset   0x0801fca4       0x10 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-memset.o)
+                0x0801fca4                memset
+ .text.__errno  0x0801fcb4        0xc /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-errno.o)
+                0x0801fcb4                __errno
  .text.__libc_init_array
-                0x0801fbc8       0x48 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-init.o)
-                0x0801fbc8                __libc_init_array
- .text.memcpy   0x0801fc10       0x1c /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-memcpy-stub.o)
-                0x0801fc10                memcpy
+                0x0801fcc0       0x48 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-init.o)
+                0x0801fcc0                __libc_init_array
+ .text.memcpy   0x0801fd08       0x1c /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-memcpy-stub.o)
+                0x0801fd08                memcpy
  *(.glue_7)
- .glue_7        0x0801fc2c        0x0 linker stubs
+ .glue_7        0x0801fd24        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x0801fc2c        0x0 linker stubs
+ .glue_7t       0x0801fd24        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x0801fc2c        0x0 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/crtbegin.o
+ .eh_frame      0x0801fd24        0x0 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/crtbegin.o
  *(.init)
- .init          0x0801fc2c        0x4 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/crti.o
-                0x0801fc2c                _init
- .init          0x0801fc30        0x8 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/crtn.o
+ .init          0x0801fd24        0x4 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/crti.o
+                0x0801fd24                _init
+ .init          0x0801fd28        0x8 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/crtn.o
  *(.fini)
- .fini          0x0801fc38        0x4 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/crti.o
-                0x0801fc38                _fini
- .fini          0x0801fc3c        0x8 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/crtn.o
-                0x0801fc44                        . = ALIGN (0x4)
-                0x0801fc44                        _etext = .
+ .fini          0x0801fd30        0x4 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/crti.o
+                0x0801fd30                _fini
+ .fini          0x0801fd34        0x8 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/crtn.o
+                0x0801fd3c                        . = ALIGN (0x4)
+                0x0801fd3c                        _etext = .
 
-.vfp11_veneer   0x0801fc44        0x0
- .vfp11_veneer  0x0801fc44        0x0 linker stubs
+.vfp11_veneer   0x0801fd3c        0x0
+ .vfp11_veneer  0x0801fd3c        0x0 linker stubs
 
-.v4_bx          0x0801fc44        0x0
- .v4_bx         0x0801fc44        0x0 linker stubs
+.v4_bx          0x0801fd3c        0x0
+ .v4_bx         0x0801fd3c        0x0 linker stubs
 
-.iplt           0x0801fc44        0x0
- .iplt          0x0801fc44        0x0 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/crtbegin.o
+.iplt           0x0801fd3c        0x0
+ .iplt          0x0801fd3c        0x0 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/crtbegin.o
 
-.rodata         0x0801fc48      0x9f0
-                0x0801fc48                        . = ALIGN (0x4)
+.rodata         0x0801fd40      0x9f0
+                0x0801fd40                        . = ALIGN (0x4)
  *(.rodata)
- .rodata        0x0801fc48       0x4c cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
- .rodata        0x0801fc94        0x5 cmake/stm32cubemx/CMakeFiles/FreeRTOS.dir/__/__/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
- *fill*         0x0801fc99        0x3 
- .rodata        0x0801fc9c        0xd cmake/stm32cubemx/CMakeFiles/FreeRTOS.dir/__/__/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj
- *fill*         0x0801fca9        0x3 
- .rodata        0x0801fcac       0x14 CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/W25Q64JV/bsp_w25q64jv.cpp.obj
+ .rodata        0x0801fd40       0x4c cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
+ .rodata        0x0801fd8c        0x5 cmake/stm32cubemx/CMakeFiles/FreeRTOS.dir/__/__/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ *fill*         0x0801fd91        0x3 
+ .rodata        0x0801fd94        0xd cmake/stm32cubemx/CMakeFiles/FreeRTOS.dir/__/__/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj
+ *fill*         0x0801fda1        0x3 
+ .rodata        0x0801fda4       0x14 CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/W25Q64JV/bsp_w25q64jv.cpp.obj
  *(.rodata*)
  .rodata.D1CorePrescTable
-                0x0801fcc0       0x10 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32h7xx.c.obj
-                0x0801fcc0                D1CorePrescTable
+                0x0801fdb8       0x10 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32h7xx.c.obj
+                0x0801fdb8                D1CorePrescTable
  .rodata.flagBitshiftOffset.0
-                0x0801fcd0        0x8 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.c.obj
+                0x0801fdc8        0x8 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.c.obj
  .rodata.DLCtoBytes
-                0x0801fcd8       0x10 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
+                0x0801fdd0       0x10 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
  .rodata.UARTPrescTable
-                0x0801fce8       0x18 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c.obj
-                0x0801fce8                UARTPrescTable
+                0x0801fde0       0x18 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c.obj
+                0x0801fde0                UARTPrescTable
  .rodata.numerator.1
-                0x0801fd00        0x8 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c.obj
+                0x0801fdf8        0x8 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c.obj
  .rodata.denominator.0
-                0x0801fd08        0x8 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c.obj
+                0x0801fe00        0x8 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c.obj
  .rodata.uxTopUsedPriority
-                0x0801fd10        0x4 cmake/stm32cubemx/CMakeFiles/FreeRTOS.dir/__/__/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
-                0x0801fd10                uxTopUsedPriority
+                0x0801fe08        0x4 cmake/stm32cubemx/CMakeFiles/FreeRTOS.dir/__/__/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x0801fe08                uxTopUsedPriority
  .rodata.USBD_HS_ProductStrDescriptor.str1.4
-                0x0801fd14       0x70 CMakeFiles/Hero_2027.dir/USB_DEVICE/App/usbd_desc.c.obj
+                0x0801fe0c       0x70 CMakeFiles/Hero_2027.dir/USB_DEVICE/App/usbd_desc.c.obj
                                  0x16 (size before relaxing)
  .rodata.USBD_HS_ManufacturerStrDescriptor.str1.4
-                0x0801fd84        0x0 CMakeFiles/Hero_2027.dir/USB_DEVICE/App/usbd_desc.c.obj
+                0x0801fe7c        0x0 CMakeFiles/Hero_2027.dir/USB_DEVICE/App/usbd_desc.c.obj
                                  0x13 (size before relaxing)
  .rodata.USBD_HS_ConfigStrDescriptor.str1.4
-                0x0801fd84        0x0 CMakeFiles/Hero_2027.dir/USB_DEVICE/App/usbd_desc.c.obj
+                0x0801fe7c        0x0 CMakeFiles/Hero_2027.dir/USB_DEVICE/App/usbd_desc.c.obj
                                   0xb (size before relaxing)
  .rodata.USBD_HS_InterfaceStrDescriptor.str1.4
-                0x0801fd84        0x0 CMakeFiles/Hero_2027.dir/USB_DEVICE/App/usbd_desc.c.obj
+                0x0801fe7c        0x0 CMakeFiles/Hero_2027.dir/USB_DEVICE/App/usbd_desc.c.obj
                                   0xe (size before relaxing)
  .rodata.str1.4
-                0x0801fd84        0x0 CMakeFiles/Hero_2027.dir/Core/Src/freertos.c.obj
+                0x0801fe7c        0x0 CMakeFiles/Hero_2027.dir/Core/Src/freertos.c.obj
                                  0x28 (size before relaxing)
  .rodata.defaultTask_attributes
-                0x0801fd84       0x24 CMakeFiles/Hero_2027.dir/Core/Src/freertos.c.obj
-                0x0801fd84                defaultTask_attributes
+                0x0801fe7c       0x24 CMakeFiles/Hero_2027.dir/Core/Src/freertos.c.obj
+                0x0801fe7c                defaultTask_attributes
  .rodata.Chassis_Task_attributes
-                0x0801fda8       0x24 CMakeFiles/Hero_2027.dir/Core/Src/freertos.c.obj
-                0x0801fda8                Chassis_Task_attributes
+                0x0801fea0       0x24 CMakeFiles/Hero_2027.dir/Core/Src/freertos.c.obj
+                0x0801fea0                Chassis_Task_attributes
  .rodata.Gimbal_Task_attributes
-                0x0801fdcc       0x24 CMakeFiles/Hero_2027.dir/Core/Src/freertos.c.obj
-                0x0801fdcc                Gimbal_Task_attributes
+                0x0801fec4       0x24 CMakeFiles/Hero_2027.dir/Core/Src/freertos.c.obj
+                0x0801fec4                Gimbal_Task_attributes
  .rodata.BASIC_MATH_CELSIUS_TO_KELVIN
-                0x0801fdf0        0x4 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Basic/alg_basic.cpp.obj
-                0x0801fdf0                BASIC_MATH_CELSIUS_TO_KELVIN
+                0x0801fee8        0x4 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Basic/alg_basic.cpp.obj
+                0x0801fee8                BASIC_MATH_CELSIUS_TO_KELVIN
  .rodata.COS_30
-                0x0801fdf4        0x4 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Basic/alg_basic.cpp.obj
-                0x0801fdf4                COS_30
+                0x0801feec        0x4 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Basic/alg_basic.cpp.obj
+                0x0801feec                COS_30
  .rodata.SIN_30
-                0x0801fdf8        0x4 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Basic/alg_basic.cpp.obj
-                0x0801fdf8                SIN_30
+                0x0801fef0        0x4 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Basic/alg_basic.cpp.obj
+                0x0801fef0                SIN_30
  .rodata.atan2_coefs_f32
-                0x0801fdfc       0x28 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_atan2_f32.c.obj)
+                0x0801fef4       0x28 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_atan2_f32.c.obj)
  .rodata.sinTable_f32
-                0x0801fe24      0x804 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_common_tables.c.obj)
-                0x0801fe24                sinTable_f32
- .rodata.Zero   0x08020628       0x10 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-e_fmod.o)
-                0x08020638                        . = ALIGN (0x4)
+                0x0801ff1c      0x804 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_common_tables.c.obj)
+                0x0801ff1c                sinTable_f32
+ .rodata.Zero   0x08020720       0x10 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-e_fmod.o)
+                0x08020730                        . = ALIGN (0x4)
 
-.ARM.extab      0x08020638        0x0
-                0x08020638                        . = ALIGN (0x4)
+.ARM.extab      0x08020730        0x0
+                0x08020730                        . = ALIGN (0x4)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x08020638                        . = ALIGN (0x4)
+                0x08020730                        . = ALIGN (0x4)
 
-.ARM            0x08020638        0x8
-                0x08020638                        . = ALIGN (0x4)
-                0x08020638                        __exidx_start = .
+.ARM            0x08020730        0x8
+                0x08020730                        . = ALIGN (0x4)
+                0x08020730                        __exidx_start = .
  *(.ARM.exidx*)
- .ARM.exidx     0x08020638        0x8 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/libgcc.a(_udivmoddi4.o)
-                0x08020640                        __exidx_end = .
-                0x08020640                        . = ALIGN (0x4)
+ .ARM.exidx     0x08020730        0x8 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/libgcc.a(_udivmoddi4.o)
+                0x08020738                        __exidx_end = .
+                0x08020738                        . = ALIGN (0x4)
 
-.preinit_array  0x08020640        0x0
-                0x08020640                        . = ALIGN (0x4)
-                0x08020640                        PROVIDE (__preinit_array_start = .)
+.preinit_array  0x08020738        0x0
+                0x08020738                        . = ALIGN (0x4)
+                0x08020738                        PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x08020640                        PROVIDE (__preinit_array_end = .)
-                0x08020640                        . = ALIGN (0x4)
+                0x08020738                        PROVIDE (__preinit_array_end = .)
+                0x08020738                        . = ALIGN (0x4)
 
-.init_array     0x08020640       0x20
-                0x08020640                        . = ALIGN (0x4)
-                0x08020640                        PROVIDE (__init_array_start = .)
+.init_array     0x08020738       0x20
+                0x08020738                        . = ALIGN (0x4)
+                0x08020738                        PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array*)
- .init_array    0x08020640        0x4 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/crtbegin.o
- .init_array    0x08020644        0x4 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/System/Timestamp/sys_timestamp.cpp.obj
- .init_array    0x08020648        0x4 CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/Key/bsp_key.cpp.obj
- .init_array    0x0802064c        0x4 CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/Power/bsp_power.cpp.obj
- .init_array    0x08020650        0x4 CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/WS2812/bsp_ws2812.cpp.obj
- .init_array    0x08020654        0x4 CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/Buzzer/bsp_buzzer.cpp.obj
- .init_array    0x08020658        0x4 CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/W25Q64JV/bsp_w25q64jv.cpp.obj
- .init_array    0x0802065c        0x4 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
-                0x08020660                        PROVIDE (__init_array_end = .)
-                0x08020660                        . = ALIGN (0x4)
+ .init_array    0x08020738        0x4 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/crtbegin.o
+ .init_array    0x0802073c        0x4 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/System/Timestamp/sys_timestamp.cpp.obj
+ .init_array    0x08020740        0x4 CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/Key/bsp_key.cpp.obj
+ .init_array    0x08020744        0x4 CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/Power/bsp_power.cpp.obj
+ .init_array    0x08020748        0x4 CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/WS2812/bsp_ws2812.cpp.obj
+ .init_array    0x0802074c        0x4 CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/Buzzer/bsp_buzzer.cpp.obj
+ .init_array    0x08020750        0x4 CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/W25Q64JV/bsp_w25q64jv.cpp.obj
+ .init_array    0x08020754        0x4 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+                0x08020758                        PROVIDE (__init_array_end = .)
+                0x08020758                        . = ALIGN (0x4)
 
-.fini_array     0x08020660        0x4
-                0x08020660                        . = ALIGN (0x4)
-                0x08020660                        PROVIDE (__fini_array_start = .)
+.fini_array     0x08020758        0x4
+                0x08020758                        . = ALIGN (0x4)
+                0x08020758                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x08020660        0x4 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/crtbegin.o
-                0x08020664                        PROVIDE (__fini_array_end = .)
-                0x08020664                        . = ALIGN (0x4)
-                0x08020664                        _sidata = LOADADDR (.data)
+ .fini_array    0x08020758        0x4 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/crtbegin.o
+                0x0802075c                        PROVIDE (__fini_array_end = .)
+                0x0802075c                        . = ALIGN (0x4)
+                0x0802075c                        _sidata = LOADADDR (.data)
 
-.rel.dyn        0x08020664        0x0
- .rel.iplt      0x08020664        0x0 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/crtbegin.o
+.rel.dyn        0x0802075c        0x0
+ .rel.iplt      0x0802075c        0x0 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/crtbegin.o
 
-.data           0x20000000      0x264 load address 0x08020664
+.data           0x20000000      0x264 load address 0x0802075c
                 0x20000000                        . = ALIGN (0x4)
                 0x20000000                        _sdata = .
  *(.data)
@@ -22749,16 +22746,16 @@ LOAD /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/crtn.o
                 0x20000264                        . = ALIGN (0x4)
 
 .tm_clone_table
-                0x20000264        0x0 load address 0x080208c8
+                0x20000264        0x0 load address 0x080209c0
  .tm_clone_table
                 0x20000264        0x0 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/crtbegin.o
  .tm_clone_table
                 0x20000264        0x0 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/crtend.o
 
-.igot.plt       0x20000264        0x0 load address 0x080208c8
+.igot.plt       0x20000264        0x0 load address 0x080209c0
  .igot.plt      0x20000264        0x0 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/crtbegin.o
 
-.tdata          0x20000264        0x0 load address 0x080208c8
+.tdata          0x20000264        0x0 load address 0x080209c0
  *(.tdata .tdata.* .gnu.linkonce.td.*)
                 0x20000264                        . = ALIGN (0x4)
                 0x20000264                        _edata = .
@@ -22775,7 +22772,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/crtn.o
                 [!provide]                        PROVIDE (__data_source_end = __tdata_source_end)
                 [!provide]                        PROVIDE (__data_source_size = (__data_source_end - __data_source))
 
-.tbss           0x20000264        0x0 load address 0x080208c8
+.tbss           0x20000264        0x0 load address 0x080209c0
                 0x20000264                        _sbss = .
                 0x20000264                        __bss_start__ = _sbss
  *(.tbss .tbss.*)
@@ -22792,7 +22789,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/crtn.o
                 [!provide]                        PROVIDE (__arm32_tls_tcb_offset = MAX (0x8, __tls_align))
                 [!provide]                        PROVIDE (__arm64_tls_tcb_offset = MAX (0x10, __tls_align))
 
-.bss            0x20000268     0xb100 load address 0x080208c8
+.bss            0x20000268     0xb100 load address 0x080209c0
  *(.bss)
  .bss           0x20000268       0x1c /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/crtbegin.o
  *(.bss*)
@@ -23479,7 +23476,7 @@ LOAD linker stubs
  .comment       0x00000089        0x0 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/crtend.o
                                  0x24 (size before relaxing)
 
-.debug_info     0x00000000    0x7305b
+.debug_info     0x00000000    0x7305f
  .debug_info    0x00000000      0xbff cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32h7xx.c.obj
  .debug_info    0x00000bff     0x2bae cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.obj
  .debug_info    0x000037ad     0x18c1 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.obj
@@ -23552,28 +23549,28 @@ LOAD linker stubs
  .debug_info    0x0005d74c     0x3156 CMakeFiles/Hero_2027.dir/User_Files/3_App/Chassis_Control/Steer_Chassis/steer_control.cpp.obj
  .debug_info    0x000608a2     0x4247 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
  .debug_info    0x00064ae9     0x40f7 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp.obj
- .debug_info    0x00068be0     0x5ebb CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
- .debug_info    0x0006ea9b      0x342 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_atan2_f32.c.obj)
- .debug_info    0x0006eddd      0x17f /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_cos_f32.c.obj)
- .debug_info    0x0006ef5c      0x17f /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_sin_f32.c.obj)
- .debug_info    0x0006f0db      0xf70 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_common_tables.c.obj)
- .debug_info    0x0007004b      0x137 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-w_fmod.o)
- .debug_info    0x00070182      0x111 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-wf_sqrt.o)
- .debug_info    0x00070293      0x104 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-sf_fmax.o)
- .debug_info    0x00070397      0x116 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-sf_fpclassify.o)
- .debug_info    0x000704ad       0xcb /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-ef_sqrt.o)
- .debug_info    0x00070578      0x295 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-e_fmod.o)
- .debug_info    0x0007080d       0x24 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/libgcc.a(_aeabi_uldivmod.o)
- .debug_info    0x00070831      0x6fa /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/libgcc.a(_udivmoddi4.o)
- .debug_info    0x00070f2b       0x3c /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/libgcc.a(_dvmd_tls.o)
- .debug_info    0x00070f67      0xfbf /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-findfp.o)
- .debug_info    0x00071f26       0xe5 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-memset.o)
- .debug_info    0x0007200b      0x71a /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-impure.o)
- .debug_info    0x00072725      0x700 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-errno.o)
- .debug_info    0x00072e25      0x110 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-init.o)
- .debug_info    0x00072f35      0x126 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-memcpy-stub.o)
+ .debug_info    0x00068be0     0x5ebf CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+ .debug_info    0x0006ea9f      0x342 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_atan2_f32.c.obj)
+ .debug_info    0x0006ede1      0x17f /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_cos_f32.c.obj)
+ .debug_info    0x0006ef60      0x17f /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_sin_f32.c.obj)
+ .debug_info    0x0006f0df      0xf70 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_common_tables.c.obj)
+ .debug_info    0x0007004f      0x137 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-w_fmod.o)
+ .debug_info    0x00070186      0x111 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-wf_sqrt.o)
+ .debug_info    0x00070297      0x104 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-sf_fmax.o)
+ .debug_info    0x0007039b      0x116 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-sf_fpclassify.o)
+ .debug_info    0x000704b1       0xcb /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-ef_sqrt.o)
+ .debug_info    0x0007057c      0x295 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-e_fmod.o)
+ .debug_info    0x00070811       0x24 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/libgcc.a(_aeabi_uldivmod.o)
+ .debug_info    0x00070835      0x6fa /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/libgcc.a(_udivmoddi4.o)
+ .debug_info    0x00070f2f       0x3c /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/libgcc.a(_dvmd_tls.o)
+ .debug_info    0x00070f6b      0xfbf /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-findfp.o)
+ .debug_info    0x00071f2a       0xe5 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-memset.o)
+ .debug_info    0x0007200f      0x71a /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-impure.o)
+ .debug_info    0x00072729      0x700 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-errno.o)
+ .debug_info    0x00072e29      0x110 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-init.o)
+ .debug_info    0x00072f39      0x126 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-memcpy-stub.o)
 
-.debug_abbrev   0x00000000     0xd772
+.debug_abbrev   0x00000000     0xd721
  .debug_abbrev  0x00000000      0x153 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32h7xx.c.obj
  .debug_abbrev  0x00000153      0x276 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.obj
  .debug_abbrev  0x000003c9      0x296 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.obj
@@ -23646,28 +23643,28 @@ LOAD linker stubs
  .debug_abbrev  0x0000ae0f      0x412 CMakeFiles/Hero_2027.dir/User_Files/3_App/Chassis_Control/Steer_Chassis/steer_control.cpp.obj
  .debug_abbrev  0x0000b221      0x52a CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
  .debug_abbrev  0x0000b74b      0x550 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp.obj
- .debug_abbrev  0x0000bc9b      0x7a7 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
- .debug_abbrev  0x0000c442      0x163 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_atan2_f32.c.obj)
- .debug_abbrev  0x0000c5a5       0xc6 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_cos_f32.c.obj)
- .debug_abbrev  0x0000c66b       0xc6 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_sin_f32.c.obj)
- .debug_abbrev  0x0000c731       0xb2 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_common_tables.c.obj)
- .debug_abbrev  0x0000c7e3       0xce /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-w_fmod.o)
- .debug_abbrev  0x0000c8b1       0xcc /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-wf_sqrt.o)
- .debug_abbrev  0x0000c97d       0x9c /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-sf_fmax.o)
- .debug_abbrev  0x0000ca19       0xc5 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-sf_fpclassify.o)
- .debug_abbrev  0x0000cade       0x73 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-ef_sqrt.o)
- .debug_abbrev  0x0000cb51      0x171 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-e_fmod.o)
- .debug_abbrev  0x0000ccc2       0x14 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/libgcc.a(_aeabi_uldivmod.o)
- .debug_abbrev  0x0000ccd6      0x170 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/libgcc.a(_udivmoddi4.o)
- .debug_abbrev  0x0000ce46       0x26 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/libgcc.a(_dvmd_tls.o)
- .debug_abbrev  0x0000ce6c      0x419 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-findfp.o)
- .debug_abbrev  0x0000d285       0xa4 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-memset.o)
- .debug_abbrev  0x0000d329      0x14f /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-impure.o)
- .debug_abbrev  0x0000d478      0x164 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-errno.o)
- .debug_abbrev  0x0000d5dc       0xcf /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-init.o)
- .debug_abbrev  0x0000d6ab       0xc7 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-memcpy-stub.o)
+ .debug_abbrev  0x0000bc9b      0x756 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+ .debug_abbrev  0x0000c3f1      0x163 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_atan2_f32.c.obj)
+ .debug_abbrev  0x0000c554       0xc6 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_cos_f32.c.obj)
+ .debug_abbrev  0x0000c61a       0xc6 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_sin_f32.c.obj)
+ .debug_abbrev  0x0000c6e0       0xb2 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_common_tables.c.obj)
+ .debug_abbrev  0x0000c792       0xce /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-w_fmod.o)
+ .debug_abbrev  0x0000c860       0xcc /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-wf_sqrt.o)
+ .debug_abbrev  0x0000c92c       0x9c /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-sf_fmax.o)
+ .debug_abbrev  0x0000c9c8       0xc5 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-sf_fpclassify.o)
+ .debug_abbrev  0x0000ca8d       0x73 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-ef_sqrt.o)
+ .debug_abbrev  0x0000cb00      0x171 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-e_fmod.o)
+ .debug_abbrev  0x0000cc71       0x14 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/libgcc.a(_aeabi_uldivmod.o)
+ .debug_abbrev  0x0000cc85      0x170 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/libgcc.a(_udivmoddi4.o)
+ .debug_abbrev  0x0000cdf5       0x26 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/libgcc.a(_dvmd_tls.o)
+ .debug_abbrev  0x0000ce1b      0x419 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-findfp.o)
+ .debug_abbrev  0x0000d234       0xa4 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-memset.o)
+ .debug_abbrev  0x0000d2d8      0x14f /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-impure.o)
+ .debug_abbrev  0x0000d427      0x164 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-errno.o)
+ .debug_abbrev  0x0000d58b       0xcf /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-init.o)
+ .debug_abbrev  0x0000d65a       0xc7 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-memcpy-stub.o)
 
-.debug_aranges  0x00000000     0x39e0
+.debug_aranges  0x00000000     0x39d8
  .debug_aranges
                 0x00000000       0x30 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32h7xx.c.obj
  .debug_aranges
@@ -23813,48 +23810,48 @@ LOAD linker stubs
  .debug_aranges
                 0x000034e0       0xe8 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp.obj
  .debug_aranges
-                0x000035c8      0x170 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+                0x000035c8      0x168 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
  .debug_aranges
-                0x00003738       0x20 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_atan2_f32.c.obj)
+                0x00003730       0x20 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_atan2_f32.c.obj)
  .debug_aranges
-                0x00003758       0x20 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_cos_f32.c.obj)
+                0x00003750       0x20 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_cos_f32.c.obj)
  .debug_aranges
-                0x00003778       0x20 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_sin_f32.c.obj)
+                0x00003770       0x20 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_sin_f32.c.obj)
  .debug_aranges
-                0x00003798       0x18 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_common_tables.c.obj)
+                0x00003790       0x18 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_common_tables.c.obj)
  .debug_aranges
-                0x000037b0       0x20 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-w_fmod.o)
+                0x000037a8       0x20 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-w_fmod.o)
  .debug_aranges
-                0x000037d0       0x20 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-wf_sqrt.o)
+                0x000037c8       0x20 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-wf_sqrt.o)
  .debug_aranges
-                0x000037f0       0x20 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-sf_fmax.o)
+                0x000037e8       0x20 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-sf_fmax.o)
  .debug_aranges
-                0x00003810       0x20 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-sf_fpclassify.o)
+                0x00003808       0x20 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-sf_fpclassify.o)
  .debug_aranges
-                0x00003830       0x20 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-ef_sqrt.o)
+                0x00003828       0x20 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-ef_sqrt.o)
  .debug_aranges
-                0x00003850       0x20 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-e_fmod.o)
+                0x00003848       0x20 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-e_fmod.o)
  .debug_aranges
-                0x00003870       0x20 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/libgcc.a(_aeabi_uldivmod.o)
+                0x00003868       0x20 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/libgcc.a(_aeabi_uldivmod.o)
  .debug_aranges
-                0x00003890       0x20 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/libgcc.a(_udivmoddi4.o)
+                0x00003888       0x20 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/libgcc.a(_udivmoddi4.o)
  .debug_aranges
-                0x000038b0       0x20 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/libgcc.a(_dvmd_tls.o)
+                0x000038a8       0x20 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/libgcc.a(_dvmd_tls.o)
  .debug_aranges
-                0x000038d0       0x78 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-findfp.o)
+                0x000038c8       0x78 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-findfp.o)
  .debug_aranges
-                0x00003948       0x20 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-memset.o)
+                0x00003940       0x20 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-memset.o)
  .debug_aranges
-                0x00003968       0x18 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-impure.o)
+                0x00003960       0x18 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-impure.o)
  .debug_aranges
-                0x00003980       0x20 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-errno.o)
+                0x00003978       0x20 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-errno.o)
  .debug_aranges
-                0x000039a0       0x20 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-init.o)
+                0x00003998       0x20 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-init.o)
  .debug_aranges
-                0x000039c0       0x20 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-memcpy-stub.o)
+                0x000039b8       0x20 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-memcpy-stub.o)
 
 .debug_rnglists
-                0x00000000     0x2c53
+                0x00000000     0x2c4e
  .debug_rnglists
                 0x00000000       0x21 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32h7xx.c.obj
  .debug_rnglists
@@ -24000,37 +23997,37 @@ LOAD linker stubs
  .debug_rnglists
                 0x00002877       0xb6 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp.obj
  .debug_rnglists
-                0x0000292d      0x117 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+                0x0000292d      0x112 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
  .debug_rnglists
-                0x00002a44       0x14 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_atan2_f32.c.obj)
+                0x00002a3f       0x14 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_atan2_f32.c.obj)
  .debug_rnglists
-                0x00002a58       0x14 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_cos_f32.c.obj)
+                0x00002a53       0x14 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_cos_f32.c.obj)
  .debug_rnglists
-                0x00002a6c       0x14 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_sin_f32.c.obj)
+                0x00002a67       0x14 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_sin_f32.c.obj)
  .debug_rnglists
-                0x00002a80       0x13 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-w_fmod.o)
+                0x00002a7b       0x13 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-w_fmod.o)
  .debug_rnglists
-                0x00002a93       0x13 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-wf_sqrt.o)
+                0x00002a8e       0x13 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-wf_sqrt.o)
  .debug_rnglists
-                0x00002aa6       0x13 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-sf_fmax.o)
+                0x00002aa1       0x13 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-sf_fmax.o)
  .debug_rnglists
-                0x00002ab9       0x13 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-sf_fpclassify.o)
+                0x00002ab4       0x13 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-sf_fpclassify.o)
  .debug_rnglists
-                0x00002acc       0x13 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-ef_sqrt.o)
+                0x00002ac7       0x13 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-ef_sqrt.o)
  .debug_rnglists
-                0x00002adf       0x2c /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-e_fmod.o)
+                0x00002ada       0x2c /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-e_fmod.o)
  .debug_rnglists
-                0x00002b0b       0x8e /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/libgcc.a(_udivmoddi4.o)
+                0x00002b06       0x8e /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/libgcc.a(_udivmoddi4.o)
  .debug_rnglists
-                0x00002b99       0x6e /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-findfp.o)
+                0x00002b94       0x6e /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-findfp.o)
  .debug_rnglists
-                0x00002c07       0x13 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-memset.o)
+                0x00002c02       0x13 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-memset.o)
  .debug_rnglists
-                0x00002c1a       0x13 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-errno.o)
+                0x00002c15       0x13 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-errno.o)
  .debug_rnglists
-                0x00002c2d       0x13 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-init.o)
+                0x00002c28       0x13 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-init.o)
  .debug_rnglists
-                0x00002c40       0x13 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-memcpy-stub.o)
+                0x00002c3b       0x13 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-memcpy-stub.o)
 
 .debug_macro    0x00000000    0x4f080
  .debug_macro   0x00000000      0x324 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32h7xx.c.obj
@@ -24306,7 +24303,7 @@ LOAD linker stubs
  .debug_macro   0x0004ec76      0x20a /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_sin_f32.c.obj)
  .debug_macro   0x0004ee80      0x200 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_common_tables.c.obj)
 
-.debug_line     0x00000000    0x51243
+.debug_line     0x00000000    0x51252
  .debug_line    0x00000000      0x95b cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32h7xx.c.obj
  .debug_line    0x0000095b     0x3fb4 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.obj
  .debug_line    0x0000490f     0x1d30 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.obj
@@ -24378,215 +24375,215 @@ LOAD linker stubs
  .debug_line    0x00045e76      0xe84 CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/W25Q64JV/bsp_w25q64jv.cpp.obj
  .debug_line    0x00046cfa     0x1836 CMakeFiles/Hero_2027.dir/User_Files/3_App/Chassis_Control/Steer_Chassis/steer_control.cpp.obj
  .debug_line    0x00048530     0x1c5a CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
- .debug_line    0x0004a18a     0x19b3 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp.obj
- .debug_line    0x0004bb3d     0x20a1 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
- .debug_line    0x0004dbde      0x6d2 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_atan2_f32.c.obj)
- .debug_line    0x0004e2b0      0x538 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_cos_f32.c.obj)
- .debug_line    0x0004e7e8      0x535 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_sin_f32.c.obj)
- .debug_line    0x0004ed1d      0x4da /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_common_tables.c.obj)
- .debug_line    0x0004f1f7      0x1c1 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-w_fmod.o)
- .debug_line    0x0004f3b8      0x1b3 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-wf_sqrt.o)
- .debug_line    0x0004f56b      0x107 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-sf_fmax.o)
- .debug_line    0x0004f672      0x1a2 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-sf_fpclassify.o)
- .debug_line    0x0004f814       0x6e /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-ef_sqrt.o)
- .debug_line    0x0004f882      0x7b9 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-e_fmod.o)
- .debug_line    0x0005003b       0x4e /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/libgcc.a(_aeabi_uldivmod.o)
- .debug_line    0x00050089      0x5ea /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/libgcc.a(_udivmoddi4.o)
- .debug_line    0x00050673       0x4a /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/libgcc.a(_dvmd_tls.o)
- .debug_line    0x000506bd      0x58a /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-findfp.o)
- .debug_line    0x00050c47      0x130 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-memset.o)
- .debug_line    0x00050d77      0x112 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-impure.o)
- .debug_line    0x00050e89      0x134 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-errno.o)
- .debug_line    0x00050fbd      0x101 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-init.o)
- .debug_line    0x000510be      0x185 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-memcpy-stub.o)
+ .debug_line    0x0004a18a     0x19a7 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp.obj
+ .debug_line    0x0004bb31     0x20bc CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+ .debug_line    0x0004dbed      0x6d2 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_atan2_f32.c.obj)
+ .debug_line    0x0004e2bf      0x538 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_cos_f32.c.obj)
+ .debug_line    0x0004e7f7      0x535 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_sin_f32.c.obj)
+ .debug_line    0x0004ed2c      0x4da /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_common_tables.c.obj)
+ .debug_line    0x0004f206      0x1c1 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-w_fmod.o)
+ .debug_line    0x0004f3c7      0x1b3 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-wf_sqrt.o)
+ .debug_line    0x0004f57a      0x107 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-sf_fmax.o)
+ .debug_line    0x0004f681      0x1a2 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-sf_fpclassify.o)
+ .debug_line    0x0004f823       0x6e /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-ef_sqrt.o)
+ .debug_line    0x0004f891      0x7b9 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-e_fmod.o)
+ .debug_line    0x0005004a       0x4e /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/libgcc.a(_aeabi_uldivmod.o)
+ .debug_line    0x00050098      0x5ea /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/libgcc.a(_udivmoddi4.o)
+ .debug_line    0x00050682       0x4a /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/libgcc.a(_dvmd_tls.o)
+ .debug_line    0x000506cc      0x58a /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-findfp.o)
+ .debug_line    0x00050c56      0x130 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-memset.o)
+ .debug_line    0x00050d86      0x112 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-impure.o)
+ .debug_line    0x00050e98      0x134 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-errno.o)
+ .debug_line    0x00050fcc      0x101 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-init.o)
+ .debug_line    0x000510cd      0x185 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-memcpy-stub.o)
 
-.debug_str      0x00000000   0x19de1f
- .debug_str     0x00000000   0x19de1f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32h7xx.c.obj
+.debug_str      0x00000000   0x19de36
+ .debug_str     0x00000000   0x19de36 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32h7xx.c.obj
                              0x16d428 (size before relaxing)
- .debug_str     0x0019de1f        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.obj
+ .debug_str     0x0019de36        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.obj
                              0x16e5ae (size before relaxing)
- .debug_str     0x0019de1f        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.obj
+ .debug_str     0x0019de36        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.obj
                              0x16df5b (size before relaxing)
- .debug_str     0x0019de1f        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd.c.obj
+ .debug_str     0x0019de36        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd.c.obj
                              0x16dbdf (size before relaxing)
- .debug_str     0x0019de1f        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd_ex.c.obj
+ .debug_str     0x0019de36        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd_ex.c.obj
                              0x16d57d (size before relaxing)
- .debug_str     0x0019de1f        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_usb.c.obj
+ .debug_str     0x0019de36        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_usb.c.obj
                              0x16d87c (size before relaxing)
- .debug_str     0x0019de1f        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c.obj
+ .debug_str     0x0019de36        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c.obj
                              0x16d7b0 (size before relaxing)
- .debug_str     0x0019de1f        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c.obj
+ .debug_str     0x0019de36        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c.obj
                              0x16dcc8 (size before relaxing)
- .debug_str     0x0019de1f        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c.obj
+ .debug_str     0x0019de36        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c.obj
                              0x16d42d (size before relaxing)
- .debug_str     0x0019de1f        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.c.obj
+ .debug_str     0x0019de36        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.c.obj
                              0x16db97 (size before relaxing)
- .debug_str     0x0019de1f        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.c.obj
+ .debug_str     0x0019de36        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.c.obj
                              0x16d7a8 (size before relaxing)
- .debug_str     0x0019de1f        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c.obj
+ .debug_str     0x0019de36        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c.obj
                              0x16d83c (size before relaxing)
- .debug_str     0x0019de1f        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c.obj
+ .debug_str     0x0019de36        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c.obj
                              0x16dd8d (size before relaxing)
- .debug_str     0x0019de1f        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.obj
+ .debug_str     0x0019de36        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.obj
                              0x16e46c (size before relaxing)
- .debug_str     0x0019de1f        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc.c.obj
+ .debug_str     0x0019de36        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc.c.obj
                              0x16e491 (size before relaxing)
- .debug_str     0x0019de1f        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc_ex.c.obj
+ .debug_str     0x0019de36        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc_ex.c.obj
                              0x16e3b1 (size before relaxing)
- .debug_str     0x0019de1f        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
+ .debug_str     0x0019de36        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
                              0x16f231 (size before relaxing)
- .debug_str     0x0019de1f        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_iwdg.c.obj
+ .debug_str     0x0019de36        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_iwdg.c.obj
                              0x16d09b (size before relaxing)
- .debug_str     0x0019de1f        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_ospi.c.obj
+ .debug_str     0x0019de36        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_ospi.c.obj
                              0x16de9a (size before relaxing)
- .debug_str     0x0019de1f        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.obj
+ .debug_str     0x0019de36        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.obj
                              0x16db33 (size before relaxing)
- .debug_str     0x0019de1f        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c.obj
+ .debug_str     0x0019de36        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c.obj
                              0x16e350 (size before relaxing)
- .debug_str     0x0019de1f        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c.obj
+ .debug_str     0x0019de36        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c.obj
                              0x16d910 (size before relaxing)
- .debug_str     0x0019de1f        0x0 cmake/stm32cubemx/CMakeFiles/USB_Device_Library.dir/__/__/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.obj
+ .debug_str     0x0019de36        0x0 cmake/stm32cubemx/CMakeFiles/USB_Device_Library.dir/__/__/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.obj
                              0x16ecd3 (size before relaxing)
- .debug_str     0x0019de1f        0x0 cmake/stm32cubemx/CMakeFiles/USB_Device_Library.dir/__/__/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.obj
+ .debug_str     0x0019de36        0x0 cmake/stm32cubemx/CMakeFiles/USB_Device_Library.dir/__/__/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.obj
                              0x16eafe (size before relaxing)
- .debug_str     0x0019de1f        0x0 cmake/stm32cubemx/CMakeFiles/USB_Device_Library.dir/__/__/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.obj
+ .debug_str     0x0019de36        0x0 cmake/stm32cubemx/CMakeFiles/USB_Device_Library.dir/__/__/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.obj
                              0x16e9d3 (size before relaxing)
- .debug_str     0x0019de1f        0x0 cmake/stm32cubemx/CMakeFiles/USB_Device_Library.dir/__/__/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.obj
+ .debug_str     0x0019de36        0x0 cmake/stm32cubemx/CMakeFiles/USB_Device_Library.dir/__/__/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.obj
                              0x16f3be (size before relaxing)
- .debug_str     0x0019de1f        0x0 cmake/stm32cubemx/CMakeFiles/FreeRTOS.dir/__/__/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+ .debug_str     0x0019de36        0x0 cmake/stm32cubemx/CMakeFiles/FreeRTOS.dir/__/__/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
                                0xada5 (size before relaxing)
- .debug_str     0x0019de1f        0x0 cmake/stm32cubemx/CMakeFiles/FreeRTOS.dir/__/__/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
+ .debug_str     0x0019de36        0x0 cmake/stm32cubemx/CMakeFiles/FreeRTOS.dir/__/__/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
                                0xd81b (size before relaxing)
- .debug_str     0x0019de1f        0x0 cmake/stm32cubemx/CMakeFiles/FreeRTOS.dir/__/__/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .debug_str     0x0019de36        0x0 cmake/stm32cubemx/CMakeFiles/FreeRTOS.dir/__/__/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
                                0xe037 (size before relaxing)
- .debug_str     0x0019de1f        0x0 cmake/stm32cubemx/CMakeFiles/FreeRTOS.dir/__/__/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj
+ .debug_str     0x0019de36        0x0 cmake/stm32cubemx/CMakeFiles/FreeRTOS.dir/__/__/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj
                                0xdb05 (size before relaxing)
- .debug_str     0x0019de1f        0x0 cmake/stm32cubemx/CMakeFiles/FreeRTOS.dir/__/__/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj
+ .debug_str     0x0019de36        0x0 cmake/stm32cubemx/CMakeFiles/FreeRTOS.dir/__/__/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj
                              0x1764dc (size before relaxing)
- .debug_str     0x0019de1f        0x0 cmake/stm32cubemx/CMakeFiles/FreeRTOS.dir/__/__/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+ .debug_str     0x0019de36        0x0 cmake/stm32cubemx/CMakeFiles/FreeRTOS.dir/__/__/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
                                0xc5aa (size before relaxing)
- .debug_str     0x0019de1f        0x0 cmake/stm32cubemx/CMakeFiles/FreeRTOS.dir/__/__/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
+ .debug_str     0x0019de36        0x0 cmake/stm32cubemx/CMakeFiles/FreeRTOS.dir/__/__/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
                                0x9c46 (size before relaxing)
- .debug_str     0x0019de1f        0x0 CMakeFiles/Hero_2027.dir/USB_DEVICE/Target/usbd_conf.c.obj
+ .debug_str     0x0019de36        0x0 CMakeFiles/Hero_2027.dir/USB_DEVICE/Target/usbd_conf.c.obj
                              0x1703ec (size before relaxing)
- .debug_str     0x0019de1f        0x0 CMakeFiles/Hero_2027.dir/USB_DEVICE/App/usb_device.c.obj
+ .debug_str     0x0019de36        0x0 CMakeFiles/Hero_2027.dir/USB_DEVICE/App/usb_device.c.obj
                              0x16edb8 (size before relaxing)
- .debug_str     0x0019de1f        0x0 CMakeFiles/Hero_2027.dir/USB_DEVICE/App/usbd_desc.c.obj
+ .debug_str     0x0019de36        0x0 CMakeFiles/Hero_2027.dir/USB_DEVICE/App/usbd_desc.c.obj
                              0x16e904 (size before relaxing)
- .debug_str     0x0019de1f        0x0 CMakeFiles/Hero_2027.dir/USB_DEVICE/App/usbd_cdc_if.c.obj
+ .debug_str     0x0019de36        0x0 CMakeFiles/Hero_2027.dir/USB_DEVICE/App/usbd_cdc_if.c.obj
                              0x16edd5 (size before relaxing)
- .debug_str     0x0019de1f        0x0 CMakeFiles/Hero_2027.dir/Core/Src/main.c.obj
+ .debug_str     0x0019de36        0x0 CMakeFiles/Hero_2027.dir/Core/Src/main.c.obj
                              0x173ddd (size before relaxing)
- .debug_str     0x0019de1f        0x0 CMakeFiles/Hero_2027.dir/Core/Src/gpio.c.obj
+ .debug_str     0x0019de36        0x0 CMakeFiles/Hero_2027.dir/Core/Src/gpio.c.obj
                              0x16d55c (size before relaxing)
- .debug_str     0x0019de1f        0x0 CMakeFiles/Hero_2027.dir/Core/Src/freertos.c.obj
+ .debug_str     0x0019de36        0x0 CMakeFiles/Hero_2027.dir/Core/Src/freertos.c.obj
                              0x172b25 (size before relaxing)
- .debug_str     0x0019de1f        0x0 CMakeFiles/Hero_2027.dir/Core/Src/adc.c.obj
+ .debug_str     0x0019de36        0x0 CMakeFiles/Hero_2027.dir/Core/Src/adc.c.obj
                              0x16dcdf (size before relaxing)
- .debug_str     0x0019de1f        0x0 CMakeFiles/Hero_2027.dir/Core/Src/dma.c.obj
+ .debug_str     0x0019de36        0x0 CMakeFiles/Hero_2027.dir/Core/Src/dma.c.obj
                              0x16dc9e (size before relaxing)
- .debug_str     0x0019de1f        0x0 CMakeFiles/Hero_2027.dir/Core/Src/fdcan.c.obj
+ .debug_str     0x0019de36        0x0 CMakeFiles/Hero_2027.dir/Core/Src/fdcan.c.obj
                              0x16e2f1 (size before relaxing)
- .debug_str     0x0019de1f        0x0 CMakeFiles/Hero_2027.dir/Core/Src/iwdg.c.obj
+ .debug_str     0x0019de36        0x0 CMakeFiles/Hero_2027.dir/Core/Src/iwdg.c.obj
                              0x16d31f (size before relaxing)
- .debug_str     0x0019de1f        0x0 CMakeFiles/Hero_2027.dir/Core/Src/mdma.c.obj
+ .debug_str     0x0019de36        0x0 CMakeFiles/Hero_2027.dir/Core/Src/mdma.c.obj
                              0x16dc9f (size before relaxing)
- .debug_str     0x0019de1f        0x0 CMakeFiles/Hero_2027.dir/Core/Src/octospi.c.obj
+ .debug_str     0x0019de36        0x0 CMakeFiles/Hero_2027.dir/Core/Src/octospi.c.obj
                              0x16e73f (size before relaxing)
- .debug_str     0x0019de1f        0x0 CMakeFiles/Hero_2027.dir/Core/Src/spi.c.obj
+ .debug_str     0x0019de36        0x0 CMakeFiles/Hero_2027.dir/Core/Src/spi.c.obj
                              0x16dedd (size before relaxing)
- .debug_str     0x0019de1f        0x0 CMakeFiles/Hero_2027.dir/Core/Src/tim.c.obj
+ .debug_str     0x0019de36        0x0 CMakeFiles/Hero_2027.dir/Core/Src/tim.c.obj
                              0x16e628 (size before relaxing)
- .debug_str     0x0019de1f        0x0 CMakeFiles/Hero_2027.dir/Core/Src/usart.c.obj
+ .debug_str     0x0019de36        0x0 CMakeFiles/Hero_2027.dir/Core/Src/usart.c.obj
                              0x16e77f (size before relaxing)
- .debug_str     0x0019de1f        0x0 CMakeFiles/Hero_2027.dir/Core/Src/stm32h7xx_it.c.obj
+ .debug_str     0x0019de36        0x0 CMakeFiles/Hero_2027.dir/Core/Src/stm32h7xx_it.c.obj
                              0x16eadf (size before relaxing)
- .debug_str     0x0019de1f        0x0 CMakeFiles/Hero_2027.dir/Core/Src/stm32h7xx_hal_msp.c.obj
+ .debug_str     0x0019de36        0x0 CMakeFiles/Hero_2027.dir/Core/Src/stm32h7xx_hal_msp.c.obj
                              0x16dc8e (size before relaxing)
- .debug_str     0x0019de1f        0x0 CMakeFiles/Hero_2027.dir/Core/Src/stm32h7xx_hal_timebase_tim.c.obj
+ .debug_str     0x0019de36        0x0 CMakeFiles/Hero_2027.dir/Core/Src/stm32h7xx_hal_timebase_tim.c.obj
                              0x16e10f (size before relaxing)
- .debug_str     0x0019de1f        0x0 CMakeFiles/Hero_2027.dir/startup_stm32h723xx.s.obj
+ .debug_str     0x0019de36        0x0 CMakeFiles/Hero_2027.dir/startup_stm32h723xx.s.obj
                                  0x70 (size before relaxing)
- .debug_str     0x0019de1f        0x0 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Basic/alg_basic.cpp.obj
+ .debug_str     0x0019de36        0x0 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Basic/alg_basic.cpp.obj
                               0x13135 (size before relaxing)
- .debug_str     0x0019de1f        0x0 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
+ .debug_str     0x0019de36        0x0 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj
                              0x16ed44 (size before relaxing)
- .debug_str     0x0019de1f        0x0 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Slope/alg_slope.cpp.obj
+ .debug_str     0x0019de36        0x0 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Slope/alg_slope.cpp.obj
                               0x13142 (size before relaxing)
- .debug_str     0x0019de1f        0x0 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Driver/CAN/drv_can.cpp.obj
+ .debug_str     0x0019de36        0x0 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Driver/CAN/drv_can.cpp.obj
                              0x1786ee (size before relaxing)
- .debug_str     0x0019de1f        0x0 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Driver/SPI/drv_spi.cpp.obj
+ .debug_str     0x0019de36        0x0 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Driver/SPI/drv_spi.cpp.obj
                              0x1781c1 (size before relaxing)
- .debug_str     0x0019de1f        0x0 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Driver/OSPI/drv_ospi.cpp.obj
+ .debug_str     0x0019de36        0x0 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Driver/OSPI/drv_ospi.cpp.obj
                              0x178674 (size before relaxing)
- .debug_str     0x0019de1f        0x0 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Driver/UART/drv_uart.cpp.obj
+ .debug_str     0x0019de36        0x0 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Driver/UART/drv_uart.cpp.obj
                              0x178120 (size before relaxing)
- .debug_str     0x0019de1f        0x0 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Driver/CRSF/crsf.cpp.obj
+ .debug_str     0x0019de36        0x0 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Driver/CRSF/crsf.cpp.obj
                              0x17859b (size before relaxing)
- .debug_str     0x0019de1f        0x0 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Driver/ADC/drv_adc.cpp.obj
+ .debug_str     0x0019de36        0x0 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Driver/ADC/drv_adc.cpp.obj
                              0x1779b2 (size before relaxing)
- .debug_str     0x0019de1f        0x0 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Driver/WDG/drv_wdg.cpp.obj
+ .debug_str     0x0019de36        0x0 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Driver/WDG/drv_wdg.cpp.obj
                              0x1771d6 (size before relaxing)
- .debug_str     0x0019de1f        0x0 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/System/Timestamp/sys_timestamp.cpp.obj
+ .debug_str     0x0019de36        0x0 CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/System/Timestamp/sys_timestamp.cpp.obj
                              0x177c37 (size before relaxing)
- .debug_str     0x0019de1f        0x0 CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/Key/bsp_key.cpp.obj
+ .debug_str     0x0019de36        0x0 CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/Key/bsp_key.cpp.obj
                              0x1773ab (size before relaxing)
- .debug_str     0x0019de1f        0x0 CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/Power/bsp_power.cpp.obj
+ .debug_str     0x0019de36        0x0 CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/Power/bsp_power.cpp.obj
                              0x177b56 (size before relaxing)
- .debug_str     0x0019de1f        0x0 CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/WS2812/bsp_ws2812.cpp.obj
+ .debug_str     0x0019de36        0x0 CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/WS2812/bsp_ws2812.cpp.obj
                              0x177ce1 (size before relaxing)
- .debug_str     0x0019de1f        0x0 CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/Buzzer/bsp_buzzer.cpp.obj
+ .debug_str     0x0019de36        0x0 CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/Buzzer/bsp_buzzer.cpp.obj
                              0x17a007 (size before relaxing)
- .debug_str     0x0019de1f        0x0 CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/W25Q64JV/bsp_w25q64jv.cpp.obj
+ .debug_str     0x0019de36        0x0 CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/W25Q64JV/bsp_w25q64jv.cpp.obj
                              0x179104 (size before relaxing)
- .debug_str     0x0019de1f        0x0 CMakeFiles/Hero_2027.dir/User_Files/3_App/Chassis_Control/Steer_Chassis/steer_control.cpp.obj
+ .debug_str     0x0019de36        0x0 CMakeFiles/Hero_2027.dir/User_Files/3_App/Chassis_Control/Steer_Chassis/steer_control.cpp.obj
                              0x179cd7 (size before relaxing)
- .debug_str     0x0019de1f        0x0 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
+ .debug_str     0x0019de36        0x0 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
                              0x17b0f9 (size before relaxing)
- .debug_str     0x0019de1f        0x0 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp.obj
+ .debug_str     0x0019de36        0x0 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp.obj
                              0x17b443 (size before relaxing)
- .debug_str     0x0019de1f        0x0 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
-                             0x17d970 (size before relaxing)
- .debug_str     0x0019de1f        0x0 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_atan2_f32.c.obj)
+ .debug_str     0x0019de36        0x0 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+                             0x17d974 (size before relaxing)
+ .debug_str     0x0019de36        0x0 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_atan2_f32.c.obj)
                                0x95f9 (size before relaxing)
- .debug_str     0x0019de1f        0x0 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_cos_f32.c.obj)
+ .debug_str     0x0019de36        0x0 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_cos_f32.c.obj)
                                0x9b14 (size before relaxing)
- .debug_str     0x0019de1f        0x0 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_sin_f32.c.obj)
+ .debug_str     0x0019de36        0x0 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_sin_f32.c.obj)
                                0x9b14 (size before relaxing)
- .debug_str     0x0019de1f        0x0 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_common_tables.c.obj)
+ .debug_str     0x0019de36        0x0 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_common_tables.c.obj)
                                0xa2bb (size before relaxing)
- .debug_str     0x0019de1f        0x0 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-w_fmod.o)
+ .debug_str     0x0019de36        0x0 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-w_fmod.o)
                                 0x1fd (size before relaxing)
- .debug_str     0x0019de1f        0x0 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-wf_sqrt.o)
+ .debug_str     0x0019de36        0x0 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-wf_sqrt.o)
                                 0x200 (size before relaxing)
- .debug_str     0x0019de1f        0x0 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-sf_fmax.o)
+ .debug_str     0x0019de36        0x0 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-sf_fmax.o)
                                 0x205 (size before relaxing)
- .debug_str     0x0019de1f        0x0 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-sf_fpclassify.o)
+ .debug_str     0x0019de36        0x0 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-sf_fpclassify.o)
                                 0x236 (size before relaxing)
- .debug_str     0x0019de1f        0x0 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-ef_sqrt.o)
+ .debug_str     0x0019de36        0x0 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-ef_sqrt.o)
                                 0x200 (size before relaxing)
- .debug_str     0x0019de1f        0x0 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-e_fmod.o)
+ .debug_str     0x0019de36        0x0 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-e_fmod.o)
                                 0x237 (size before relaxing)
- .debug_str     0x0019de1f        0x0 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/libgcc.a(_aeabi_uldivmod.o)
+ .debug_str     0x0019de36        0x0 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/libgcc.a(_aeabi_uldivmod.o)
                                  0xb7 (size before relaxing)
- .debug_str     0x0019de1f        0x0 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/libgcc.a(_udivmoddi4.o)
+ .debug_str     0x0019de36        0x0 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/libgcc.a(_udivmoddi4.o)
                                 0x65a (size before relaxing)
- .debug_str     0x0019de1f        0x0 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/libgcc.a(_dvmd_tls.o)
+ .debug_str     0x0019de36        0x0 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/libgcc.a(_dvmd_tls.o)
                                  0xd7 (size before relaxing)
- .debug_str     0x0019de1f        0x0 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-findfp.o)
+ .debug_str     0x0019de36        0x0 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-findfp.o)
                                 0x785 (size before relaxing)
- .debug_str     0x0019de1f        0x0 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-memset.o)
+ .debug_str     0x0019de36        0x0 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-memset.o)
                                 0x1e2 (size before relaxing)
- .debug_str     0x0019de1f        0x0 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-impure.o)
+ .debug_str     0x0019de36        0x0 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-impure.o)
                                 0x502 (size before relaxing)
- .debug_str     0x0019de1f        0x0 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-errno.o)
+ .debug_str     0x0019de36        0x0 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-errno.o)
                                 0x4fc (size before relaxing)
- .debug_str     0x0019de1f        0x0 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-init.o)
+ .debug_str     0x0019de36        0x0 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-init.o)
                                 0x243 (size before relaxing)
- .debug_str     0x0019de1f        0x0 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-memcpy-stub.o)
+ .debug_str     0x0019de36        0x0 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-memcpy-stub.o)
                                 0x200 (size before relaxing)
 
-.debug_frame    0x00000000     0xeb8c
+.debug_frame    0x00000000     0xeb74
  .debug_frame   0x00000000       0x68 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32h7xx.c.obj
  .debug_frame   0x00000068     0x1218 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.obj
  .debug_frame   0x00001280      0x724 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.obj
@@ -24658,23 +24655,23 @@ LOAD linker stubs
  .debug_frame   0x0000d5bc      0x250 CMakeFiles/Hero_2027.dir/User_Files/3_App/Chassis_Control/Steer_Chassis/steer_control.cpp.obj
  .debug_frame   0x0000d80c      0x4d8 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj
  .debug_frame   0x0000dce4      0x3f8 CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp.obj
- .debug_frame   0x0000e0dc      0x654 CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
- .debug_frame   0x0000e730       0x38 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_atan2_f32.c.obj)
- .debug_frame   0x0000e768       0x38 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_cos_f32.c.obj)
- .debug_frame   0x0000e7a0       0x38 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_sin_f32.c.obj)
- .debug_frame   0x0000e7d8       0x58 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-w_fmod.o)
- .debug_frame   0x0000e830       0x48 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-wf_sqrt.o)
- .debug_frame   0x0000e878       0x4c /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-sf_fmax.o)
- .debug_frame   0x0000e8c4       0x20 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-sf_fpclassify.o)
- .debug_frame   0x0000e8e4       0x20 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-ef_sqrt.o)
- .debug_frame   0x0000e904       0x40 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-e_fmod.o)
- .debug_frame   0x0000e944       0x2c /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/libgcc.a(_aeabi_uldivmod.o)
- .debug_frame   0x0000e970       0x44 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/libgcc.a(_udivmoddi4.o)
- .debug_frame   0x0000e9b4      0x144 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-findfp.o)
- .debug_frame   0x0000eaf8       0x20 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-memset.o)
- .debug_frame   0x0000eb18       0x20 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-errno.o)
- .debug_frame   0x0000eb38       0x2c /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-init.o)
- .debug_frame   0x0000eb64       0x28 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-memcpy-stub.o)
+ .debug_frame   0x0000e0dc      0x63c CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj
+ .debug_frame   0x0000e718       0x38 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_atan2_f32.c.obj)
+ .debug_frame   0x0000e750       0x38 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_cos_f32.c.obj)
+ .debug_frame   0x0000e788       0x38 /home/oyyp/code/2027_Hero/User_Files/1_Middleware/DSP/Lib/Debug/libDSP_Library.a(arm_sin_f32.c.obj)
+ .debug_frame   0x0000e7c0       0x58 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-w_fmod.o)
+ .debug_frame   0x0000e818       0x48 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-wf_sqrt.o)
+ .debug_frame   0x0000e860       0x4c /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-sf_fmax.o)
+ .debug_frame   0x0000e8ac       0x20 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-sf_fpclassify.o)
+ .debug_frame   0x0000e8cc       0x20 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-ef_sqrt.o)
+ .debug_frame   0x0000e8ec       0x40 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libm.a(libm_a-e_fmod.o)
+ .debug_frame   0x0000e92c       0x2c /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/libgcc.a(_aeabi_uldivmod.o)
+ .debug_frame   0x0000e958       0x44 /usr/lib/gcc/arm-none-eabi/15.2.0/thumb/v7e-m+dp/hard/libgcc.a(_udivmoddi4.o)
+ .debug_frame   0x0000e99c      0x144 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-findfp.o)
+ .debug_frame   0x0000eae0       0x20 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-memset.o)
+ .debug_frame   0x0000eb00       0x20 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-errno.o)
+ .debug_frame   0x0000eb20       0x2c /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-init.o)
+ .debug_frame   0x0000eb4c       0x28 /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libg_nano.a(libc_a-memcpy-stub.o)
 
 .debug_line_str
                 0x00000000      0x10d
