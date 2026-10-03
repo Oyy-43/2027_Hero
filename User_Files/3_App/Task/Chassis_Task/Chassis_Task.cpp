@@ -243,9 +243,9 @@ void Task_Init()
     Filter_Init_All();
 
     //斜波规划器初始化
-    Slope_VX.Init(0.08f, 0.8f, Slope_First_REAL);
-    Slope_VY.Init(0.08f, 0.8f, Slope_First_REAL);
-    Slope_VW.Init(0.08f, 0.8f, Slope_First_REAL);
+    Slope_VX.Init(0.04f, 0.4f, Slope_First_REAL);
+    Slope_VY.Init(0.04f, 0.4f, Slope_First_REAL);
+    Slope_VW.Init(0.04f, 0.4f, Slope_First_REAL);
     
     //电机初始化
     Motor_Init();
