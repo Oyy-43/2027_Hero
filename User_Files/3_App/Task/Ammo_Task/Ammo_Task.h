@@ -21,9 +21,9 @@ extern "C" {
  */
 enum Shoot_Status
 {
-    Shoot_Disenable = 0,        // 拨盘电机未使能
-    Shoot_Enable,               // 拨盘电机使能
-    Shoot_Fireing,              // 拨盘电机正在发射
+    Shoot_Disenable = 0,          // 拨盘电机未使能
+    Shoot_Enable,                 // 拨盘电机使能
+    Shoot_Fireing,                // 拨盘电机正在发射
     Shoot_StuckReleasing,         // 拨盘电机卡住后释放
 };
 
@@ -61,17 +61,17 @@ class Class_Shoot
 
     inline void Dial_Motor_Enable();                                //使能拨盘电机
     //内部变量
-    float State_time;                                               //状态时间，记录进入状态时的时间戳，用再次进入的时间戳去做差，求得状态时间
+    float State_time;                                               //单位：毫秒
 
-    float Begin_Time;                                               //进入状态时的时间戳
+    float Begin_Time;                                               //单位：毫秒
 
-    float Current_Time;                                             //当前这个状态的此时的时间戳
+    float Current_Time;                                             //单位：毫秒
     
     private:
 
-    bool * Fire_Signal;                                             //开火信号源
+    bool* Fire_Signal;                                              //开火信号源
 
-    bool * Enable_Signal;                                           //使能信号源
+    bool* Enable_Signal;                                            //使能信号源
 
     float Current_Target_Angle;                                     //当前目标角度值
 

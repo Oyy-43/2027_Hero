@@ -32,7 +32,9 @@ void Class_Shoot::Ammo_Init (bool *__Fire_Signal,bool *__Enable_Signal)
     Enable_Signal = __Enable_Signal;
     Shoot_Status = Shoot_Disenable;
     Shoot_Event = Shoot_Event_None;
-    Begin_Time = SYS_Timestamp.Get_Current_Timestamp();
+    Begin_Time = SYS_Timestamp.Get_Now_Millisecond();
+    Current_Time = Begin_Time;
+    State_time = 0.0f;
 }
 
 /**
@@ -41,43 +43,35 @@ void Class_Shoot::Ammo_Init (bool *__Fire_Signal,bool *__Enable_Signal)
  */
 void Class_Shoot::Shoot_Event_update()
 {
+    Current_Time = SYS_Timestamp.Get_Now_Millisecond();
+    State_time = Current_Time - Begin_Time;
     Shoot_Event = Shoot_Event_None;
-    
+
+    if(Shoot_Status != Shoot_Disenable && *Enable_Signal == false)
+    {
+        Shoot_Event = Shoot_Event_Disenable;
+    }
+
     if(Shoot_Status == Shoot_Disenable && *Enable_Signal == true)
     {
         Shoot_Event = Shoot_Event_Enable;
-        Begin_Time = SYS_Timestamp.Get_Current_Timestamp();
     }
-
-    if(Shoot_Status == Shoot_Enable && *Enable_Signal == false)
-    {
-        Shoot_Event = Shoot_Event_Disenable;
-        Begin_Time = SYS_Timestamp.Get_Current_Timestamp();
-    }
-
-    if(Shoot_Status == Shoot_Enable && *Fire_Signal == true)
+    else if(Shoot_Status == Shoot_Enable && *Fire_Signal == true)
     {
         Shoot_Event = Shoot_Event_Fire;
         *Fire_Signal = false;
-        Begin_Time = SYS_Timestamp.Get_Current_Timestamp();
     }
-
-    if(Shoot_Status == Shoot_Fireing && (fabs(Motor_DM_4340P.PID_Angle.Err)<0.1))
-    {
-        Shoot_Event = Shoot_Event_FireDone;
-        Begin_Time = SYS_Timestamp.Get_Current_Timestamp();
-    }
-
-    if(Shoot_Status == Shoot_Fireing && Shoot_Stuck_Check())
+    else if(Shoot_Status == Shoot_Fireing && Shoot_Stuck_Check())
     {
         Shoot_Event = Shoot_Event_Stuck;
-        Begin_Time = SYS_Timestamp.Get_Current_Timestamp();
     }
-
-    if(Shoot_Status == Shoot_StuckReleasing && (fabs(Motor_DM_4340P.PID_Angle.Err)<0.1))
+    else if(Shoot_Status == Shoot_Fireing && (fabs(Motor_DM_4340P.PID_Angle.Err)<0.1))
+    {
+        Shoot_Event = Shoot_Event_FireDone;
+    }
+    else if(Shoot_Status == Shoot_StuckReleasing && (fabs(Motor_DM_4340P.PID_Angle.Err)<0.1))
     {
         Shoot_Event = Shoot_Event_StuckRealseDone;
-        Begin_Time = SYS_Timestamp.Get_Current_Timestamp();
     }
 }
 
@@ -87,11 +81,61 @@ void Class_Shoot::Shoot_Event_update()
  */
 void Class_Shoot::Shoot_FSM_Run()
 {
-    Current_Time = SYS_Timestamp.Get_Current_Timestamp();
-    State_time = Current_Time - Begin_Time;
+    const auto previous_status = Shoot_Status;
     switch(Shoot_Status)
     {
         case Shoot_Disenable :
+            switch(Shoot_Event)
+            {
+                case Shoot_Event_Enable :
+                    Shoot_Status = Shoot_Enable;
+                    break;
+            }
+        break;
+        case Shoot_Enable :
+            switch(Shoot_Event)
+            {
+                case Shoot_Event_Disenable :
+                    Shoot_Status = Shoot_Disenable;
+                    break;
+                case Shoot_Event_Fire :
+                    Shoot_Status = Shoot_Fireing;
+                    break;
+            }
+        break;
+        case Shoot_Fireing :
+            switch(Shoot_Event)
+            {
+                case Shoot_Event_Disenable :
+                    Shoot_Status = Shoot_Disenable;
+                    break;
+                case Shoot_Event_FireDone :
+                    Shoot_Status = Shoot_Enable;
+                    break;
+                case Shoot_Event_Stuck :
+                    Shoot_Status = Shoot_StuckReleasing;
+                    break;
+            }
+        break;
+        case Shoot_StuckReleasing :
+            switch(Shoot_Event)
+            {
+                case Shoot_Event_Disenable :
+                    Shoot_Status = Shoot_Disenable;
+                    break;
+                case Shoot_Event_StuckRealseDone :
+                    Shoot_Status = Shoot_Enable;
+                    break;
+            }
+        break;
     }
+
+    //更新状态时间
+    Current_Time = SYS_Timestamp.Get_Now_Millisecond();
+    if(Shoot_Status != previous_status)
+    {
+        Begin_Time = Current_Time;
+    }
+    State_time = Current_Time - Begin_Time;
 }
 /* Function prototypes -------------------------------------------------------*/

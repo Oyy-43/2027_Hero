@@ -1,4 +1,4 @@
-/home/oyyp/code/2027_Hero/Core/Src/freertos.c:90:6:MX_FREERTOS_Init	8	static
-/home/oyyp/code/2027_Hero/Core/Src/freertos.c:138:6:StartDefaultTask	16	static
-/home/oyyp/code/2027_Hero/Core/Src/freertos.c:158:13:Chassis_Task_Func	16	static
-/home/oyyp/code/2027_Hero/Core/Src/freertos.c:176:13:Gimbal_Task_Func	16	static
+D:/A New RM/2027_HeroProject/Hero_2027/Core/Src/freertos.c:90:6:MX_FREERTOS_Init	8	static
+D:/A New RM/2027_HeroProject/Hero_2027/Core/Src/freertos.c:138:6:StartDefaultTask	16	static
+D:/A New RM/2027_HeroProject/Hero_2027/Core/Src/freertos.c:158:13:Chassis_Task_Func	16	static
+D:/A New RM/2027_HeroProject/Hero_2027/Core/Src/freertos.c:176:13:Gimbal_Task_Func	16	static
