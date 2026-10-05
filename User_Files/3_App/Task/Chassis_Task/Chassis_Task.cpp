@@ -37,7 +37,7 @@
 /* Private types -------------------------------------------------------------*/
 Class_Motor_DJI_C620 Motor_C620[4];
 Class_Motor_DM_Normal Motor_DM_6220[4];
-Class_Motor_DM_Normal Motor_DM_4340P;
+
 Steer_Chassis_Control Steer_Chassis;
 Class_Slope Slope_VX,Slope_VY,Slope_VW;
 float cmd_vx,cmd_vy,cmd_vw;
@@ -94,12 +94,7 @@ void CAN1_Callback(FDCAN_RxHeaderTypeDef &Header, uint8_t *Buffer)
 
             break;
         }
-        case (0x20):
-        {
-            Motor_DM_4340P.CAN_RxCpltCallback();
 
-            break;
-        }
     }
 }
 
@@ -199,8 +194,6 @@ void Task1ms_Callback()
         Motor_C620[3].TIM_Calculate_PeriodElapsedCallback();
     }
     TIM_1ms_CAN_PeriodElapsedCallback();
-
-    Motor_DM_4340P.TIM_Send_PeriodElapsedCallback();
 
     BSP_WS2812.Set_RGB(0, 0, 0);
 
@@ -332,14 +325,10 @@ void Motor_Init()
     Motor_DM_6220[2].Init(&hfdcan2, 0x13, 0x03, Motor_DM_Control_Method_NORMAL_MIT_Position,3.14f,15.0f,2.7f);
     Motor_DM_6220[3].Init(&hfdcan2, 0x14, 0x04, Motor_DM_Control_Method_NORMAL_MIT_Position,3.14f,15.0f,2.7f); 
 
-    Motor_DM_4340P.Init(&hfdcan1,0x20, 0x10, Motor_DM_Control_Method_NORMAL_MIT_Position,12.5f,10.0f,28.0f,0.0f,0.4f);
-
     Motor_DM_6220[0].CAN_Send_Enter();
     // Motor_DM_6220[1].CAN_Send_Enter(); 
     // Motor_DM_6220[2].CAN_Send_Enter();
     // Motor_DM_6220[3].CAN_Send_Enter();
-
-    Motor_DM_4340P.CAN_Send_Enter();
 }
 
 /**
@@ -365,9 +354,6 @@ void PID_Init_All()
     PID_Init(&Motor_DM_6220[1].PID_Angle,3.5f, 0.0f, 0.0f, 0.001f,4.50f,0.00f,0.003f,0.00f,0,0,0,0,Integral_Limit);
     PID_Init(&Motor_DM_6220[2].PID_Angle,3.5f, 0.0f, 0.0f, 0.001f,4.50f,0.00f,0.003f,0.00f,0,0,0,0,Integral_Limit);
     PID_Init(&Motor_DM_6220[3].PID_Angle,3.5f, 0.0f, 0.0f, 0.001f,4.50f,0.00f,0.003f,0.00f,0,0,0,0,Integral_Limit);
-    
-    PID_Init(&Motor_DM_4340P.PID_Omega,27.0f, 3.0f, 0.0f, 0.015f,3.25f,6.5f,0.0f,7.5f,0,0,0,0,Integral_Limit);
-    PID_Init(&Motor_DM_4340P.PID_Angle,5.8f, 2.9f, 0.0f, 0.001f,37.5f,0.0125f,0.0,0.0f,0,0,0,0,Integral_Limit);
 
 }
 
@@ -397,7 +383,6 @@ void Wave_Output()
     {
         press_count++;
     }
-    Motor_DM_4340P.Set_Target_Angle(press_count*1.046f);
     //  if(press_count%2==1)
     //  {
     //     ALG_Sin_Generate(&Sin_Out, 2.0f, -4.0f, 1000.0f);

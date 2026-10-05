@@ -10,7 +10,7 @@
  */
 /* Includes ------------------------------------------------------------------*/
 #include "Gimbal_Task.h"
-
+#include "Ammo_Task.h"
 // #include "2_Device/BSP/BMI088/bsp_bmi088.h"
 // #include "2_Device/Plotter/Vofa/dvc_vofa.h"
 // #include "2_Device/BSP/W25Q64JV/bsp_w25q64jv.h"
@@ -80,6 +80,12 @@ void CAN2_Callback(FDCAN_RxHeaderTypeDef &Header, uint8_t *Buffer)
 {
     switch (Header.Identifier)
     {
+        case (0x20):
+        {
+            Motor_DM_4340P.CAN_RxCpltCallback();
+
+            break;
+        }
         return;
     }
 }
