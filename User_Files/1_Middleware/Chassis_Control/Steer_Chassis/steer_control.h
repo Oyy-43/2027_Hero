@@ -23,7 +23,7 @@
 class Steer_Chassis_Control : public Class_Chassis_Control
 {
   public:
-    void Init(float __Max_Torque_per_Wheel, float __Wheel_Radius, float __Wheel_BaseX, float __Wheel_BaseY);
+    void Init(float __Max_Torque_per_Wheel, float __Wheel_Radius, float __Wheel_BaseX, float __Wheel_BaseY,float __Wheel_MaxOmega);
 
     inline void Set_Target_Velocity(const float &__Target_Velocity_X, const float &__Target_Velocity_Y, const float &__Target_Velocity_W);
 

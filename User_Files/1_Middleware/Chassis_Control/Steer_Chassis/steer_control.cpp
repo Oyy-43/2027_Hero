@@ -29,7 +29,7 @@
  * @param __Wheel_BaseX  单位m, 前后轮距
  * @param __Wheel_BaseY  单位m, 左右轮距
  */
-void Steer_Chassis_Control::Init(float __Max_Torque_per_Wheel, float __Wheel_Radius, float __Wheel_BaseX, float __Wheel_BaseY)
+void Steer_Chassis_Control::Init(float __Max_Torque_per_Wheel, float __Wheel_Radius, float __Wheel_BaseX, float __Wheel_BaseY,float __Wheel_MaxOmega)
 {
     Chassis_Data.Max_Torque_per_Wheel = __Max_Torque_per_Wheel;
     Chassis_Data.Wheel_Radius = __Wheel_Radius;
@@ -83,18 +83,10 @@ void Steer_Chassis_Control::Chassis_to_Motors()
 
     // 静止判定: 目标速度都很小(例如松开摇杆)时舵向保持当前角度, 防止舵电机回0空耗功率
     // 静止时把舵向目标锁在当前角,小陀螺(Gyring)模式除外: 该模式下底盘持续旋转+平移, 舵向需随运动学合成方向动态更新, 不能锁死
-    if (Chassis_Control_Mode != Chassis_Control_Mode_Gyring &&
+    const bool chassis_hold = Chassis_Control_Mode != Chassis_Control_Mode_Gyring &&
         fabsf(vx) < STEER_HOLD_VELOCITY_THRESHOLD &&
         fabsf(vy) < STEER_HOLD_VELOCITY_THRESHOLD &&
-        fabsf(w)  < STEER_HOLD_VELOCITY_THRESHOLD)
-    {
-        for (int i = 0; i < 4; i++)
-        {
-            Chassis_Data.Motor_Target_Omega[i] = 0.0f;
-            Steer_Target_Angle[i] = Steer_Current_Angle[i];   // 舵向锚定当前角
-        }
-        return;
-    }
+        fabsf(w)  < STEER_HOLD_VELOCITY_THRESHOLD;
 
     // 旋转角速度 ω 在各轮产生的切向单位方向(前X,左Y,上Z; 0左上 1左下 2右下 3右上)
     const float tx[4] = { -SQRT_2_half, -SQRT_2_half,  SQRT_2_half,  SQRT_2_half};
@@ -107,11 +99,25 @@ void Steer_Chassis_Control::Chassis_to_Motors()
 
     for (int i = 0; i < 4; i++)
     {
+        if (chassis_hold)
+        {
+            Chassis_Data.Motor_Target_Omega[i] = 0.0f;
+            Steer_Target_Angle[i] = Steer_Current_Angle[i];
+            continue;
+        }
+
         // 矢量合成该轮的角速度矢量
         const float wx = vx_s + wr_s * tx[i];
         const float wy = vy_s + wr_s * ty[i];
 
         arm_sqrt_f32(wx * wx + wy * wy, &Chassis_Data.Motor_Target_Omega[i]);  // 轮角速度(rad/s)
+
+        if (Chassis_Data.Motor_Target_Omega[i] * s < STEER_HOLD_VELOCITY_THRESHOLD)
+        {
+            Chassis_Data.Motor_Target_Omega[i] = 0.0f;
+            Steer_Target_Angle[i] = Steer_Current_Angle[i];
+            continue;
+        }
 
         // 舵向角 = atan2(Y, X), 输出弧度为 [-pi, pi]
         float steer_angle;
@@ -119,8 +125,11 @@ void Steer_Chassis_Control::Chassis_to_Motors()
         // 连续化(unwrap): 跟上一时刻目标角取最短弧差分后累积, 避免 atan2 在 ±π 边界跳变
         // (直接归一化到 [-π,π] 时, 接近 180° 的方向会在 +3.14/-3.14 间来回跳, 导致电机角度环疯转)
         Steer_Target_Angle[i] += Basic_Math_Modulus_Normalization(steer_angle - Steer_Target_Angle[i], STEER_ANGLE_MODULUS);
+    }
 
-        // 应用舵向最小转角策略: 反转动力轮方向 + 依据舵向误差削弱目标转速
+    for (int i = 0; i < 4; i++)
+    {
+        Cal_Angle_Dir(i);
         Chassis_Data.Motor_Target_Omega[i] *= Motor_Dir[i] * Motor_Cos_Down[i];
     }
 }
@@ -166,6 +175,10 @@ void Steer_Chassis_Control::Motors_to_Chassis()
     Chassis_Data.Now_Velocity_W = sum_m / (r * r);
 }
 
+/**
+ * @brief 动力学逆解，从底盘的目标牵引力和旋转转矩求出每个动力轮的目标扭矩并闭环
+ * 
+ */
 void Steer_Chassis_Control::Chassis_to_Motors_Torque()
 {
     Chassis_Data.Target_Torque_Fx = PID_Calculate(&PID_Moving_X, Chassis_Data.Now_Velocity_X, Chassis_Data.Target_Velocity_X);
@@ -228,11 +241,6 @@ void Steer_Chassis_Control::TIM_Calculate_PeriodElapsedCallback(float Motor1_Ome
     Chassis_to_Motors();
     Motors_to_Chassis();
     Chassis_to_Motors_Torque();
-
-    Cal_Angle_Dir(0);
-    Cal_Angle_Dir(1);
-    Cal_Angle_Dir(2);
-    Cal_Angle_Dir(3);
 
 }
 

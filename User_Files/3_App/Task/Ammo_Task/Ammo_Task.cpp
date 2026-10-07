@@ -27,7 +27,7 @@ Class_Shoot Shoot_Instance;
  */
 void Class_Shoot::Ammo_Init (bool *__Fire_Signal,bool *__Enable_Signal)
 {
-    Motor_DM_4340P.Init(&hfdcan2,0x20, 0x10, Motor_DM_Control_Method_NORMAL_MIT_Position,12.5f,10.0f,28.0f,0.0f,0.4f);
+    Motor_DM_4340P.Init(&hfdcan2,0x20, 0x10, Motor_DM_Control_Method_NORMAL_MIT_Position,12.5f,10.0f,28.0f,0.0f,0.4f,false);
     PID_Init(&Motor_DM_4340P.PID_Omega,27.0f, 3.0f, 0.0f, 0.015f,3.25f,6.5f,0.0f,7.5f,0,0,0,0,Integral_Limit);
     PID_Init(&Motor_DM_4340P.PID_Angle,5.8f, 2.9f, 0.0f, 0.001f,37.5f,0.0125f,0.0,0.0f,0,0,0,0,Integral_Limit);
 
@@ -38,6 +38,10 @@ void Class_Shoot::Ammo_Init (bool *__Fire_Signal,bool *__Enable_Signal)
     Begin_Time = SYS_Timestamp.Get_Now_Millisecond();
     Current_Time = Begin_Time;
     State_time = 0.0f;
+    ToZero_Signal = true;
+    ToZero_Sample_Angle = NAN;
+    Current_Target_Angle = 0.0f;
+    Last_Target_Angle = 0.0f;
 }
 
 /**
@@ -62,7 +66,7 @@ void Class_Shoot::Shoot_Event_update()
     else if(Shoot_Status == Shoot_Enable && *Fire_Signal == true)
     {
         Shoot_Event = Shoot_Event_Fire;
-        Current_Target_Angle = Last_Target_Angle+1.0472f;
+        Current_Target_Angle = Last_Target_Angle+PI_3;
         *Fire_Signal = false;
     }
     else if(Shoot_Status == Shoot_Fireing && Shoot_Stuck_Check())
@@ -70,7 +74,7 @@ void Class_Shoot::Shoot_Event_update()
         Shoot_Event = Shoot_Event_Stuck;
         Current_Target_Angle = Last_Target_Angle;
     }
-    else if(Shoot_Status == Shoot_Fireing && (fabs(Motor_DM_4340P.PID_Angle.Err)<0.0005))
+    else if(Shoot_Status == Shoot_Fireing && (fabs(Motor_DM_4340P.PID_Angle.Err)<=0.0005))
     {
         Shoot_Event = Shoot_Event_FireDone;
         Last_Target_Angle = Current_Target_Angle;
@@ -96,6 +100,11 @@ bool Class_Shoot::Shoot_Stuck_Check()
  */
 void Class_Shoot::Shoot_FSM_Run()
 {   
+    if(ToZero_Signal)
+    {
+        return;
+    }
+
     Shoot_Event_update();
     const auto previous_status = Shoot_Status;
     switch(Shoot_Status)
@@ -156,16 +165,60 @@ void Class_Shoot::Shoot_FSM_Run()
     Motor_DM_4340P.Set_Target_Angle(Current_Target_Angle);
 }
 
+/**
+ * @brief 4310正向回零点函数
+ * 
+ */
+void Class_Shoot::Dial_Motor_ToZero()
+{
+    if(!ToZero_Signal)
+    {
+        return;
+    }
+    if(Motor_DM_4340P.Get_Control_Status() != Motor_DM_Control_Status_ENABLE)
+    {
+        ToZero_Sample_Angle = NAN;
+        return;
+    }
+    if(isnan(ToZero_Sample_Angle))
+    {
+        ToZero_Sample_Angle = Motor_DM_4340P.Get_Now_Angle();
+    }
+    Current_Target_Angle = ceilf(ToZero_Sample_Angle / PI_3) * PI_3;
+    Motor_DM_4340P.Set_Target_Angle(Current_Target_Angle);
+    Motor_DM_4340P.TIM_Send_PeriodElapsedCallback();
+    if(Motor_DM_4340P.PID_Angle.abs_Err <= 0.0005f)
+    {
+        ToZero_Signal = false;
+        Last_Target_Angle = Current_Target_Angle;
+        Motor_DM_4340P.Set_Nearest_Flag(true);
+    }
+}
+
+void Class_Shoot::Shoot_Run()
+{
+    switch(ToZero_Signal)
+    {
+        case true:
+        Dial_Motor_ToZero();
+        break;
+        case false:
+        Motor_DM_4340P.TIM_Send_PeriodElapsedCallback();
+        break;
+    }
+}
+
 void Shoot_Task_Fuc(void *argument)
 {
     Shoot_Instance.Ammo_Init(Shoot_Decision_Transfer.Fire_Signal_Init(),Shoot_Decision_Transfer.Enable_Signal_Init());
     //初始化电机
     osDelay(1000);
     Motor_DM_4340P.CAN_Send_Enter();
+    osDelay(1000);
     for(;;)
     { 
         Shoot_Instance.Shoot_FSM_Run();
-        Motor_DM_4340P.TIM_Send_PeriodElapsedCallback();
+        Shoot_Instance.Shoot_Run();
         osDelay(1);
     }
 }

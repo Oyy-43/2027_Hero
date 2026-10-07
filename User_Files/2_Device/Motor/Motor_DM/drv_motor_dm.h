@@ -206,7 +206,7 @@ public:
     Class_Filter_Frequency<10> Filter_Omega;
 
     void Init(const FDCAN_HandleTypeDef *hcan, const uint8_t &__CAN_Rx_ID = 0x00, const uint8_t &__CAN_Tx_ID = 0x01, const Enum_Motor_DM_Control_Method &__Motor_DM_Control_Method = Motor_DM_Control_Method_NORMAL_MIT, 
-        const float &__Angle_Max = 12.5f, const float &__Omega_Max = 25.0f, const float &__Torque_Max = 10.0f, const float &__Current_Max = 10.261194f,const float &__T_feedforward = 0.0f);
+        const float &__Angle_Max = 12.5f, const float &__Omega_Max = 25.0f, const float &__Torque_Max = 10.0f, const float &__Current_Max = 10.261194f,const float &__T_feedforward = 0.0f,const bool &__Nearest_Flag = true);
 
     inline float Get_Angle_Max() const;
 
@@ -256,6 +256,8 @@ public:
 
     inline void Set_Control_Current(const float &__Control_Current);
 
+    inline void Set_Nearest_Flag(const bool &__Nearest_Flag);
+    
     inline void Set_K_P(const float &__K_P);
 
     inline void Set_K_D(const float &__K_D);
@@ -338,6 +340,8 @@ protected:
     float K_P = 0.0f;
     // K_D, 0~5, MIT模式有效
     float K_D = 0.0f;
+    // 就近转位标志位,用来决定是否启用就近转位置
+    bool Nearest_Flag;
 
     // 内部函数
 
@@ -718,6 +722,11 @@ inline void Class_Motor_DM_Normal::Set_Control_Torque(const float &__Control_Tor
 inline void Class_Motor_DM_Normal::Set_Control_Current(const float &__Control_Current)
 {
     Control_Current = __Control_Current;
+}
+
+inline void Class_Motor_DM_Normal::Set_Nearest_Flag(const bool &__Nearest_Flag)
+{
+    Nearest_Flag = __Nearest_Flag;
 }
 
 /**

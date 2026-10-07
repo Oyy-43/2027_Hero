@@ -28,6 +28,7 @@ extern const float BASIC_MATH_CELSIUS_TO_KELVIN;
 extern const float BASIC_MATH_DEGPS_TO_RADPS;
 extern const float SQRT_2;
 extern const float SQRT_2_half;
+extern const float PI_3;
 
 /**
  * @brief 按字节的地址读取的宏定义

@@ -224,7 +224,7 @@ uint8_t *allocate_tx_data(const FDCAN_HandleTypeDef *hcan, const Enum_Motor_DM_M
  * @param __T_feedforward 前馈扭矩
  */
 void Class_Motor_DM_Normal::Init(const FDCAN_HandleTypeDef *hcan, const uint8_t &__CAN_Rx_ID, const uint8_t &__CAN_Tx_ID, const Enum_Motor_DM_Control_Method &__Motor_DM_Control_Method, 
-    const float &__Angle_Max, const float &__Omega_Max, const float &__Torque_Max, const float &__Current_Max, const float &__T_feedforward)
+    const float &__Angle_Max, const float &__Omega_Max, const float &__Torque_Max, const float &__Current_Max, const float &__T_feedforward,const bool &__Nearest_Flag)
 {
     if (hcan->Instance == FDCAN1)
     {
@@ -270,6 +270,7 @@ void Class_Motor_DM_Normal::Init(const FDCAN_HandleTypeDef *hcan, const uint8_t 
     Torque_Max = __Torque_Max;
     Current_Max = __Current_Max;
     Feedforward_Torque = __T_feedforward;
+    Nearest_Flag = __Nearest_Flag;
     Init_Flag = true;
 }
 
@@ -385,12 +386,18 @@ void Class_Motor_DM_Normal::TIM_Send_PeriodElapsedCallback()
         else if (Motor_DM_Control_Method == Motor_DM_Control_Method_NORMAL_MIT_Position)
         {
             const float angle_period = 2.0f * Angle_Max;
-            // 角度编码以 ±Angle_Max 为同一周期边界
-            const float target_angle = Rx_Data.Now_Angle + Basic_Math_Modulus_Normalization(Target_Angle - Rx_Data.Now_Angle, angle_period);
-            PID_Angle.LastNoneZeroTarget = target_angle + Basic_Math_Modulus_Normalization(PID_Angle.LastNoneZeroTarget - target_angle, angle_period);
+            // 就近转位按一整圈折算, 结果恒落在 ±PI 内, 不会撞上 ±Angle_Max 的反馈回绕
+            if(Nearest_Flag)
+            {
+                const float target_angle = Rx_Data.Now_Angle + Basic_Math_Modulus_Normalization(Target_Angle - Rx_Data.Now_Angle, angle_period);
+                PID_Angle.LastNoneZeroTarget = target_angle + Basic_Math_Modulus_Normalization(PID_Angle.LastNoneZeroTarget - target_angle, angle_period);
 
-            Target_Omega = PID_Calculate(&this->PID_Angle, Rx_Data.Now_Angle, target_angle);
-
+                Target_Omega = PID_Calculate(&this->PID_Angle, Rx_Data.Now_Angle, target_angle);
+            }
+            else
+            {
+                Target_Omega = PID_Calculate(&this->PID_Angle, Rx_Data.Now_Angle, Target_Angle);
+            }
             float feedforward_torque = 0.0f;
             if (Target_Omega > 0.0f)
             {
@@ -400,7 +407,7 @@ void Class_Motor_DM_Normal::TIM_Send_PeriodElapsedCallback()
             {
                 feedforward_torque = -Feedforward_Torque;
             }
-            Control_Torque = PID_Calculate(&this->PID_Omega,Rx_Data.Now_Omega,(Target_Omega + Feedforward_Omega));
+            Control_Torque = PID_Calculate(&this->PID_Omega,Rx_Data.Now_Omega,(Target_Omega + Feedforward_Omega))+feedforward_torque;
         }
         Basic_Math_Constrain(&Control_Torque, -Torque_Max, Torque_Max);
         Output();

@@ -53,6 +53,12 @@ class Class_Shoot
     inline void Dial_Motor_Disenable();                             //失能拨盘电机
 
     inline void Dial_Motor_Enable();                                //使能拨盘电机
+
+    void Dial_Motor_ToZero();                                       //拨盘电机正向回零
+
+    void Dial_Motor_Deal();                                         //正常处理拨盘电机
+
+    void Shoot_Run();                                               //发射运行任务
     //内部变量
     float State_time;                                               //单位：毫秒
 
@@ -66,9 +72,14 @@ class Class_Shoot
 
     bool* Enable_Signal;                                            //使能信号源
 
+    bool  ToZero_Signal = true;                                     //回零标志位 
+
+    float ToZero_Sample_Angle = NAN;                                 //回零时记录的一次角度, NAN表示未记录
+
     float Current_Target_Angle;                                     //当前目标角度值
 
     float Last_Target_Angle;                                        //上一次的目标角度值，用来堵弹时回到上一次目标值
+
 };
 /* Exported variables --------------------------------------------------------*/
 extern Class_Motor_DM_Normal Motor_DM_4340P;

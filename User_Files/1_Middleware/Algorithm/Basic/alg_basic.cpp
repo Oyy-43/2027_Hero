@@ -34,7 +34,7 @@ const float SQRT_2 = 1.41421356237f;
 
 const float SQRT_2_half = 0.70710678118f;
 
-
+const float PI_3 = 1.04719f;
 /* Private function declarations ---------------------------------------------*/
 
 /* Function prototypes -------------------------------------------------------*/
