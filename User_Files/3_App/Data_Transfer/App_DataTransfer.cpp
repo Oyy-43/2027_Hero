@@ -12,15 +12,33 @@
 #include "App_DataTransfer.h"
 #include <stdint.h>
 #include "stdio.h"
-
+#include "2_Device/BSP/Key/bsp_key.h"
+#include "cmsis_os2.h"
 /* Private macros ------------------------------------------------------------*/
 
 /* Private types -------------------------------------------------------------*/
-
+Shoot_Decision Shoot_Decision_Transfer;
 /* Private variables ---------------------------------------------------------*/
 
 /* Private function declarations ---------------------------------------------*/
 
+void Shoot_Decision::Fire_Signal_Decide()
+{
+    if(BSP_Key.Get_Key_Status() == BSP_Key_Status_TRIG_PRESSED_FREE)
+    {
+        Fire_Signal = true;
+    }
+    return;
+}
+
+void Robo_Dec_Fuc(void *argument)
+{
+    for(;;)
+    {
+        Shoot_Decision_Transfer.Fire_Signal_Decide();
+        osDelay(1);
+    }
+}
 
 
 /* Function prototypes -------------------------------------------------------*/

@@ -69,6 +69,20 @@ const osThreadAttr_t Gimbal_Task_attributes = {
   .stack_size = 1024 * 4,
   .priority = (osPriority_t) osPriorityAboveNormal,
 };
+/* Definitions for Shoot_Task */
+osThreadId_t Shoot_TaskHandle;
+const osThreadAttr_t Shoot_Task_attributes = {
+  .name = "Shoot_Task",
+  .stack_size = 256 * 4,
+  .priority = (osPriority_t) osPriorityNormal,
+};
+/* Definitions for Robo_DecisionT */
+osThreadId_t Robo_DecisionTHandle;
+const osThreadAttr_t Robo_DecisionT_attributes = {
+  .name = "Robo_DecisionT",
+  .stack_size = 256 * 4,
+  .priority = (osPriority_t) osPriorityHigh,
+};
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -78,6 +92,8 @@ const osThreadAttr_t Gimbal_Task_attributes = {
 void StartDefaultTask(void *argument);
 void Chassis_Task_Func(void *argument);
 void Gimbal_Task_Func(void *argument);
+void Shoot_Task_Fuc(void *argument);
+void Robo_Dec_Fuc(void *argument);
 
 extern void MX_USB_DEVICE_Init(void);
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
@@ -117,6 +133,12 @@ void MX_FREERTOS_Init(void) {
 
   /* creation of Gimbal_Task */
   Gimbal_TaskHandle = osThreadNew(Gimbal_Task_Func, NULL, &Gimbal_Task_attributes);
+
+  /* creation of Shoot_Task */
+  Shoot_TaskHandle = osThreadNew(Shoot_Task_Fuc, NULL, &Shoot_Task_attributes);
+
+  /* creation of Robo_DecisionT */
+  Robo_DecisionTHandle = osThreadNew(Robo_Dec_Fuc, NULL, &Robo_DecisionT_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -182,6 +204,42 @@ __weak void Gimbal_Task_Func(void *argument)
     osDelay(1);
   }
   /* USER CODE END Gimbal_Task_Func */
+}
+
+/* USER CODE BEGIN Header_Shoot_Task_Fuc */
+/**
+* @brief Function implementing the Shoot_Task thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_Shoot_Task_Fuc */
+__weak void Shoot_Task_Fuc(void *argument)
+{
+  /* USER CODE BEGIN Shoot_Task_Fuc */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END Shoot_Task_Fuc */
+}
+
+/* USER CODE BEGIN Header_Robo_Dec_Fuc */
+/**
+* @brief Function implementing the Robo_DecisionT thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_Robo_Dec_Fuc */
+__weak void Robo_Dec_Fuc(void *argument)
+{
+  /* USER CODE BEGIN Robo_Dec_Fuc */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END Robo_Dec_Fuc */
 }
 
 /* Private application code --------------------------------------------------*/

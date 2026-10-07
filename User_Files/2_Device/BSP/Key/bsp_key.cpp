@@ -31,6 +31,8 @@ Class_Key BSP_Key;
 void Class_Key::Init()
 {
     Pre_GPIO_State = HAL_GPIO_ReadPin(KEY__INPUT_GPIO_Port, KEY__INPUT_Pin);
+    Now_GPIO_State = Pre_GPIO_State;
+    Key_Status = Now_GPIO_State == KEY_FREE_STATE ? BSP_Key_Status_FREE : BSP_Key_Status_PRESSED;
 }
 
 /**

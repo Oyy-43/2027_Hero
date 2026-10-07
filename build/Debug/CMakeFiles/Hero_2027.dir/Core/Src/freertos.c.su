@@ -1,4 +1,6 @@
-D:/A New RM/2027_HeroProject/Hero_2027/Core/Src/freertos.c:90:6:MX_FREERTOS_Init	8	static
-D:/A New RM/2027_HeroProject/Hero_2027/Core/Src/freertos.c:138:6:StartDefaultTask	16	static
-D:/A New RM/2027_HeroProject/Hero_2027/Core/Src/freertos.c:158:13:Chassis_Task_Func	16	static
-D:/A New RM/2027_HeroProject/Hero_2027/Core/Src/freertos.c:176:13:Gimbal_Task_Func	16	static
+D:/A New RM/2027_HeroProject/Hero_2027/Core/Src/freertos.c:106:6:MX_FREERTOS_Init	8	static
+D:/A New RM/2027_HeroProject/Hero_2027/Core/Src/freertos.c:160:6:StartDefaultTask	16	static
+D:/A New RM/2027_HeroProject/Hero_2027/Core/Src/freertos.c:180:13:Chassis_Task_Func	16	static
+D:/A New RM/2027_HeroProject/Hero_2027/Core/Src/freertos.c:198:13:Gimbal_Task_Func	16	static
+D:/A New RM/2027_HeroProject/Hero_2027/Core/Src/freertos.c:216:13:Shoot_Task_Fuc	16	static
+D:/A New RM/2027_HeroProject/Hero_2027/Core/Src/freertos.c:234:13:Robo_Dec_Fuc	16	static

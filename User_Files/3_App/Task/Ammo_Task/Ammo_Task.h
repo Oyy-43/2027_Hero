@@ -1,19 +1,12 @@
 #pragma once
 
-#include "2_Device/Motor/Motor_DM/drv_motor_dm.h"
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 /* Includes ------------------------------------------------------------------*/
-
 #include <stdbool.h>
+#include "2_Device/Motor/Motor_DM/drv_motor_dm.h"
 
 /* Exported macros -----------------------------------------------------------*/
 
 /* Exported types ------------------------------------------------------------*/
-
 
 /**
  * @brief 发射模块的状态
@@ -45,9 +38,9 @@ enum Shoot_Event
 class Class_Shoot
 {
     public:
-    Shoot_Status Shoot_Status;
+    ::Shoot_Status Shoot_Status;
     
-    Shoot_Event  Shoot_Event;
+    ::Shoot_Event  Shoot_Event;
 
     void Ammo_Init (bool *__Fire_Signal,bool *__Enable_Signal);     //初始化拨盘电机，绑定拨盘电机和开火信号源，记录初始化时间戳
     
@@ -82,6 +75,4 @@ extern Class_Motor_DM_Normal Motor_DM_4340P;
 
 /* Exported function declarations --------------------------------------------*/
 
-#ifdef __cplusplus
-};
-#endif
+extern "C" void Shoot_Task_Fuc(void *argument);
