@@ -54,31 +54,46 @@ void Class_Shoot::Shoot_Event_update()
     State_time = Current_Time - Begin_Time;
     Shoot_Event = Shoot_Event_None;
 
-    if(Shoot_Status != Shoot_Disenable && *Enable_Signal == false)
+    if(*Enable_Signal == false)
     {
-        Shoot_Event = Shoot_Event_Disenable;
+        *Fire_Signal = false;
+        if(Shoot_Status != Shoot_Disenable)
+        {
+            Shoot_Event = Shoot_Event_Disenable;
+        }
+        return;
     }
 
     if(Shoot_Status == Shoot_Disenable && *Enable_Signal == true)
     {
         Shoot_Event = Shoot_Event_Enable;
+        return;
     }
-    else if(Shoot_Status == Shoot_Enable && *Fire_Signal == true)
+
+    if(*Fire_Signal == true)
     {
-        Shoot_Event = Shoot_Event_Fire;
-        Current_Target_Angle = Last_Target_Angle+PI_3;
         *Fire_Signal = false;
+        if(Shoot_Status == Shoot_Enable && Barrel_Heat >= 100.0f)
+        {
+            Shoot_Event = Shoot_Event_Fire;
+            Current_Target_Angle = Last_Target_Angle + PI_3;
+            return;
+        }
     }
-    else if(Shoot_Status == Shoot_Fireing && Shoot_Stuck_Check())
+
+    if(Shoot_Status == Shoot_Fireing && Shoot_Stuck_Check())
     {
         Shoot_Event = Shoot_Event_Stuck;
         Current_Target_Angle = Last_Target_Angle;
     }
+
     else if(Shoot_Status == Shoot_Fireing && (fabs(Motor_DM_4340P.PID_Angle.Err)<=0.0005))
     {
         Shoot_Event = Shoot_Event_FireDone;
+        Barrel_Heat -= 100;
         Last_Target_Angle = Current_Target_Angle;
     }
+    
     else if(Shoot_Status == Shoot_StuckReleasing && (fabs(Motor_DM_4340P.PID_Angle.Err)<0.1))
     {
         Shoot_Event = Shoot_Event_StuckRealseDone;
@@ -115,14 +130,18 @@ void Class_Shoot::Shoot_FSM_Run()
                 case Shoot_Event_Enable :
                     Shoot_Status = Shoot_Enable;
                     break;
+                case Shoot_Event_Fire :
+                    *Fire_Signal = false;
+                    Shoot_Status = Shoot_Disenable;
+                    break;
             }
         break;
         case Shoot_Enable :
             switch(Shoot_Event)
             {
-                // case Shoot_Event_Disenable :
-                //     Shoot_Status = Shoot_Disenable;
-                //     break;
+                case Shoot_Event_Disenable :
+                    Shoot_Status = Shoot_Disenable;
+                    break;
                 case Shoot_Event_Fire :
                     Shoot_Status = Shoot_Fireing;
                     break;
@@ -131,9 +150,9 @@ void Class_Shoot::Shoot_FSM_Run()
         case Shoot_Fireing :
             switch(Shoot_Event)
             {
-                // case Shoot_Event_Disenable :
-                //     Shoot_Status = Shoot_Disenable;
-                //     break;
+                case Shoot_Event_Disenable :
+                    Shoot_Status = Shoot_Disenable;
+                    break;
                 case Shoot_Event_FireDone :
                     Shoot_Status = Shoot_Enable;
                     break;
@@ -145,8 +164,8 @@ void Class_Shoot::Shoot_FSM_Run()
         case Shoot_StuckReleasing :
             switch(Shoot_Event)
             {
-                // case Shoot_Event_Disenable :
-                //     Shoot_Status = Shoot_Disenable;
+                case Shoot_Event_Disenable :
+                    Shoot_Status = Shoot_Disenable;
                     break;
                 case Shoot_Event_StuckRealseDone :
                     Shoot_Status = Shoot_Enable;
@@ -208,6 +227,17 @@ void Class_Shoot::Shoot_Run()
     }
 }
 
+void Class_Shoot::Barrel_Heat_Update_100ms()
+{
+    static int mod100 = 0;
+    mod100++;
+    if(mod100 == 100)
+    {
+        mod100 = 0;
+        Barrel_Heat = fminf(Barrel_Heat + Barrel_Heat_Cooling, 200.0f);
+    }
+}
+
 void Shoot_Task_Fuc(void *argument)
 {
     Shoot_Instance.Ammo_Init(Shoot_Decision_Transfer.Fire_Signal_Init(),Shoot_Decision_Transfer.Enable_Signal_Init());
@@ -219,6 +249,7 @@ void Shoot_Task_Fuc(void *argument)
     { 
         Shoot_Instance.Shoot_FSM_Run();
         Shoot_Instance.Shoot_Run();
+        Shoot_Instance.Barrel_Heat_Update_100ms();
         osDelay(1);
     }
 }

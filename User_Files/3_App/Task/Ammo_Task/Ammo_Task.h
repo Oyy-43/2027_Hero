@@ -5,7 +5,7 @@
 #include "2_Device/Motor/Motor_DM/drv_motor_dm.h"
 
 /* Exported macros -----------------------------------------------------------*/
-
+#define Barrel_Heat_Cooling 10.0f       //热量冷却每0.1s恢复10.0热量
 /* Exported types ------------------------------------------------------------*/
 
 /**
@@ -59,13 +59,14 @@ class Class_Shoot
     void Dial_Motor_Deal();                                         //正常处理拨盘电机
 
     void Shoot_Run();                                               //发射运行任务
+
+    void Barrel_Heat_Update_100ms();                                //更新射击热量,42mm大弹丸一发100热量，每0.1s恢复10热量
     //内部变量
     float State_time;                                               //单位：毫秒
 
     float Begin_Time;                                               //单位：毫秒
 
-    float Current_Time;                                             //单位：毫秒
-    
+    float Current_Time;                                     
     private:
 
     bool* Fire_Signal;                                              //开火信号源
@@ -74,11 +75,13 @@ class Class_Shoot
 
     bool  ToZero_Signal = true;                                     //回零标志位 
 
-    float ToZero_Sample_Angle = NAN;                                 //回零时记录的一次角度, NAN表示未记录
+    float ToZero_Sample_Angle = NAN;                                //回零时记录的一次角度, NAN表示未记录
 
     float Current_Target_Angle;                                     //当前目标角度值
 
     float Last_Target_Angle;                                        //上一次的目标角度值，用来堵弹时回到上一次目标值
+
+    float Barrel_Heat = 300.0f;                                     //射击热量
 
 };
 /* Exported variables --------------------------------------------------------*/
