@@ -35,6 +35,11 @@ const float SQRT_2 = 1.41421356237f;
 const float SQRT_2_half = 0.70710678118f;
 
 const float PI_3 = 1.04719f;
+
+// cos30
+const float COS_30 = 0.86602540378f;
+// sin30
+const float SIN_30 = 0.5f;
 /* Private function declarations ---------------------------------------------*/
 
 /* Function prototypes -------------------------------------------------------*/

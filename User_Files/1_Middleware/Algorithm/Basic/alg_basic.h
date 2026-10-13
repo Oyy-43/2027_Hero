@@ -29,6 +29,8 @@ extern const float BASIC_MATH_DEGPS_TO_RADPS;
 extern const float SQRT_2;
 extern const float SQRT_2_half;
 extern const float PI_3;
+extern const float COS_30;
+extern const float SIN_30;
 
 /**
  * @brief 按字节的地址读取的宏定义

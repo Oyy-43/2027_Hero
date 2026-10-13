@@ -21,13 +21,13 @@
 364	1448	8129115609581945	CMakeFiles/Hero_2027.dir/Core/Src/stm32h7xx_hal_msp.c.obj	b0b595fbbb00552d
 335	1514	8129115609293428	CMakeFiles/Hero_2027.dir/Core/Src/stm32h7xx_it.c.obj	f323a683f844bf0c
 393	1481	8129115609874378	CMakeFiles/Hero_2027.dir/Core/Src/stm32h7xx_hal_timebase_tim.c.obj	9d910060e6df56b1
-1114	1882	8130810831295612	CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Frequency/alg_filter_frequency.cpp.obj	29cc3d756560ef2f
-1093	1877	8130810831076244	CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/EKF/alg_filter_ekf.cpp.obj	8f5cf25914c1088f
-44	2810	8130810820586408	CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj	1c9dd1ed9bbec6cf
-1138	1907	8130810831526964	CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Kalman/alg_filter_kalman.cpp.obj	d158f3f1bb4c94d2
-1185	1949	8130810831995472	CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Slope/alg_slope.cpp.obj	abe56740479cf657
-23	1622	8130810820368138	CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Basic/alg_basic.cpp.obj	d88daa198a3fde6a
-1162	1965	8130810831768893	CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Matrix/alg_matrix.cpp.obj	69dae6fed557389b
+70	738	8135190825322698	CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Frequency/alg_filter_frequency.cpp.obj	29cc3d756560ef2f
+52	717	8135190825134464	CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/EKF/alg_filter_ekf.cpp.obj	8f5cf25914c1088f
+32	785	8135190824941619	CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/PID/alg_pid.c.obj	1c9dd1ed9bbec6cf
+95	747	8135190825565500	CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Filter/Kalman/alg_filter_kalman.cpp.obj	d158f3f1bb4c94d2
+136	811	8135190825981331	CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Slope/alg_slope.cpp.obj	abe56740479cf657
+14	679	8135190824758593	CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Basic/alg_basic.cpp.obj	d88daa198a3fde6a
+115	919	8135190825765994	CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/Matrix/alg_matrix.cpp.obj	69dae6fed557389b
 918	1915	8129115615120889	CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/SingWave/alg_sin.c.obj	a3262cde9d3aa25
 1111	1976	8129115617060916	CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Driver/CRSF/crsf_utils.c.obj	d180b7c62196b029
 884	2293	8129115614787095	CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Algorithm/DataTrans/alg_transData.cpp.obj	829e23073e321da5
@@ -46,7 +46,7 @@
 1514	3179	8129115621081357	CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/W25Q64JV/bsp_w25q64jv_register.cpp.obj	507e1ba5a5b7c099
 1977	3239	8129115625720097	cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32h7xx.c.obj	5caaca78d803c836
 16	761	8129964901081913	CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/Key/bsp_key.cpp.obj	511f13b884514733
-1210	2501	8130810832252834	CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/Buzzer/bsp_buzzer.cpp.obj	6317dc031d9b1a4b
+156	1216	8135190826177490	CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/Buzzer/bsp_buzzer.cpp.obj	6317dc031d9b1a4b
 1483	3152	8129115620771837	CMakeFiles/Hero_2027.dir/User_Files/2_Device/BSP/W25Q64JV/bsp_w25q64jv.cpp.obj	cc48f9ee2d708f1e
 23	812	8131522906555704	CMakeFiles/Hero_2027.dir/User_Files/3_App/Data_Transfer/App_DataTransfer.cpp.obj	28b475aeef3d1150
 2547	3467	8129115631420079	cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd_ex.c.obj	aadd6ba1d6f2eea6
@@ -55,16 +55,16 @@
 2518	3528	8129115631120028	cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd.c.obj	78fbee4b36901569
 2816	3766	8129115634107044	cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c.obj	9f1cb04f69dc8621
 2575	3558	8129115631696601	cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_usb.c.obj	805d36d02e4ac33
-1260	2527	8130810832743668	CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj	6cd28047d87dbde3
-1317	2529	8130810833313498	CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp.obj	3458a83db9cfeceb
+200	1309	8135190826615812	CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp.obj	6cd28047d87dbde3
+248	1310	8135190827091186	CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp.obj	3458a83db9cfeceb
 2868	3707	8129115634630268	cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.c.obj	963acdc7ba1d251
 2843	3831	8129115634377283	cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c.obj	cdbc488b46b5e1bd
-1234	2502	8130810832484910	CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Chassis_Control/Steer_Chassis/steer_control.cpp.obj	d0dc9b98603fc170
+14	1449	8135751222362634	CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Chassis_Control/Steer_Chassis/steer_control.cpp.obj	d0dc9b98603fc170
 2925	3735	8129115635198949	cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c.obj	5ebc5170f9fc4321
 2896	3793	8129115634904450	cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.c.obj	7d9e4a69eacfbf23
 3097	3899	8129115636913419	cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.c.obj	e303848de19285a9
-39	1045	8131558556456107	CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Gimbal_Task/Gimbal_Task.cpp.obj	c1dcf5fce0f3f066
-23	870	8130829376826497	CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp.obj	a7945a85e6eae6a5
+33	1490	8135751222545820	CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Gimbal_Task/Gimbal_Task.cpp.obj	c1dcf5fce0f3f066
+224	1316	8135190826859771	CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp.obj	a7945a85e6eae6a5
 3211	4088	8129115638052012	cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.c.obj	9042c87dfabfb180
 3152	4157	8129115637466745	cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.c.obj	1727036c9fed6629
 3240	4192	8129115638347836	cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c.obj	36637715b2ab82b4
@@ -98,12 +98,17 @@
 3708	4538	8129115643018905	cmake/stm32cubemx/CMakeFiles/USB_Device_Library.dir/__/__/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.obj	c0b1ab4999a1e9a2
 3766	4552	8129115643606111	cmake/stm32cubemx/CMakeFiles/USB_Device_Library.dir/__/__/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.obj	4d60bfe7411bfc54
 3625	4562	8129115642195838	cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c.obj	d48c5cc1125e22d7
-23	887	8132164475275399	CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Ammo_Task/Ammo_Task.cpp.obj	2a0571f4d58675f1
+296	1323	8135190827579561	CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Ammo_Task/Ammo_Task.cpp.obj	2a0571f4d58675f1
 4223	4806	8129115648177167	cmake/stm32cubemx/CMakeFiles/FreeRTOS.dir/__/__/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj	513f7172795605fb
-888	1991	8132164483918383	Hero_2027.elf	19e9885b4ef90172
-7	414	8133139019571443	build.ninja	67dfb8e0c874b6d6
-7	414	8133139019306469	D:/A New RM/2027_HeroProject/Hero_2027/build/Debug/cmake_install.cmake	67dfb8e0c874b6d6
-7	414	8133139019434556	D:/A New RM/2027_HeroProject/Hero_2027/build/Debug/cmake/stm32cubemx/cmake_install.cmake	67dfb8e0c874b6d6
-1176	3694	8133141564394792	CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Ammo_Task/Ammo_Task.cpp.obj	2a0571f4d58675f1
-30	3716	8133141552945030	CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Gimbal_Task/Gimbal_Task.cpp.obj	c1dcf5fce0f3f066
-3716	8305	8133141589797371	Hero_2027.elf	19e9885b4ef90172
+1490	5758	8135751237122785	Hero_2027.elf	19e9885b4ef90172
+7	414	8135753914987881	build.ninja	67dfb8e0c874b6d6
+7	414	8135753914728369	D:/A New RM/2027_HeroProject/Hero_2027/build/Debug/cmake_install.cmake	67dfb8e0c874b6d6
+7	414	8135753914871172	D:/A New RM/2027_HeroProject/Hero_2027/build/Debug/cmake/stm32cubemx/cmake_install.cmake	67dfb8e0c874b6d6
+32	1325	8135871270467748	CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Chassis_Control/Steer_Chassis/steer_control.cpp.obj	d0dc9b98603fc170
+199	1355	8135871272137457	CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Gimbal_Task/Gimbal_Task.cpp.obj	c1dcf5fce0f3f066
+1355	2472	8135871283696474	Hero_2027.elf	19e9885b4ef90172
+27	1233	8135959466776152	CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Chassis_Control/Steer_Chassis/steer_control.cpp.obj	d0dc9b98603fc170
+148	1269	8135959467974346	CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Gimbal_Task/Gimbal_Task.cpp.obj	c1dcf5fce0f3f066
+1269	2309	8135959479197688	Hero_2027.elf	19e9885b4ef90172
+18	1202	8136010442327329	CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Chassis_Control/Steer_Chassis/steer_control.cpp.obj	d0dc9b98603fc170
+1203	2207	8136010454170689	Hero_2027.elf	19e9885b4ef90172
