@@ -5,7 +5,9 @@
 #include "2_Device/Motor/Motor_DM/drv_motor_dm.h"
 
 /* Exported macros -----------------------------------------------------------*/
-#define Barrel_Heat_Cooling 10.0f       //热量冷却每0.1s恢复10.0热量
+#define Stuck_Torque 8.0f                   //堵转扭矩阈值
+#define Barrel_Heat_Cooling 6.6f            //热量冷却每0.1s恢复10.0热量
+#define Barrel_Heat_Max 250.0f              //热量最大值
 /* Exported types ------------------------------------------------------------*/
 
 /**
@@ -17,6 +19,7 @@ enum Shoot_Status
     Shoot_Disenable = 0,          // 拨盘电机未使能
     Shoot_Enable,                 // 拨盘电机使能
     Shoot_Fireing,                // 拨盘电机正在发射
+    Shoot_Stuck_Checking,         // 拨盘电机卡住怀疑
     Shoot_StuckReleasing,         // 拨盘电机卡住后释放
 };
 
@@ -31,7 +34,9 @@ enum Shoot_Event
     Shoot_Event_Disenable,              // 失能事件
     Shoot_Event_Fire,                   // 开火发射事件
     Shoot_Event_FireDone,               // 开火发射完成事件
-    Shoot_Event_Stuck,                  // 卡住事件
+    Shoot_Event_Stuck_Doubt,            // 卡住怀疑事件
+    Shoot_Event_Stuck_Confirm,          // 卡住确认事件
+    Shoot_Event_Cancel,                 // 卡住怀疑取消事件
     Shoot_Event_StuckRealseDone,        // 卡住后释放完成事件
 };
 
@@ -81,7 +86,7 @@ class Class_Shoot
 
     float Last_Target_Angle;                                        //上一次的目标角度值，用来堵弹时回到上一次目标值
 
-    float Barrel_Heat = 300.0f;                                     //射击热量
+    float Barrel_Heat = 0.0f;                                     //射击热量
 
 };
 /* Exported variables --------------------------------------------------------*/

@@ -73,7 +73,7 @@ void Class_Shoot::Shoot_Event_update()
     if(*Fire_Signal == true)
     {
         *Fire_Signal = false;
-        if(Shoot_Status == Shoot_Enable && Barrel_Heat >= 100.0f)
+        if(Shoot_Status == Shoot_Enable && Barrel_Heat < (Barrel_Heat_Max-100))
         {
             Shoot_Event = Shoot_Event_Fire;
             Current_Target_Angle = Last_Target_Angle + PI_3;
@@ -83,14 +83,26 @@ void Class_Shoot::Shoot_Event_update()
 
     if(Shoot_Status == Shoot_Fireing && Shoot_Stuck_Check())
     {
-        Shoot_Event = Shoot_Event_Stuck;
-        Current_Target_Angle = Last_Target_Angle;
+        Shoot_Event = Shoot_Event_Stuck_Doubt;
+        return;
+    }
+
+    if(Shoot_Status == Shoot_Stuck_Checking)
+    {
+        if(Shoot_Stuck_Check() && State_time > 500.0f)
+        {
+            Shoot_Event = Shoot_Event_Stuck_Confirm;
+        }
+        else if(!Shoot_Stuck_Check())
+        {
+            Shoot_Event = Shoot_Event_Cancel;
+        }
     }
 
     else if(Shoot_Status == Shoot_Fireing && (fabs(Motor_DM_4340P.PID_Angle.Err)<=0.0005))
     {
         Shoot_Event = Shoot_Event_FireDone;
-        Barrel_Heat -= 100;
+        Barrel_Heat += 100;
         Last_Target_Angle = Current_Target_Angle;
     }
     
@@ -101,12 +113,12 @@ void Class_Shoot::Shoot_Event_update()
 }
 
 /**
- * @brief 堵转检测，拨盘启动超时后角度环误差仍然过大即判定卡住
+ * @brief 根据反馈扭矩判断是否存在堵转嫌疑
  * @param none
  */
 bool Class_Shoot::Shoot_Stuck_Check()
 {
-    return (fabs(Motor_DM_4340P.Get_Now_Torque()) >= 8.0f);
+    return (fabs(Motor_DM_4340P.Get_Now_Torque()) >= Stuck_Torque);
 }
 
 /**
@@ -156,11 +168,28 @@ void Class_Shoot::Shoot_FSM_Run()
                 case Shoot_Event_FireDone :
                     Shoot_Status = Shoot_Enable;
                     break;
-                case Shoot_Event_Stuck :
-                    Shoot_Status = Shoot_StuckReleasing;
+                case Shoot_Event_Stuck_Doubt :
+                    Shoot_Status = Shoot_Stuck_Checking;
                     break;
             }
         break;
+
+        case Shoot_Stuck_Checking :
+            switch(Shoot_Event)
+            {
+                case Shoot_Event_Disenable :
+                    Shoot_Status = Shoot_Disenable;
+                    break;
+                case Shoot_Event_Stuck_Confirm :
+                    Current_Target_Angle = Last_Target_Angle;
+                    Shoot_Status = Shoot_StuckReleasing;
+                    break;
+                case Shoot_Event_Cancel :
+                    Shoot_Status = Shoot_Fireing;
+                    break;
+            }
+        break;
+
         case Shoot_StuckReleasing :
             switch(Shoot_Event)
             {
@@ -234,7 +263,7 @@ void Class_Shoot::Barrel_Heat_Update_100ms()
     if(mod100 == 100)
     {
         mod100 = 0;
-        Barrel_Heat = fminf(Barrel_Heat + Barrel_Heat_Cooling, 200.0f);
+        Barrel_Heat = fmaxf(Barrel_Heat - Barrel_Heat_Cooling, 0.0f);
     }
 }
 

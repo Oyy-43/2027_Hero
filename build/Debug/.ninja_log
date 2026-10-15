@@ -59,11 +59,11 @@
 248	1310	8135190827091186	CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp.obj	3458a83db9cfeceb
 2868	3707	8129115634630268	cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.c.obj	963acdc7ba1d251
 2843	3831	8129115634377283	cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c.obj	cdbc488b46b5e1bd
-14	1449	8135751222362634	CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Chassis_Control/Steer_Chassis/steer_control.cpp.obj	d0dc9b98603fc170
+18	1202	8136010442327329	CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Chassis_Control/Steer_Chassis/steer_control.cpp.obj	d0dc9b98603fc170
 2925	3735	8129115635198949	cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c.obj	5ebc5170f9fc4321
 2896	3793	8129115634904450	cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.c.obj	7d9e4a69eacfbf23
 3097	3899	8129115636913419	cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.c.obj	e303848de19285a9
-33	1490	8135751222545820	CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Gimbal_Task/Gimbal_Task.cpp.obj	c1dcf5fce0f3f066
+148	1269	8135959467974346	CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Gimbal_Task/Gimbal_Task.cpp.obj	c1dcf5fce0f3f066
 224	1316	8135190826859771	CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp.obj	a7945a85e6eae6a5
 3211	4088	8129115638052012	cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.c.obj	9042c87dfabfb180
 3152	4157	8129115637466745	cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.c.obj	1727036c9fed6629
@@ -100,15 +100,10 @@
 3625	4562	8129115642195838	cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c.obj	d48c5cc1125e22d7
 296	1323	8135190827579561	CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Ammo_Task/Ammo_Task.cpp.obj	2a0571f4d58675f1
 4223	4806	8129115648177167	cmake/stm32cubemx/CMakeFiles/FreeRTOS.dir/__/__/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj	513f7172795605fb
-1490	5758	8135751237122785	Hero_2027.elf	19e9885b4ef90172
-7	414	8135753914987881	build.ninja	67dfb8e0c874b6d6
-7	414	8135753914728369	D:/A New RM/2027_HeroProject/Hero_2027/build/Debug/cmake_install.cmake	67dfb8e0c874b6d6
-7	414	8135753914871172	D:/A New RM/2027_HeroProject/Hero_2027/build/Debug/cmake/stm32cubemx/cmake_install.cmake	67dfb8e0c874b6d6
-32	1325	8135871270467748	CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Chassis_Control/Steer_Chassis/steer_control.cpp.obj	d0dc9b98603fc170
-199	1355	8135871272137457	CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Gimbal_Task/Gimbal_Task.cpp.obj	c1dcf5fce0f3f066
-1355	2472	8135871283696474	Hero_2027.elf	19e9885b4ef90172
-27	1233	8135959466776152	CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Chassis_Control/Steer_Chassis/steer_control.cpp.obj	d0dc9b98603fc170
-148	1269	8135959467974346	CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Gimbal_Task/Gimbal_Task.cpp.obj	c1dcf5fce0f3f066
-1269	2309	8135959479197688	Hero_2027.elf	19e9885b4ef90172
-18	1202	8136010442327329	CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Chassis_Control/Steer_Chassis/steer_control.cpp.obj	d0dc9b98603fc170
-1203	2207	8136010454170689	Hero_2027.elf	19e9885b4ef90172
+731	1361	8136693873220949	Hero_2027.elf	67de79994db2bf0d
+7	414	8137633137688851	build.ninja	67dfb8e0c874b6d6
+7	414	8137633137423881	D:/A New RM/2027_HeroProject/Hero_2027/build/Debug/cmake_install.cmake	67dfb8e0c874b6d6
+7	414	8137633137567528	D:/A New RM/2027_HeroProject/Hero_2027/build/Debug/cmake/stm32cubemx/cmake_install.cmake	67dfb8e0c874b6d6
+14	730	8136693866060325	CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj	27a8e71fcf4cb593
+28	3416	8137706268551615	CMakeFiles/Hero_2027.dir/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp.obj	a7945a85e6eae6a5
+3417	7977	8137706302431245	Hero_2027.elf	67de79994db2bf0d

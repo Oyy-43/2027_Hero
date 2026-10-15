@@ -308,7 +308,6 @@ void Motor_Init()
     Motor_DM_6220[1].Init(&hfdcan2, 0x12, 0x02, Motor_DM_Control_Method_NORMAL_MIT_Position,3.141593f,45.0f,10.0f);
     Motor_DM_6220[2].Init(&hfdcan2, 0x13, 0x03, Motor_DM_Control_Method_NORMAL_MIT_Position,3.141593f,45.0f,10.0f);
 
-
     Motor_DM_6220[0].CAN_Send_Enter();
     Motor_DM_6220[1].CAN_Send_Enter(); 
     Motor_DM_6220[2].CAN_Send_Enter();
@@ -384,11 +383,11 @@ void Wave_Output()
 
 void Chassis_Control_Task()
 {
-    cmd_vx = Slope_VX.TIM_Calculate_GetOut((float)rc_channels.ch[1] / 1640.0f,Steer_Chassis.Get_Chassis_Now_Velocity_X());
-    cmd_vy = Slope_VY.TIM_Calculate_GetOut((float)(-rc_channels.ch[0]) / 1640.0f,Steer_Chassis.Get_Chassis_Now_Velocity_Y());
-    cmd_vw = Slope_VW.TIM_Calculate_GetOut((float)rc_channels.ch[3] / 1640.0f,Steer_Chassis.Get_Chassis_Now_Velocity_W());
+    // cmd_vx = Slope_VX.TIM_Calculate_GetOut((float)rc_channels.ch[1] / 1640.0f,Steer_Chassis.Get_Chassis_Now_Velocity_X());
+    // cmd_vy = Slope_VY.TIM_Calculate_GetOut((float)(-rc_channels.ch[0]) / 1640.0f,Steer_Chassis.Get_Chassis_Now_Velocity_Y());
+    // cmd_vw = Slope_VW.TIM_Calculate_GetOut((float)rc_channels.ch[3] / 1640.0f,Steer_Chassis.Get_Chassis_Now_Velocity_W());
 
-    // Steer_Chassis.Set_Target_Velocity(cmd_vx, cmd_vy, cmd_vw);
+    Steer_Chassis.Set_Target_Velocity(cmd_vx, cmd_vy, cmd_vw);
 
     Steer_Chassis.TIM_Calculate_PeriodElapsedCallback(Motor_C620[0].Get_Now_Filtered_Omega(),Motor_C620[1].Get_Now_Filtered_Omega(),Motor_C620[2].Get_Now_Filtered_Omega(),
     Motor_DM_6220[0].Get_Now_Angle(),Motor_DM_6220[1].Get_Now_Angle(),Motor_DM_6220[2].Get_Now_Angle());

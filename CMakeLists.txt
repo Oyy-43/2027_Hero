@@ -94,9 +94,9 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp   
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp
-    # ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task/Gimbal_Task/Gimbal_Task.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task/Ammo_Task/Ammo_Task.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp
+    # ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task/Gimbal_Task/Gimbal_Task.cpp
+    # ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task/Ammo_Task/Ammo_Task.cpp
 )
 
 # Add include paths 
@@ -136,7 +136,6 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Motor/Motor_DJI
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Motor/Motor_DM
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Motor/Motor_LK
-
 )
 
 # DSP library include path (CubeMX-safe, not overwritten)
