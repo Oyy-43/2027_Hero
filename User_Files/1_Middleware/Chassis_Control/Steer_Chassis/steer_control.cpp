@@ -48,12 +48,12 @@ void Steer_Chassis_Control::Init(float __Max_Torque_per_Wheel, float __Wheel_Rad
 
     const float M_z_max = 4.0f * f_max * sqrtf(half_base_x * half_base_x + half_base_y * half_base_y);
 
-    PID_Init(&PID_Moving_X,F_max,0, 0.0f, 0.002f, 105.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, Integral_Limit);
-    PID_Init(&PID_Moving_Y,F_max,0, 0.0f, 0.002f, 105.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, Integral_Limit);
-    // PID_Init(&PID_Moving_X,F_max,0, 0.0f, 0.002f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, Integral_Limit);
-    // PID_Init(&PID_Moving_Y,F_max,0, 0.0f, 0.002f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, Integral_Limit);
+    // PID_Init(&PID_Moving_X,F_max,0, 0.0f, 0.002f, 105.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, Integral_Limit);
+    // PID_Init(&PID_Moving_Y,F_max,0, 0.0f, 0.002f, 105.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, Integral_Limit);
+    PID_Init(&PID_Moving_X,F_max,0, 0.0f, 0.002f, 85.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, Integral_Limit);
+    PID_Init(&PID_Moving_Y,F_max,0, 0.0f, 0.002f, 85.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, Integral_Limit);
 
-    PID_Init(&PID_Spin, M_z_max,0, 0.0f, 0.002f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, Integral_Limit);
+    PID_Init(&PID_Spin, M_z_max,0, 0.0f, 0.002f, 0.01f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, Integral_Limit);
 
 
     for (int i = 0; i < 4; i++)
@@ -107,7 +107,7 @@ void Steer_Chassis_Control::Chassis_to_Motors()
 
         arm_sqrt_f32(wx * wx + wy * wy, &Chassis_Data.Motor_Target_Omega[i]);  // 轮角速度(rad/s)
 
-        if (Chassis_Data.Motor_Target_Omega[i] * s < STEER_HOLD_VELOCITY_THRESHOLD)
+        if (Chassis_Data.Motor_Target_Omega[i] * s < STEER_DIRECTION_DEADBAND)
         {
             Chassis_Data.Motor_Target_Omega[i] = 0.0f;
             Steer_Target_Angle[i] = Steer_Current_Angle[i];
@@ -162,12 +162,9 @@ void Steer_Chassis_Control::Motors_to_Chassis()
     }
 
     // 平动速度 = 各轮速度均值; 旋转速度 = 力矩和 / (4·r²)
-    // Chassis_Data.Now_Velocity_X = sum_vx /4.0f;  // 本来是要除以4的
-    // Chassis_Data.Now_Velocity_Y = sum_vy / 4.0f;
-    // Chassis_Data.Now_Velocity_W = sum_m / (4.0f * r * r);
-    Chassis_Data.Now_Velocity_X = sum_vx ;  // 本来是要除以4的
-    Chassis_Data.Now_Velocity_Y = sum_vy ;
-    Chassis_Data.Now_Velocity_W = sum_m / (r * r);
+    Chassis_Data.Now_Velocity_X = sum_vx /4.0f;  
+    Chassis_Data.Now_Velocity_Y = sum_vy / 4.0f;
+    Chassis_Data.Now_Velocity_W = sum_m / (4.0f * r * r);
 }
 
 /**
@@ -198,10 +195,8 @@ void Steer_Chassis_Control::Chassis_to_Motors_Torque()
     for (int i = 0; i < 4; i++)
     {
         // 矢量合成: 该轮驱动力矢量 = Fx/4 + Fy/4 + Mz切向
-        // const float f_x = Fx * 0.25f + f_rot * tx[i];
-        // const float f_y = Fy * 0.25f + f_rot * ty[i];
-        const float f_x = Fx * 1.0f + f_rot * tx[i];
-        const float f_y = Fy * 1.0f + f_rot * ty[i];
+        const float f_x = Fx * 0.25f + f_rot * tx[i];
+        const float f_y = Fy * 0.25f + f_rot * ty[i];
 
         // 沿该轮舵向(运动学逆解得到)的有符号驱动力 = 力矢量在舵向的投影
         const float angle = Basic_Math_Modulus_Normalization(Steer_Current_Angle[i], STEER_ANGLE_MODULUS);
@@ -385,7 +380,7 @@ void Triangle_Steer_Chassis_Control::Chassis_to_Motors()
 
         arm_sqrt_f32(wx * wx + wy * wy, &Chassis_Data.Motor_Target_Omega[i]);  // 轮角速度(rad/s)
 
-        if (Chassis_Data.Motor_Target_Omega[i] * s < 0.01f)
+        if (Chassis_Data.Motor_Target_Omega[i] * s < STEER_DIRECTION_DEADBAND)
         {
             Chassis_Data.Motor_Target_Omega[i] = 0.0f;
             Steer_Target_Angle[i] = Steer_Current_Angle[i];

@@ -11,6 +11,7 @@
 #define STEER_ANGLE_DEADZONE  0.01f         // 舵向角死区, 到位判定
 #define STEER_ANGLE_MODULUS   6.28318531f   // 舵向角归一化模数(2π)
 #define STEER_HOLD_VELOCITY_THRESHOLD  0.1f  // 静止判定阈值(m/s), 目标速度小于该值则舵向保持当前角
+#define STEER_DIRECTION_DEADBAND      0.01f  // 单轮速度方向判定死区(m/s), 低于该值认为该轮无运动方向, 仅用于避免atan2(0,0)
 /* Exported types ------------------------------------------------------------*/
 
 /* Exported constants --------------------------------------------------------*/
