@@ -36,6 +36,7 @@
 
 /* Private types -------------------------------------------------------------*/
 Class_Motor_LK Motor_LK[2];
+Class_Motor_DJI_C610 Motor_DJI_C610[2];
 Steer_Chassis_Control Steer_Chassis;
 Class_Slope Slope_VX,Slope_VY,Slope_VW;
 float sin_outp = 0.0f;
@@ -72,6 +73,14 @@ void CAN1_Callback(FDCAN_RxHeaderTypeDef &Header, uint8_t *Buffer)
         case (0x141):
         {
             Motor_LK[0].CAN_RxCpltCallback();
+        }
+        case (0x201):
+        {
+            Motor_DJI_C610[0].CAN_RxCpltCallback();
+        }
+        case (0x202):
+        {
+            Motor_DJI_C610[1].CAN_RxCpltCallback();
         }
     }
 }
@@ -253,6 +262,8 @@ void Task_Loop()
  */
 void Motor_Init()
 {
+    Motor_DJI_C610[0].Init(&hfdcan1, Motor_DJI_ID_0x201, Motor_DJI_Control_Method_OMEGA, 36.0f);
+    Motor_DJI_C610[1].Init(&hfdcan1, Motor_DJI_ID_0x202, Motor_DJI_Control_Method_OMEGA, 36.0f);
     Motor_LK[0].Init(&hfdcan1, Motor_LK_ID_0x141, MF, Motor_LK_Control_Method_ANGLE, 0.0f, 1.0f);
 }
 
@@ -306,8 +317,8 @@ void Gimbal_Task_Func(void *argument)
     //初始化电机
     for(;;)
     { 
-        Motor_LK[0].TIM_Calculate_PeriodElapsedCallback();
-        Motor_LK[0].TIM_1ms_PeriodElapsedCallback();
+        // Motor_LK[0].TIM_Calculate_PeriodElapsedCallback();
+        // Motor_LK[0].TIM_1ms_PeriodElapsedCallback();
         osDelay(1);
     }
 }
