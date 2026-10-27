@@ -293,8 +293,8 @@ void Wave_Output()
     }
      if(press_count%2==1)
      {
-        ALG_Sin_Generate(&Sin_Out, sin_outp, -6.28f, 1000.0f);
-        Motor_LK[0].Set_Target_Angle(Sin_Out);
+        ALG_Sin_Sweep_Generate(&Sin_Out, 0.3f, 30.0f,0.496f,3000.0f,1000.0f);
+        Motor_DJI_C610[0].Set_Target_Angle(Sin_Out);
          // ALG_Value_Toggle_Periodic(&Sin_Out, 1.57f,-1.57f,2.0f,1000.0f);
          // ALG_Sin_Generate(&Sin_Out, 2.5f, -11.0f, 1000.0f);
         // Motor_LK[0].Set_To_Zero_Nearest_Flag();
@@ -302,7 +302,7 @@ void Wave_Output()
     else
     {
         Sin_Out = 0.0f;
-        Motor_LK[0].Set_Target_Angle(0.0f);
+        Motor_DJI_C610[0].Set_Target_Angle(0.0f);
     //     // Motor_DM_6220[0].Set_Target_Angle(0.0f);
     //     // Motor_DM_6220[0].Set_Target_Omega(0.0f);
     //     Motor_DM_4340P.Set_Target_Omega(0.0f);

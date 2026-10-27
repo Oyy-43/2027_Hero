@@ -289,6 +289,8 @@ public:
 
     inline void Set_Target_Torque(const float &__Target_Torque);
 
+    inline void 
+
     inline void Set_Feedforward_Omega(const float &__Feedforward_Omega);
 
     inline void Set_Feedforward_Torque(const float &__Feedforward_Torque);
