@@ -1,6 +1,6 @@
 C:/Users/25774/.eide/tools/gcc_arm/arm-none-eabi/include/c++/14.3.1/cmath:238:3:constexpr float std::fabs(float)	16	static
 D:/A New RM/2027_HeroProject/Hero_2027/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp:31:10:uint8_t* allocate_tx_data(const FDCAN_HandleTypeDef*, const Enum_Motor_DJI_ID&, const Enum_Motor_DJI_Motor_Type&)	32	static
-D:/A New RM/2027_HeroProject/Hero_2027/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp:406:7:float power_calculate(float, float, float, float, float, float)	32	static
+D:/A New RM/2027_HeroProject/Hero_2027/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp:406:7:float power_calculate(float, float, float, float, float)	32	static
 D:/A New RM/2027_HeroProject/Hero_2027/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp:420:6:void Class_Motor_DJI_GM6020::Init(const FDCAN_HandleTypeDef*, const Enum_Motor_DJI_ID&, const Enum_Motor_DJI_Control_Method&, const int32_t&, const float&)	32	static
 D:/A New RM/2027_HeroProject/Hero_2027/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp:445:6:void Class_Motor_DJI_GM6020::CAN_RxCpltCallback()	16	static
 D:/A New RM/2027_HeroProject/Hero_2027/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp:457:6:void Class_Motor_DJI_GM6020::TIM_100ms_Alive_PeriodElapsedCallback()	16	static

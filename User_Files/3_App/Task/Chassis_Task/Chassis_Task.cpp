@@ -32,6 +32,7 @@
 #include "2_Device/IMU/DM_BMI088/imu_dm_bmi088.h"
 #include <stdbool.h>
 #include "steer_control.h"
+#include "Chassis_PowerControl/Chassis_PowerControl.h"
 
 /* Private macros ------------------------------------------------------------*/
 

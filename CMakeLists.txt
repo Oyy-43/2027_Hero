@@ -94,7 +94,10 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.cpp   
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Motor/Motor_DM/drv_motor_dm.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Motor/Motor_LK/drv_motor_lk.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Power_meter/Power_meter.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task/Chassis_Task/Chassis_PowerControl/Chassis_PowerControl.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task/Chassis_Task/Chassis_LiftControl/Chassis_LiftControl.cpp
     # ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task/Gimbal_Task/Gimbal_Task.cpp
     # ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task/Ammo_Task/Ammo_Task.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/IMU/DM_BMI088/imu_dm_bmi0888.cpp
@@ -132,8 +135,11 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Motor/Motor_DM
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Motor/Motor_LK
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/IMU/DM_BMI088
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/Power_meter
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task/Ammo_Task      
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task/Chassis_Task
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task/Chassis_Task/Chassis_PowerControl
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task/Chassis_Task/Chassis_LiftControl
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task/Gimbal_Task
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Chassis_Control
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Chassis_Control/Steer_Chassis

@@ -457,16 +457,15 @@ protected:
     // 常量
 
     // 功率计算系数
-    const float POWER_K_0 = 1.1532294690949845f;
-    const float POWER_K_1 = 0.00003165414968530437f;
-    const float POWER_K_2 = 683.7802569066574f;
-    const float POWER_A = 0.8267041157447231f;
+    const float POWER_K_1 = 0.0000308553062f;
+    const float POWER_K_2 = 0.0000013128074f;
+    const float POWER_A = 1.315f;
 
     // 一圈编码器刻度
     const uint16_t ENCODER_NUM_PER_ROUND = 8192;
 
     // 扭矩电流常数, 减速前
-    const float CURRENT_TO_TORQUE = 0.3f / (3591.0f / 187.0f);
+    const float CURRENT_TO_TORQUE = 0.3f / Gearbox_Rate;
     // 电流到输出的转化系数
     const float CURRENT_TO_OUT = 16384.0f / 20.0f;
     // 最大输出刻度

@@ -403,9 +403,9 @@ uint8_t *allocate_tx_data(const FDCAN_HandleTypeDef *hcan, const Enum_Motor_DJI_
  * @param Omega 减速箱前角速度, rad/s
  * @return
  */
-float power_calculate(float K_0, float K_1, float K_2, float A, float Torque, float Omega)
+float power_calculate(float K_1, float K_2, float A, float Torque, float Omega)
 {
-    return (K_0 * Torque * Omega + K_1 * Omega * Omega + K_2 * Torque * Torque + A);
+    return (Torque * Omega + K_1 * Omega * Omega + K_2 * Torque * Torque + A);
 }
 
 /**
@@ -529,7 +529,7 @@ void Class_Motor_DJI_GM6020::Data_Process()
     }
     Rx_Data.Now_Torque = tmp_current / CURRENT_TO_OUT * CURRENT_TO_TORQUE;
     Rx_Data.Now_Temperature = tmp_buffer->Temperature + BASIC_MATH_CELSIUS_TO_KELVIN;
-    Rx_Data.Now_Power = power_calculate(POWER_K_0, POWER_K_1, POWER_K_2, POWER_A, Rx_Data.Now_Torque, Rx_Data.Now_Omega);
+    Rx_Data.Now_Power = power_calculate(POWER_K_1, POWER_K_2, POWER_A, Rx_Data.Now_Torque, Rx_Data.Now_Omega);
 
     // 存储预备信息
     Rx_Data.Pre_Encoder = tmp_encoder;
@@ -924,7 +924,7 @@ void Class_Motor_DJI_C620::Data_Process()
     }
     Rx_Data.Now_Torque = tmp_current / CURRENT_TO_OUT * CURRENT_TO_TORQUE * Gearbox_Rate;
     Rx_Data.Now_Temperature = tmp_buffer->Temperature + BASIC_MATH_CELSIUS_TO_KELVIN;
-    Rx_Data.Now_Power = power_calculate(POWER_K_0, POWER_K_1, POWER_K_2, POWER_A, Rx_Data.Now_Torque / Gearbox_Rate, Rx_Data.Now_Omega * Gearbox_Rate);
+    Rx_Data.Now_Power = power_calculate(POWER_K_1, POWER_K_2, POWER_A, Rx_Data.Now_Torque / Gearbox_Rate, Rx_Data.Now_Omega * Gearbox_Rate);
 
     // 存储预备信息
     Rx_Data.Pre_Encoder = tmp_encoder;
