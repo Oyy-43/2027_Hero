@@ -31,12 +31,12 @@
 #include "2_Device/Motor/Motor_LK/drv_motor_lk.h"
 #include <stdbool.h>
 #include "steer_control.h"
+#include "3_App/Data_Transfer/App_DataTransfer.h"
 
 /* Private macros ------------------------------------------------------------*/
 
 /* Private types -------------------------------------------------------------*/
 Class_Motor_LK Motor_LK[2];
-Class_Motor_DJI_C610 Motor_DJI_C610[2];
 Steer_Chassis_Control Steer_Chassis;
 Class_Slope Slope_VX,Slope_VY,Slope_VW;
 float sin_outp = 0.0f;
@@ -142,10 +142,10 @@ void Task1ms_Chassis_Calculate_Callback()
  */
 void Task1ms_Callback()
 {
+    Motor_DJI_C610[0].TIM_Calculate_PeriodElapsedCallback();
+    Motor_DJI_C610[1].TIM_Calculate_PeriodElapsedCallback();
 
-
-    //底盘数据更新函数,1ms调用一次
-    Task1ms_Chassis_Calculate_Callback();
+    TIM_1ms_CAN_PeriodElapsedCallback();
 
     BSP_WS2812.Set_RGB(0, 0, 0);
 
@@ -273,7 +273,13 @@ void Motor_Init()
  * 
  */
 void PID_Init_All()
-{     
+{   
+    PID_Init(&Motor_DJI_C610[0].PID_Omega,1.8f,0.9f,0.0f,0.001f,0.3656f,0.5949f,0.0f,0.5f,0.0f,0.0f,0,0,Integral_Limit);
+    PID_Init(&Motor_DJI_C610[1].PID_Omega,1.8f,0.9f,0.0f,0.001f,0.3656f,0.5949f,0.0f,0.5f,0.0f,0.0f,0,0,Integral_Limit);
+
+    PID_Init(&Motor_DJI_C610[0].PID_Angle,22.5f,0.0f,0.00f,0.001f,3.0f,0.00f,0.00f,0.0f,0.0f,0.0f,0,0,Integral_Limit);
+    PID_Init(&Motor_DJI_C610[1].PID_Angle,22.5f,0.0f,0.00f,0.001f,3.0f,0.00f,0.00f,0.0f,0.0f,0.0f,0,0,Integral_Limit);
+
     PID_Init(&Motor_LK[0].PID_Omega,5.8f,1.4f,0.0f,0.001f,0.15f,0.45f,0.0f,0.5f,0.0f,0.0f,0,0,Integral_Limit);
     // PID_Init(&Motor_LK[0].PID_Omega,5.8f,1.4f,0.0f,0.001f,0.08f,0.50f,0.0f,0.25f,0.0f,0.0f,0,0,Integral_Limit);
     PID_Init(&Motor_LK[0].PID_Angle,24.0f,0.0f,0.00f,0.001f,12.50f,0.00f,0.00f,1000.0f,0.0f,0.0f,0,0,Integral_Limit);
@@ -293,10 +299,10 @@ void Wave_Output()
     }
      if(press_count%2==1)
      {
-        ALG_Sin_Sweep_Generate(&Sin_Out, 0.3f, 30.0f,0.496f,3000.0f,1000.0f);
+        // ALG_Sin_Sweep_Generate(&Sin_Out, 0.3f, 30.0f,0.496f,3000.0f,1000.0f);
+        ALG_Value_Toggle_Periodic(&Sin_Out, 6.28f,-6.28f,2.0f,1000.0f);
+        // ALG_Sin_Generate(&Sin_Out, 3.0f, -10.0f, 1000.0f);
         Motor_DJI_C610[0].Set_Target_Angle(Sin_Out);
-         // ALG_Value_Toggle_Periodic(&Sin_Out, 1.57f,-1.57f,2.0f,1000.0f);
-         // ALG_Sin_Generate(&Sin_Out, 2.5f, -11.0f, 1000.0f);
         // Motor_LK[0].Set_To_Zero_Nearest_Flag();
      }
     else

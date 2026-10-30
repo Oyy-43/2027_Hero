@@ -15,11 +15,15 @@
 #include "2_Device/BSP/Key/bsp_key.h"
 #include "cmsis_os2.h"
 #include "crsf.h"
+#include "drv_motor_dji.h"
+#include "combine.h"
 /* Private macros ------------------------------------------------------------*/
 
 /* Private types -------------------------------------------------------------*/
 Shoot_Decision Shoot_Decision_Transfer;
 Remote_Data Remote_Data_Transfer;
+Class_Motor_DJI_C610 Motor_DJI_C610[2];
+Combine_FSM Combination_FSM;
 /* Private variables ---------------------------------------------------------*/
 
 /* Private function declarations ---------------------------------------------*/
@@ -49,6 +53,12 @@ void Remote_Data::Remote_Key_Init()
         Remote_Key_Right.Key_Status = Remote_Key_Status_FREE;
         break;
     }
+    Remote_Key_CH12.Pre_Press_State = rc_channels.ch[12] > 10;
+    Remote_Key_CH12.Now_Press_State = Remote_Key_CH12.Pre_Press_State;
+    Remote_Key_CH12.Key_Status = Remote_Key_CH12.Now_Press_State? Remote_Key_Status_PRESSED : Remote_Key_Status_FREE;
+    Remote_Key_CH13.Pre_Press_State = rc_channels.ch[13] > 10;
+    Remote_Key_CH13.Now_Press_State = Remote_Key_CH13.Pre_Press_State;
+    Remote_Key_CH13.Key_Status = Remote_Key_CH13.Now_Press_State? Remote_Key_Status_PRESSED : Remote_Key_Status_FREE;
 }
 
 /**
@@ -65,6 +75,22 @@ void Remote_Data::Remote_Key_Scan()
     else
     {
         Remote_Key_Right.Now_Press_State = true;
+    }
+    if(rc_channels.ch[12]<=10)
+    {
+        Remote_Key_CH12.Now_Press_State = false;
+    }
+    else
+    {
+        Remote_Key_CH12.Now_Press_State = true;
+    }
+    if(rc_channels.ch[13]<=10)
+    {
+        Remote_Key_CH13.Now_Press_State = false;
+    }
+    else
+    {
+        Remote_Key_CH13.Now_Press_State = true;
     }
     switch(Remote_Key_Right.Pre_Press_State)
     {
@@ -89,7 +115,55 @@ void Remote_Data::Remote_Key_Scan()
             }
         break;
     }
+    switch(Remote_Key_CH12.Pre_Press_State)
+    {
+        case true:
+            if(Remote_Key_CH12.Now_Press_State == true)
+            {
+                Remote_Key_CH12.Key_Status = Remote_Key_Status_PRESSED;
+            }
+            else
+            {
+                Remote_Key_CH12.Key_Status = Remote_Key_Status_TRIG_PRESSED_FREE;
+            }
+        break;
+        case false:
+            if(Remote_Key_CH12.Now_Press_State == true)
+            {
+                Remote_Key_CH12.Key_Status = Remote_Key_Status_TRIG_FREE_PRESSED;
+            }
+            else
+            {
+                Remote_Key_CH12.Key_Status = Remote_Key_Status_FREE;
+            }
+        break;
+    }
+    switch(Remote_Key_CH13.Pre_Press_State)
+    {
+        case true:
+            if(Remote_Key_CH13.Now_Press_State == true)
+            {
+                Remote_Key_CH13.Key_Status = Remote_Key_Status_PRESSED;
+            }
+            else
+            {
+                Remote_Key_CH13.Key_Status = Remote_Key_Status_TRIG_PRESSED_FREE;
+            }
+        break;
+        case false:
+            if(Remote_Key_CH13.Now_Press_State == true)
+            {
+                Remote_Key_CH13.Key_Status = Remote_Key_Status_TRIG_FREE_PRESSED;
+            }
+            else
+            {
+                Remote_Key_CH13.Key_Status = Remote_Key_Status_FREE;
+            }
+        break;
+    }
     Remote_Key_Right.Pre_Press_State = Remote_Key_Right.Now_Press_State;
+    Remote_Key_CH12.Pre_Press_State = Remote_Key_CH12.Now_Press_State;
+    Remote_Key_CH13.Pre_Press_State = Remote_Key_CH13.Now_Press_State;
 }
 
 /**
@@ -121,11 +195,14 @@ void Shoot_Decision::Fire_Signal_Decide()
  */
 void Robo_Dec_Fuc(void *argument)
 {
+    osDelay(5000);
     Remote_Data_Transfer.Remote_Key_Init();
+    Combination_FSM.Combine_FSM_Init();
     for(;;)
     {   
         Remote_Data_Transfer.Remote_Key_Scan();
         Shoot_Decision_Transfer.Fire_Signal_Decide();
+        Combination_FSM.Combine_FSM_Run();
         osDelay(1);
     }
 }

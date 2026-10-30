@@ -6,7 +6,7 @@
 
 /* Exported macros -----------------------------------------------------------*/
 #define Stuck_Torque 8.0f                   //堵转扭矩阈值
-#define Barrel_Heat_Cooling 6.6f            //热量冷却每0.1s恢复10.0热量
+#define Barrel_Heat_Cooling 6.6f            //热量冷却每0.1s恢复6.6热量
 #define Barrel_Heat_Max 250.0f              //热量最大值
 /* Exported types ------------------------------------------------------------*/
 
@@ -65,7 +65,7 @@ class Class_Shoot
 
     void Shoot_Run();                                               //发射运行任务
 
-    void Barrel_Heat_Update_100ms();                                //更新射击热量,42mm大弹丸一发100热量，每0.1s恢复10热量
+    void Barrel_Heat_Update_100ms();                                //更新射击热量,42mm大弹丸一发100热量，每0.1s恢复6.6热量
     //内部变量
     float State_time;                                               //单位：毫秒
 

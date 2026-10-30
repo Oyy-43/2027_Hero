@@ -281,6 +281,8 @@ public:
 
     inline float Get_Feedforward_Torque() const;
 
+    inline float Get_Total_Rounds() const;
+
     inline void Set_Control_Method(const Enum_Motor_DJI_Control_Method &__Motor_DJI_Control_Method);
 
     inline void Set_Target_Angle(const float &__Target_Angle);
@@ -289,7 +291,7 @@ public:
 
     inline void Set_Target_Torque(const float &__Target_Torque);
 
-    inline void 
+    inline void Set_Out(const float &__Out);
 
     inline void Set_Feedforward_Omega(const float &__Feedforward_Omega);
 
@@ -896,6 +898,26 @@ inline void Class_Motor_DJI_C610::Set_Feedforward_Omega(const float &__Feedforwa
 inline void Class_Motor_DJI_C610::Set_Feedforward_Torque(const float &__Feedforward_Torque)
 {
     Feedforward_Torque = __Feedforward_Torque;
+}
+
+/**
+ * @brief 设定输出量, 电流环输出, 0~10000
+ *
+ * @param __Out 输出量, 电流环输出, 0~10000
+ */
+inline void Class_Motor_DJI_C610::Set_Out(const float &__Out)
+{
+    Out = __Out;
+}
+
+/**
+ * @brief 获取总编码器值
+ *
+ * @return float 总编码器值
+ */
+inline float Class_Motor_DJI_C610::Get_Total_Rounds() const
+{
+    return static_cast<float>(Rx_Data.Total_Encoder) / ENCODER_NUM_PER_ROUND;
 }
 
 /**

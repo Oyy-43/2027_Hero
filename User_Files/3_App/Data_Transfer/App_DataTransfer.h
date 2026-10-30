@@ -2,6 +2,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "2_Device/Motor/Motor_DJI/drv_motor_dji.h"
 
 
 /* Exported macros -----------------------------------------------------------*/
@@ -51,6 +52,10 @@ class Remote_Data
 
     Struct_Remote_Press_State Remote_Key_Right;        //遥控器右侧按键状态
 
+    Struct_Remote_Press_State Remote_Key_CH12;         //遥控器ch12按键状态
+
+    Struct_Remote_Press_State Remote_Key_CH13;         //遥控器ch13按键状态
+
     inline Enum_Remote_Key_Status Get_Remote_Key_Status() const;
 };
 /* Exported constants --------------------------------------------------------*/
@@ -58,6 +63,7 @@ class Remote_Data
 /* Exported variables --------------------------------------------------------*/
 extern Shoot_Decision Shoot_Decision_Transfer;
 extern Remote_Data Remote_Data_Transfer;
+extern Class_Motor_DJI_C610 Motor_DJI_C610[2];
 /* Exported function declarations --------------------------------------------*/
 
 inline bool* Shoot_Decision::Fire_Signal_Init()
