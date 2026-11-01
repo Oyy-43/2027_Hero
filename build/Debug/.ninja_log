@@ -5,7 +5,7 @@
 37	1972	8150580987148981	CMakeFiles/Hero_2027.dir/USB_DEVICE/Target/usbd_conf.c.obj	20f4994460ad6eca
 278	2235	8150580989556435	CMakeFiles/Hero_2027.dir/USB_DEVICE/App/usbd_cdc_if.c.obj	acaddb2292df8d4b
 250	1843	8150580989281423	CMakeFiles/Hero_2027.dir/USB_DEVICE/App/usbd_desc.c.obj	e5f0eccb652ad26a
-363	2152	8150580990401421	CMakeFiles/Hero_2027.dir/Core/Src/freertos.c.obj	e1cb08008d56ae91
+36	942	8150757577417649	CMakeFiles/Hero_2027.dir/Core/Src/freertos.c.obj	e1cb08008d56ae91
 812	1527	8150580994898949	CMakeFiles/Hero_2027.dir/Core/Src/sysmem.c.obj	cf3e75ecfe4ab961
 387	1610	8150580990649198	CMakeFiles/Hero_2027.dir/Core/Src/adc.c.obj	e60448b3256fff51
 414	1715	8150580990909715	CMakeFiles/Hero_2027.dir/Core/Src/dma.c.obj	635e55f8d62ec0fa
@@ -100,22 +100,14 @@
 7857	8870	8150498085073169	cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c.obj	d48c5cc1125e22d7
 1112	3603	8140982848562289	CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Ammo_Task/Ammo_Task.cpp.obj	2a0571f4d58675f1
 8420	9044	8150498090713314	cmake/stm32cubemx/CMakeFiles/FreeRTOS.dir/__/__/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj	513f7172795605fb
-798	1942	8150753523489048	Hero_2027.elf	2ba8b4c875fdae7b
-11	473	8150757576302929	build.ninja	67dfb8e0c874b6d6
-11	473	8150757575950090	D:/A New RM/2027_HeroProject/Hero_2027/build/Debug/cmake_install.cmake	67dfb8e0c874b6d6
-11	473	8150757576155322	D:/A New RM/2027_HeroProject/Hero_2027/build/Debug/cmake/stm32cubemx/cmake_install.cmake	67dfb8e0c874b6d6
-3167	5200	8150581018433983	CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj	d7df8c6a53946820
+921	1960	8150757769968026	Hero_2027.elf	2ba8b4c875fdae7b
+13	601	8152426556649020	build.ninja	67dfb8e0c874b6d6
+13	601	8152426556371517	D:/A New RM/2027_HeroProject/Hero_2027/build/Debug/cmake_install.cmake	67dfb8e0c874b6d6
+13	601	8152426556513205	D:/A New RM/2027_HeroProject/Hero_2027/build/Debug/cmake/stm32cubemx/cmake_install.cmake	67dfb8e0c874b6d6
+23	920	8150757760990015	CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj	d7df8c6a53946820
 6	98	8142969306180318	CMakeFiles/clean.additional	326546096589aa70
 99	191	8142969307109925	clean	4b7a9ec6ee23bafa
 3848	5295	8150581025257169	CMakeFiles/Hero_2027.dir/User_Files/2_Device/IMU/DM_BMI088/imu_dm_bmi0888.cpp.obj	6e0363e0502e980f
-26	798	8150753515758294	CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_PowerControl/Chassis_PowerControl.cpp.obj	c51898dd33389d3e
+183	1039	8150757578889726	CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_PowerControl/Chassis_PowerControl.cpp.obj	c51898dd33389d3e
 3651	5123	8150581023287788	CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_LiftControl/Chassis_LiftControl.cpp.obj	e61e6b960637773a
 3040	5024	8150581017180682	CMakeFiles/Hero_2027.dir/User_Files/2_Device/Power_meter/Power_meter.cpp.obj	5d85e24bb8e1aabf
-13	601	8150757576302929	build.ninja	67dfb8e0c874b6d6
-13	601	8150757576302929	D:/A New RM/2027_HeroProject/Hero_2027/build/Debug/cmake_install.cmake	67dfb8e0c874b6d6
-13	601	8150757576302929	D:/A New RM/2027_HeroProject/Hero_2027/build/Debug/cmake/stm32cubemx/cmake_install.cmake	67dfb8e0c874b6d6
-36	942	8150757577417649	CMakeFiles/Hero_2027.dir/Core/Src/freertos.c.obj	e1cb08008d56ae91
-183	1039	8150757578889726	CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_PowerControl/Chassis_PowerControl.cpp.obj	c51898dd33389d3e
-1039	2226	8150757587450206	Hero_2027.elf	2ba8b4c875fdae7b
-23	920	8150757760990015	CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj	d7df8c6a53946820
-921	1960	8150757769968026	Hero_2027.elf	2ba8b4c875fdae7b

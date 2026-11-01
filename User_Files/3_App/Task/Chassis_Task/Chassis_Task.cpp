@@ -41,6 +41,7 @@ Class_Motor_DJI_C620 Motor_C620[4];
 Class_Motor_DM_Normal Motor_DM_6220[4];
 
 Steer_Chassis_Control Steer_Chassis;
+Class_Chassis_PowerControl Chassis_PowerControl;
 Class_Slope Slope_VX,Slope_VY,Slope_VW;
 float cmd_vx,cmd_vy,cmd_vw;
 float test_feedforward_torque = 0.0f;
