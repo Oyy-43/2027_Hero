@@ -73,14 +73,24 @@ void CAN1_Callback(FDCAN_RxHeaderTypeDef &Header, uint8_t *Buffer)
         case (0x141):
         {
             Motor_LK[0].CAN_RxCpltCallback();
+
+            break;
         }
         case (0x201):
         {
             Motor_DJI_C610[0].CAN_RxCpltCallback();
+
+            break;
         }
         case (0x202):
         {
             Motor_DJI_C610[1].CAN_RxCpltCallback();
+
+            break;
+        }
+        default:
+        {
+            break;
         }
     }
 }

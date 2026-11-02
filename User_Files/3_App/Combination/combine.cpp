@@ -18,7 +18,8 @@
 /* Private types -------------------------------------------------------------*/
 
 /* Private variables ---------------------------------------------------------*/
-float test_combine=0.0f;
+float test_combineleft=10.0f;
+float test_combineright=10.0f;
 /* Private function declarations ---------------------------------------------*/
 void Combine_FSM::Combine_FSM_Init()
 {
@@ -45,7 +46,7 @@ void Combine_FSM::Combine_FSM_Run()
             if(Event == Combine_Event_SetZero)
             {
                 Motor_DJI_C610[0].Set_Target_Omega(3.14f);
-                Motor_DJI_C610[1].Set_Target_Omega(-4.71f);
+                Motor_DJI_C610[1].Set_Target_Omega(-3.14f);
                 State = Combine_State_SetingZero;
                 Begin_Time = SYS_Timestamp.Get_Now_Millisecond();
             }
@@ -86,8 +87,8 @@ void Combine_FSM::Combine_FSM_Run()
         {
             if(Event == Combine_Event_To_Combined)
             {
-                Motor_DJI_C610[0].Set_Target_Angle(ZeroPosition[0]-23.5f);
-                Motor_DJI_C610[1].Set_Target_Angle(ZeroPosition[1]+23.5f);
+                Motor_DJI_C610[0].Set_Target_Angle(ZeroPosition[0]-28.5);
+                Motor_DJI_C610[1].Set_Target_Angle(ZeroPosition[1]+28.5);
                 State = Combine_State_Combining;
                 Begin_Time = SYS_Timestamp.Get_Now_Millisecond();
             }
@@ -121,8 +122,7 @@ void Combine_FSM::Combine_FSM_Event_Update()
     {
         bool Left_Stock = Combine_FSM_Stock_Check(Left_Side);
         bool Right_Stock = Combine_FSM_Stock_Check(Right_Side);
-        // if(Left_Stock == true && Right_Stock == true)
-        if(Right_Stock == true)
+        if(Left_Stock == true && Right_Stock == true)
         {
             Event = Combine_Event_Stock;
         }
