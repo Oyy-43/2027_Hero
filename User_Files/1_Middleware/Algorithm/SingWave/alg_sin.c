@@ -18,7 +18,14 @@
 /* Private types -------------------------------------------------------------*/
 
 /* Private variables ---------------------------------------------------------*/
-
+const ALG_SweepPoint_t k_sweep_table[] = {
+    /* freq_hz, cycles */
+    { 0.50f,  6U}, { 0.63f,  6U}, { 0.80f,  7U}, { 1.00f,  8U},
+    { 1.25f,  8U}, { 1.60f, 10U}, { 2.00f, 10U}, { 2.50f, 12U},
+    { 3.15f, 12U}, { 4.00f, 15U}, { 5.00f, 15U}, { 6.30f, 20U},
+    { 8.00f, 20U}, {10.00f, 25U}, {12.50f, 30U}, {16.00f, 40U},
+    {20.00f, 50U}, {25.00f, 60U}
+};
 /* Private function declarations ---------------------------------------------*/
 
 /* Function prototypes -------------------------------------------------------*/
@@ -119,6 +126,79 @@ float ALG_Sin_Sweep_Generate(float *p_var, float start_freq_hz, float end_freq_h
 		s_freq_hz += freq_rate_hz_s * dt_s;
 	}
 	s_phase_rad = fmodf(s_phase_rad + two_pi * cycles, two_pi);
+
+	return out;
+}
+
+float ALG_Sin_Step_Sweep_Generate(float *p_var, const ALG_SweepPoint_t *table,
+                                  uint32_t point_count, float amplitude, float call_freq_hz)
+{
+	static double s_cycles = 0.0;
+	static uint32_t s_point_index = 0U;
+	static const ALG_SweepPoint_t *s_last_table = NULL;
+	static uint32_t s_last_count = 0U;
+	const double two_pi = 6.283185307179586;
+	double remaining_s;
+	double time_to_step_s;
+	uint8_t valid;
+	float out;
+
+	valid = (table != NULL) && (point_count > 0U) && isfinite(amplitude) &&
+		isfinite(call_freq_hz) && (call_freq_hz > 0.0f);
+	if (valid && ((s_last_table != table) || (s_last_count != point_count)))
+	{
+		for (uint32_t point_index = 0U; point_index < point_count; point_index++)
+		{
+			if (!isfinite(table[point_index].freq_hz) ||
+				(table[point_index].freq_hz <= 0.0f) || (table[point_index].cycles == 0U))
+			{
+				valid = 0U;
+				break;
+			}
+		}
+	}
+	if (!valid)
+	{
+		s_cycles = 0.0;
+		s_point_index = 0U;
+		s_last_table = NULL;
+		s_last_count = 0U;
+		if (p_var != NULL)
+		{
+			*p_var = 0.0f;
+		}
+		return 0.0f;
+	}
+
+	if ((s_last_table != table) || (s_last_count != point_count))
+	{
+		s_cycles = 0.0;
+		s_point_index = 0U;
+		s_last_table = table;
+		s_last_count = point_count;
+	}
+
+	out = amplitude * sinf((float)(two_pi * fmod(s_cycles, 1.0)));
+	if (p_var != NULL)
+	{
+		*p_var = out;
+	}
+
+	remaining_s = 1.0 / (double)call_freq_hz;
+	while (s_point_index + 1U < point_count)
+	{
+		time_to_step_s = ((double)table[s_point_index].cycles - s_cycles) /
+			(double)table[s_point_index].freq_hz;
+		if (remaining_s < time_to_step_s)
+		{
+			s_cycles += (double)table[s_point_index].freq_hz * remaining_s;
+			return out;
+		}
+		remaining_s -= time_to_step_s;
+		s_cycles = 0.0;
+		s_point_index++;
+	}
+	s_cycles = fmod(s_cycles + (double)table[s_point_index].freq_hz * remaining_s, 1.0);
 
 	return out;
 }

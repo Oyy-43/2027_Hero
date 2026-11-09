@@ -430,9 +430,10 @@ void Wave_Output()
         // ALG_Sin_Generate(&Sin_Out, 1.5f, 3.5f,1000.0f);
         // ALG_Sin_Sweep_Generate(&Sin_Out, 0.1f, 50.0f, 1.66f,1.8f,1000.0f);
         // Motor_DM_6220[0].Set_Target_Angle(Sin_Out);
-        ALG_Value_Toggle_Periodic(&Sin_Out, 3.8f,0.0f,3.0f,1000.0f);
+        // ALG_Value_Toggle_Periodic(&Sin_Out, 3.8f,0.0f,3.0f,1000.0f);
+        ALG_Sin_Step_Sweep_Generate(&Sin_Out, k_sweep_table, sizeof(k_sweep_table)/sizeof(k_sweep_table[0]), 1.8f, 1000.0f);
         // Motor_DM_6216[2].Set_Target_Omega(Sin_Out);
-        Motor_DM_6216[2].Set_Target_Angle(Sin_Out);
+        // Motor_DM_6216[2].Set_Target_Angle(Sin_Out);
         // Motor_DM_6216[2].Set_Control_Torque(Sin_Out+Motor_DM_6216[2].Constant_Feedforward_Torque);        
         // cmd_vy = Sin_Out;
      }
@@ -440,7 +441,7 @@ void Wave_Output()
     {
         Sin_Out = 0.0f;
         // cmd_vy = 0.0f;
-        Motor_DM_6216[2].Set_Target_Angle(0.0f);
+        // Motor_DM_6216[2].Set_Target_Angle(0.0f);
         // Motor_DM_6220[2].Set_Target_Angle(0.0f);
         // Motor_DM_6216[2].Set_Target_Omega(0.0f);
         // Motor_DM_6216[2].Set_Control_Torque(0.0f+Motor_DM_6216[2].Constant_Feedforward_Torque);     
