@@ -72,6 +72,7 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Algorithm/DataTrans/alg_transData.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Algorithm/SingWave/alg_sin.c
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Algorithm/Slope/alg_slope.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Algorithm/Move_Planner/alg_motion_planner.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/CAN/drv_can.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/SPI/drv_spi.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/OSPI/drv_ospi.cpp    
@@ -116,6 +117,7 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Algorithm/DataTrans
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Algorithm/SingWave
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Algorithm/Slope
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Algorithm/Move_Planner
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/CAN
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/SPI
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Driver/OSPI

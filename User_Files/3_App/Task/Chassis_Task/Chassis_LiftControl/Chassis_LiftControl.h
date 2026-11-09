@@ -5,25 +5,37 @@
 #include "3_App/Task/Chassis_Task/Chassis_Task.h"
 
 /* Exported macros -----------------------------------------------------------*/
+#define Position_threshold 0.1f
+
 
 /* Exported types ------------------------------------------------------------*/
+enum ChassisLift_MotorEnum
+{
+    Chassis_lift_motor_FrontLeft = 0,
+    Chassis_lift_motor_FrontRight,
+    Chassis_lift_motor_Back,
+};
+
+
 enum ChassisLift_Status
 {
     Chassis_lift_status_IDLE = 0,
-    Chassis_lift_status_Front_Uping,
-    Chassis_lift_status_Front_Up,
-    Chassis_lift_status_Front_Downing,
-    Chassis_lift_status_Front_Down,
-    Chassis_lift_status_Back_Stretching,
-    Chassis_lift_status_Back_Stretch,
+    Chassis_lift_status_Front_Uping,        //前四轮抬起中
+    Chassis_lift_status_Front_Up,           //前四轮抬起完毕
+    Chassis_lift_status_Lift_Uping,         //整体抬升中
+    Chassis_lift_status_Lift_Up,            //整体抬升完毕
+    Chassis_lift_status_Back_Revoking,      //后伸收回
 };
 
 enum ChassisLift_Event
 {
     Chassis_lift_event_NONE = 0,
-    Chassis_lift_event_Front_UP,
-    Chassis_lift_event_Front_Down,
-    Chassis_lift_event_Back_Stretch,
+    Chassis_lift_event_Front_UP,            //前四轮抬升
+    Chassis_lift_event_Front_UPdone,        //前四轮抬升完毕
+    Chassis_lift_event_Lift_UP,             //整体抬升
+    Chassis_lift_event_Lift_UPdone,         //整体抬升完毕
+    Chassis_lift_event_Back_Revoke,         //后伸收回
+    Chassis_lift_event_Back_Reset,          //复位，强行回正
 };
 
 struct Chassis_LiftFsmStatus
@@ -46,7 +58,11 @@ public:
 
     void Lift_Event_Update();
 
-    void Lift_Position_Check();
+    float Get_Chassis_Pitch_Err();
+
+    bool Lift_Position_Check(ChassisLift_MotorEnum __Motor_Enum);
+
+    bool Chassis_Pitch_Stable_Check();
 
 private:
 

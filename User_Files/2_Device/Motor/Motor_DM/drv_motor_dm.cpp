@@ -222,9 +222,11 @@ uint8_t *allocate_tx_data(const FDCAN_HandleTypeDef *hcan, const Enum_Motor_DM_M
  * @param __Torque_Max 最大扭矩, 与上位机控制幅值TMAX保持一致, 传统模式有效
  * @param __Current_Max 最大电流, 与上位机串口中上电打印电流保持一致, EMIT模式需要
  * @param __T_feedforward 前馈扭矩
+ * @param _Const_FdfTorque 恒前馈扭矩
+ * @param __Nearest_Flag 就近转位标志位
  */
 void Class_Motor_DM_Normal::Init(const FDCAN_HandleTypeDef *hcan, const uint8_t &__CAN_Rx_ID, const uint8_t &__CAN_Tx_ID, const Enum_Motor_DM_Control_Method &__Motor_DM_Control_Method, 
-    const float &__Angle_Max, const float &__Omega_Max, const float &__Torque_Max, const float &__Current_Max, const float &__T_feedforward,const bool &__Nearest_Flag)
+    const float &__Angle_Max, const float &__Omega_Max, const float &__Torque_Max, const float &__Current_Max, const float &__T_feedforward,const float &_Const_FdfTorque,const bool &__Nearest_Flag)
 {
     if (hcan->Instance == FDCAN1)
     {
@@ -263,6 +265,7 @@ void Class_Motor_DM_Normal::Init(const FDCAN_HandleTypeDef *hcan, const uint8_t 
         CAN_Tx_ID = __CAN_Tx_ID + 0x300;
         break;
     }
+
     }
     Motor_DM_Control_Method = __Motor_DM_Control_Method;
     Angle_Max = __Angle_Max;
@@ -270,6 +273,7 @@ void Class_Motor_DM_Normal::Init(const FDCAN_HandleTypeDef *hcan, const uint8_t 
     Torque_Max = __Torque_Max;
     Current_Max = __Current_Max;
     Feedforward_Torque = __T_feedforward;
+    Constant_Feedforward_Torque = _Const_FdfTorque;
     Nearest_Flag = __Nearest_Flag;
     Init_Flag = true;
 }
@@ -381,7 +385,7 @@ void Class_Motor_DM_Normal::TIM_Send_PeriodElapsedCallback()
                 feedforward_torque = -Feedforward_Torque;
             }
             Control_Torque = PID_Calculate(&this->PID_Omega, Rx_Data.Now_Omega, Target_Omega + Feedforward_Omega)
-                           + feedforward_torque;
+                           + feedforward_torque + Constant_Feedforward_Torque;
         }
         else if (Motor_DM_Control_Method == Motor_DM_Control_Method_NORMAL_MIT_Position)
         {
@@ -407,7 +411,7 @@ void Class_Motor_DM_Normal::TIM_Send_PeriodElapsedCallback()
             {
                 feedforward_torque = -Feedforward_Torque;
             }
-            Control_Torque = PID_Calculate(&this->PID_Omega,Rx_Data.Now_Omega,(Target_Omega + Feedforward_Omega))+feedforward_torque;
+            Control_Torque = PID_Calculate(&this->PID_Omega,Rx_Data.Now_Omega,(Target_Omega + Feedforward_Omega))+feedforward_torque + Constant_Feedforward_Torque;
         }
         Basic_Math_Constrain(&Control_Torque, -Torque_Max, Torque_Max);
         Output();

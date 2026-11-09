@@ -98,6 +98,24 @@ void CAN1_Callback(FDCAN_RxHeaderTypeDef &Header, uint8_t *Buffer)
 
             break;
         }
+        case (0x15):
+        {
+            Motor_DM_6216[0].CAN_RxCpltCallback();
+
+            break;
+        }
+        case (0x16):
+        {
+            Motor_DM_6216[1].CAN_RxCpltCallback();
+
+            break;
+        }
+        case (0x17):
+        {
+            Motor_DM_6216[2].CAN_RxCpltCallback();
+
+            break;
+        }
     }
 }
 
@@ -199,7 +217,7 @@ void Task1ms_Callback()
         Motor_C620[2].TIM_Calculate_PeriodElapsedCallback();
         Motor_C620[3].TIM_Calculate_PeriodElapsedCallback();
     }
-    TIM_1ms_CAN_PeriodElapsedCallback();
+    // TIM_1ms_CAN_PeriodElapsedCallback();
 
     BSP_WS2812.Set_RGB(0, 0, 0);
 
@@ -323,24 +341,27 @@ void Task_Loop()
  */
 void Motor_Init()
 {
-    Motor_C620[0].Init(&hfdcan1, Motor_DJI_ID_0x201, Motor_DJI_Control_Method_OMEGA, 15.7647058f, 0.145f);
-    Motor_C620[1].Init(&hfdcan1, Motor_DJI_ID_0x202, Motor_DJI_Control_Method_OMEGA, 15.7647058f, 0.145f);
-    Motor_C620[2].Init(&hfdcan1, Motor_DJI_ID_0x203, Motor_DJI_Control_Method_OMEGA, 15.7647058f, 0.145f);
-    Motor_C620[3].Init(&hfdcan1, Motor_DJI_ID_0x204, Motor_DJI_Control_Method_OMEGA, 15.7647058f, 0.155f);
+    Motor_C620[0].Init(&hfdcan2, Motor_DJI_ID_0x201, Motor_DJI_Control_Method_OMEGA, 15.7647058f, 0.145f);
+    Motor_C620[1].Init(&hfdcan2, Motor_DJI_ID_0x202, Motor_DJI_Control_Method_OMEGA, 15.7647058f, 0.145f);
+    Motor_C620[2].Init(&hfdcan2, Motor_DJI_ID_0x203, Motor_DJI_Control_Method_OMEGA, 15.7647058f, 0.145f);
+    Motor_C620[3].Init(&hfdcan2, Motor_DJI_ID_0x204, Motor_DJI_Control_Method_OMEGA, 15.7647058f, 0.155f);
 
-    Motor_DM_6216[0].Init(&hfdcan1, 0x31, 0x21, Motor_DM_Control_Method_NORMAL_MIT_Omega,6.283185f,27.0f,50.0f);
-    Motor_DM_6216[1].Init(&hfdcan1, 0x32, 0x22, Motor_DM_Control_Method_NORMAL_MIT_Omega,6.283185f,27.0f,50.0f);
-    Motor_DM_6216[2].Init(&hfdcan1, 0x33, 0x23, Motor_DM_Control_Method_NORMAL_MIT_Omega,6.283185f,27.0f,50.0f);
+    Motor_DM_6216[0].Init(&hfdcan2, 0x15, 0x5, Motor_DM_Control_Method_NORMAL_MIT_Position,6.28319f,40.0f,70.0f,0.0f,0.0f,0.0f,true);  //MAX:27,50
+    Motor_DM_6216[1].Init(&hfdcan2, 0x16, 0x6, Motor_DM_Control_Method_NORMAL_MIT_Position,6.28319f,40.0f,70.0f,0.0f,0.0f,0.0f,true);
+    Motor_DM_6216[2].Init(&hfdcan2, 0x17, 0x7, Motor_DM_Control_Method_NORMAL_MIT_Position,6.28319f,40.0f,70.0f,0.0f,0.0f,-0.1782f,false);
 
-    Motor_DM_6220[0].Init(&hfdcan2, 0x11, 0x01, Motor_DM_Control_Method_NORMAL_MIT_Position,3.141593f,45.0f,10.0f);
-    Motor_DM_6220[1].Init(&hfdcan2, 0x12, 0x02, Motor_DM_Control_Method_NORMAL_MIT_Position,3.141593f,45.0f,10.0f);
-    Motor_DM_6220[2].Init(&hfdcan2, 0x13, 0x03, Motor_DM_Control_Method_NORMAL_MIT_Position,3.141593f,45.0f,10.0f);
-    Motor_DM_6220[3].Init(&hfdcan2, 0x14, 0x04, Motor_DM_Control_Method_NORMAL_MIT_Position,3.141593f,45.0f,10.0f);
+    Motor_DM_6220[0].Init(&hfdcan1, 0x11, 0x01, Motor_DM_Control_Method_NORMAL_MIT_Position,3.141593f,45.0f,10.0f);
+    Motor_DM_6220[1].Init(&hfdcan1, 0x12, 0x02, Motor_DM_Control_Method_NORMAL_MIT_Position,3.141593f,45.0f,10.0f);
+    Motor_DM_6220[2].Init(&hfdcan1, 0x13, 0x03, Motor_DM_Control_Method_NORMAL_MIT_Position,3.141593f,45.0f,10.0f);
+    Motor_DM_6220[3].Init(&hfdcan1, 0x14, 0x04, Motor_DM_Control_Method_NORMAL_MIT_Position,3.141593f,45.0f,10.0f);
 
     Motor_DM_6220[0].CAN_Send_Enter();
-    Motor_DM_6220[1].CAN_Send_Enter(); 
+    Motor_DM_6220[1].CAN_Send_Enter();  
     Motor_DM_6220[2].CAN_Send_Enter();
     Motor_DM_6220[3].CAN_Send_Enter();
+    Motor_DM_6216[0].CAN_Send_Enter();
+    Motor_DM_6216[1].CAN_Send_Enter();
+    Motor_DM_6216[2].CAN_Send_Enter();
 }
 
 /**
@@ -356,13 +377,13 @@ void PID_Init_All()
     PID_Init(&Motor_C620[3].PID_Omega,3.69f, 0.35, 0.05, 0.002f,0.175f,1.25f,0.0f,2.5f,0,0,0,0,Integral_Limit);
 
     //抬升电机的PID参数初始化
-    PID_Init(&Motor_DM_6216[0].PID_Omega,45.0f, 0.0f, 0.00f, 0.001f,0.00f,0.00f,0.00f,0.00f,0.0f,0.0f,0,0,Integral_Limit);
-    PID_Init(&Motor_DM_6216[1].PID_Omega,45.0f, 0.0f, 0.00f, 0.001f,0.00f,0.00f,0.00f,0.00f,0.0f,0.0f,0,0,Integral_Limit);
-    PID_Init(&Motor_DM_6216[2].PID_Omega,45.0f, 0.0f, 0.00f, 0.001f,0.00f,0.00f,0.00f,0.00f,0.0f,0.0f,0,0,Integral_Limit);
+    PID_Init(&Motor_DM_6216[0].PID_Omega,12.0f, 0.0f, 0.00f, 0.002f,0.00f,0.00f,0.00f,0.00f,0.0f,0.0f,0,0,Integral_Limit);
+    PID_Init(&Motor_DM_6216[1].PID_Omega,12.0f, 0.0f, 0.00f, 0.002f,0.00f,0.00f,0.00f,0.00f,0.0f,0.0f,0,0,Integral_Limit);
+    PID_Init(&Motor_DM_6216[2].PID_Omega,12.0f, 2.5f, 0.00f, 0.002f,1.625f,4.75f,0.00f,0.0f,0.0f,0.0f,0,0,Integral_Limit);
 
-    PID_Init(&Motor_DM_6216[0].PID_Angle,27.0f, 0.0f, 0.00f, 0.001f,0.00f,0.00f,0.00f,0.00f,0.0f,0.0f,0,0,Integral_Limit);
-    PID_Init(&Motor_DM_6216[0].PID_Angle,27.0f, 0.0f, 0.00f, 0.001f,0.00f,0.00f,0.00f,0.00f,0.0f,0.0f,0,0,Integral_Limit);
-    PID_Init(&Motor_DM_6216[0].PID_Angle,27.0f, 0.0f, 0.00f, 0.001f,0.00f,0.00f,0.00f,0.00f,0.0f,0.0f,0,0,Integral_Limit);
+    PID_Init(&Motor_DM_6216[0].PID_Angle,16.0f, 0.0f, 0.00f, 0.002f,0.00f,0.00f,0.00f,0.00f,0.0f,0.0f,0,0,Integral_Limit);
+    PID_Init(&Motor_DM_6216[1].PID_Angle,16.0f, 0.0f, 0.00f, 0.002f,0.00f,0.00f,0.00f,0.00f,0.0f,0.0f,0,0,Integral_Limit);
+    PID_Init(&Motor_DM_6216[2].PID_Angle,16.0f, 0.0f, 0.00f, 0.002f,8.50f,0.00f,0.00f,0.00f,0.0f,0.0f,0,0,Integral_Limit);
 
     //舵向电机速度环PID参数初始化
     PID_Init(&Motor_DM_6220[0].PID_Omega,2.7f, 0.65f, 0.00f, 0.001f,0.0175f,2.055f,0.0f,0.00f,2.0f,0.5f,0,0,Integral_Limit);
@@ -406,19 +427,23 @@ void Wave_Output()
     }
      if(press_count%2==1)
      {
-        ALG_Sin_Generate(&Sin_Out, 2.0f, 1.0f,1000.0f);
-        // ALG_Sin_Sweep_Generate(&Sin_Out, 0.1f, 50.0f, 0.5f,0.2f,1000.0f);
+        // ALG_Sin_Generate(&Sin_Out, 1.5f, 3.5f,1000.0f);
+        // ALG_Sin_Sweep_Generate(&Sin_Out, 0.1f, 50.0f, 1.66f,1.8f,1000.0f);
         // Motor_DM_6220[0].Set_Target_Angle(Sin_Out);
-        // ALG_Value_Toggle_Periodic(&Sin_Out, 1.57f,0.0f,2.0f,1000.0f);
-        // Motor_DM_6220[1].Set_Control_Torque(Sin_Out);
-        // Motor_DM_6220[1].Set_Target_Angle(Sin_Out);
+        ALG_Value_Toggle_Periodic(&Sin_Out, 3.8f,0.0f,3.0f,1000.0f);
+        // Motor_DM_6216[2].Set_Target_Omega(Sin_Out);
+        Motor_DM_6216[2].Set_Target_Angle(Sin_Out);
+        // Motor_DM_6216[2].Set_Control_Torque(Sin_Out+Motor_DM_6216[2].Constant_Feedforward_Torque);        
         // cmd_vy = Sin_Out;
      }
     else
     {
         Sin_Out = 0.0f;
         // cmd_vy = 0.0f;
-        // Motor_DM_6220[1].Set_Control_Torque(0.0f);
+        Motor_DM_6216[2].Set_Target_Angle(0.0f);
+        // Motor_DM_6220[2].Set_Target_Angle(0.0f);
+        // Motor_DM_6216[2].Set_Target_Omega(0.0f);
+        // Motor_DM_6216[2].Set_Control_Torque(0.0f+Motor_DM_6216[2].Constant_Feedforward_Torque);     
         // Motor_DM_6220[1].Set_Target_Angle(0.0f);
     }
 }
@@ -431,7 +456,6 @@ void Chassis_Control_Task()
 
     Steer_Chassis.Set_Target_Velocity(cmd_vx, cmd_vy, cmd_vw);
 
-    // 2、3号动力轮的电机正方向与底盘轮向相反，反馈和指令均在此转换。
     Steer_Chassis.TIM_Calculate_PeriodElapsedCallback(Motor_C620[0].Get_Now_Filtered_Omega(),Motor_C620[1].Get_Now_Filtered_Omega(),-Motor_C620[2].Get_Now_Filtered_Omega(),
     -Motor_C620[3].Get_Now_Filtered_Omega(),Motor_DM_6220[0].Get_Now_Angle(),Motor_DM_6220[1].Get_Now_Angle(),Motor_DM_6220[2].Get_Now_Angle(),Motor_DM_6220[3].Get_Now_Angle());
 
@@ -452,6 +476,21 @@ void Chassis_Control_Task()
     Motor_DM_6220[3].Set_Target_Angle(-Steer_Chassis.Get_Steer_Target_Angle()[3]);
 }
 
+void Motor_6220SendMessage(void)
+{
+    Motor_DM_6220[0].TIM_Send_PeriodElapsedCallback();
+    Motor_DM_6220[1].TIM_Send_PeriodElapsedCallback();
+    Motor_DM_6220[2].TIM_Send_PeriodElapsedCallback();
+    Motor_DM_6220[3].TIM_Send_PeriodElapsedCallback();
+}
+
+void Motor_6216SendMessage(void)
+{
+    Motor_DM_6216[0].TIM_Send_PeriodElapsedCallback();
+    Motor_DM_6216[1].TIM_Send_PeriodElapsedCallback();
+    Motor_DM_6216[2].TIM_Send_PeriodElapsedCallback();
+}
+
 void Chassis_Task_Func(void *argument)
 {
     osDelay(1000);
@@ -459,11 +498,14 @@ void Chassis_Task_Func(void *argument)
     Motor_Init();
     for(;;)
     {
-        // dm电机的CAN发送函数,1ms发送一次
-        Motor_DM_6220[0].TIM_Send_PeriodElapsedCallback();
-        Motor_DM_6220[1].TIM_Send_PeriodElapsedCallback();
-        Motor_DM_6220[2].TIM_Send_PeriodElapsedCallback();
-        Motor_DM_6220[3].TIM_Send_PeriodElapsedCallback();
+        Motor_6220SendMessage();
+        static uint16_t mod2 = 0;
+        mod2++;
+        if(mod2==2)
+        {
+            mod2=0;
+            Motor_6216SendMessage();
+        }
         osDelay(1);
     }
 }

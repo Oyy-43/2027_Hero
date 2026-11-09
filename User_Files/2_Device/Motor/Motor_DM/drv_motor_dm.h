@@ -44,15 +44,19 @@ enum Enum_Motor_DM_Motor_ID_1_To_4 : uint8_t
  */
 enum Enum_Motor_DM_Control_Status_Normal
 {
-    Motor_DM_Control_Status_DISABLE = 0x0,                  //未使能
-    Motor_DM_Control_Status_ENABLE,                         //已使能
-    Motor_DM_Control_Status_OVERVOLTAGE = 0x8,              //过压
-    Motor_DM_Control_Status_UNDERVOLTAGE,                   //欠压
-    Motor_DM_Control_Status_OVERCURRENT,                    //过流
-    Motor_DM_Control_Status_MOS_OVERTEMPERATURE,            //MOS过温（电驱温度过高）
-    Motor_DM_Control_Status_ROTOR_OVERTEMPERATURE,          //转子过温（电机温度过高）
-    Motor_DM_Control_Status_LOSE_CONNECTION,                //失联（电机未连接）
-    Motor_DM_Control_Status_MOS_OVERLOAD,                   //MOS过载（电驱过载）
+    Motor_DM_Control_Status_DISABLE                 = 0x0,
+    Motor_DM_Control_Status_ENABLE                  = 0x1,
+    Motor_DM_Control_Status_ENCODER_MOTOR_ERROR     = 0x2,  // 电机侧编码器错误
+    Motor_DM_Control_Status_ENCODER_OUTPUT_ERROR    = 0x3,  // 输出轴编码器错误
+    Motor_DM_Control_Status_CALIB_MOTOR_ERROR       = 0x5,  // 电机侧校准错误
+    Motor_DM_Control_Status_CALIB_OUTPUT_ERROR      = 0x7,  // 输出轴校准错误
+    Motor_DM_Control_Status_OVERVOLTAGE             = 0x8,
+    Motor_DM_Control_Status_UNDERVOLTAGE            = 0x9,
+    Motor_DM_Control_Status_OVERCURRENT             = 0xA,
+    Motor_DM_Control_Status_MOS_OVERTEMPERATURE     = 0xB,
+    Motor_DM_Control_Status_ROTOR_OVERTEMPERATURE   = 0xC,
+    Motor_DM_Control_Status_LOSE_CONNECTION         = 0xD,
+    Motor_DM_Control_Status_MOS_OVERLOAD            = 0xE,
 };
 
 /**
@@ -206,7 +210,7 @@ public:
     Class_Filter_Frequency<10> Filter_Omega;
 
     void Init(const FDCAN_HandleTypeDef *hcan, const uint8_t &__CAN_Rx_ID = 0x00, const uint8_t &__CAN_Tx_ID = 0x01, const Enum_Motor_DM_Control_Method &__Motor_DM_Control_Method = Motor_DM_Control_Method_NORMAL_MIT, 
-        const float &__Angle_Max = 12.5f, const float &__Omega_Max = 25.0f, const float &__Torque_Max = 10.0f, const float &__Current_Max = 10.261194f,const float &__T_feedforward = 0.0f,const bool &__Nearest_Flag = true);
+        const float &__Angle_Max = 12.5f, const float &__Omega_Max = 25.0f, const float &__Torque_Max = 10.0f, const float &__Current_Max = 10.261194f,const float &__T_feedforward = 0.0f,const float &_Const_FdfTorque = 0.0f,const bool &__Nearest_Flag = true);
 
     inline float Get_Angle_Max() const;
 
@@ -233,6 +237,8 @@ public:
     inline Enum_Motor_DM_Control_Method Get_Control_Method() const;
 
     inline float Get_Control_Angle() const;
+
+    inline float Get_Target_Angle() const;
 
     inline float Get_Control_Omega() const;
 
@@ -276,6 +282,10 @@ public:
 
     void TIM_Send_PeriodElapsedCallback();
 
+    // 前馈扭矩，Nm, MIT模式下使用
+    float Feedforward_Torque = 0.0f;
+    // 恒前馈扭矩，Nm, MIT模式下使用
+    float Constant_Feedforward_Torque = 0.0f;
 protected:
     // 初始化相关变量
 
@@ -330,8 +340,8 @@ protected:
     float Target_Omega = 0.0f;
     // 前馈角速度，rad/s, MIT的pid输出速度模式下使用
     float Feedforward_Omega = 0.0f;
-    // 前馈扭矩，Nm, MIT模式下使用
-    float Feedforward_Torque = 0.0f;
+
+
     // 扭矩, Nm, MIT模式是目标扭矩, EMIT模式无效, 其余模式是限幅
     float Control_Torque = 0.0f;
     // 电流, A, EMIT模式是限幅, 其余模式无效
@@ -612,6 +622,16 @@ inline Enum_Motor_DM_Control_Method Class_Motor_DM_Normal::Get_Control_Method() 
 inline float Class_Motor_DM_Normal::Get_Control_Angle() const
 {
     return (Control_Angle);
+}
+
+/**
+ * @brief 获取目标角度, rad, 由Set_Target_Angle设定, 位置闭环的实际跟踪目标
+ *
+ * @return float 目标角度, rad
+ */
+inline float Class_Motor_DM_Normal::Get_Target_Angle() const
+{
+    return (Target_Angle);
 }
 
 /**

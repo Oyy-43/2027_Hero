@@ -13,12 +13,13 @@
 #include <stdint.h>
 #include "stdio.h"
 #include "2_Device/BSP/Key/bsp_key.h"
+#include "3_App/Task/Chassis_Task/Chassis_LiftControl/Chassis_LiftControl.h"
 #include "cmsis_os2.h"
 #include "crsf.h"
 /* Private macros ------------------------------------------------------------*/
 
 /* Private types -------------------------------------------------------------*/
-Shoot_Decision Shoot_Decision_Transfer;
+Class_Chassis_LiftControl Class_LiftControl;
 Remote_Data Remote_Data_Transfer;
 /* Private variables ---------------------------------------------------------*/
 
@@ -196,7 +197,7 @@ void Robo_Dec_Fuc(void *argument)
     for(;;)
     {   
         Remote_Data_Transfer.Remote_Key_Scan();
-        Shoot_Decision_Transfer.Fire_Signal_Decide();
+        Class_LiftControl.Lift_Run();
         osDelay(1);
     }
 }

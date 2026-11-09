@@ -2,7 +2,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-
+#include "3_App/Task/Chassis_Task/Chassis_LiftControl/Chassis_LiftControl.h"
 
 /* Exported macros -----------------------------------------------------------*/
 
@@ -60,7 +60,7 @@ class Remote_Data
 /* Exported constants --------------------------------------------------------*/
 
 /* Exported variables --------------------------------------------------------*/
-extern Shoot_Decision Shoot_Decision_Transfer;
+extern Class_Chassis_LiftControl Class_LiftControl;
 extern Remote_Data Remote_Data_Transfer;
 /* Exported function declarations --------------------------------------------*/
 

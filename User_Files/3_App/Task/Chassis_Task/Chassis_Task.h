@@ -1,20 +1,28 @@
-#ifndef __CHASSIS_TASK_H__
-#define __CHASSIS_TASK_H__
+#pragma once
+
+/* Includes ------------------------------------------------------------------*/
+#include "main.h"
+#include <stdbool.h>
+
+#ifdef __cplusplus
+#include "2_Device/Motor/Motor_DM/drv_motor_dm.h"
+extern Class_Motor_DM_Normal Motor_DM_6216[3];
+#endif
+
+/* Exported variables --------------------------------------------------------*/
+
+extern bool init_finished;
+
+
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-/* Includes ------------------------------------------------------------------*/
-
-#include <stdbool.h>
-
 /* Exported macros -----------------------------------------------------------*/
 
 /* Exported types ------------------------------------------------------------*/
 
-/* Exported variables --------------------------------------------------------*/
-extern bool init_finished;
 /* Exported function declarations --------------------------------------------*/
 
 void Task1ms_Callback(void);
@@ -40,5 +48,3 @@ void Chassis_Task_Func(void *argument);
 #ifdef __cplusplus
 };
 #endif
-
-#endif /* __CHASSIS_TASK_H__ */
