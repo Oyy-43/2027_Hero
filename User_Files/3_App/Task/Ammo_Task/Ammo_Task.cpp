@@ -1,257 +1,309 @@
 /**
  * @file Ammo_Task.cpp
- * @author 
- * @brief 
+ * @author Oyyp
+ * @brief 发射模块控制任务
  * @version 0.1
- * @date 2026-10-04 0.1 init
+ * @date 2026-09-16 0.1 init
  *
  * @copyright Copyright
  *
  */
 /* Includes ------------------------------------------------------------------*/
+#include "Gimbal_Task.h"
 #include "Ammo_Task.h"
+// #include "2_Device/BSP/BMI088/bsp_bmi088.h"
+// #include "2_Device/Plotter/Vofa/dvc_vofa.h"
+// #include "2_Device/BSP/W25Q64JV/bsp_w25q64jv.h"
+#include "1_Middleware/Driver/UART/drv_uart.h"
+#include "2_Device/BSP/WS2812/bsp_ws2812.h"
+// #include "2_Device/BSP/Buzzer/bsp_buzzer.h"
+#include "1_Middleware/Driver/CRSF/crsf.h"
+#include "2_Device/BSP/Power/bsp_power.h"
+#include "2_Device/BSP/Key/bsp_key.h"
+#include "1_Middleware/Algorithm/Filter/Kalman/alg_filter_kalman.h"
+#include "1_Middleware/Algorithm/Matrix/alg_matrix.h"
+#include "1_Middleware/Algorithm/SingWave/alg_sin.h"
+#include "1_Middleware/Algorithm/Slope/alg_slope.h"
+#include "1_Middleware/Driver/WDG/drv_wdg.h"
 #include "1_Middleware/System/Timestamp/sys_timestamp.h"
-#include "cmsis_os2.h"
-#include "3_App/Data_Transfer/App_DataTransfer.h"
+#include "2_Device/Motor/Motor_DJI/drv_motor_dji.h"
+#include "2_Device/Motor/Motor_DM/drv_motor_dm.h"
+#include "2_Device/Motor/Motor_LK/drv_motor_lk.h"
+#include <stdbool.h>
+#include "steer_control.h"
+
 /* Private macros ------------------------------------------------------------*/
 
 /* Private types -------------------------------------------------------------*/
-Class_Motor_DM_Normal Motor_DM_4340P;
-Class_Shoot Shoot_Instance;
+Class_Motor_DJI_C620 Motor_DJI_C620[3];
+
 /* Private variables ---------------------------------------------------------*/
 
+// LED灯
+int32_t red = 0;
+int32_t green = 12;
+int32_t blue = 12;
+bool red_minus_flag = false;
+bool green_minus_flag = false;
+bool blue_minus_flag = true;
+
+// 全局初始化完成标志位
+bool init_finished = false;
+
+RAM_D2_BUFFER uint16_t test_count = 0;
+
+RAM_D2_BUFFER float Sin_Out=0.0f;
 /* Private function declarations ---------------------------------------------*/
 
-/**
- * @brief 初始化拨盘模块，初始化电机，绑定信号源
- */
-void Class_Shoot::Ammo_Init (bool *__Fire_Signal,bool *__Enable_Signal)
-{
-    Motor_DM_4340P.Init(&hfdcan2,0x20, 0x10, Motor_DM_Control_Method_NORMAL_MIT_Position,12.5f,10.0f,28.0f,0.0f,0.4f,false);
-    PID_Init(&Motor_DM_4340P.PID_Omega,27.0f, 3.0f, 0.0f, 0.015f,3.25f,6.5f,0.0f,7.5f,0,0,0,0,Integral_Limit);
-    PID_Init(&Motor_DM_4340P.PID_Angle,5.8f, 2.9f, 0.0f, 0.001f,37.5f,0.0125f,0.0,0.0f,0,0,0,0,Integral_Limit);
 
-    Fire_Signal = __Fire_Signal;
-    Enable_Signal = __Enable_Signal;
-    Shoot_Status = Shoot_Enable;
-    Shoot_Event = Shoot_Event_None;
-    Begin_Time = SYS_Timestamp.Get_Now_Millisecond();
-    Current_Time = Begin_Time;
-    State_time = 0.0f;
-    ToZero_Signal = true;
-    ToZero_Sample_Angle = NAN;
-    Current_Target_Angle = 0.0f;
-    Last_Target_Angle = 0.0f;
+/* Function prototypes -------------------------------------------------------*/
+/**
+ * @brief CAN1回调函数
+ *
+ *
+ */
+void CAN1_Callback(FDCAN_RxHeaderTypeDef &Header, uint8_t *Buffer)
+{
+    switch (Header.Identifier)
+    {
+        case (0x201):
+        {
+            Motor_DJI_C620[0].CAN_RxCpltCallback();
+
+            break;
+        }
+        case (0x202):
+        {
+            Motor_DJI_C620[1].CAN_RxCpltCallback();
+
+            break;
+        }
+        case (0x203):
+        {
+            Motor_DJI_C620[2].CAN_RxCpltCallback();
+
+            break;
+        }
+        default:
+        {
+            break;
+        }
+    }
 }
 
-/**
- * @brief 事件更新函数
- * @param none
- */
-void Class_Shoot::Shoot_Event_update()
+void CAN2_Callback(FDCAN_RxHeaderTypeDef &Header, uint8_t *Buffer)
 {
-    Current_Time = SYS_Timestamp.Get_Now_Millisecond();
-    State_time = Current_Time - Begin_Time;
-    Shoot_Event = Shoot_Event_None;
-
-    if(*Enable_Signal == false)
+    switch (Header.Identifier)
     {
-        *Fire_Signal = false;
-        if(Shoot_Status != Shoot_Disenable)
+        case (0x20):
         {
-            Shoot_Event = Shoot_Event_Disenable;
+            Motor_DM_4340P.CAN_RxCpltCallback();
+
+            break;
         }
         return;
     }
-
-    if(Shoot_Status == Shoot_Disenable && *Enable_Signal == true)
-    {
-        Shoot_Event = Shoot_Event_Enable;
-        return;
-    }
-
-    if(*Fire_Signal == true)
-    {
-        *Fire_Signal = false;
-        if(Shoot_Status == Shoot_Enable && Barrel_Heat >= 100.0f)
-        {
-            Shoot_Event = Shoot_Event_Fire;
-            Current_Target_Angle = Last_Target_Angle + PI_3;
-            return;
-        }
-    }
-
-    if(Shoot_Status == Shoot_Fireing && Shoot_Stuck_Check())
-    {
-        Shoot_Event = Shoot_Event_Stuck;
-        Current_Target_Angle = Last_Target_Angle;
-    }
-
-    else if(Shoot_Status == Shoot_Fireing && (fabs(Motor_DM_4340P.PID_Angle.Err)<=0.0005))
-    {
-        Shoot_Event = Shoot_Event_FireDone;
-        Barrel_Heat -= 100;
-        Last_Target_Angle = Current_Target_Angle;
-    }
-    
-    else if(Shoot_Status == Shoot_StuckReleasing && (fabs(Motor_DM_4340P.PID_Angle.Err)<0.1))
-    {
-        Shoot_Event = Shoot_Event_StuckRealseDone;
-    }
 }
 
 /**
- * @brief 堵转检测，拨盘启动超时后角度环误差仍然过大即判定卡住
- * @param none
+ * @brief 每3600s调用一次
+ *
  */
-bool Class_Shoot::Shoot_Stuck_Check()
+void Task3600s_Callback()
 {
-    return (fabs(Motor_DM_4340P.Get_Now_Torque()) >= 8.0f);
+    SYS_Timestamp.TIM_3600s_PeriodElapsedCallback();
 }
 
 /**
- * @brief 状态机运行函数
- * @param none
+ * @brief 每100ms调用一次
+ *
  */
-void Class_Shoot::Shoot_FSM_Run()
-{   
-    if(ToZero_Signal)
-    {
-        return;
-    }
+void Task100ms_Callback()
+{
+    Motor_DJI_C620[0].TIM_100ms_Alive_PeriodElapsedCallback();
+    Motor_DJI_C620[1].TIM_100ms_Alive_PeriodElapsedCallback();
+    Motor_DJI_C620[2].TIM_100ms_Alive_PeriodElapsedCallback();
 
-    Shoot_Event_update();
-    const auto previous_status = Shoot_Status;
-    switch(Shoot_Status)
-    {
-        case Shoot_Disenable :
-            switch(Shoot_Event)
-            {
-                case Shoot_Event_Enable :
-                    Shoot_Status = Shoot_Enable;
-                    break;
-                case Shoot_Event_Fire :
-                    *Fire_Signal = false;
-                    Shoot_Status = Shoot_Disenable;
-                    break;
-            }
-        break;
-        case Shoot_Enable :
-            switch(Shoot_Event)
-            {
-                case Shoot_Event_Disenable :
-                    Shoot_Status = Shoot_Disenable;
-                    break;
-                case Shoot_Event_Fire :
-                    Shoot_Status = Shoot_Fireing;
-                    break;
-            }
-        break;
-        case Shoot_Fireing :
-            switch(Shoot_Event)
-            {
-                case Shoot_Event_Disenable :
-                    Shoot_Status = Shoot_Disenable;
-                    break;
-                case Shoot_Event_FireDone :
-                    Shoot_Status = Shoot_Enable;
-                    break;
-                case Shoot_Event_Stuck :
-                    Shoot_Status = Shoot_StuckReleasing;
-                    break;
-            }
-        break;
-        case Shoot_StuckReleasing :
-            switch(Shoot_Event)
-            {
-                case Shoot_Event_Disenable :
-                    Shoot_Status = Shoot_Disenable;
-                    break;
-                case Shoot_Event_StuckRealseDone :
-                    Shoot_Status = Shoot_Enable;
-                    break;
-            }
-        break;
-    }
-
-    //更新状态时间
-    Current_Time = SYS_Timestamp.Get_Now_Millisecond();
-    if(Shoot_Status != previous_status)
-    {
-        Begin_Time = Current_Time;
-    }
-    State_time = Current_Time - Begin_Time;
-    Motor_DM_4340P.Set_Target_Angle(Current_Target_Angle);
 }
 
 /**
- * @brief 4310正向回零点函数
+ * @brief 每500ms调用一次
  * 
  */
-void Class_Shoot::Dial_Motor_ToZero()
+void Task500ms_Callback()
 {
-    if(!ToZero_Signal)
-    {
-        return;
-    }
-    if(Motor_DM_4340P.Get_Control_Status() != Motor_DM_Control_Status_ENABLE)
-    {
-        ToZero_Sample_Angle = NAN;
-        return;
-    }
-    if(isnan(ToZero_Sample_Angle))
-    {
-        ToZero_Sample_Angle = Motor_DM_4340P.Get_Now_Angle();
-    }
-    Current_Target_Angle = ceilf(ToZero_Sample_Angle / PI_3) * PI_3;
-    Motor_DM_4340P.Set_Target_Angle(Current_Target_Angle);
-    Motor_DM_4340P.TIM_Send_PeriodElapsedCallback();
-    if(Motor_DM_4340P.PID_Angle.abs_Err <= 0.0005f)
-    {
-        ToZero_Signal = false;
-        Last_Target_Angle = Current_Target_Angle;
-        Motor_DM_4340P.Set_Nearest_Flag(true);
-    }
+    Tele_TIM_PeriodElapsedCallback();
 }
 
-void Class_Shoot::Shoot_Run()
-{
-    switch(ToZero_Signal)
-    {
-        case true:
-        Dial_Motor_ToZero();
-        break;
-        case false:
-        Motor_DM_4340P.TIM_Send_PeriodElapsedCallback();
-        break;
-    }
-}
 
-void Class_Shoot::Barrel_Heat_Update_100ms()
+
+/**
+ * @brief 每1ms调用一次
+ *
+ */
+void Task1ms_Callback()
 {
-    static int mod100 = 0;
+    BSP_WS2812.Set_RGB(0, 0, 0);
+
+    // 发送实例
+    BSP_WS2812.TIM_10ms_Write_PeriodElapsedCallback();
+
+    BSP_Key.TIM_1ms_Process_PeriodElapsedCallback();
+
+    static int mod50 = 0;
+    mod50++;
+    if (mod50 == 50)
+    {
+        mod50 = 0;
+
+        // 处理按键状态
+        BSP_Key.TIM_50ms_Read_PeriodElapsedCallback();
+    }
+    static uint16_t mod100 = 0;
+
     mod100++;
-    if(mod100 == 100)
+    if (mod100 == 100)
     {
         mod100 = 0;
-        Barrel_Heat = fminf(Barrel_Heat + Barrel_Heat_Cooling, 200.0f);
+
+        Task100ms_Callback();
+    }
+    
+    static uint16_t mod500 = 0;
+    mod500++;
+    if(mod500==500)
+    {
+        mod500=0;
+        Task500ms_Callback();
+    }
+
+    // 喂狗
+    TIM_1ms_IWDG_PeriodElapsedCallback();
+
+    // Wave_Output();
+}
+
+/**
+ * @brief 初始化任务
+ *
+ */
+void Task_Init()
+{
+    SYS_Timestamp.Init(&htim5);
+
+    // USB初始化
+
+    //电机的初始化
+    Motor_Init();
+
+    // WS2812的SPI
+    SPI_Init(&hspi6, nullptr);
+
+    // 电机的CAN
+    CAN_Init(&hfdcan1, CAN1_Callback);
+    CAN_Init(&hfdcan2, CAN2_Callback);
+
+    //电源ADC的初始化
+    HAL_ADCEx_Calibration_Start(&hadc1, ADC_CALIB_OFFSET, ADC_SINGLE_ENDED);
+    
+    // flash的OSPI
+
+    //电机PID参数初始化
+    PID_Init_All();
+
+    // 定时器中断初始化
+    HAL_TIM_Base_Start_IT(&htim5);
+    HAL_TIM_Base_Start_IT(&htim7);
+
+    // 串口空闲中断回调初始化
+    UART_Init(&huart7, crsf_rx_idle_callback);
+    
+    // 初始化WS2812灯珠, 默认灯灭
+    BSP_WS2812.Init(0, 0, 0);
+
+    // BSP_Buzzer.Init();
+
+    BSP_Power.Init();
+
+    BSP_Key.Init();
+
+    // BSP_BMI088.Init();
+
+    BSP_Power.Set_Power(true, true, true);
+
+    // 标记初始化完成
+    init_finished = true;
+
+}
+
+/**
+ * @brief 前台循环任务
+ *
+ */
+void Task_Loop()
+{
+    Namespace_SYS_Timestamp::Delay_Millisecond(1);
+}
+
+/**
+ * @brief 电机初始化
+ *
+ */
+void Motor_Init()
+{
+    Motor_DJI_C620[0].Init(&hfdcan1,Motor_DJI_ID_0x201,Motor_DJI_Control_Method_OMEGA,1.0f);
+    Motor_DJI_C620[1].Init(&hfdcan1,Motor_DJI_ID_0x202,Motor_DJI_Control_Method_OMEGA,1.0f);
+    Motor_DJI_C620[2].Init(&hfdcan1,Motor_DJI_ID_0x203,Motor_DJI_Control_Method_OMEGA,1.0f);
+}
+
+
+/**
+ * @brief 给整车的电机PID参数初始化
+ * 
+ */
+void PID_Init_All()
+{     
+    PID_Init(&Motor_DJI_C620[0].PID_Omega,5.8f,1.4f,0.0f,0.001f,0.15f,0.45f,0.0f,0.5f,0.0f,0.0f,0,0,Integral_Limit);
+    PID_Init(&Motor_DJI_C620[1].PID_Omega,5.8f,1.4f,0.0f,0.001f,0.15f,0.45f,0.0f,0.5f,0.0f,0.0f,0,0,Integral_Limit);
+    PID_Init(&Motor_DJI_C620[2].PID_Omega,5.8f,1.4f,0.0f,0.001f,0.15f,0.45f,0.0f,0.5f,0.0f,0.0f,0,0,Integral_Limit);
+}
+
+
+/**
+ * @brief 波形输出
+ * 
+ */
+void Wave_Output()
+{
+    static int8_t press_count = -1;
+    if(BSP_Key.Get_Key_Status()== BSP_Key_Status_TRIG_PRESSED_FREE)
+    {
+        press_count++;
+    }
+     if(press_count%2==1)
+     {
+        // ALG_Sin_Generate(&Sin_Out, sin_outp, -6.28f, 1000.0f);
+         // ALG_Value_Toggle_Periodic(&Sin_Out, 1.57f,-1.57f,2.0f,1000.0f);
+         // ALG_Sin_Generate(&Sin_Out, 2.5f, -11.0f, 1000.0f);
+        // Motor_LK[0].Set_To_Zero_Nearest_Flag();
+     }
+    else
+    {
+        // Sin_Out = 0.0f;
+    //     // Motor_DM_6220[0].Set_Target_Angle(0.0f);
+    //     // Motor_DM_6220[0].Set_Target_Omega(0.0f);
+    //     Motor_DM_4340P.Set_Target_Omega(0.0f);
+        return;
     }
 }
 
-void Shoot_Task_Fuc(void *argument)
+
+void Gimbal_Task_Func(void *argument)
 {
-    Shoot_Instance.Ammo_Init(Shoot_Decision_Transfer.Fire_Signal_Init(),Shoot_Decision_Transfer.Enable_Signal_Init());
+    osDelay(1000);
     //初始化电机
-    osDelay(1000);
-    Motor_DM_4340P.CAN_Send_Enter();
-    osDelay(1000);
     for(;;)
     { 
-        Shoot_Instance.Shoot_FSM_Run();
-        Shoot_Instance.Shoot_Run();
-        Shoot_Instance.Barrel_Heat_Update_100ms();
         osDelay(1);
     }
 }
-
-/* Function prototypes -------------------------------------------------------*/
