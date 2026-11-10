@@ -389,9 +389,9 @@ public:
     Class_Filter_Frequency<12> Filter_Omega;
 
     // 前馈的扭矩, Nm
-    float Feedforward_Torque = 0.065f;
+    float Feedforward_Torque = 0.0f;
 
-    void Init(const FDCAN_HandleTypeDef *hcan, const Enum_Motor_DJI_ID &__CAN_Rx_ID, const Enum_Motor_DJI_Control_Method &__Motor_DJI_Control_Method = Motor_DJI_Control_Method_OMEGA, const float &__Gearbox_Rate = 3591.0f / 187.0f);
+    void Init(const FDCAN_HandleTypeDef *hcan, const Enum_Motor_DJI_ID &__CAN_Rx_ID, const Enum_Motor_DJI_Control_Method &__Motor_DJI_Control_Method = Motor_DJI_Control_Method_OMEGA, const float &__Gearbox_Rate = 15.7647058f,const float &__Feedforward_Torque = 0.0f);
 
     inline Enum_Motor_DJI_Status Get_Status() const;
 
@@ -447,7 +447,7 @@ protected:
     // 发送缓存区
     uint8_t *Tx_Data;
     // 减速比, 默认带减速箱
-    float Gearbox_Rate;
+    float Gearbox_Rate = 15.7647058f;
 
     //速度环控制频率
     uint16_t Speed_Loop_Frequency = 500;
@@ -457,16 +457,15 @@ protected:
     // 常量
 
     // 功率计算系数
-    const float POWER_K_0 = 1.1532294690949845f;
-    const float POWER_K_1 = 0.00003165414968530437f;
-    const float POWER_K_2 = 683.7802569066574f;
-    const float POWER_A = 0.8267041157447231f;
+    const float POWER_K_1 = 0.0000308553062f;
+    const float POWER_K_2 = 0.0000013128074f;
+    const float POWER_A = 1.315f;
 
     // 一圈编码器刻度
     const uint16_t ENCODER_NUM_PER_ROUND = 8192;
 
     // 扭矩电流常数, 减速前
-    const float CURRENT_TO_TORQUE = 0.3f / (3591.0f / 187.0f);
+    float CURRENT_TO_TORQUE = 0.3f;
     // 电流到输出的转化系数
     const float CURRENT_TO_OUT = 16384.0f / 20.0f;
     // 最大输出刻度

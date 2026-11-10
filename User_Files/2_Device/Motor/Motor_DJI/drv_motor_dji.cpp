@@ -403,9 +403,9 @@ uint8_t *allocate_tx_data(const FDCAN_HandleTypeDef *hcan, const Enum_Motor_DJI_
  * @param Omega 减速箱前角速度, rad/s
  * @return
  */
-float power_calculate(float K_0, float K_1, float K_2, float A, float Torque, float Omega)
+float power_calculate(float K_1, float K_2, float A, float Torque, float Omega)
 {
-    return (K_0 * Torque * Omega + K_1 * Omega * Omega + K_2 * Torque * Torque + A);
+    return (Torque * Omega + K_1 * Omega * Omega + K_2 * Torque * Torque + A);
 }
 
 /**
@@ -529,7 +529,7 @@ void Class_Motor_DJI_GM6020::Data_Process()
     }
     Rx_Data.Now_Torque = tmp_current / CURRENT_TO_OUT * CURRENT_TO_TORQUE;
     Rx_Data.Now_Temperature = tmp_buffer->Temperature + BASIC_MATH_CELSIUS_TO_KELVIN;
-    Rx_Data.Now_Power = power_calculate(POWER_K_0, POWER_K_1, POWER_K_2, POWER_A, Rx_Data.Now_Torque, Rx_Data.Now_Omega);
+    Rx_Data.Now_Power = power_calculate(POWER_K_1, POWER_K_2, POWER_A, Rx_Data.Now_Torque, Rx_Data.Now_Omega);
 
     // 存储预备信息
     Rx_Data.Pre_Encoder = tmp_encoder;
@@ -785,8 +785,10 @@ void Class_Motor_DJI_C610::Output()
  * @param __CAN_Rx_ID CAN ID
  * @param __Motor_DJI_Control_Method 电机控制方式, 默认速度
  * @param __Gearbox_Rate 减速箱减速比, 默认为原装减速箱, 如拆去减速箱则该值设为1
+ * @param __Feedforward_Torque 前馈扭矩, Nm
  */
-void Class_Motor_DJI_C620::Init(const FDCAN_HandleTypeDef *hcan, const Enum_Motor_DJI_ID &__CAN_Rx_ID, const Enum_Motor_DJI_Control_Method &__Motor_DJI_Control_Method, const float &__Gearbox_Rate)
+void Class_Motor_DJI_C620::Init(const FDCAN_HandleTypeDef *hcan, const Enum_Motor_DJI_ID &__CAN_Rx_ID, const Enum_Motor_DJI_Control_Method &__Motor_DJI_Control_Method, const float &__Gearbox_Rate
+    ,const float &__Feedforward_Torque)
 {
     if (hcan->Instance == FDCAN1)
     {
@@ -803,6 +805,8 @@ void Class_Motor_DJI_C620::Init(const FDCAN_HandleTypeDef *hcan, const Enum_Moto
     CAN_Rx_ID = __CAN_Rx_ID;
     Motor_DJI_Control_Method = __Motor_DJI_Control_Method;
     Gearbox_Rate = __Gearbox_Rate;
+    CURRENT_TO_TORQUE = 0.3f / Gearbox_Rate;
+    Feedforward_Torque = __Feedforward_Torque;
     Tx_Data = allocate_tx_data(hcan, __CAN_Rx_ID,Motor_DJI_Motor_Type_C620);
 }
 
@@ -921,7 +925,7 @@ void Class_Motor_DJI_C620::Data_Process()
     }
     Rx_Data.Now_Torque = tmp_current / CURRENT_TO_OUT * CURRENT_TO_TORQUE * Gearbox_Rate;
     Rx_Data.Now_Temperature = tmp_buffer->Temperature + BASIC_MATH_CELSIUS_TO_KELVIN;
-    Rx_Data.Now_Power = power_calculate(POWER_K_0, POWER_K_1, POWER_K_2, POWER_A, Rx_Data.Now_Torque / Gearbox_Rate, Rx_Data.Now_Omega * Gearbox_Rate);
+    Rx_Data.Now_Power = power_calculate(POWER_K_1, POWER_K_2, POWER_A, Rx_Data.Now_Torque / Gearbox_Rate, Rx_Data.Now_Omega * Gearbox_Rate);
 
     // 存储预备信息
     Rx_Data.Pre_Encoder = tmp_encoder;
