@@ -805,6 +805,7 @@ void Class_Motor_DJI_C620::Init(const FDCAN_HandleTypeDef *hcan, const Enum_Moto
     CAN_Rx_ID = __CAN_Rx_ID;
     Motor_DJI_Control_Method = __Motor_DJI_Control_Method;
     Gearbox_Rate = __Gearbox_Rate;
+    CURRENT_TO_TORQUE = 0.3f / Gearbox_Rate;
     Feedforward_Torque = __Feedforward_Torque;
     Tx_Data = allocate_tx_data(hcan, __CAN_Rx_ID,Motor_DJI_Motor_Type_C620);
 }

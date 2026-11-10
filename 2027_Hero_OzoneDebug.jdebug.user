@@ -1,14 +1,11 @@
 
 
-GraphedExpression="((Motor_DM_6216[2]).PID_Angle).Target", Color=#e56a6f, Show=0
-GraphedExpression="((Motor_DM_6216[2]).PID_Angle).Measure", Color=#35792b, Show=0
-GraphedExpression="((Motor_DM_6216[2]).PID_Omega).Target", Color=#769dda
-GraphedExpression="((Motor_DM_6216[2]).PID_Omega).Measure", Color=#b14f0d
-OpenDocument="main.c", FilePath="D:/A New RM/2027_HeroProject/Hero_2027/Core/Src/main.c", Line=67
+OpenDocument="drv_motor_dji.h", FilePath="D:/A New RM/2027_HeroProject/Hero_2027/User_Files/2_Device/Motor/Motor_DJI/drv_motor_dji.h", Line=457
+OpenDocument="main.c", FilePath="D:/A New RM/2027_HeroProject/Hero_2027/Core/Src/main.c", Line=74
 OpenDocument="Ozone_DataSampling_261107.csv", FilePath="E:/PID TEST/pid_test/Ozone_DataSampling_261107.csv", Line=0
-OpenDocument="usart.c", FilePath="D:/A New RM/2027_HeroProject/Hero_2027/Core/Src/usart.c", Line=321
+OpenDocument="usart.c", FilePath="D:/A New RM/2027_HeroProject/Hero_2027/Core/Src/usart.c", Line=263
 OpenDocument="drv_uart.cpp", FilePath="D:/A New RM/2027_HeroProject/Hero_2027/User_Files/1_Middleware/Driver/UART/drv_uart.cpp", Line=198
-OpenDocument="imu_dm_bmi0888.cpp", FilePath="D:/A New RM/2027_HeroProject/Hero_2027/User_Files/2_Device/IMU/DM_BMI088/imu_dm_bmi0888.cpp", Line=83
+OpenDocument="imu_dm_bmi0888.cpp", FilePath="D:/A New RM/2027_HeroProject/Hero_2027/User_Files/2_Device/IMU/DM_BMI088/imu_dm_bmi0888.cpp", Line=0
 OpenDocument="stm32h7xx_it.c", FilePath="D:/A New RM/2027_HeroProject/Hero_2027/Core/Src/stm32h7xx_it.c", Line=93
 OpenDocument="6216_G_FW2.0.csv", FilePath="E:/PID TEST/pid_test/6216_G_FW2.0.csv", Line=0
 OpenDocument="SinSweep_261021.csv", FilePath="D:/A New RM/2027_HeroProject/Hero_2027/Export_data/SinSweep_261021.csv", Line=0
@@ -23,13 +20,13 @@ OpenWindow="Source Files", DockArea=BOTTOM, x=2, y=0, w=262, h=539, FilterBarSho
 OpenWindow="Disassembly", DockArea=RIGHT, x=0, y=1, w=672, h=183, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
 OpenWindow="Watched Data 1", DockArea=LEFT, x=0, y=0, w=646, h=731, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
 OpenWindow="Data Sampling", DockArea=BOTTOM, x=0, y=0, w=713, h=539, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0, VisibleTab=0, UniformSampleSpacing=0
-OpenWindow="Timeline", DockArea=BOTTOM, x=1, y=0, w=1583, h=539, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=1, DataPaneShown=1, PowerPaneShown=0, CodePaneShown=0, PinCursor="Cursor Movable", TimePerDiv="1 s / Div", TimeStampFormat="Time", DataGraphDrawAsPoints=0, DataGraphLegendShown=1, DataGraphUniformSampleSpacing=0, DataGraphLegendPosition="0;269", DataGraphShowNamesAtCursor=0, PowerGraphDrawAsPoints=0, PowerGraphLegendShown=0, PowerGraphAvgFilterTime=Off, PowerGraphAvgFilterLen=Off, PowerGraphUniformSampleSpacing=0, PowerGraphLegendPosition="1342;-77", CodeGraphLegendShown=0, CodeGraphLegendPosition="1372;0"
+OpenWindow="Timeline", DockArea=BOTTOM, x=1, y=0, w=1583, h=539, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=1, DataPaneShown=1, PowerPaneShown=0, CodePaneShown=0, PinCursor="Cursor Movable", TimePerDiv="1 s / Div", TimeStampFormat="Time", DataGraphDrawAsPoints=0, DataGraphLegendShown=1, DataGraphUniformSampleSpacing=0, DataGraphLegendPosition="0;245", DataGraphShowNamesAtCursor=0, PowerGraphDrawAsPoints=0, PowerGraphLegendShown=0, PowerGraphAvgFilterTime=Off, PowerGraphAvgFilterLen=Off, PowerGraphUniformSampleSpacing=0, PowerGraphLegendPosition="1342;-77", CodeGraphLegendShown=0, CodeGraphLegendPosition="1372;0"
 OpenWindow="Find Results", DockArea=RIGHT, x=0, y=2, w=672, h=183, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
 SmartViewPlugin="", Page="", Toolbar="Hidden", Window="SmartView 1"
 TableHeader="Call Stack", SortCol="Function", SortOrder="ASCENDING", VisibleCols=["Function";"Stack Frame";"Source";"PC";"Return Address";"Stack Used"], ColWidths=[317;190;261;100;121;101]
 TableHeader="Source Files", SortCol="File", SortOrder="ASCENDING", VisibleCols=["File";"Status";"Size";"#Insts";"Path"], ColWidths=[223;100;100;100;1094]
-TableHeader="Data Sampling Table", SortCol="None", SortOrder="ASCENDING", VisibleCols=["Index";"Time";" ((Motor_DM_6216[2]).PID_Angle).Target";" ((Motor_DM_6216[2]).PID_Angle).Measure";" ((Motor_DM_6216[2]).PID_Omega).Target";" ((Motor_DM_6216[2]).PID_Omega).Measure"], ColWidths=[100;100;100;100;100;100]
-TableHeader="Data Sampling Setup", SortCol="Max", SortOrder="ASCENDING", VisibleCols=["Expression";"Type";"Value";"Average";"# Changes"], ColWidths=[356;100;100;134;113]
+TableHeader="Data Sampling Table", SortCol="None", SortOrder="ASCENDING", VisibleCols=["Index";"Time"], ColWidths=[100;100]
+TableHeader="Data Sampling Setup", SortCol="Max", SortOrder="ASCENDING", VisibleCols=["Expression";"Type";"Value";"Average";"# Changes"], ColWidths=[356;100;100;100;113]
 TableHeader="Power Sampling", SortCol="None", SortOrder="ASCENDING", VisibleCols=["Index";"Time";"Ch 0"], ColWidths=[100;100;100]
 TableHeader="Task List", SortCol="None", SortOrder="ASCENDING", VisibleCols=["Name";"Run Count";"Priority";"Status";"Timeout";"Stack Info";"ID";"Mutex Count";"Notified Value";"Notify State"], ColWidths=[110;110;110;110;110;110;110;110;110;110]
 TableHeader="Registers 1", SortCol="Name", SortOrder="ASCENDING", VisibleCols=["Name";"Value";"Description"], ColWidths=[207;144;329]

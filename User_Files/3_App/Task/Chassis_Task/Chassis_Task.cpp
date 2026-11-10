@@ -74,6 +74,37 @@ void CAN1_Callback(FDCAN_RxHeaderTypeDef &Header, uint8_t *Buffer)
 {
     switch (Header.Identifier)
     {
+        case (0x11):
+        {
+            Motor_DM_6220[0].CAN_RxCpltCallback();
+
+            break;
+        }
+        case (0x12):
+        {
+            Motor_DM_6220[1].CAN_RxCpltCallback();
+
+            break;
+        }
+        case (0x13):
+        {
+            Motor_DM_6220[2].CAN_RxCpltCallback();
+
+            break;
+        }
+        case (0x14):
+        {
+            Motor_DM_6220[3].CAN_RxCpltCallback();
+
+            break;
+        }
+    }
+}
+
+void CAN2_Callback(FDCAN_RxHeaderTypeDef &Header, uint8_t *Buffer)
+{
+    switch (Header.Identifier)
+    {
         case (0x201):
         {
             Motor_C620[0].CAN_RxCpltCallback();
@@ -113,37 +144,6 @@ void CAN1_Callback(FDCAN_RxHeaderTypeDef &Header, uint8_t *Buffer)
         case (0x17):
         {
             Motor_DM_6216[2].CAN_RxCpltCallback();
-
-            break;
-        }
-    }
-}
-
-void CAN2_Callback(FDCAN_RxHeaderTypeDef &Header, uint8_t *Buffer)
-{
-    switch (Header.Identifier)
-    {
-        case (0x11):
-        {
-            Motor_DM_6220[0].CAN_RxCpltCallback();
-
-            break;
-        }
-        case (0x12):
-        {
-            Motor_DM_6220[1].CAN_RxCpltCallback();
-
-            break;
-        }
-        case (0x13):
-        {
-            Motor_DM_6220[2].CAN_RxCpltCallback();
-
-            break;
-        }
-        case (0x14):
-        {
-            Motor_DM_6220[3].CAN_RxCpltCallback();
 
             break;
         }
