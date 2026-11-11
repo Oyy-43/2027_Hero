@@ -851,14 +851,15 @@ void Class_Motor_DJI_C620::TIM_100ms_Alive_PeriodElapsedCallback()
 void Class_Motor_DJI_C620:: TIM_Calculate_PeriodElapsedCallback()
 {
     PID_Cal();
+    const float friction_deadband = 0.3f;
     float T_Feedforward = 0.0f;
-    if(Target_Omega >= 0.0f)
+    if (Target_Omega > friction_deadband)
     {
-        T_Feedforward = fabs(Feedforward_Torque);
+        T_Feedforward = fabsf(Feedforward_Torque);
     }
-    else
+    else if (Target_Omega < -friction_deadband)
     {
-        T_Feedforward = -fabs(Feedforward_Torque);
+        T_Feedforward = -fabsf(Feedforward_Torque);
     }
     Out = (Target_Torque + T_Feedforward + Omega_Out_Torque) / CURRENT_TO_TORQUE / Gearbox_Rate * CURRENT_TO_OUT;
     Basic_Math_Constrain(&Out, -OUT_MAX, OUT_MAX);

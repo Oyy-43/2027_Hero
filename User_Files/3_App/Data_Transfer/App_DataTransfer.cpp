@@ -197,7 +197,7 @@ void Robo_Dec_Fuc(void *argument)
     for(;;)
     {   
         Remote_Data_Transfer.Remote_Key_Scan();
-        Class_LiftControl.Lift_Run();
+        // Class_LiftControl.Lift_Run();
         osDelay(1);
     }
 }

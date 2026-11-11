@@ -43,9 +43,9 @@ Class_Motor_DM_Normal Motor_DM_6216[3];
 
 Steer_Chassis_Control Steer_Chassis;
 Class_Chassis_PowerControl Chassis_PowerControl;
-Class_Slope Slope_VX,Slope_VY,Slope_VW;
+Class_Slope Slope_VX,Slope_VY,Slope_VW,Slope_F2;
 float cmd_vx,cmd_vy,cmd_vw;
-float test_feedforward_torque = 0.0f;
+float test_angle = 0.0f;
 /* Private variables ---------------------------------------------------------*/
 
 // LED灯
@@ -217,7 +217,7 @@ void Task1ms_Callback()
         Motor_C620[2].TIM_Calculate_PeriodElapsedCallback();
         Motor_C620[3].TIM_Calculate_PeriodElapsedCallback();
     }
-    // TIM_1ms_CAN_PeriodElapsedCallback();
+    TIM_1ms_CAN_PeriodElapsedCallback();
 
     BSP_WS2812.Set_RGB(0, 0, 0);
 
@@ -288,6 +288,7 @@ void Task_Init()
     Slope_VX.Init(0.08f, 0.8f, Slope_First_REAL);
     Slope_VY.Init(0.08f, 0.8f, Slope_First_REAL);
     Slope_VW.Init(0.08f, 0.8f, Slope_First_REAL);
+    Slope_F2.Init(0.01f, 0.01f, Slope_First_REAL);
     
     //电机初始化
     Motor_Init();
@@ -377,13 +378,13 @@ void PID_Init_All()
     PID_Init(&Motor_C620[3].PID_Omega,3.69f, 0.35, 0.05, 0.002f,0.175f,1.25f,0.0f,2.5f,0,0,0,0,Integral_Limit);
 
     //抬升电机的PID参数初始化
-    PID_Init(&Motor_DM_6216[0].PID_Omega,12.0f, 0.0f, 0.00f, 0.002f,0.00f,0.00f,0.00f,0.00f,0.0f,0.0f,0,0,Integral_Limit);
-    PID_Init(&Motor_DM_6216[1].PID_Omega,12.0f, 0.0f, 0.00f, 0.002f,0.00f,0.00f,0.00f,0.00f,0.0f,0.0f,0,0,Integral_Limit);
+    PID_Init(&Motor_DM_6216[0].PID_Omega,12.0f, 2.5f, 0.00f, 0.002f,1.625f,4.75f,0.00f,0.00f,0.0f,0.0f,0,0,Integral_Limit);
+    PID_Init(&Motor_DM_6216[1].PID_Omega,12.0f, 2.5f, 0.00f, 0.002f,3.00f,7.50f,0.00f,0.00f,0.0f,0.0f,0,0,Integral_Limit);
     PID_Init(&Motor_DM_6216[2].PID_Omega,12.0f, 2.5f, 0.00f, 0.002f,1.625f,4.75f,0.00f,0.0f,0.0f,0.0f,0,0,Integral_Limit);
 
-    PID_Init(&Motor_DM_6216[0].PID_Angle,16.0f, 0.0f, 0.00f, 0.002f,0.00f,0.00f,0.00f,0.00f,0.0f,0.0f,0,0,Integral_Limit);
-    PID_Init(&Motor_DM_6216[1].PID_Angle,16.0f, 0.0f, 0.00f, 0.002f,0.00f,0.00f,0.00f,0.00f,0.0f,0.0f,0,0,Integral_Limit);
-    PID_Init(&Motor_DM_6216[2].PID_Angle,16.0f, 0.0f, 0.00f, 0.002f,8.50f,0.00f,0.00f,0.00f,0.0f,0.0f,0,0,Integral_Limit);
+    PID_Init(&Motor_DM_6216[0].PID_Angle,18.0f, 0.0f, 0.00f, 0.002f,0.00f,0.00f,0.00f,0.00f,0.0f,0.0f,0,0,Integral_Limit);
+    PID_Init(&Motor_DM_6216[1].PID_Angle,18.0f, 0.0f, 0.00f, 0.002f,8.00f,0.00f,0.00f,0.00f,0.0f,0.0f,0,0,Integral_Limit);
+    PID_Init(&Motor_DM_6216[2].PID_Angle,18.0f, 0.0f, 0.00f, 0.002f,30.00f,0.00f,0.00f,0.00f,0.0f,0.0f,0,0,Integral_Limit);
 
     //舵向电机速度环PID参数初始化
     PID_Init(&Motor_DM_6220[0].PID_Omega,2.7f, 0.65f, 0.00f, 0.001f,0.0175f,2.055f,0.0f,0.00f,2.0f,0.5f,0,0,Integral_Limit);
@@ -430,10 +431,10 @@ void Wave_Output()
         // ALG_Sin_Generate(&Sin_Out, 1.5f, 3.5f,1000.0f);
         // ALG_Sin_Sweep_Generate(&Sin_Out, 0.1f, 50.0f, 1.66f,1.8f,1000.0f);
         // Motor_DM_6220[0].Set_Target_Angle(Sin_Out);
-        // ALG_Value_Toggle_Periodic(&Sin_Out, 3.8f,0.0f,3.0f,1000.0f);
-        ALG_Sin_Step_Sweep_Generate(&Sin_Out, k_sweep_table, sizeof(k_sweep_table)/sizeof(k_sweep_table[0]), 1.8f, 1000.0f);
+        ALG_Value_Toggle_Periodic(&Sin_Out, 3.8f,0.0f,3.0f,1000.0f);
+        // ALG_Sin_Step_Sweep_Generate(&Sin_Out, k_sweep_table, sizeof(k_sweep_table)/sizeof(k_sweep_table[0]), 1.8f, 1000.0f);
         // Motor_DM_6216[2].Set_Target_Omega(Sin_Out);
-        // Motor_DM_6216[2].Set_Target_Angle(Sin_Out);
+        Motor_DM_6216[2].Set_Target_Angle(Sin_Out);
         // Motor_DM_6216[2].Set_Control_Torque(Sin_Out+Motor_DM_6216[2].Constant_Feedforward_Torque);        
         // cmd_vy = Sin_Out;
      }
@@ -441,7 +442,7 @@ void Wave_Output()
     {
         Sin_Out = 0.0f;
         // cmd_vy = 0.0f;
-        // Motor_DM_6216[2].Set_Target_Angle(0.0f);
+        Motor_DM_6216[2].Set_Target_Angle(0.0f);
         // Motor_DM_6220[2].Set_Target_Angle(0.0f);
         // Motor_DM_6216[2].Set_Target_Omega(0.0f);
         // Motor_DM_6216[2].Set_Control_Torque(0.0f+Motor_DM_6216[2].Constant_Feedforward_Torque);     
@@ -486,7 +487,8 @@ void Motor_6220SendMessage(void)
 }
 
 void Motor_6216SendMessage(void)
-{
+{   
+    Motor_DM_6216[1].Set_Target_Angle(Slope_F2.TIM_Calculate_GetOut(test_angle,Motor_DM_6216[1].Get_Now_Angle()));
     Motor_DM_6216[0].TIM_Send_PeriodElapsedCallback();
     Motor_DM_6216[1].TIM_Send_PeriodElapsedCallback();
     Motor_DM_6216[2].TIM_Send_PeriodElapsedCallback();

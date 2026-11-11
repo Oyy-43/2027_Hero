@@ -402,14 +402,15 @@ void Class_Motor_DM_Normal::TIM_Send_PeriodElapsedCallback()
             {
                 Target_Omega = PID_Calculate(&this->PID_Angle, Rx_Data.Now_Angle, Target_Angle);
             }
+            const float friction_deadband = 0.15f;
             float feedforward_torque = 0.0f;
-            if (Target_Omega > 0.0f)
+            if (Target_Omega > friction_deadband)
             {
-                feedforward_torque = Feedforward_Torque;
+                feedforward_torque = fabsf(Feedforward_Torque);
             }
-            else if (Target_Omega < 0.0f)
+            else if (Target_Omega < -friction_deadband)
             {
-                feedforward_torque = -Feedforward_Torque;
+                feedforward_torque = -fabsf(Feedforward_Torque);
             }
             Control_Torque = PID_Calculate(&this->PID_Omega,Rx_Data.Now_Omega,(Target_Omega + Feedforward_Omega))+feedforward_torque + Constant_Feedforward_Torque;
         }
