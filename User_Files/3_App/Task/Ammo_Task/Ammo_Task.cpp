@@ -95,13 +95,10 @@ void CAN2_Callback(FDCAN_RxHeaderTypeDef &Header, uint8_t *Buffer)
 {
     switch (Header.Identifier)
     {
-        case (0x20):
+        default:
         {
-            Motor_DM_4340P.CAN_RxCpltCallback();
-
             break;
         }
-        return;
     }
 }
 
@@ -143,6 +140,12 @@ void Task500ms_Callback()
  */
 void Task1ms_Callback()
 {
+    //电机pid输出计算
+    Motor_TIM_Calculate_PeriodElapsedCallback();
+
+    // CAN发送数据
+    TIM_1ms_CAN_PeriodElapsedCallback();
+
     BSP_WS2812.Set_RGB(0, 0, 0);
 
     // 发送实例
@@ -180,7 +183,7 @@ void Task1ms_Callback()
     // 喂狗
     TIM_1ms_IWDG_PeriodElapsedCallback();
 
-    // Wave_Output();
+    Wave_Output();
 }
 
 /**
@@ -262,12 +265,22 @@ void Motor_Init()
  * 
  */
 void PID_Init_All()
-{     
-    PID_Init(&Motor_DJI_C620[0].PID_Omega,5.8f,1.4f,0.0f,0.001f,0.15f,0.45f,0.0f,0.5f,0.0f,0.0f,0,0,Integral_Limit);
-    PID_Init(&Motor_DJI_C620[1].PID_Omega,5.8f,1.4f,0.0f,0.001f,0.15f,0.45f,0.0f,0.5f,0.0f,0.0f,0,0,Integral_Limit);
-    PID_Init(&Motor_DJI_C620[2].PID_Omega,5.8f,1.4f,0.0f,0.001f,0.15f,0.45f,0.0f,0.5f,0.0f,0.0f,0,0,Integral_Limit);
+{                                                             //0.10   1.5
+    PID_Init(&Motor_DJI_C620[0].PID_Omega,5.8f,1.4f,0.0f,0.001f,0.125f,1.85f,0.0f,0.0f,0.0f,0.0f,0,0,Integral_Limit);
+    PID_Init(&Motor_DJI_C620[1].PID_Omega,5.8f,1.4f,0.0f,0.001f,0.00f,0.00f,0.0f,0.0f,0.0f,0.0f,0,0,Integral_Limit);
+    PID_Init(&Motor_DJI_C620[2].PID_Omega,5.8f,1.4f,0.0f,0.001f,0.00f,0.00f,0.0f,0.0f,0.0f,0.0f,0,0,Integral_Limit);
 }
 
+/**
+ * @brief 电机定时器周期Elapsed回调函数
+ * 
+ */
+void Motor_TIM_Calculate_PeriodElapsedCallback()
+{
+    Motor_DJI_C620[0].TIM_Calculate_PeriodElapsedCallback();
+    Motor_DJI_C620[1].TIM_Calculate_PeriodElapsedCallback();
+    Motor_DJI_C620[2].TIM_Calculate_PeriodElapsedCallback();
+}
 
 /**
  * @brief 波形输出
@@ -283,16 +296,21 @@ void Wave_Output()
      if(press_count%2==1)
      {
         // ALG_Sin_Generate(&Sin_Out, sin_outp, -6.28f, 1000.0f);
-         // ALG_Value_Toggle_Periodic(&Sin_Out, 1.57f,-1.57f,2.0f,1000.0f);
-         // ALG_Sin_Generate(&Sin_Out, 2.5f, -11.0f, 1000.0f);
+        ALG_Value_Toggle_Periodic(&Sin_Out, 200.0f,-200.0f,2.0f,1000.0f);
+        // ALG_Sin_Generate(&Sin_Out, 2.5f, -150.0f, 1000.0f);
+        // ALG_Sin_Step_Sweep_Generate(&Sin_Out, k_sweep_table, K_SWEEP_TABLE_SIZE, 0.435f, 1000.0f);
+        Motor_DJI_C620[0].Set_Target_Omega(Sin_Out);
         // Motor_LK[0].Set_To_Zero_Nearest_Flag();
+
      }
     else
     {
-        // Sin_Out = 0.0f;
-    //     // Motor_DM_6220[0].Set_Target_Angle(0.0f);
-    //     // Motor_DM_6220[0].Set_Target_Omega(0.0f);
-    //     Motor_DM_4340P.Set_Target_Omega(0.0f);
+        Sin_Out = 0.0f;
+        // Motor_DJI_C620[0].Set_Target_Torque(0.0f);
+        Motor_DJI_C620[0].Set_Target_Omega(0.0f);
+        // Motor_DM_6220[0].Set_Target_Angle(0.0f);
+        // Motor_DM_6220[0].Set_Target_Omega(0.0f);
+        // Motor_DM_4340P.Set_Target_Omega(0.0f);
         return;
     }
 }

@@ -391,7 +391,7 @@ public:
     // 前馈的扭矩, Nm
     float Feedforward_Torque = 0.0f;
 
-    void Init(const FDCAN_HandleTypeDef *hcan, const Enum_Motor_DJI_ID &__CAN_Rx_ID, const Enum_Motor_DJI_Control_Method &__Motor_DJI_Control_Method = Motor_DJI_Control_Method_OMEGA, const float &__Gearbox_Rate = 15.7647058f,const float &__Feedforward_Torque = 0.0f);
+    void Init(const FDCAN_HandleTypeDef *hcan, const Enum_Motor_DJI_ID &__CAN_Rx_ID, const Enum_Motor_DJI_Control_Method &__Motor_DJI_Control_Method = Motor_DJI_Control_Method_OMEGA, const float &__Gearbox_Rate = 1.0f,const float &__Feedforward_Torque = 0.0f);
 
     inline Enum_Motor_DJI_Status Get_Status() const;
 
@@ -447,7 +447,7 @@ protected:
     // 发送缓存区
     uint8_t *Tx_Data;
     // 减速比, 默认带减速箱
-    float Gearbox_Rate = 15.7647058f;
+    float Gearbox_Rate = 1.0f;
 
     //速度环控制频率
     uint16_t Speed_Loop_Frequency = 500;
