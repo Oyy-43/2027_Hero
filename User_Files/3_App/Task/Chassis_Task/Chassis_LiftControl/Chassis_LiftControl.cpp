@@ -40,9 +40,9 @@ void Class_Chassis_LiftControl::Lift_Run()
         switch (FsmStatus.Event)
         {
             case Chassis_lift_event_Front_UP:
-                Motor_DM_6216[0].Set_Target_Angle(0.0f);
-                Motor_DM_6216[1].Set_Target_Angle(0.0f);
-                Motor_DM_6216[2].Set_Target_Angle(0.0f);
+                Motor_DM_6216[0].Set_Slope_Target_Angle(-Front_Up_Angle);
+                Motor_DM_6216[1].Set_Slope_Target_Angle(Front_Up_Angle);
+                Motor_DM_6216[2].Set_Slope_Target_Angle(0.0f);
                 FsmStatus.Status = Chassis_lift_status_Front_Uping;
                 FsmStatus.Begin_time = SYS_Timestamp.Get_Now_Microsecond();
                 FsmStatus.State_time = 0;
@@ -56,8 +56,8 @@ void Class_Chassis_LiftControl::Lift_Run()
         switch (FsmStatus.Event)
         {
             case Chassis_lift_event_Front_UPdone:
-                Motor_DM_6216[0].Set_Target_Angle(0.0f);        //主要是前面两个抬起来
-                Motor_DM_6216[1].Set_Target_Angle(0.0f);
+                Motor_DM_6216[0].Set_Slope_Target_Angle(-Front_Up_Angle);        //主要是前面两个抬起来
+                Motor_DM_6216[1].Set_Slope_Target_Angle(Front_Up_Angle);
                 Motor_DM_6216[2].Set_Target_Angle(0.0f);
                 FsmStatus.Status = Chassis_lift_status_Front_Up;
                 FsmStatus.Begin_time = SYS_Timestamp.Get_Now_Microsecond();
@@ -72,9 +72,9 @@ void Class_Chassis_LiftControl::Lift_Run()
         switch (FsmStatus.Event)
         {
             case Chassis_lift_event_Lift_UP:
-                Motor_DM_6216[0].Set_Target_Angle(0.0f);        //前面和后面抬起来,使pitch尽量平衡
-                Motor_DM_6216[1].Set_Target_Angle(0.0f);
-                Motor_DM_6216[2].Set_Target_Angle(0.0f);
+                Motor_DM_6216[0].Set_Slope_Target_Angle(-Front_Up_Angle);        //前面和后面抬起来,使pitch尽量平衡
+                Motor_DM_6216[1].Set_Slope_Target_Angle(Front_Up_Angle);
+                Motor_DM_6216[2].Set_Target_Angle(Back_Stretch_Angle);
                 FsmStatus.Status = Chassis_lift_status_Lift_Uping;
                 FsmStatus.Begin_time = SYS_Timestamp.Get_Now_Microsecond();
                 FsmStatus.State_time = 0;
@@ -88,9 +88,9 @@ void Class_Chassis_LiftControl::Lift_Run()
         switch (FsmStatus.Event)
         {
             case Chassis_lift_event_Lift_UPdone:
-                Motor_DM_6216[0].Set_Target_Angle(0.0f);
-                Motor_DM_6216[1].Set_Target_Angle(0.0f);
-                Motor_DM_6216[2].Set_Target_Angle(0.0f);
+                Motor_DM_6216[0].Set_Slope_Target_Angle(-Front_Up_Angle);
+                Motor_DM_6216[1].Set_Slope_Target_Angle(Front_Up_Angle);
+                Motor_DM_6216[2].Set_Target_Angle(Back_Stretch_Angle);
                 FsmStatus.Status = Chassis_lift_status_Lift_Up;
                 FsmStatus.Begin_time = SYS_Timestamp.Get_Now_Microsecond();
                 FsmStatus.State_time = 0;
@@ -104,9 +104,9 @@ void Class_Chassis_LiftControl::Lift_Run()
         switch (FsmStatus.Event)
         {
             case Chassis_lift_event_Back_Revoke:
-                Motor_DM_6216[0].Set_Target_Angle(0.0f);
-                Motor_DM_6216[1].Set_Target_Angle(0.0f);
-                Motor_DM_6216[2].Set_Target_Angle(0.0f);
+                Motor_DM_6216[0].Set_Slope_Target_Angle(0.0f);
+                Motor_DM_6216[1].Set_Slope_Target_Angle(0.0f);
+                Motor_DM_6216[2].Set_Target_Angle(Back_Stretch_Angle);
                 FsmStatus.Status = Chassis_lift_status_Back_Revoking;
                 FsmStatus.Begin_time = SYS_Timestamp.Get_Now_Microsecond();
                 FsmStatus.State_time = 0;
@@ -120,8 +120,8 @@ void Class_Chassis_LiftControl::Lift_Run()
         switch (FsmStatus.Event)
         {
             case Chassis_lift_event_Back_Reset:
-                Motor_DM_6216[0].Set_Target_Angle(0.0f);
-                Motor_DM_6216[1].Set_Target_Angle(0.0f);
+                Motor_DM_6216[0].Set_Slope_Target_Angle(0.0f);
+                Motor_DM_6216[1].Set_Slope_Target_Angle(0.0f);
                 Motor_DM_6216[2].Set_Target_Angle(0.0f);
                 FsmStatus.Status = Chassis_lift_status_IDLE;
                 FsmStatus.Begin_time = SYS_Timestamp.Get_Now_Microsecond();

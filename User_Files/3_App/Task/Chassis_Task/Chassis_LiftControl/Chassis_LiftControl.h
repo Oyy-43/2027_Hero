@@ -6,7 +6,8 @@
 
 /* Exported macros -----------------------------------------------------------*/
 #define Position_threshold 0.1f
-
+#define Front_Up_Angle 0.984f
+#define Back_Stretch_Angle 3.5f
 
 /* Exported types ------------------------------------------------------------*/
 enum ChassisLift_MotorEnum

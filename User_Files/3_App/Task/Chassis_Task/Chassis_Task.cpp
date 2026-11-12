@@ -43,9 +43,9 @@ Class_Motor_DM_Normal Motor_DM_6216[3];
 
 Steer_Chassis_Control Steer_Chassis;
 Class_Chassis_PowerControl Chassis_PowerControl;
-Class_Slope Slope_VX,Slope_VY,Slope_VW,Slope_F2;
+Class_Slope Slope_VX,Slope_VY,Slope_VW,Slope_F1,Slope_F2,Slope_B;
 float cmd_vx,cmd_vy,cmd_vw;
-float test_angle = 0.0f;
+float test_angleL, test_angleR = 0.0f;
 /* Private variables ---------------------------------------------------------*/
 
 // LED灯
@@ -256,7 +256,7 @@ void Task1ms_Callback()
     // 喂狗
     TIM_1ms_IWDG_PeriodElapsedCallback();
 
-    Wave_Output();
+    // Wave_Output();
 }
 
 /**
@@ -288,6 +288,7 @@ void Task_Init()
     Slope_VX.Init(0.08f, 0.8f, Slope_First_REAL);
     Slope_VY.Init(0.08f, 0.8f, Slope_First_REAL);
     Slope_VW.Init(0.08f, 0.8f, Slope_First_REAL);
+    Slope_F1.Init(0.01f, 0.01f, Slope_First_REAL);
     Slope_F2.Init(0.01f, 0.01f, Slope_First_REAL);
     
     //电机初始化
@@ -320,7 +321,7 @@ void Task_Init()
     BSP_Power.Set_Power(true, true, true);
 
     //底盘初始化
-    Steer_Chassis.Init(3.69f, 0.1f, 0.1f, 0.1f,59.0f);
+    Steer_Chassis.Init(6.0f, 0.1f, 0.4f, 0.4f,59.0f);
 
     // 标记初始化完成
     init_finished = true;
@@ -347,9 +348,9 @@ void Motor_Init()
     Motor_C620[2].Init(&hfdcan2, Motor_DJI_ID_0x203, Motor_DJI_Control_Method_OMEGA, 15.7647058f, 0.145f);
     Motor_C620[3].Init(&hfdcan2, Motor_DJI_ID_0x204, Motor_DJI_Control_Method_OMEGA, 15.7647058f, 0.155f);
 
-    Motor_DM_6216[0].Init(&hfdcan2, 0x15, 0x5, Motor_DM_Control_Method_NORMAL_MIT_Position,6.28319f,40.0f,70.0f,0.0f,0.0f,0.0f,true);  //MAX:27,50
-    Motor_DM_6216[1].Init(&hfdcan2, 0x16, 0x6, Motor_DM_Control_Method_NORMAL_MIT_Position,6.28319f,40.0f,70.0f,0.0f,0.0f,0.0f,true);
-    Motor_DM_6216[2].Init(&hfdcan2, 0x17, 0x7, Motor_DM_Control_Method_NORMAL_MIT_Position,6.28319f,40.0f,70.0f,0.0f,0.0f,-0.1782f,false);
+    Motor_DM_6216[0].Init(&hfdcan2, 0x15, 0x5, Motor_DM_Control_Method_NORMAL_MIT_Position,6.28319f,40.0f,70.0f,0.0f,0.0f,0.0f,false);  //MAX:27,50
+    Motor_DM_6216[1].Init(&hfdcan2, 0x16, 0x6, Motor_DM_Control_Method_NORMAL_MIT_Position,6.28319f,40.0f,70.0f,0.0f,0.0f,0.0f,false);
+    Motor_DM_6216[2].Init(&hfdcan2, 0x17, 0x7, Motor_DM_Control_Method_NORMAL_MIT_Position,6.28319f,40.0f,70.0f,0.0f,0.5f,-0.1782f,false);
 
     Motor_DM_6220[0].Init(&hfdcan1, 0x11, 0x01, Motor_DM_Control_Method_NORMAL_MIT_Position,3.141593f,45.0f,10.0f);
     Motor_DM_6220[1].Init(&hfdcan1, 0x12, 0x02, Motor_DM_Control_Method_NORMAL_MIT_Position,3.141593f,45.0f,10.0f);
@@ -372,18 +373,18 @@ void Motor_Init()
 void PID_Init_All()
 {   
     //底盘轮向电机PID参数初始化
-    PID_Init(&Motor_C620[0].PID_Omega,3.69f ,0.35, 0.05, 0.002f,0.175f,1.25f,0.0f,2.5f,0,0,0,0,Integral_Limit);   //0.15
-    PID_Init(&Motor_C620[1].PID_Omega,3.69f, 0.35, 0.05, 0.002f,0.175f,1.25f,0.0f,2.5f,0,0,0,0,Integral_Limit);
-    PID_Init(&Motor_C620[2].PID_Omega,3.69f, 0.35, 0.05, 0.002f,0.175f,1.25f,0.0f,2.5f,0,0,0,0,Integral_Limit);
-    PID_Init(&Motor_C620[3].PID_Omega,3.69f, 0.35, 0.05, 0.002f,0.175f,1.25f,0.0f,2.5f,0,0,0,0,Integral_Limit);
+    PID_Init(&Motor_C620[0].PID_Omega,6.0f ,0.55, 0.05, 0.002f,0.175f,1.25f,0.0f,2.5f,0,0,0,0,Integral_Limit);   //0.15
+    PID_Init(&Motor_C620[1].PID_Omega,6.0f, 0.55, 0.05, 0.002f,0.175f,1.25f,0.0f,2.5f,0,0,0,0,Integral_Limit);
+    PID_Init(&Motor_C620[2].PID_Omega,6.0f, 0.55, 0.05, 0.002f,0.175f,1.25f,0.0f,2.5f,0,0,0,0,Integral_Limit);
+    PID_Init(&Motor_C620[3].PID_Omega,6.0f, 0.55, 0.05, 0.002f,0.175f,1.25f,0.0f,2.5f,0,0,0,0,Integral_Limit);
 
     //抬升电机的PID参数初始化
-    PID_Init(&Motor_DM_6216[0].PID_Omega,12.0f, 2.5f, 0.00f, 0.002f,1.625f,4.75f,0.00f,0.00f,0.0f,0.0f,0,0,Integral_Limit);
+    PID_Init(&Motor_DM_6216[0].PID_Omega,12.0f, 2.5f, 0.00f, 0.002f,3.00f,7.50f,0.00f,0.00f,0.0f,0.0f,0,0,Integral_Limit);
     PID_Init(&Motor_DM_6216[1].PID_Omega,12.0f, 2.5f, 0.00f, 0.002f,3.00f,7.50f,0.00f,0.00f,0.0f,0.0f,0,0,Integral_Limit);
     PID_Init(&Motor_DM_6216[2].PID_Omega,12.0f, 2.5f, 0.00f, 0.002f,1.625f,4.75f,0.00f,0.0f,0.0f,0.0f,0,0,Integral_Limit);
 
-    PID_Init(&Motor_DM_6216[0].PID_Angle,18.0f, 0.0f, 0.00f, 0.002f,0.00f,0.00f,0.00f,0.00f,0.0f,0.0f,0,0,Integral_Limit);
-    PID_Init(&Motor_DM_6216[1].PID_Angle,18.0f, 0.0f, 0.00f, 0.002f,8.00f,0.00f,0.00f,0.00f,0.0f,0.0f,0,0,Integral_Limit);
+    PID_Init(&Motor_DM_6216[0].PID_Angle,18.0f, 0.0f, 0.00f, 0.002f,10.00f,0.00f,0.00f,0.00f,0.0f,0.0f,0,0,Integral_Limit);
+    PID_Init(&Motor_DM_6216[1].PID_Angle,18.0f, 0.0f, 0.00f, 0.002f,10.00f,0.00f,0.00f,0.00f,0.0f,0.0f,0,0,Integral_Limit);
     PID_Init(&Motor_DM_6216[2].PID_Angle,18.0f, 0.0f, 0.00f, 0.002f,30.00f,0.00f,0.00f,0.00f,0.0f,0.0f,0,0,Integral_Limit);
 
     //舵向电机速度环PID参数初始化
@@ -488,7 +489,8 @@ void Motor_6220SendMessage(void)
 
 void Motor_6216SendMessage(void)
 {   
-    Motor_DM_6216[1].Set_Target_Angle(Slope_F2.TIM_Calculate_GetOut(test_angle,Motor_DM_6216[1].Get_Now_Angle()));
+    Motor_DM_6216[0].Set_Target_Angle(Slope_F1.TIM_Calculate_GetOut(Motor_DM_6216[0].Get_Slope_Target_Angle(),Motor_DM_6216[0].Get_Now_Angle()));
+    Motor_DM_6216[1].Set_Target_Angle(Slope_F2.TIM_Calculate_GetOut(Motor_DM_6216[1].Get_Slope_Target_Angle(),Motor_DM_6216[1].Get_Now_Angle()));
     Motor_DM_6216[0].TIM_Send_PeriodElapsedCallback();
     Motor_DM_6216[1].TIM_Send_PeriodElapsedCallback();
     Motor_DM_6216[2].TIM_Send_PeriodElapsedCallback();

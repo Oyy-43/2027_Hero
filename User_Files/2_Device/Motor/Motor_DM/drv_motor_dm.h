@@ -250,6 +250,8 @@ public:
 
     inline float Get_K_D() const;
 
+    inline float Get_Slope_Target_Angle() const;
+
     inline void Set_Control_Angle(const float &__Control_Angle);
 
     inline void Set_Target_Angle(const float &__Target_Angle);
@@ -261,6 +263,8 @@ public:
     inline void Set_Control_Torque(const float &__Control_Torque);
 
     inline void Set_Control_Current(const float &__Control_Current);
+
+    inline void Set_Slope_Target_Angle(const float &__Slope_Target_Angle);
 
     inline void Set_Nearest_Flag(const bool &__Nearest_Flag);
     
@@ -334,6 +338,8 @@ protected:
     float Control_Angle = 0.0f;
     // mit下pid控制的目标角度,单位rad
     float Target_Angle = 0.0f;
+    // 斜坡规划的目标角度, rad, mit下pid控制的目标角度
+    float Slope_Target_Angle = 0.0f;
     // 角速度, rad/s, MIT模式和速度模式是目标角速度, 其余模式是限幅
     float Control_Omega = 0.0f;
     // 角速度, rad/s, mit下pid控制的目标角速度
@@ -767,6 +773,16 @@ inline void Class_Motor_DM_Normal::Set_K_P(const float &__K_P)
 inline void Class_Motor_DM_Normal::Set_K_D(const float &__K_D)
 {
     K_D = __K_D;
+}
+
+inline void Class_Motor_DM_Normal::Set_Slope_Target_Angle(const float &__Slope_Target_Angle)
+{
+    Slope_Target_Angle = __Slope_Target_Angle;
+}
+
+inline float Class_Motor_DM_Normal::Get_Slope_Target_Angle() const
+{
+    return (Slope_Target_Angle);
 }
 
 //======================================================================================================================//
