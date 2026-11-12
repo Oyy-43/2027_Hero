@@ -453,9 +453,9 @@ void Wave_Output()
 
 void Chassis_Control_Task()
 {
-    cmd_vx = Slope_VX.TIM_Calculate_GetOut((float)rc_channels.ch[1] / 164.0f,Steer_Chassis.Get_Chassis_Now_Velocity_X());
-    cmd_vy = Slope_VY.TIM_Calculate_GetOut((float)(-rc_channels.ch[0]) / 164.0f,Steer_Chassis.Get_Chassis_Now_Velocity_Y());
-    cmd_vw = Slope_VW.TIM_Calculate_GetOut((float)-rc_channels.ch[3] / 78.0f,Steer_Chassis.Get_Chassis_Now_Velocity_W());
+    cmd_vx = Slope_VX.TIM_Calculate_GetOut((float)rc_channels.ch[1] / 1640.0f,Steer_Chassis.Get_Chassis_Now_Velocity_X());
+    cmd_vy = Slope_VY.TIM_Calculate_GetOut((float)(-rc_channels.ch[0]) / 1640.0f,Steer_Chassis.Get_Chassis_Now_Velocity_Y());
+    cmd_vw = Slope_VW.TIM_Calculate_GetOut((float)-rc_channels.ch[3] / 390.0f,Steer_Chassis.Get_Chassis_Now_Velocity_W());
 
     Steer_Chassis.Set_Target_Velocity(cmd_vx, cmd_vy, cmd_vw);
 

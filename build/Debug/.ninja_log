@@ -144,3 +144,9 @@
 957	1998	8161773572718361	Hero_2027.elf	d0a987910a579da
 23	872	8161776106021235	CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_LiftControl/Chassis_LiftControl.cpp.obj	d612104678236049
 873	1941	8161776114526969	Hero_2027.elf	d0a987910a579da
+25	1052	8161783062467331	CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj	a6679b28200f0e8d
+1053	2298	8161783072748156	Hero_2027.elf	d0a987910a579da
+28	822	8161784425591148	CMakeFiles/Hero_2027.dir/User_Files/1_Middleware/Driver/CAN/drv_can.cpp.obj	5749857c5810cb81
+823	1998	8161784433529317	Hero_2027.elf	d0a987910a579da
+23	970	8161785123136484	CMakeFiles/Hero_2027.dir/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp.obj	a6679b28200f0e8d
+971	2025	8161785132620984	Hero_2027.elf	d0a987910a579da
