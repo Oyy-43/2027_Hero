@@ -33,6 +33,7 @@
 #include <stdbool.h>
 #include "steer_control.h"
 #include "Chassis_PowerControl/Chassis_PowerControl.h"
+#include "3_App/Data_Transfer/App_DataTransfer.h"
 
 /* Private macros ------------------------------------------------------------*/
 
@@ -358,12 +359,13 @@ void Motor_Init()
     Motor_DM_6220[3].Init(&hfdcan1, 0x14, 0x04, Motor_DM_Control_Method_NORMAL_MIT_Position,3.141593f,45.0f,10.0f);
 
     Motor_DM_6220[0].CAN_Send_Enter();
-    Motor_DM_6220[1].CAN_Send_Enter();  
+    Motor_DM_6220[1].CAN_Send_Enter();
     Motor_DM_6220[2].CAN_Send_Enter();
     Motor_DM_6220[3].CAN_Send_Enter();
     Motor_DM_6216[0].CAN_Send_Enter();
     Motor_DM_6216[1].CAN_Send_Enter();
     Motor_DM_6216[2].CAN_Send_Enter();
+
 }
 
 /**
@@ -473,10 +475,15 @@ void Chassis_Control_Task()
     Motor_C620[3].Set_Target_Omega(-Steer_Chassis.Get_Motor_Target_Omega()[3]);
 
     //舵轮的坐标系其实和底盘的坐标系Z轴是相反的，所以这里要取负号
-    Motor_DM_6220[0].Set_Target_Angle(-Steer_Chassis.Get_Steer_Target_Angle()[0]);
-    Motor_DM_6220[1].Set_Target_Angle(-Steer_Chassis.Get_Steer_Target_Angle()[1]);
-    Motor_DM_6220[2].Set_Target_Angle(-Steer_Chassis.Get_Steer_Target_Angle()[2]);
-    Motor_DM_6220[3].Set_Target_Angle(-Steer_Chassis.Get_Steer_Target_Angle()[3]);
+    // Motor_DM_6220[0].Set_Target_Angle(-Steer_Chassis.Get_Steer_Target_Angle()[0]);
+    // Motor_DM_6220[1].Set_Target_Angle(-Steer_Chassis.Get_Steer_Target_Angle()[1]);
+    // Motor_DM_6220[2].Set_Target_Angle(-Steer_Chassis.Get_Steer_Target_Angle()[2]);
+    // Motor_DM_6220[3].Set_Target_Angle(-Steer_Chassis.Get_Steer_Target_Angle()[3]);
+    const bool steering_enabled = Class_LiftControl.FsmStatus.Status == Chassis_lift_status_IDLE;
+    Motor_DM_6220[0].Set_Target_Angle(steering_enabled ? -Steer_Chassis.Get_Steer_Target_Angle()[0] : 0.0f);
+    Motor_DM_6220[1].Set_Target_Angle(steering_enabled ? -Steer_Chassis.Get_Steer_Target_Angle()[1] : 0.0f);
+    Motor_DM_6220[2].Set_Target_Angle(steering_enabled ? -Steer_Chassis.Get_Steer_Target_Angle()[2] : 0.0f);
+    Motor_DM_6220[3].Set_Target_Angle(steering_enabled ? -Steer_Chassis.Get_Steer_Target_Angle()[3] : 0.0f);
 }
 
 void Motor_6220SendMessage(void)
