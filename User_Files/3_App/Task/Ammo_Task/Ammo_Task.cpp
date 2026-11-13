@@ -31,11 +31,13 @@
 #include "2_Device/Motor/Motor_LK/drv_motor_lk.h"
 #include <stdbool.h>
 #include "steer_control.h"
+#include "Shoot/Shoot_Control.h"
 
 /* Private macros ------------------------------------------------------------*/
 
 /* Private types -------------------------------------------------------------*/
 Class_Motor_DJI_C620 Motor_DJI_C620[3];
+Class_Shoot Shoot_Control;
 
 /* Private variables ---------------------------------------------------------*/
 
@@ -120,7 +122,6 @@ void Task100ms_Callback()
     Motor_DJI_C620[0].TIM_100ms_Alive_PeriodElapsedCallback();
     Motor_DJI_C620[1].TIM_100ms_Alive_PeriodElapsedCallback();
     Motor_DJI_C620[2].TIM_100ms_Alive_PeriodElapsedCallback();
-
 }
 
 /**
@@ -140,6 +141,9 @@ void Task500ms_Callback()
  */
 void Task1ms_Callback()
 {
+    //发射模块控制
+    Shoot_Control.Shoot_TIM_Calculate_PeriodElapsedCallback();
+
     //电机pid输出计算
     Motor_TIM_Calculate_PeriodElapsedCallback();
 
@@ -234,6 +238,9 @@ void Task_Init()
 
     BSP_Power.Set_Power(true, true, true);
 
+    //发射模块初始化
+    Shoot_Control.Shoot_Init(&Motor_DJI_C620[0],1.2f,0.075f,0.075f,Slope_First_REAL);
+
     // 标记初始化完成
     init_finished = true;
 
@@ -265,10 +272,10 @@ void Motor_Init()
  * 
  */
 void PID_Init_All()
-{                                                             //0.10   1.5
-    PID_Init(&Motor_DJI_C620[0].PID_Omega,5.8f,1.4f,0.0f,0.001f,0.125f,1.85f,0.0f,0.0f,0.0f,0.0f,0,0,Integral_Limit);
-    PID_Init(&Motor_DJI_C620[1].PID_Omega,5.8f,1.4f,0.0f,0.001f,0.125f,1.85f,0.0f,0.0f,0.0f,0.0f,0,0,Integral_Limit);
-    PID_Init(&Motor_DJI_C620[2].PID_Omega,5.8f,1.4f,0.0f,0.001f,0.125f,1.85f,0.0f,0.0f,0.0f,0.0f,0,0,Integral_Limit);
+{                                                             //0.10   1.5  0.125 1.85
+    PID_Init(&Motor_DJI_C620[0].PID_Omega,5.9f,1.45f,0.0f,0.001f,0.035f,0.025f,0.0f,0.0f,0.0f,0.0f,0,0,Integral_Limit);
+    PID_Init(&Motor_DJI_C620[1].PID_Omega,5.9f,1.45f,0.0f,0.001f,0.035f,0.025f,0.0f,0.0f,0.0f,0.0f,0,0,Integral_Limit);
+    PID_Init(&Motor_DJI_C620[2].PID_Omega,5.9f,1.45f,0.0f,0.001f,0.035f,0.025f,0.0f,0.0f,0.0f,0.0f,0,0,Integral_Limit);
 }
 
 /**
@@ -296,10 +303,10 @@ void Wave_Output()
      if(press_count%2==1)
      {
         // ALG_Sin_Generate(&Sin_Out, sin_outp, -6.28f, 1000.0f);
-        ALG_Value_Toggle_Periodic(&Sin_Out, 200.0f,-200.0f,2.0f,1000.0f);
-        // ALG_Sin_Generate(&Sin_Out, 2.5f, -150.0f, 1000.0f);
+        // ALG_Value_Toggle_Periodic(&Sin_Out, 500.0f,-500.0f,2.0f,1000.0f);
+        // ALG_Sin_Generate(&Sin_Out, 10.0f, -100.0f, 1000.0f);
         // ALG_Sin_Step_Sweep_Generate(&Sin_Out, k_sweep_table, K_SWEEP_TABLE_SIZE, 0.435f, 1000.0f);
-        Motor_DJI_C620[0].Set_Target_Omega(Sin_Out);
+        Shoot_Control.Set_Target_Motor_Omega(200.0f);
         // Motor_LK[0].Set_To_Zero_Nearest_Flag();
 
      }
@@ -307,7 +314,7 @@ void Wave_Output()
     {
         Sin_Out = 0.0f;
         // Motor_DJI_C620[0].Set_Target_Torque(0.0f);
-        Motor_DJI_C620[0].Set_Target_Omega(0.0f);
+        Shoot_Control.Set_Target_Motor_Omega(0.0f);
         // Motor_DM_6220[0].Set_Target_Angle(0.0f);
         // Motor_DM_6220[0].Set_Target_Omega(0.0f);
         // Motor_DM_4340P.Set_Target_Omega(0.0f);

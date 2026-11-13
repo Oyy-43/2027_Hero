@@ -204,11 +204,11 @@ void Task_Init()
     // flash的OSPI
 
     
-
     //斜波规划器初始化
     Slope_VX.Init(0.08f, 0.8f, Slope_First_REAL);
     Slope_VY.Init(0.08f, 0.8f, Slope_First_REAL);
     Slope_VW.Init(0.08f, 0.8f, Slope_First_REAL);
+
 
     //电机PID参数初始化
     PID_Init_All();

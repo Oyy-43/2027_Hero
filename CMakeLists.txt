@@ -97,6 +97,7 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     # ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task/Chassis_Task/Chassis_Task.cpp
     # ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task/Gimbal_Task/Gimbal_Task.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task/Ammo_Task/Ammo_Task.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task/Ammo_Task/Shoot/Shoot_Control.cpp
 )
 
 # Add include paths 
@@ -127,7 +128,8 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/WS2812
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/Buzzer
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/2_Device/BSP/W25Q64JV 
-    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task/Ammo_Task      
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task/Ammo_Task
+    ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task/Ammo_Task/Shoot            
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task/Chassis_Task
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/3_App/Task/Gimbal_Task
     ${CMAKE_CURRENT_SOURCE_DIR}/User_Files/1_Middleware/Chassis_Control

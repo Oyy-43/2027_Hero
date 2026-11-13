@@ -42,6 +42,8 @@ class Class_Slope
 public:
     void Init(const float &__Increase_Value, const float &__Decrease_Value, const Enum_Slope_First &__Slope_First = Slope_First_REAL);
 
+    inline void Reset(const float &__Value = 0.0f);
+
     inline float Get_Out() const;
 
     inline void Set_Now_Real(const float &__Now_Real);
@@ -91,6 +93,14 @@ protected:
 /* Exported variables --------------------------------------------------------*/
 extern Class_Slope Slope_VX,Slope_VY;
 /* Exported function declarations --------------------------------------------*/
+
+inline void Class_Slope::Reset(const float &__Value)
+{
+    Out = __Value;
+    Now_Planning = __Value;
+    Now_Real = __Value;
+    Target = __Value;
+}
 
 /**
  * @brief 获取输出值
