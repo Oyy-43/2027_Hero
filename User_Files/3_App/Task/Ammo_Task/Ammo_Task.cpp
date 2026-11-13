@@ -267,8 +267,8 @@ void Motor_Init()
 void PID_Init_All()
 {                                                             //0.10   1.5
     PID_Init(&Motor_DJI_C620[0].PID_Omega,5.8f,1.4f,0.0f,0.001f,0.125f,1.85f,0.0f,0.0f,0.0f,0.0f,0,0,Integral_Limit);
-    PID_Init(&Motor_DJI_C620[1].PID_Omega,5.8f,1.4f,0.0f,0.001f,0.00f,0.00f,0.0f,0.0f,0.0f,0.0f,0,0,Integral_Limit);
-    PID_Init(&Motor_DJI_C620[2].PID_Omega,5.8f,1.4f,0.0f,0.001f,0.00f,0.00f,0.0f,0.0f,0.0f,0.0f,0,0,Integral_Limit);
+    PID_Init(&Motor_DJI_C620[1].PID_Omega,5.8f,1.4f,0.0f,0.001f,0.125f,1.85f,0.0f,0.0f,0.0f,0.0f,0,0,Integral_Limit);
+    PID_Init(&Motor_DJI_C620[2].PID_Omega,5.8f,1.4f,0.0f,0.001f,0.125f,1.85f,0.0f,0.0f,0.0f,0.0f,0,0,Integral_Limit);
 }
 
 /**
