@@ -25,6 +25,8 @@ enum ChassisLift_Status
     Chassis_lift_status_Front_Up,           //前四轮抬起完毕
     Chassis_lift_status_Lift_Uping,         //整体抬升中
     Chassis_lift_status_Lift_Up,            //整体抬升完毕
+    Chassis_lift_status_Front_Downing,      //前四轮下降中
+    Chassis_lift_status_Front_Down,         //前四轮下降完毕
     Chassis_lift_status_Back_Revoking,      //后伸收回
 };
 
@@ -35,6 +37,8 @@ enum ChassisLift_Event
     Chassis_lift_event_Front_UPdone,        //前四轮抬升完毕
     Chassis_lift_event_Lift_UP,             //整体抬升
     Chassis_lift_event_Lift_UPdone,         //整体抬升完毕
+    Chassis_lift_event_Front_Down,          //前四轮下降
+    Chassis_lift_event_Front_DownDone,      //前四轮下降完
     Chassis_lift_event_Back_Revoke,         //后伸收回
     Chassis_lift_event_Back_Reset,          //复位，强行回正
 };

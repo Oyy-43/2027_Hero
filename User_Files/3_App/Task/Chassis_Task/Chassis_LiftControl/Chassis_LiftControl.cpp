@@ -99,15 +99,15 @@ void Class_Chassis_LiftControl::Lift_Run()
                 break;
         }
         break;
-        //整体抬升完成状态，可以后伸展
+        //整体抬升完成状态，可以让前腿回0
         case Chassis_lift_status_Lift_Up:
         switch (FsmStatus.Event)
         {
-            case Chassis_lift_event_Back_Revoke:
+            case Chassis_lift_event_Front_Down:
                 Motor_DM_6216[0].Set_Slope_Target_Angle(0.0f);
                 Motor_DM_6216[1].Set_Slope_Target_Angle(0.0f);
                 Motor_DM_6216[2].Set_Target_Angle(Back_Stretch_Angle);
-                FsmStatus.Status = Chassis_lift_status_Back_Revoking;
+                FsmStatus.Status = Chassis_lift_status_Front_Downing;
                 FsmStatus.Begin_time = SYS_Timestamp.Get_Now_Microsecond();
                 FsmStatus.State_time = 0;
                 break;
@@ -115,7 +115,39 @@ void Class_Chassis_LiftControl::Lift_Run()
                 break;
         }
         break;
-        //后伸展中状态，等待后伸展完成
+        //前腿回0完成
+        case Chassis_lift_status_Front_Downing:
+        switch (FsmStatus.Event)
+        {
+            case Chassis_lift_event_Front_DownDone:
+                Motor_DM_6216[0].Set_Slope_Target_Angle(0.0f);
+                Motor_DM_6216[1].Set_Slope_Target_Angle(0.0f);
+                Motor_DM_6216[2].Set_Target_Angle(Back_Stretch_Angle);
+                FsmStatus.Status = Chassis_lift_status_Front_Down;
+                FsmStatus.Begin_time = SYS_Timestamp.Get_Now_Microsecond();
+                FsmStatus.State_time = 0;
+                break;
+            default:
+                break; 
+        }
+        break;
+        //前腿回0完成状态，可以让后伸收回
+        case Chassis_lift_status_Front_Down:
+        switch (FsmStatus.Event)
+        {
+            case Chassis_lift_event_Back_Revoke:
+                Motor_DM_6216[0].Set_Slope_Target_Angle(0.0f);
+                Motor_DM_6216[1].Set_Slope_Target_Angle(0.0f);
+                Motor_DM_6216[2].Set_Target_Angle(0.0f);
+                FsmStatus.Status = Chassis_lift_status_Back_Revoking;
+                FsmStatus.Begin_time = SYS_Timestamp.Get_Now_Microsecond();
+                FsmStatus.State_time = 0;
+                break;
+            default:
+                break; 
+        }
+        break;
+        //后伸展收回状态，等待后伸展收回完成
         case Chassis_lift_status_Back_Revoking:
         switch (FsmStatus.Event)
         {
@@ -171,13 +203,27 @@ void Class_Chassis_LiftControl::Lift_Event_Update()
     }
     if(FsmStatus.Status == Chassis_lift_status_Lift_Up && Remote_Data_Transfer.Remote_Key_CH12.Key_Status == Remote_Key_Status_TRIG_PRESSED_FREE)
     {
-        FsmStatus.Event = Chassis_lift_event_Back_Revoke;
+        FsmStatus.Event = Chassis_lift_event_Front_Down;
+    }
+    if(FsmStatus.Status == Chassis_lift_status_Front_Downing )
+    {
+        bool left_get = Lift_Position_Check(Chassis_lift_motor_FrontLeft);
+        bool right_get = Lift_Position_Check(Chassis_lift_motor_FrontRight);
+        if(left_get && right_get)
+        {
+            FsmStatus.Event = Chassis_lift_event_Front_DownDone;
+        }
+    }
+    if(FsmStatus.Status == Chassis_lift_status_Front_Down && Remote_Data_Transfer.Remote_Key_CH13.Key_Status == Remote_Key_Status_TRIG_PRESSED_FREE)
+    {
+        FsmStatus.Event = Chassis_lift_event_Back_Revoke; 
     }
     if(FsmStatus.Status == Chassis_lift_status_Back_Revoking && Lift_Position_Check(Chassis_lift_motor_Back))
     {
         FsmStatus.Event = Chassis_lift_event_Back_Reset;
     }
 }
+
 
 bool Class_Chassis_LiftControl::Lift_Position_Check(ChassisLift_MotorEnum __Motor_Enum)
 {
@@ -188,6 +234,7 @@ bool Class_Chassis_LiftControl::Lift_Position_Check(ChassisLift_MotorEnum __Moto
 
     return (ABS(tmp_angle_err) < Position_threshold);
 }
+
 /* Function prototypes -------------------------------------------------------*/
 
 
